@@ -1,0 +1,6 @@
+[submodule "tools/dpp"]
+	path = tools/dpp
+	url = https://github.com/atilaneves/dpp.git
+[submodule "3rdparty/SDL"]
+	path = 3rdparty/SDL
+	url = https://github.com/libsdl-org/SDL.git
