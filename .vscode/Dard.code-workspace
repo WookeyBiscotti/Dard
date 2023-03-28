@@ -1,0 +1,43 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"dfmt.braceStyle": "otbs",
+		"editor.tokenColorCustomizations": {
+			"textMateRules": [
+				{
+					"scope": "variable.parameter.import.d",
+					"settings": {
+						"foreground": "#0e7a20",
+						"fontStyle": "bold"
+					}
+				},
+				{
+					"scope": "variable.parameter.d",
+					"settings": {
+						"fontStyle": "italic"
+					}
+				},
+				{
+					"scope": "variable.parameter.module.d",
+					"settings": {
+						"foreground": "#ffffff",
+						"fontStyle": "bold"
+					}
+				}
+			],
+			"[Default Dark+]": {
+				"functions": {
+					"fontStyle": "bold",
+					"foreground": "#992222"
+				},
+				"comments": {
+					"fontStyle": "italic"
+				},
+			},
+		}
+	}
+}

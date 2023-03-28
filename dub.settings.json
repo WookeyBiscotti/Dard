@@ -1,0 +1,4 @@
+{
+    "defaultArchitecture": "x86_64",
+    "defaultCompiler": "~/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/ldc2"
+}

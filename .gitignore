@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/dard
+dard.so
+dard.dylib
+dard.dll
+dard.a
+dard.lib
+dard-test-*
+*.exe
+*.o
+*.obj
+*.lst
