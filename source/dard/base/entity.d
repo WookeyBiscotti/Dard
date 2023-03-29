@@ -2,7 +2,7 @@ module dard.base.entity;
 
 import dard.base.context;
 import dard.base.component;
-import dard.types.dict;
+import dard.types.hash_map;
 import dard.types.smart_ptr;
 
 class Entity {
@@ -17,5 +17,6 @@ public:
 
 private:
     Context _context;
-    Dict!(TypeInfo, SharedPtr!Component) _components;
+
+    HashMap!(TypeInfo, SharedPtr!Component) _components;
 }

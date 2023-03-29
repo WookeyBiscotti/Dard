@@ -7,3 +7,6 @@ license "proprietary"
 dependency "automem" version="~>0.6.9"
 dependency "dlib" version="~>1.1.0"
 dependency "emsi_containers" version="~>0.9.0"
+
+dependency "sdl" version="~master" path="bindings/sdl"
+lflags "3rdparty/SDL/build/libSDL3.a"
