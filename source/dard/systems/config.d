@@ -17,23 +17,12 @@ public:
     this() @disable;
 
     this(Context context, ref ValueTree values) {
-        writeln(_values.length().to!string);
         _values = values;
-        writeln(_values.length().to!string);
         super(context);
-
-        // foreach (key; _values) {
-        //     writeln(key);
-        // }
     }
 
     ref const(T) value(T)(in String name) const {
         auto find = name in _values;
-
-        writeln(_values.length().to!string);
-        // foreach (key; _values) {
-        //     writeln(key);
-        // }
 
         assert(find, name.toString.length.to!string);
 

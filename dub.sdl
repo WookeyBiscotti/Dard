@@ -12,3 +12,5 @@ dependency "memutils" version="~>1.0.9"
 
 dependency "sdl" version="~master" path="bindings/sdl"
 lflags "3rdparty/SDL/build/libSDL3.a"
+
+buildRequirements "silenceDeprecations"

@@ -8,6 +8,10 @@ public:
         _context = context;
     }
 
+    Context context() {
+        return _context;
+    }   
+
 private:
     Context _context;
 }

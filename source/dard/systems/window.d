@@ -20,10 +20,17 @@ public:
         const auto appName = context.system!Config
             .value!String(APPLICATION_NAME);
 
-        SDL_CreateWindowAndRenderer(windowSize.x, windowSize.y, 0, &_window, &_renderer);
-    
+        SDL_Init(SDL_InitFlags.SDL_INIT_VIDEO);
 
-        Thread.sleep(dur!"seconds"(5));
+        SDL_CreateWindowAndRenderer(windowSize.x, windowSize.y, 0, &_window, &_renderer);
+        SDL_SetWindowTitle(_window, appName.ptr);
+    }
+
+    ~this() {
+        SDL_DestroyRenderer(_renderer);
+        SDL_DestroyWindow(_window);
+
+        SDL_Quit();
     }
 
 private:

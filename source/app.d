@@ -7,9 +7,10 @@
 // import sdl;
 
 import std.algorithm.mutation;
+import std.typecons;
 
 import dard.systems.config;
-import dard.systems.window;
+import dard.systems.engine;
 
 import dard.base.context;
 import dard.types.smart_ptr;
@@ -17,10 +18,13 @@ import dard.types.smart_ptr;
 void main() {
 	auto config = Config.predefinedValues();
 
-	auto ctx = Unique!Context.construct();
+	auto ctx = scoped!Context;
 
-	ctx.get().createSystem!Config(config);
-	ctx.get().createSystem!Window();
+	ctx.createSystem!Config(config);
+	ctx.createSystem!Engine().run();
+
+	// ctx.get().createSystem!Config(config);
+	// ctx.get().createSystem!Window();
 	// enforce(0 == SDL_Init(SDL_InitFlags.SDL_INIT_VIDEO));
 
 	// auto w = SDL_CreateWindow(toStringz("qwe"), cast(uint) 600, cast(uint) 800, 2);
