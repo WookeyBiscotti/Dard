@@ -1,5 +1,5 @@
 module dard.types.hash_map;
 
-import containers.hashmap;
+import ikod.containers.hashmap;
 
-alias HashMap(K, V) = containers.hashmap.HashMap!(K, V);
+alias HashMap(K, V) = ikod.containers.hashmap.HashMap!(K, V);

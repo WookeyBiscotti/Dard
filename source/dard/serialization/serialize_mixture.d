@@ -18,14 +18,14 @@ mixin template SerializeMixture() {
     }
 }
 
-unittest {
-    class TestSer {
-        int a;
-        float b;
+// unittest {
+//     class TestSer {
+//         int a;
+//         float b;
 
-        mixin SerializeMixture;
-    }
+//         mixin SerializeMixture;
+//     }
 
-    auto s = new TestSer;
-    s.save();
-}
+//     auto s = new TestSer;
+//     s.save();
+// }

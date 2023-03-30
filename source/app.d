@@ -1,38 +1,52 @@
-import std.stdio;
-import std.format;
-import core.thread;
-import automem.ref_counted;
-import std.exception;
-import std.string : toStringz;
-import sdl;
+// import std.stdio;
+// import std.format;
+// import core.thread;
+// import automem.ref_counted;
+// import std.exception;
+// import std.string : toStringz;
+// import sdl;
+
+import std.algorithm.mutation;
+
+import dard.systems.config;
+import dard.systems.window;
+
+import dard.base.context;
+import dard.types.smart_ptr;
 
 void main() {
-	enforce(0 == SDL_Init(SDL_InitFlags.SDL_INIT_VIDEO));
+	auto config = Config.predefinedValues();
 
-	auto w = SDL_CreateWindow(toStringz("qwe"), cast(uint) 600, cast(uint) 800, 2);
-	enforce(w);
-	enforce(SDL_ShowWindow(w) == 0);
-	writeln("WTF");
+	auto ctx = Unique!Context.construct();
 
-    SDL_Surface *ws = SDL_GetWindowSurface(w);
+	ctx.get().createSystem!Config(config);
+	ctx.get().createSystem!Window();
+	// enforce(0 == SDL_Init(SDL_InitFlags.SDL_INIT_VIDEO));
 
-    SDL_UpdateWindowSurface(w);
+	// auto w = SDL_CreateWindow(toStringz("qwe"), cast(uint) 600, cast(uint) 800, 2);
+	// enforce(w);
+	// enforce(SDL_ShowWindow(w) == 0);
+	// writeln("WTF");
 
-	SDL_Event e = void;
-	// writeln(cast(Uint32) SDL_EventType.SDL_QUIT);
+	// SDL_Surface *ws = SDL_GetWindowSurface(w);
 
-	bool exit = false;
-	while (!exit) {
-		while (SDL_PollEvent(&e)) {
-			writeln(cast(SDL_EventType)e.type);
-			if (e.type == SDL_EventType.SDL_EVENT_QUIT) {
-				exit = true;
-			}
-		}
-	}
+	// SDL_UpdateWindowSurface(w);
 
-	writeln("WTF2");
+	// SDL_Event e = void;
+	// // writeln(cast(Uint32) SDL_EventType.SDL_QUIT);
 
-	// Thread.sleep(dur!"seconds"(5));
-	// SDL_Quit();
+	// bool exit = false;
+	// while (!exit) {
+	// 	while (SDL_PollEvent(&e)) {
+	// 		writeln(cast(SDL_EventType)e.type);
+	// 		if (e.type == SDL_EventType.SDL_EVENT_QUIT) {
+	// 			exit = true;
+	// 		}
+	// 	}
+	// }
+
+	// writeln("WTF2");
+
+	// // Thread.sleep(dur!"seconds"(5));
+	// // SDL_Quit();
 }
