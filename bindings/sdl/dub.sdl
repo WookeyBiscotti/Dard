@@ -1,1 +1,2 @@
 name "sdl"
+lflags "3rdparty/SDL/build/libSDL3.a"

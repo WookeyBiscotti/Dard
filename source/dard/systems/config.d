@@ -59,11 +59,6 @@ enum {
     WINDOW_RESULUTION = String("window_resulution")
 }
 
-struct PreDefs {
-    String name;
-    EngineValue value;
-}
-
 Tuple!(String, EngineValue)[] PREDEFINED_VALUES() {
     return [
         tuple(APPLICATION_NAME, EngineValue(EngineValue.Access.DYNAMIC, Value(

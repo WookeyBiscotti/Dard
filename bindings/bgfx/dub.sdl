@@ -1,0 +1,5 @@
+name "bgfx"
+
+lflags "3rdparty/bgfx/.build/linux64_gcc/bin/libbimgRelease.a"
+lflags "3rdparty/bgfx/.build/linux64_gcc/bin/libbxRelease.a"
+lflags "3rdparty/bgfx/.build/linux64_gcc/bin/libbgfxRelease.a"

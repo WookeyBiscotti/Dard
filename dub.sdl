@@ -11,6 +11,8 @@ dependency "ikod-containers" version="~>0.0.22"
 dependency "memutils" version="~>1.0.9"
 
 dependency "sdl" version="~master" path="bindings/sdl"
-lflags "3rdparty/SDL/build/libSDL3.a"
+dependency "bgfx" version="~master" path="bindings/bgfx"
 
 buildRequirements "silenceDeprecations"
+
+dflags "-mixin=gen_mixins.d"
