@@ -29,8 +29,6 @@ public:
             if (dt < frameDuration) {
                 Thread.sleep(frameDuration - dt);
             }
-
-            break;
         }
     }
 }

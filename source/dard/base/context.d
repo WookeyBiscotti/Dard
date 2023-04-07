@@ -12,9 +12,6 @@ import std.exception;
 
 class Context {
 public:
-     ~this() {
-    }
-
     void registerComponent(T)() {
         _componentFabric[typeid(T)] = (Entity e) { return SharedPtr!T(e); };
     }

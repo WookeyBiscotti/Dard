@@ -10,7 +10,7 @@ public:
 
     Context context() {
         return _context;
-    }   
+    }
 
 private:
     Context _context;

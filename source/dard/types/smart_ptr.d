@@ -2,11 +2,11 @@ module dard.types.smart_ptr;
 
 // import automem.ref_counted;
 // import automem.ref_counted;
-import automem.unique;
+// import automem.unique;
 import memutils.refcounted;
 
 alias SharedPtr(T) = RefCounted!T;
-alias Unique(T) = automem.unique.Unique!T;
+// alias Unique(T) = automem.unique.Unique!T;
 
 
 // automem.ref_counted - гавно, возможно вооьще все реализщации гавно и придется самому писать, но пока   import memutils.refcounted - рабочий вариант

@@ -1,49 +1,42 @@
 module dard.systems.broker;
 
 import std.typecons;
+import std.stdio;
 
 import dard.base.system;
 import dard.base.context;
 import dard.types.hash_map;
 import dard.types.vector;
+import dard.types.nogc_delegate;
 
 import dard.systems.broker_dir.transceiver;
 
-struct Env(A, B) {
-    ref A a;
-    B b;
-}
-
-mixin template qwe () {
-
-}
-
 class Broker : System {
 public:
-    struct Fn {
-        void function(void* e, void* env) fn;
-        void* env;
-    }
+    alias FnOne(E) = Function!(void function(ref E));
+    alias FnAll(E) = Function!(void function(Transceiver* s, ref E));
 
-    struct FnWithSender {
-        void function(void* e, void* env) fn;
-        void* env;
-    }
+    // TODO: много клсвенности,нужно попраивть
+    alias FnOneRaw = Function!(void function(void* e));
+    alias FnAllRaw = Function!(void function(Transceiver* s, void* e));
 
     this(Context contex) {
         super(context);
     }
 
-    void subscribe(E)(Transceiver* s, Transceiver* r, Fn fn) {
-        subscribe(typeid(E), s, r, fn);
+    void subscribe(E)(Transceiver* s, Transceiver* r, FnOne!(E) fn) {
+        mixin genFunction!("rfn [fn](void* e){
+            fn(*(cast(E*) e));
+        }");
+        subscribe(typeid(E), s, r, rfn);
     }
 
-    void subscribe(E)(Transceiver* r, Fn fn) {
+    void subscribe(E)(Transceiver* r, FnAll!E fn) {
         subscribe(typeid(E), s, r, fn);
     }
 
     void send(E)(Transceiver* sender, ref E event) {
-        send(sender, typeid(E), event);
+        send(sender, typeid(E), &event);
     }
 
     void unsubscribe(E)(Transceiver* r) {
@@ -84,7 +77,7 @@ public:
     }
 
 private:
-    void subscribe(TypeInfo type, Transceiver* s, Transceiver* r, Fn fn) {
+    void subscribe(TypeInfo type, Transceiver* s, Transceiver* r, FnOneRaw fn) {
         addNewPersonalListner(r, s, EventFromOneListner(type, fn));
     }
 
@@ -93,15 +86,14 @@ private:
 
         _currentCallDeep++;
         if (auto types = sender in _personalEventsFn) {
-            if (auto receivers = type in types[1]) {
+            if (auto receivers = type in *types) {
                 foreach (r; receivers.byValue()) {
-                    r.fn.fn(e, r.fn.env);
+                    r.fn(e);
                 }
             }
         }
 
         _currentCallDeep--;
-
         if (_currentCallDeep == 0 && _dirtyFlag) {
             foreach (ref r; _deleteRWait) {
                 unsubscribeAll(r);
@@ -205,12 +197,12 @@ private:
 
     struct EventFromOneListner {
         TypeInfo type;
-        Fn fn;
+        FnOneRaw fn;
     }
 
     struct EventFromAllListner {
         TypeInfo type;
-        FnWithSender fn;
+        FnAllRaw fn;
     }
 
     int _currentCallDeep = 0;
@@ -231,17 +223,24 @@ private:
     Vector!(Tuple!(Transceiver*  /*r*/ , Transceiver*  /*s*/ , EventFromOneListner)) _addPersonalWait;
 }
 
-unittest {
-    auto ctx = new Context;
-    auto b = new Broker(ctx);
+// unittest {
+//     auto ctx = new Context;
+//     auto b = new Broker(ctx);
 
-    auto s = new Transceiver(b);
-    auto r = new Transceiver(b);
+//     auto s = new Transceiver(b);
+//     auto r = new Transceiver(b);
 
-    struct E1 {
-    }
+//     struct E1 {
+//         int s = 14;
+//     }
 
-    auto fn = Broker.Fn(function void(void* e, void* d) {}, null);
+//     int ci = 44;
 
-    b.subscribe!E1(s, r, fn);
-}
+//     mixin genFunction!(`ff [](ref E1 e){
+//         writeln("wtf", e.s);
+//     }`);
+
+//     b.subscribe!E1(s, r, ff);
+//     auto e = E1(666);
+//     b.send!E1(s, e);
+// }

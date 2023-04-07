@@ -8,7 +8,7 @@
             "name": "Debug",
             "type": "gdb",
             "request": "launch",
-            "target": "./dard",
+            "target": "./dard-test-library",
             "cwd": "${workspaceRoot}",
             "valuesFormatting": "parseText"
         }
