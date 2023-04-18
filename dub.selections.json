@@ -2,6 +2,8 @@
 	"fileVersion": 1,
 	"versions": {
 		"automem": "0.6.9",
+		"bindbc-bgfx": "0.8.0+118",
+		"bindbc-loader": "1.0.3",
 		"dlib": "1.1.0",
 		"emsi_containers": "0.9.0",
 		"ikod-containers": "0.0.22",

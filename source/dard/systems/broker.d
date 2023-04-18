@@ -9,41 +9,41 @@ import dard.types.hash_map;
 import dard.types.vector;
 import dard.types.nogc_delegate;
 
-import dard.systems.broker_dir.transceiver;
+public import dard.systems.broker_dir.transceiver;
 
 class Broker : System {
 public:
     alias FnOne(E) = Function!(void function(ref E));
-    alias FnAll(E) = Function!(void function(Transceiver* s, ref E));
+    alias FnAll(E) = Function!(void function(Transceiver s, ref E));
 
     // TODO: много клсвенности,нужно попраивть
     alias FnOneRaw = Function!(void function(void* e));
-    alias FnAllRaw = Function!(void function(Transceiver* s, void* e));
+    alias FnAllRaw = Function!(void function(Transceiver s, void* e));
 
     this(Context contex) {
         super(context);
     }
 
-    void subscribe(E)(Transceiver* s, Transceiver* r, FnOne!(E) fn) {
+    void subscribe(E)(Transceiver s, Transceiver r, FnOne!(E) fn) {
         mixin genFunction!("rfn [fn](void* e){
             fn(*(cast(E*) e));
         }");
         subscribe(typeid(E), s, r, rfn);
     }
 
-    void subscribe(E)(Transceiver* r, FnAll!E fn) {
+    void subscribe(E)(Transceiver r, FnAll!E fn) {
         subscribe(typeid(E), s, r, fn);
     }
 
-    void send(E)(Transceiver* sender, ref E event) {
+    void send(E)(Transceiver sender, ref E event) {
         send(sender, typeid(E), &event);
     }
 
-    void unsubscribe(E)(Transceiver* r) {
+    void unsubscribe(E)(Transceiver r) {
         unsubscribeImpl(r, typeid(E));
     }
 
-    void unsubscribe(E)(Transceiver* r, Transceiver* s) {
+    void unsubscribe(E)(Transceiver r, Transceiver s) {
         if (_currentCallDeep != 0) {
             _deleteRSTWait ~= tuple!(r, s, typeid(E));
             _dirtyFlag = true;
@@ -54,7 +54,7 @@ public:
         unsubscribeImpl(receiver, sender, typeId);
     }
 
-    void unsubscribe(Transceiver* r, Transceiver* s) {
+    void unsubscribe(Transceiver r, Transceiver s) {
         if (_currentCallDeep != 0) {
             _deleteRSWait ~= tuple(r, s);
             _dirtyFlag = true;
@@ -65,7 +65,7 @@ public:
         unsubscribeImpl(r, s);
     }
 
-    void unsubscribeAll(Transceiver* r) {
+    void unsubscribeAll(Transceiver r) {
         if (_currentCallDeep != 0) {
             _deleteRWait ~= r;
             _dirtyFlag = true;
@@ -77,11 +77,11 @@ public:
     }
 
 private:
-    void subscribe(TypeInfo type, Transceiver* s, Transceiver* r, FnOneRaw fn) {
+    void subscribe(TypeInfo type, Transceiver s, Transceiver r, FnOneRaw fn) {
         addNewPersonalListner(r, s, EventFromOneListner(type, fn));
     }
 
-    void send(Transceiver* sender, TypeInfo type, void* e) {
+    void send(Transceiver sender, TypeInfo type, void* e) {
         assert(sender);
 
         _currentCallDeep++;
@@ -124,7 +124,7 @@ private:
         }
     }
 
-    void addNewListner(Transceiver* r, EventFromAllListner l) {
+    void addNewListner(Transceiver r, EventFromAllListner l) {
         if (_currentCallDeep != 0) {
             _addWait ~= tuple(r, l);
             _dirtyFlag = true;
@@ -135,7 +135,7 @@ private:
         addNewListnerImpl(r, l);
     }
 
-    void addNewPersonalListner(Transceiver* r, Transceiver* s, EventFromOneListner l) {
+    void addNewPersonalListner(Transceiver r, Transceiver s, EventFromOneListner l) {
         if (_currentCallDeep != 0) {
             _addPersonalWait ~= tuple(r, s, l);
             _dirtyFlag = true;
@@ -146,17 +146,17 @@ private:
         addNewPersonalListnerImpl(r, s, l);
     }
 
-    void addNewListnerImpl(Transceiver* r, EventFromAllListner l) {
+    void addNewListnerImpl(Transceiver r, EventFromAllListner l) {
         _receiversFns.getOrDefault(r).getOrDefault(l.type);
         _eventsFn.getOrDefault(l.type).getOrDefault(r) = l;
     }
 
-    void addNewPersonalListnerImpl(Transceiver* r, Transceiver* s, EventFromOneListner l) {
+    void addNewPersonalListnerImpl(Transceiver r, Transceiver s, EventFromOneListner l) {
         _personalReceiversFns.getOrDefault(r).getOrDefault(s).getOrDefault(l.type);
         _personalEventsFn.getOrDefault(s).getOrDefault(l.type).getOrDefault(r) = l;
     }
 
-    void unsubscribeImpl(Transceiver* r, TypeInfo type) {
+    void unsubscribeImpl(Transceiver r, TypeInfo type) {
         if (auto types = r in _receiversFns) {
             types.remove(type);
         }
@@ -165,12 +165,12 @@ private:
         }
     }
 
-    void unsubscribeImpl(Transceiver* r, Transceiver* s, TypeInfo type) {
+    void unsubscribeImpl(Transceiver r, Transceiver s, TypeInfo type) {
         _personalEventsFn.getOrDefault(s).getOrDefault(type).remove(r);
         _personalReceiversFns.getOrDefault(r).getOrDefault(s).remove(type);
     }
 
-    void unsubscribeImpl(Transceiver* r, Transceiver* s) {
+    void unsubscribeImpl(Transceiver r, Transceiver s) {
         if (auto senders = r in _personalReceiversFns) {
             senders.remove(s);
         }
@@ -181,7 +181,7 @@ private:
         }
     }
 
-    void unsubscribeAllImpl(Transceiver* t) {
+    void unsubscribeAllImpl(Transceiver t) {
         // remove as sender
         if (auto types = t in _personalEventsFn) {
             foreach (ref receivers; types.byValue()) {
@@ -208,19 +208,19 @@ private:
     int _currentCallDeep = 0;
     bool _dirtyFlag = false;
 
-    HashMap!(TypeInfo, HashMap!(Transceiver*, EventFromAllListner)) _eventsFn;
-    HashMap!(Transceiver*, HashSet!(TypeInfo)) _receiversFns;
+    HashMap!(TypeInfo, HashMap!(Transceiver, EventFromAllListner)) _eventsFn;
+    HashMap!(Transceiver, HashSet!(TypeInfo)) _receiversFns;
 
-    HashMap!(Transceiver*, HashMap!(Transceiver*, HashSet!(TypeInfo))) _personalReceiversFns;
-    HashMap!(Transceiver*, HashMap!(TypeInfo, HashMap!(Transceiver*, EventFromOneListner))) _personalEventsFn;
+    HashMap!(Transceiver, HashMap!(Transceiver, HashSet!(TypeInfo))) _personalReceiversFns;
+    HashMap!(Transceiver, HashMap!(TypeInfo, HashMap!(Transceiver, EventFromOneListner))) _personalEventsFn;
 
-    Vector!(Transceiver*) _deleteRWait;
-    Vector!(Tuple!(Transceiver*  /*r*/ , TypeInfo)) _deleteRTWait;
-    Vector!(Tuple!(Transceiver*  /*r*/ , Transceiver*  /*s*/ )) _deleteRSWait;
-    Vector!(Tuple!(Transceiver*  /*r*/ , Transceiver*  /*s*/ , TypeInfo)) _deleteRSTWait;
+    Vector!(Transceiver) _deleteRWait;
+    Vector!(Tuple!(Transceiver /*r*/ , TypeInfo)) _deleteRTWait;
+    Vector!(Tuple!(Transceiver /*r*/ , Transceiver /*s*/ )) _deleteRSWait;
+    Vector!(Tuple!(Transceiver /*r*/ , Transceiver /*s*/ , TypeInfo)) _deleteRSTWait;
 
-    Vector!(Tuple!(Transceiver*, EventFromAllListner)) _addWait;
-    Vector!(Tuple!(Transceiver*  /*r*/ , Transceiver*  /*s*/ , EventFromOneListner)) _addPersonalWait;
+    Vector!(Tuple!(Transceiver, EventFromAllListner)) _addWait;
+    Vector!(Tuple!(Transceiver /*r*/ , Transceiver /*s*/ , EventFromOneListner)) _addPersonalWait;
 }
 
 // unittest {

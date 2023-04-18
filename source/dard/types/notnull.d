@@ -1,12 +1,12 @@
 module dard.types.notnull;
 
-struct NotNull(T) {
-    this() {
-        assert(false);
-    }
+import std.traits;
 
-    this(Args...)(auto ref Args args) {
-        val = T(args);
+struct NotNull(T) if (is(T == class) || isPointer(T)) {
+    this() @disable;
+
+    this(T v) {
+        val = v;
     }
 
     ref getRef() inout @property {

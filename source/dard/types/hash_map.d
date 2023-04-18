@@ -4,6 +4,8 @@ public import ikod.containers.hashmap : HashMap;
 
 alias HashSet(K) = HashMap!(K, void*);
 
+// TODO Сделать свою хеш мапу с nogc, текущие известные решения - отвратительны
+
 ref V getOrDefault(K, V)(ref HashMap!(K, V) h, K k) {
     auto ret = k in h;
     if (ret) {

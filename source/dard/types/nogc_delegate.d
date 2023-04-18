@@ -228,6 +228,7 @@ struct ParsedFunction {
 }
 
 mixin template genFunction(string _string_function_for_generation_) {
+    import std.typecons;
     mixin(ParsedFunction(__LINE__, _string_function_for_generation_).generateFunctionString());
 }
 

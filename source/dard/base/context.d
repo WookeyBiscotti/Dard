@@ -25,13 +25,13 @@ public:
     }
 
     S system(S)() {
-        assert(_systems.contains(typeid(S)));
+        assert(_systems.contains(typeid(S)), "Cant find system: " ~ S.stringof);
 
         return cast(SharedPtr!S) _systems[typeid(S)];
     }
 
     S findSystem(S)() {
-        return cast(S)(_systems.get(typeid(T), null));
+        return static_cast!S(_systems.get(typeid(T), null));
     }
 
 private:

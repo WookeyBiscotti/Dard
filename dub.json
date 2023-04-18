@@ -1,0 +1,26 @@
+{
+    "name": "dard",
+    "dependencies": {
+        "dlib": "~>1.1.0",
+        "automem": "~>0.6.9",
+        "memutils": "~>1.0.9",
+        "ikod-containers": "~>0.0.22",
+        "emsi_containers": "~>0.9.0",
+        "bindbc-bgfx": "~>0.8.0",
+        "sdl": {
+            "path": "bindings/sdl"
+        }
+    },
+    "subConfigurations": {
+        "bindbc-bgfx": "static"
+    },
+    "lflags-linux": [
+        "-L/home/alex/code/Dard/3rdparty/bgfx/.build/linux64_gcc/bin"
+    ],
+    "libs": [
+        "bgfxDebug", "bxDebug", "bimgDebug"
+    ],
+    "libs-linux": [
+        "stdc++", "GL", "X11"
+    ]
+}

@@ -4,9 +4,9 @@
  *
  */
 
-module funcs;
+module bgfx.funcs;
 
-private import bindbc.bgfx.types;
+private import bgfx.types;
 
 extern(C) @nogc nothrow:
 
@@ -3016,7 +3016,9 @@ else
 		 * _ratio = Texture size in respect to back-buffer size. See: `BackbufferRatio::Enum`.
 		 * _hasMips = Indicates that texture contains full mip-map chain.
 		 * _numLayers = Number of layers in texture array. Must be 1 if caps
-		 * `BGFX_CAPS_TEXTURE_2D_ARRAY` flag is not set.
+		 * `BGFX_CAPS_TEXTURE_2D_ARRAY` flag isSo the stack for our current function starts at 0x7fffffffe270. Cool.
+
+Now let’s use gdb to print out the first 40 words (aka 160 bytes) of memory after the start of the current function’s stack. It’s possible that some of this memory isn’t part of the stack because I’m not totally sure how big the stack is here. But at least the beginning of this is part of the stack.ot set.
 		 * _format = Texture format. See: `TextureFormat::Enum`.
 		 * _flags = Texture creation (see `BGFX_TEXTURE_*`.), and sampler (see `BGFX_SAMPLER_*`)
 		 * flags. Default texture sampling mode is linear, and wrap mode is repeat.

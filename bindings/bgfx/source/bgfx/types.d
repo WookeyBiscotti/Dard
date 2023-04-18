@@ -4,7 +4,7 @@
  *
  */
 
-module bindbc.bgfx.types;
+module bgfx.types;
 
 public import core.stdc.stdarg : va_list;
 
