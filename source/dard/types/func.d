@@ -1,1 +1,0 @@
-module dard.types.func;
