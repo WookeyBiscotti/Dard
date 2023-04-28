@@ -2,8 +2,6 @@ module dard.base.entity;
 
 import dard.base.context;
 import dard.base.component;
-import dard.types.hash_map;
-import dard.types.smart_ptr;
 
 class Entity {
 public:
@@ -12,11 +10,11 @@ public:
     }
 
     void addComponenet(T)() if (is(T : Component)) {
-        _components[typeid(T)] = SharedPtr!Component(this);
+        _components[typeid(T)] = Component(this);
     }
 
 private:
     Context _context;
 
-    HashMap!(TypeInfo, SharedPtr!Component) _components;
+    Component[TypeInfo] _components;
 }

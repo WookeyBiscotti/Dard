@@ -5,7 +5,6 @@ import dard.systems.logger;
 import dard.systems.render;
 import dard.base.context;
 import dard.systems.broker;
-import dard.types.nogc_delegate;
 import core.time;
 import core.thread;
 
@@ -32,10 +31,9 @@ public:
         auto frameDuration = dur!"seconds"(1) / 60;
 
         bool isRunning = true;
-        mixin genFunction!("winClose [ref isRunning](ref WindowClose e){
+        subscribe!WindowClose(context.system!WindowSystem, (ref WindowClose e) {
             isRunning = false;
-        }");
-        subscribe!WindowClose(context.system!WindowSystem, winClose);
+        });
 
         while (isRunning) {
             immutable auto t1 = MonoTime.currTime();
@@ -43,10 +41,12 @@ public:
             render.clear();
             window.update();
 
+            import core.memory;
+            GC.collect();
+
             immutable auto t2 = MonoTime.currTime();
 
             immutable auto dt = t2 - t1;
-
             render.render(dt);
             if (dt < frameDuration) {
                 Thread.sleep(frameDuration - dt);

@@ -9,6 +9,9 @@
         "bindbc-bgfx": "~>0.8.0",
         "sdl": {
             "path": "bindings/sdl"
+        },
+        "nanovg": {
+            "path": "bindings/nanovg"
         }
     },
     "subConfigurations": {
@@ -18,9 +21,13 @@
         "-L/home/alex/code/Dard/3rdparty/bgfx/.build/linux64_gcc/bin"
     ],
     "libs": [
-        "bgfxDebug", "bxDebug", "bimgDebug"
+        "bgfxDebug",
+        "bxDebug",
+        "bimgDebug"
     ],
     "libs-linux": [
-        "stdc++", "GL", "X11"
+        "stdc++",
+        "GL",
+        "X11"
     ]
 }

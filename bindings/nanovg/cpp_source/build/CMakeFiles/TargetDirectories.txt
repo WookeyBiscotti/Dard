@@ -1,0 +1,3 @@
+/home/alex/code/Dard/bindings/nanovg/cpp_source/build/CMakeFiles/nanovg.dir
+/home/alex/code/Dard/bindings/nanovg/cpp_source/build/CMakeFiles/edit_cache.dir
+/home/alex/code/Dard/bindings/nanovg/cpp_source/build/CMakeFiles/rebuild_cache.dir

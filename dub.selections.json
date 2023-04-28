@@ -10,6 +10,6 @@
 		"memutils": "1.0.9",
 		"sdl": {"path":"bindings/sdl"},
 		"test_allocator": "0.3.3",
-		"unit-threaded": "2.1.5"
+		"unit-threaded": "2.1.6"
 	}
 }

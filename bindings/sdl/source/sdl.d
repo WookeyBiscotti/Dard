@@ -1,8 +1,6 @@
-module sdl;
-
 import core.stdc.config;
-import core.stdc.stddef;
 import core.stdc.stdarg;
+import core.stdc.stddef;
 
 extern (C):
 
@@ -7065,10 +7063,10 @@ struct SDL_SysWMinfo
             wl_display* display;
             wl_surface* surface;
             wl_egl_window* egl_window;
-            xdg_surface* _xdg_surface;
-            xdg_toplevel* _xdg_toplevel;
-            xdg_popup* _xdg_popup;
-            xdg_positioner* _xdg_positioner;
+            xdg_surface* xdg_surface_;
+            xdg_toplevel* xdg_toplevel_;
+            xdg_popup* xdg_popup_;
+            xdg_positioner* xdg_positioner_;
         }
 
         _Anonymous_16 wl;

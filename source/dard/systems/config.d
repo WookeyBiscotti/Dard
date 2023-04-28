@@ -7,7 +7,6 @@ import std.stdio;
 
 import dard.base.system;
 import dard.base.context;
-import dard.types.string;
 import dard.types.math.vector;
 
 import dard.systems.config_dir.value;
@@ -21,18 +20,18 @@ public:
         super(context);
     }
 
-    ref const(T) value(T)(in String name) const {
-        auto find = name in _values;
+    ref const(T) value(T)(in string name) const {
+        auto found = name in _values;
 
-        assert(find, name.toString.length.to!string);
+        assert(found);
 
-        auto p = find.value.peek!(T);
+        auto p = found.value.peek!(T);
         assert(p);
 
         return *p;
     }
 
-    const(Value)* findValue(in String name) const {
+    const(Value)* findValue(in string name) const {
         auto found = name in _values;
         if (!found) {
             return null;
@@ -55,14 +54,14 @@ private:
 }
 
 enum {
-    APPLICATION_NAME = String("application_name"),
-    WINDOW_RESULUTION = String("window_resulution")
+    APPLICATION_NAME = "application_name",
+    WINDOW_RESULUTION = "window_resulution"
 }
 
-Tuple!(String, EngineValue)[] PREDEFINED_VALUES() {
+Tuple!(string, EngineValue)[] PREDEFINED_VALUES() {
     return [
         tuple(APPLICATION_NAME, EngineValue(EngineValue.Access.DYNAMIC, Value(
-                String("Dard game engine")))),
+                "Dard game engine"))),
         tuple(WINDOW_RESULUTION, EngineValue(EngineValue.Access.DYNAMIC, Value(Vector2u(800, 600))))
     ];
 }

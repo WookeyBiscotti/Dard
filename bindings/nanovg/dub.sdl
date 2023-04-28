@@ -1,0 +1,3 @@
+name "nanovg"
+
+lflags "bindings/nanovg/cpp_source/build/libnanovg.a"

@@ -2,11 +2,9 @@ module dard.systems.config_dir.value;
 
 import std.variant;
 
-import dard.types.string;
-import dard.types.hash_map;
 import dard.types.math.vector;
 
-alias Value = Algebraic!(bool, long, String, Vector2f, Vector2u);
+alias Value = Algebraic!(bool, long, string, Vector2f, Vector2u);
 
 struct EngineValue {
     enum Access {
@@ -18,4 +16,4 @@ struct EngineValue {
     Value value;
 }
 
-alias ValueTree = HashMap!(String, EngineValue);
+alias ValueTree = EngineValue[string];

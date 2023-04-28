@@ -1,16 +1,16 @@
-# 1 "../../Dard/bindings/sdl/headers/sdl.h"
+# 1 "/home/alex/code/Dard/./bindings/sdl/sample/sdl.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 374 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "../../Dard/bindings/sdl/headers/sdl.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 1
-# 32 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h" 1
-# 31 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_platform_defines.h" 1
-# 32 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
+# 1 "/home/alex/code/Dard/./bindings/sdl/sample/sdl.c" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 1
+# 32 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h" 1
+# 31 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_platform_defines.h" 1
+# 32 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
 
 
 # 1 "/usr/lib/llvm-15/lib/clang/15.0.6/include/inttypes.h" 1 3
@@ -290,14 +290,14 @@ extern uintmax_t wcstoumax (const __gwchar_t *__restrict __nptr,
        __gwchar_t ** __restrict __endptr, int __base)
      __attribute__ ((__nothrow__ ));
 # 22 "/usr/lib/llvm-15/lib/clang/15.0.6/include/inttypes.h" 2 3
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
 
 # 1 "/usr/lib/llvm-15/lib/clang/15.0.6/include/stdarg.h" 1 3
 # 14 "/usr/lib/llvm-15/lib/clang/15.0.6/include/stdarg.h" 3
 typedef __builtin_va_list va_list;
 # 32 "/usr/lib/llvm-15/lib/clang/15.0.6/include/stdarg.h" 3
 typedef __builtin_va_list __gnuc_va_list;
-# 37 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
+# 37 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
 
 # 1 "/usr/include/wchar.h" 1 3 4
 # 27 "/usr/include/wchar.h" 3 4
@@ -787,8 +787,8 @@ extern wint_t ungetwc (wint_t __wc, __FILE *__stream);
 extern size_t wcsftime (wchar_t *__restrict __s, size_t __maxsize,
    const wchar_t *__restrict __format,
    const struct tm *__restrict __tp) __attribute__ ((__nothrow__ ));
-# 39 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
-# 129 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 39 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
+# 129 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 typedef enum
 {
     SDL_FALSE = 0,
@@ -845,7 +845,7 @@ typedef int64_t Sint64;
 
 
 typedef uint64_t Uint64;
-# 339 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 339 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 _Static_assert(sizeof(Uint8) == 1, "sizeof(Uint8) == 1");
 _Static_assert(sizeof(Sint8) == 1, "sizeof(Sint8) == 1");
 _Static_assert(sizeof(Uint16) == 2, "sizeof(Uint16) == 2");
@@ -854,7 +854,7 @@ _Static_assert(sizeof(Uint32) == 4, "sizeof(Uint32) == 4");
 _Static_assert(sizeof(Sint32) == 4, "sizeof(Sint32) == 4");
 _Static_assert(sizeof(Uint64) == 8, "sizeof(Uint64) == 8");
 _Static_assert(sizeof(Sint64) == 8, "sizeof(Sint64) == 8");
-# 360 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 360 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 typedef enum
 {
     DUMMY_ENUM_VALUE
@@ -865,9 +865,9 @@ _Static_assert(sizeof(SDL_DUMMY_ENUM) == sizeof(int), "sizeof(SDL_DUMMY_ENUM) ==
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 371 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
-# 384 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 371 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
+# 384 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 extern __attribute__ ((visibility("default"))) __attribute__((malloc)) void * SDL_malloc(size_t size);
 extern __attribute__ ((visibility("default"))) __attribute__((malloc)) __attribute__((alloc_size(1, 2))) void * SDL_calloc(size_t nmemb, size_t size);
 extern __attribute__ ((visibility("default"))) __attribute__((alloc_size(2))) void * SDL_realloc(void *mem, size_t size);
@@ -877,26 +877,26 @@ typedef void *( *SDL_malloc_func)(size_t size);
 typedef void *( *SDL_calloc_func)(size_t nmemb, size_t size);
 typedef void *( *SDL_realloc_func)(void *mem, size_t size);
 typedef void ( *SDL_free_func)(void *mem);
-# 404 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 404 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 extern __attribute__ ((visibility("default"))) void SDL_GetOriginalMemoryFunctions(SDL_malloc_func *malloc_func,
                                                             SDL_calloc_func *calloc_func,
                                                             SDL_realloc_func *realloc_func,
                                                             SDL_free_func *free_func);
-# 419 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 419 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 extern __attribute__ ((visibility("default"))) void SDL_GetMemoryFunctions(SDL_malloc_func *malloc_func,
                                                     SDL_calloc_func *calloc_func,
                                                     SDL_realloc_func *realloc_func,
                                                     SDL_free_func *free_func);
-# 436 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 436 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetMemoryFunctions(SDL_malloc_func malloc_func,
                                                    SDL_calloc_func calloc_func,
                                                    SDL_realloc_func realloc_func,
                                                    SDL_free_func free_func);
-# 460 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 460 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 extern __attribute__ ((visibility("default"))) __attribute__((malloc)) void * SDL_aligned_alloc(size_t alignment, size_t size);
-# 469 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 469 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 extern __attribute__ ((visibility("default"))) void SDL_aligned_free(void *mem);
-# 478 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 478 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumAllocations(void);
 
 extern __attribute__ ((visibility("default"))) char * SDL_getenv(const char *name);
@@ -932,7 +932,7 @@ extern __attribute__ ((visibility("default"))) Uint32 SDL_crc32(Uint32 crc, cons
 
 extern __attribute__ ((visibility("default"))) void * SDL_memset( void *dst, int c, size_t len);
 extern __attribute__ ((visibility("default"))) void * SDL_memset4(void *dst, Uint32 val, size_t dwords);
-# 524 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 524 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 extern __attribute__ ((visibility("default"))) void * SDL_memcpy( void *dst, const void *src, size_t len);
 
 extern __attribute__ ((visibility("default"))) void * SDL_memmove( void *dst, const void *src, size_t len);
@@ -991,7 +991,7 @@ extern __attribute__ ((visibility("default"))) int SDL_snprintf( char *text, siz
 extern __attribute__ ((visibility("default"))) int SDL_vsnprintf( char *text, size_t maxlen, const char *fmt, va_list ap);
 extern __attribute__ ((visibility("default"))) int SDL_asprintf(char **strp, const char *fmt, ...) __attribute__ (( format( __printf__, 2, 2 +1 )));
 extern __attribute__ ((visibility("default"))) int SDL_vasprintf(char **strp, const char *fmt, va_list ap);
-# 604 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 604 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 extern __attribute__ ((visibility("default"))) double SDL_acos(double x);
 extern __attribute__ ((visibility("default"))) float SDL_acosf(float x);
 extern __attribute__ ((visibility("default"))) double SDL_asin(double x);
@@ -1036,7 +1036,7 @@ extern __attribute__ ((visibility("default"))) double SDL_sqrt(double x);
 extern __attribute__ ((visibility("default"))) float SDL_sqrtf(float x);
 extern __attribute__ ((visibility("default"))) double SDL_tan(double x);
 extern __attribute__ ((visibility("default"))) float SDL_tanf(float x);
-# 656 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 656 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 typedef struct SDL_iconv_data_t *SDL_iconv_t;
 extern __attribute__ ((visibility("default"))) SDL_iconv_t SDL_iconv_open(const char *tocode,
                                                    const char *fromcode);
@@ -1055,7 +1055,7 @@ extern __attribute__ ((visibility("default"))) char * SDL_iconv_string(const cha
                                                const char *fromcode,
                                                const char *inbuf,
                                                size_t inbytesleft);
-# 726 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 726 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 __attribute__((always_inline)) static __inline__ void *SDL_memcpy4( void *dst, const void *src, size_t dwords)
 {
     return SDL_memcpy(dst, src, dwords * 4);
@@ -1088,7 +1088,7 @@ __attribute__((always_inline)) static __inline__ int SDL_size_mul_overflow_built
 {
     return __builtin_mul_overflow(a, b, ret) == 0 ? 0 : -1;
 }
-# 767 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h"
+# 767 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h"
 __attribute__((always_inline)) static __inline__ int SDL_size_add_overflow (size_t a,
                                             size_t b,
                                             size_t *ret)
@@ -1123,14 +1123,14 @@ typedef void (*SDL_FunctionPointer)(void);
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 802 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h" 2
-# 117 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 802 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_stdinc.h" 2
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h" 2
+# 117 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h"
 typedef enum
 {
     SDL_ASSERTION_RETRY,
@@ -1150,7 +1150,7 @@ typedef struct SDL_AssertData
     const char *function;
     const struct SDL_AssertData *next;
 } SDL_AssertData;
-# 150 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h"
+# 150 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h"
 extern __attribute__ ((visibility("default"))) SDL_AssertState SDL_ReportAssertion(SDL_AssertData *data,
                                                             const char *func,
                                                             const char *file, int line)
@@ -1160,63 +1160,63 @@ extern __attribute__ ((visibility("default"))) SDL_AssertState SDL_ReportAsserti
 
 
 ;
-# 228 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h"
+# 228 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h"
 typedef SDL_AssertState ( *SDL_AssertionHandler)(
                                  const SDL_AssertData* data, void* userdata);
-# 252 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h"
+# 252 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h"
 extern __attribute__ ((visibility("default"))) void SDL_SetAssertionHandler(
                                             SDL_AssertionHandler handler,
                                             void *userdata);
-# 271 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h"
+# 271 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h"
 extern __attribute__ ((visibility("default"))) SDL_AssertionHandler SDL_GetDefaultAssertionHandler(void);
-# 294 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h"
+# 294 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h"
 extern __attribute__ ((visibility("default"))) SDL_AssertionHandler SDL_GetAssertionHandler(void **puserdata);
-# 322 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h"
+# 322 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h"
 extern __attribute__ ((visibility("default"))) const SDL_AssertData * SDL_GetAssertionReport(void);
-# 336 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h"
+# 336 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h"
 extern __attribute__ ((visibility("default"))) void SDL_ResetAssertionReport(void);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 343 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_assert.h" 2
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h" 1
-# 65 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 66 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h" 2
-# 94 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 343 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_assert.h" 2
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h" 1
+# 65 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 66 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h" 2
+# 94 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 typedef int SDL_SpinLock;
-# 111 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 111 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_AtomicTryLock(SDL_SpinLock *lock);
-# 126 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 126 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 extern __attribute__ ((visibility("default"))) void SDL_AtomicLock(SDL_SpinLock *lock);
-# 143 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 143 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 extern __attribute__ ((visibility("default"))) void SDL_AtomicUnlock(SDL_SpinLock *lock);
-# 188 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 188 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 extern __attribute__ ((visibility("default"))) void SDL_MemoryBarrierReleaseFunction(void);
 
 
 
 
 extern __attribute__ ((visibility("default"))) void SDL_MemoryBarrierAcquireFunction(void);
-# 269 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 269 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 typedef struct { int value; } SDL_AtomicInt;
-# 288 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 288 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_AtomicCAS(SDL_AtomicInt *a, int oldval, int newval);
-# 306 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 306 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 extern __attribute__ ((visibility("default"))) int SDL_AtomicSet(SDL_AtomicInt *a, int v);
-# 321 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 321 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 extern __attribute__ ((visibility("default"))) int SDL_AtomicGet(SDL_AtomicInt *a);
-# 340 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 340 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 extern __attribute__ ((visibility("default"))) int SDL_AtomicAdd(SDL_AtomicInt *a, int v);
-# 376 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 376 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_AtomicCASPtr(void **a, void *oldval, void *newval);
-# 393 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 393 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 extern __attribute__ ((visibility("default"))) void* SDL_AtomicSetPtr(void **a, void* v);
-# 409 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h"
+# 409 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h"
 extern __attribute__ ((visibility("default"))) void* SDL_AtomicGetPtr(void **a);
 
 
@@ -1224,24 +1224,24 @@ extern __attribute__ ((visibility("default"))) void* SDL_AtomicGetPtr(void **a);
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 417 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_atomic.h" 2
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_error.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_error.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_error.h" 2
-# 66 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_error.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 417 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_atomic.h" 2
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_error.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_error.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_error.h" 2
+# 66 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_error.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetError( const char *fmt, ...) __attribute__ (( format( __printf__, 1, 1 +1 )));
-# 103 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_error.h"
+# 103 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_error.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetError(void);
-# 120 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_error.h"
+# 120 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_error.h"
 extern __attribute__ ((visibility("default"))) char * SDL_GetErrorMsg(char *errstr, int maxlen);
-# 130 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_error.h"
+# 130 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_error.h"
 extern __attribute__ ((visibility("default"))) void SDL_ClearError(void);
-# 142 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_error.h"
+# 142 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_error.h"
 typedef enum
 {
     SDL_ENOMEM,
@@ -1251,7 +1251,7 @@ typedef enum
     SDL_UNSUPPORTED,
     SDL_LASTERROR
 } SDL_errorcode;
-# 160 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_error.h"
+# 160 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_error.h"
 extern __attribute__ ((visibility("default"))) int SDL_Error(SDL_errorcode code);
 
 
@@ -1259,11 +1259,11 @@ extern __attribute__ ((visibility("default"))) int SDL_Error(SDL_errorcode code)
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 168 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_error.h" 2
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_endian.h" 1
-# 60 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_endian.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 168 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_error.h" 2
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_endian.h" 1
+# 60 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_endian.h"
 # 1 "/usr/include/endian.h" 1 3 4
 # 24 "/usr/include/endian.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/endian.h" 1 3 4
@@ -1329,11 +1329,11 @@ __uint64_identity (__uint64_t __x)
   return __x;
 }
 # 37 "/usr/include/endian.h" 2 3 4
-# 61 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_endian.h" 2
-# 113 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_endian.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 114 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_endian.h" 2
-# 308 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_endian.h"
+# 61 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_endian.h" 2
+# 113 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_endian.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 114 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_endian.h" 2
+# 308 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_endian.h"
 __attribute__((always_inline)) static __inline__ float
 SDL_SwapFloat(float x)
 {
@@ -1345,68 +1345,68 @@ SDL_SwapFloat(float x)
     swapper.ui32 = __builtin_bswap32(swapper.ui32);
     return swapper.f;
 }
-# 396 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_endian.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 397 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_endian.h" 2
-# 36 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h" 1
-# 108 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 109 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h" 2
-# 132 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 396 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_endian.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 397 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_endian.h" 2
+# 36 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h" 1
+# 108 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 109 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h" 2
+# 132 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 struct SDL_mutex;
 typedef struct SDL_mutex SDL_mutex;
-# 155 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 155 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) SDL_mutex * SDL_CreateMutex(void);
-# 174 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 174 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) int SDL_LockMutex(SDL_mutex * mutex) ;
-# 197 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 197 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) int SDL_TryLockMutex(SDL_mutex * mutex) ;
-# 217 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 217 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) int SDL_UnlockMutex(SDL_mutex * mutex) ;
-# 238 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 238 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroyMutex(SDL_mutex * mutex);
-# 249 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 249 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 struct SDL_semaphore;
 typedef struct SDL_semaphore SDL_sem;
-# 274 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 274 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) SDL_sem * SDL_CreateSemaphore(Uint32 initial_value);
-# 293 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 293 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroySemaphore(SDL_sem *sem);
-# 320 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 320 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) int SDL_SemWait(SDL_sem *sem);
-# 344 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 344 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) int SDL_SemTryWait(SDL_sem *sem);
-# 369 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 369 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) int SDL_SemWaitTimeout(SDL_sem *sem, Sint32 timeoutMS);
-# 387 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 387 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) int SDL_SemPost(SDL_sem *sem);
-# 399 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 399 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_SemValue(SDL_sem *sem);
-# 410 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 410 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 struct SDL_cond;
 typedef struct SDL_cond SDL_cond;
-# 427 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 427 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) SDL_cond * SDL_CreateCond(void);
-# 442 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 442 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroyCond(SDL_cond *cond);
-# 459 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 459 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) int SDL_CondSignal(SDL_cond *cond);
-# 476 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 476 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) int SDL_CondBroadcast(SDL_cond *cond);
-# 506 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 506 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) int SDL_CondWait(SDL_cond *cond, SDL_mutex *mutex);
-# 537 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 537 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
 extern __attribute__ ((visibility("default"))) int SDL_CondWaitTimeout(SDL_cond *cond,
                                                 SDL_mutex *mutex, Sint32 timeoutMS);
-# 547 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 548 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mutex.h" 2
-# 37 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h" 1
-# 42 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 43 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h" 2
+# 547 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 548 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mutex.h" 2
+# 37 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h" 1
+# 42 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 43 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h" 2
 
 
 
@@ -1421,7 +1421,7 @@ typedef unsigned long SDL_threadID;
 
 
 typedef unsigned int SDL_TLSID;
-# 68 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 68 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 typedef enum {
     SDL_THREAD_PRIORITY_LOW,
     SDL_THREAD_PRIORITY_NORMAL,
@@ -1436,29 +1436,29 @@ typedef enum {
 
 
 typedef int ( * SDL_ThreadFunction) (void *data);
-# 192 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 192 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 extern __attribute__ ((visibility("default"))) SDL_Thread *
 SDL_CreateThread(SDL_ThreadFunction fn, const char *name, void *data);
-# 238 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 238 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 extern __attribute__ ((visibility("default"))) SDL_Thread *
 SDL_CreateThreadWithStackSize(SDL_ThreadFunction fn, const char *name, const size_t stacksize, void *data);
-# 257 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 257 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetThreadName(SDL_Thread *thread);
-# 275 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 275 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 extern __attribute__ ((visibility("default"))) SDL_threadID SDL_ThreadID(void);
-# 292 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 292 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 extern __attribute__ ((visibility("default"))) SDL_threadID SDL_GetThreadID(SDL_Thread * thread);
-# 307 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 307 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetThreadPriority(SDL_ThreadPriority priority);
-# 342 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 342 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 extern __attribute__ ((visibility("default"))) void SDL_WaitThread(SDL_Thread * thread, int *status);
-# 378 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 378 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 extern __attribute__ ((visibility("default"))) void SDL_DetachThread(SDL_Thread * thread);
-# 393 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 393 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 extern __attribute__ ((visibility("default"))) SDL_TLSID SDL_TLSCreate(void);
-# 407 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 407 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 extern __attribute__ ((visibility("default"))) void * SDL_TLSGet(SDL_TLSID id);
-# 432 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h"
+# 432 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h"
 extern __attribute__ ((visibility("default"))) int SDL_TLSSet(SDL_TLSID id, const void *value, void ( *destructor)(void*));
 
 
@@ -1472,14 +1472,14 @@ extern __attribute__ ((visibility("default"))) void SDL_TLSCleanup(void);
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 446 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_thread.h" 2
-# 38 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h" 1
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 36 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h" 2
-# 52 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 446 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_thread.h" 2
+# 38 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h" 1
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 36 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h" 2
+# 52 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 typedef struct SDL_RWops
 {
 
@@ -1495,10 +1495,10 @@ typedef struct SDL_RWops
 
     Sint64 ( * seek) (struct SDL_RWops * context, Sint64 offset,
                              int whence);
-# 78 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 78 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
     Sint64 ( * read) (struct SDL_RWops * context, void *ptr,
                              Sint64 size);
-# 93 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 93 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
     Sint64 ( * write) (struct SDL_RWops * context, const void *ptr,
                               Sint64 size);
 
@@ -1512,7 +1512,7 @@ typedef struct SDL_RWops
     Uint32 type;
     union
     {
-# 125 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 125 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
         struct
         {
             SDL_bool autoclose;
@@ -1533,65 +1533,65 @@ typedef struct SDL_RWops
     } hidden;
 
 } SDL_RWops;
-# 214 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 214 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) SDL_RWops * SDL_RWFromFile(const char *file,
                                                   const char *mode);
-# 247 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 247 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) SDL_RWops * SDL_RWFromMem(void *mem, int size);
-# 280 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 280 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) SDL_RWops * SDL_RWFromConstMem(const void *mem,
                                                       int size);
-# 309 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 309 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) SDL_RWops * SDL_CreateRW(void);
-# 334 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 334 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroyRW(SDL_RWops * area);
-# 352 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 352 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Sint64 SDL_RWsize(SDL_RWops *context);
-# 389 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 389 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Sint64 SDL_RWseek(SDL_RWops *context,
                                           Sint64 offset, int whence);
-# 416 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 416 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Sint64 SDL_RWtell(SDL_RWops *context);
-# 451 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 451 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Sint64 SDL_RWread(SDL_RWops *context, void *ptr, Sint64 size);
-# 489 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 489 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Sint64 SDL_RWwrite(SDL_RWops *context,
                                            const void *ptr, Sint64 size);
-# 518 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 518 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) int SDL_RWclose(SDL_RWops *context);
-# 536 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 536 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) void * SDL_LoadFile_RW(SDL_RWops *src,
                                               size_t *datasize,
                                               int freesrc);
-# 558 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 558 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) void * SDL_LoadFile(const char *file, size_t *datasize);
-# 578 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 578 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Uint8 SDL_ReadU8(SDL_RWops * src);
-# 594 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 594 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_ReadLE16(SDL_RWops * src);
-# 610 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 610 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_ReadBE16(SDL_RWops * src);
-# 626 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 626 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_ReadLE32(SDL_RWops * src);
-# 642 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 642 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_ReadBE32(SDL_RWops * src);
-# 658 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 658 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Uint64 SDL_ReadLE64(SDL_RWops * src);
-# 674 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 674 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) Uint64 SDL_ReadBE64(SDL_RWops * src);
-# 696 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 696 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) size_t SDL_WriteU8(SDL_RWops * dst, Uint8 value);
-# 714 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 714 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) size_t SDL_WriteLE16(SDL_RWops * dst, Uint16 value);
-# 731 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 731 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) size_t SDL_WriteBE16(SDL_RWops * dst, Uint16 value);
-# 749 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 749 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) size_t SDL_WriteLE32(SDL_RWops * dst, Uint32 value);
-# 766 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 766 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) size_t SDL_WriteBE32(SDL_RWops * dst, Uint32 value);
-# 784 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 784 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) size_t SDL_WriteLE64(SDL_RWops * dst, Uint64 value);
-# 801 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h"
+# 801 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h"
 extern __attribute__ ((visibility("default"))) size_t SDL_WriteBE64(SDL_RWops * dst, Uint64 value);
 
 
@@ -1599,18 +1599,18 @@ extern __attribute__ ((visibility("default"))) size_t SDL_WriteBE64(SDL_RWops * 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 809 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rwops.h" 2
-# 39 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 809 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rwops.h" 2
+# 39 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h" 2
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 41 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h" 2
-# 66 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 41 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h" 2
+# 66 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 typedef Uint16 SDL_AudioFormat;
-# 160 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 160 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 typedef void ( * SDL_AudioCallback) (void *userdata, Uint8 * stream,
                                             int len);
-# 175 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 175 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 typedef struct SDL_AudioSpec
 {
     int freq;
@@ -1623,98 +1623,98 @@ typedef struct SDL_AudioSpec
     SDL_AudioCallback callback;
     void *userdata;
 } SDL_AudioSpec;
-# 218 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 218 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumAudioDrivers(void);
-# 240 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 240 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetAudioDriver(int index);
-# 257 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 257 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetCurrentAudioDriver(void);
 
 
 
 
 typedef Uint32 SDL_AudioDeviceID;
-# 308 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 308 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumAudioDevices(int iscapture);
-# 335 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 335 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetAudioDeviceName(int index,
                                                            int iscapture);
-# 362 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 362 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetAudioDeviceSpec(int index,
                                                    int iscapture,
                                                    SDL_AudioSpec *spec);
-# 398 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 398 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetDefaultAudioInfo(char **name,
                                                     SDL_AudioSpec *spec,
                                                     int iscapture);
-# 505 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 505 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) SDL_AudioDeviceID SDL_OpenAudioDevice(
                                                   const char *device,
                                                   int iscapture,
                                                   const SDL_AudioSpec *desired,
                                                   SDL_AudioSpec *obtained,
                                                   int allowed_changes);
-# 520 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 520 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 typedef enum
 {
     SDL_AUDIO_STOPPED = 0,
     SDL_AUDIO_PLAYING,
     SDL_AUDIO_PAUSED
 } SDL_AudioStatus;
-# 539 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 539 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) SDL_AudioStatus SDL_GetAudioDeviceStatus(SDL_AudioDeviceID dev);
-# 562 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 562 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_PlayAudioDevice(SDL_AudioDeviceID dev);
-# 587 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 587 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_PauseAudioDevice(SDL_AudioDeviceID dev);
-# 671 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 671 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) SDL_AudioSpec * SDL_LoadWAV_RW(SDL_RWops * src,
                                                       int freesrc,
                                                       SDL_AudioSpec * spec,
                                                       Uint8 ** audio_buf,
                                                       Uint32 * audio_len);
-# 693 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 693 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 struct SDL_AudioStream;
 typedef struct SDL_AudioStream SDL_AudioStream;
-# 716 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 716 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) SDL_AudioStream * SDL_CreateAudioStream(SDL_AudioFormat src_format,
                                                             Uint8 src_channels,
                                                             int src_rate,
                                                             SDL_AudioFormat dst_format,
                                                             Uint8 dst_channels,
                                                             int dst_rate);
-# 741 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 741 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_PutAudioStreamData(SDL_AudioStream *stream, const void *buf, int len);
-# 760 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 760 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetAudioStreamData(SDL_AudioStream *stream, void *buf, int len);
-# 781 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 781 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetAudioStreamAvailable(SDL_AudioStream *stream);
-# 804 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 804 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_FlushAudioStream(SDL_AudioStream *stream);
-# 822 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 822 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_ClearAudioStream(SDL_AudioStream *stream);
-# 838 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 838 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroyAudioStream(SDL_AudioStream *stream);
-# 874 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 874 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_MixAudioFormat(Uint8 * dst,
                                                 const Uint8 * src,
                                                 SDL_AudioFormat format,
                                                 Uint32 len, int volume);
-# 925 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 925 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_QueueAudio(SDL_AudioDeviceID dev, const void *data, Uint32 len);
-# 973 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 973 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_DequeueAudio(SDL_AudioDeviceID dev, void *data, Uint32 len);
-# 1007 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 1007 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_GetQueuedAudioSize(SDL_AudioDeviceID dev);
-# 1043 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 1043 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_ClearQueuedAudio(SDL_AudioDeviceID dev);
-# 1095 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 1095 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_LockAudioDevice(SDL_AudioDeviceID dev);
-# 1109 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 1109 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) void SDL_UnlockAudioDevice(SDL_AudioDeviceID dev);
-# 1134 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 1134 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) void SDL_CloseAudioDevice(SDL_AudioDeviceID dev);
-# 1158 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h"
+# 1158 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h"
 extern __attribute__ ((visibility("default"))) int SDL_ConvertAudioSamples(SDL_AudioFormat src_format,
                                                     Uint8 src_channels,
                                                     int src_rate,
@@ -1730,14 +1730,14 @@ extern __attribute__ ((visibility("default"))) int SDL_ConvertAudioSamples(SDL_A
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 1174 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_audio.h" 2
-# 36 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_bits.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_bits.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_bits.h" 2
-# 59 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_bits.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 1174 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_audio.h" 2
+# 36 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_bits.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_bits.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_bits.h" 2
+# 59 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_bits.h"
 __attribute__((always_inline)) static __inline__ int
 SDL_MostSignificantBitIndex32(Uint32 x)
 {
@@ -1749,7 +1749,7 @@ SDL_MostSignificantBitIndex32(Uint32 x)
         return -1;
     }
     return 31 - __builtin_clz(x);
-# 107 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_bits.h"
+# 107 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_bits.h"
 }
 
 __attribute__((always_inline)) static __inline__ SDL_bool
@@ -1765,13 +1765,13 @@ SDL_HasExactlyOneBitSet32(Uint32 x)
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 123 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_bits.h" 2
-# 37 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_blendmode.h" 1
-# 31 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_blendmode.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 32 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_blendmode.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 123 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_bits.h" 2
+# 37 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_blendmode.h" 1
+# 31 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_blendmode.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 32 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_blendmode.h" 2
 
 
 
@@ -1830,7 +1830,7 @@ typedef enum
     SDL_BLENDFACTOR_DST_ALPHA = 0x9,
     SDL_BLENDFACTOR_ONE_MINUS_DST_ALPHA = 0xA
 } SDL_BlendFactor;
-# 183 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_blendmode.h"
+# 183 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_blendmode.h"
 extern __attribute__ ((visibility("default"))) SDL_BlendMode SDL_ComposeCustomBlendMode(SDL_BlendFactor srcColorFactor,
                                                                  SDL_BlendFactor dstColorFactor,
                                                                  SDL_BlendOperation colorOperation,
@@ -1842,24 +1842,24 @@ extern __attribute__ ((visibility("default"))) SDL_BlendMode SDL_ComposeCustomBl
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 195 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_blendmode.h" 2
-# 38 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_clipboard.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_clipboard.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_clipboard.h" 2
-# 53 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_clipboard.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 195 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_blendmode.h" 2
+# 38 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_clipboard.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_clipboard.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_clipboard.h" 2
+# 53 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_clipboard.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetClipboardText(const char *text);
-# 71 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_clipboard.h"
+# 71 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_clipboard.h"
 extern __attribute__ ((visibility("default"))) char * SDL_GetClipboardText(void);
-# 83 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_clipboard.h"
+# 83 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_clipboard.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasClipboardText(void);
-# 97 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_clipboard.h"
+# 97 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_clipboard.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetPrimarySelectionText(const char *text);
-# 116 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_clipboard.h"
+# 116 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_clipboard.h"
 extern __attribute__ ((visibility("default"))) char * SDL_GetPrimarySelectionText(void);
-# 130 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_clipboard.h"
+# 130 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_clipboard.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasPrimarySelectionText(void);
 
 
@@ -1867,68 +1867,68 @@ extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasPrimarySelectionT
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 138 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_clipboard.h" 2
-# 39 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h" 2
-# 55 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 138 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_clipboard.h" 2
+# 39 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h" 2
+# 55 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetCPUCount(void);
-# 67 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 67 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetCPUCacheLineSize(void);
-# 89 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 89 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasAltiVec(void);
-# 110 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 110 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasMMX(void);
-# 131 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 131 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasSSE(void);
-# 152 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 152 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasSSE2(void);
-# 173 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 173 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasSSE3(void);
-# 194 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 194 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasSSE41(void);
-# 215 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 215 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasSSE42(void);
-# 236 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 236 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasAVX(void);
-# 257 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 257 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasAVX2(void);
-# 278 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 278 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasAVX512F(void);
-# 293 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 293 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasARMSIMD(void);
-# 304 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 304 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasNEON(void);
-# 317 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 317 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasLSX(void);
-# 330 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 330 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasLASX(void);
-# 339 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 339 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetSystemRAM(void);
-# 361 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
+# 361 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h"
 extern __attribute__ ((visibility("default"))) size_t SDL_SIMDGetAlignment(void);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 368 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_cpuinfo.h" 2
-# 40 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 368 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_cpuinfo.h" 2
+# 40 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h" 2
-# 50 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h" 2
+# 50 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 struct SDL_Sensor;
 typedef struct SDL_Sensor SDL_Sensor;
 
@@ -1939,7 +1939,7 @@ typedef struct SDL_Sensor SDL_Sensor;
 
 
 typedef Uint32 SDL_SensorID;
-# 68 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 68 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 typedef enum
 {
     SDL_SENSOR_INVALID = -1,
@@ -1951,69 +1951,69 @@ typedef enum
     SDL_SENSOR_ACCEL_R,
     SDL_SENSOR_GYRO_R
 } SDL_SensorType;
-# 140 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 140 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) SDL_SensorID * SDL_GetSensors(int *count);
-# 150 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 150 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetSensorInstanceName(SDL_SensorID instance_id);
-# 161 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 161 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) SDL_SensorType SDL_GetSensorInstanceType(SDL_SensorID instance_id);
-# 172 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 172 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetSensorInstanceNonPortableType(SDL_SensorID instance_id);
-# 182 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 182 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) SDL_Sensor * SDL_OpenSensor(SDL_SensorID instance_id);
-# 192 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 192 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) SDL_Sensor * SDL_GetSensorFromInstanceID(SDL_SensorID instance_id);
-# 202 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 202 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetSensorName(SDL_Sensor *sensor);
-# 213 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 213 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) SDL_SensorType SDL_GetSensorType(SDL_Sensor *sensor);
-# 223 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 223 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetSensorNonPortableType(SDL_Sensor *sensor);
-# 233 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 233 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) SDL_SensorID SDL_GetSensorInstanceID(SDL_Sensor *sensor);
-# 248 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 248 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetSensorData(SDL_Sensor *sensor, float *data, int num_values);
-# 257 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 257 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) void SDL_CloseSensor(SDL_Sensor *sensor);
-# 270 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 270 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
 extern __attribute__ ((visibility("default"))) void SDL_UpdateSensors(void);
-# 279 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 280 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_sensor.h" 2
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h" 1
-# 43 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_guid.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_guid.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_guid.h" 2
-# 55 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_guid.h"
+# 279 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 280 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_sensor.h" 2
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h" 1
+# 43 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_guid.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_guid.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_guid.h" 2
+# 55 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_guid.h"
 typedef struct {
     Uint8 data[16];
 } SDL_GUID;
-# 76 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_guid.h"
+# 76 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_guid.h"
 extern __attribute__ ((visibility("default"))) int SDL_GUIDToString(SDL_GUID guid, char *pszGUID, int cbGUID);
-# 92 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_guid.h"
+# 92 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_guid.h"
 extern __attribute__ ((visibility("default"))) SDL_GUID SDL_GUIDFromString(const char *pchGUID);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 99 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_guid.h" 2
-# 44 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 99 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_guid.h" 2
+# 44 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h" 2
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 47 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h" 2
-# 70 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 47 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h" 2
+# 70 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 struct SDL_Joystick;
 typedef struct SDL_Joystick SDL_Joystick;
 
 
 typedef SDL_GUID SDL_JoystickGUID;
-# 83 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 83 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 typedef Uint32 SDL_JoystickID;
 
 typedef enum
@@ -2040,7 +2040,7 @@ typedef enum
     SDL_JOYSTICK_POWER_WIRED,
     SDL_JOYSTICK_POWER_MAX
 } SDL_JoystickPowerLevel;
-# 130 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 130 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) void SDL_LockJoysticks(void) ;
 
 
@@ -2049,36 +2049,36 @@ extern __attribute__ ((visibility("default"))) void SDL_LockJoysticks(void) ;
 
 
 extern __attribute__ ((visibility("default"))) void SDL_UnlockJoysticks(void) ;
-# 151 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 151 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickID * SDL_GetJoysticks(int *count);
-# 167 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 167 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetJoystickInstanceName(SDL_JoystickID instance_id);
-# 183 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 183 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetJoystickInstancePath(SDL_JoystickID instance_id);
-# 198 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 198 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetJoystickInstancePlayerIndex(SDL_JoystickID instance_id);
-# 214 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 214 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickGUID SDL_GetJoystickInstanceGUID(SDL_JoystickID instance_id);
-# 228 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 228 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetJoystickInstanceVendor(SDL_JoystickID instance_id);
-# 242 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 242 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetJoystickInstanceProduct(SDL_JoystickID instance_id);
-# 256 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 256 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetJoystickInstanceProductVersion(SDL_JoystickID instance_id);
-# 269 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 269 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickType SDL_GetJoystickInstanceType(SDL_JoystickID instance_id);
-# 285 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 285 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_Joystick * SDL_OpenJoystick(SDL_JoystickID instance_id);
-# 296 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 296 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_Joystick * SDL_GetJoystickFromInstanceID(SDL_JoystickID instance_id);
-# 307 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 307 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_Joystick * SDL_GetJoystickFromPlayerIndex(int player_index);
-# 321 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 321 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickID SDL_AttachVirtualJoystick(SDL_JoystickType type,
                                                       int naxes,
                                                       int nbuttons,
                                                       int nhats);
-# 334 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 334 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 typedef struct SDL_VirtualJoystickDesc
 {
     Uint16 version;
@@ -2104,104 +2104,104 @@ typedef struct SDL_VirtualJoystickDesc
     int ( *SendEffect)(void *userdata, const void *data, int size);
 
 } SDL_VirtualJoystickDesc;
-# 374 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 374 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickID SDL_AttachVirtualJoystickEx(const SDL_VirtualJoystickDesc *desc);
-# 386 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 386 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_DetachVirtualJoystick(SDL_JoystickID instance_id);
-# 396 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 396 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_IsJoystickVirtual(SDL_JoystickID instance_id);
-# 419 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 419 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetJoystickVirtualAxis(SDL_Joystick *joystick, int axis, Sint16 value);
-# 438 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 438 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetJoystickVirtualButton(SDL_Joystick *joystick, int button, Uint8 value);
-# 457 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 457 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetJoystickVirtualHat(SDL_Joystick *joystick, int hat, Uint8 value);
-# 471 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 471 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetJoystickName(SDL_Joystick *joystick);
-# 484 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 484 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetJoystickPath(SDL_Joystick *joystick);
-# 497 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 497 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetJoystickPlayerIndex(SDL_Joystick *joystick);
-# 510 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 510 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetJoystickPlayerIndex(SDL_Joystick *joystick, int player_index);
-# 527 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 527 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickGUID SDL_GetJoystickGUID(SDL_Joystick *joystick);
-# 539 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 539 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetJoystickVendor(SDL_Joystick *joystick);
-# 551 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 551 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetJoystickProduct(SDL_Joystick *joystick);
-# 563 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 563 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetJoystickProductVersion(SDL_Joystick *joystick);
-# 576 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 576 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetJoystickFirmwareVersion(SDL_Joystick *joystick);
-# 589 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 589 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetJoystickSerial(SDL_Joystick *joystick);
-# 599 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 599 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickType SDL_GetJoystickType(SDL_Joystick *joystick);
-# 618 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 618 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetJoystickGUIDString(SDL_JoystickGUID guid, char *pszGUID, int cbGUID);
-# 634 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 634 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickGUID SDL_GetJoystickGUIDFromString(const char *pchGUID);
-# 653 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 653 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) void SDL_GetJoystickGUIDInfo(SDL_JoystickGUID guid, Uint16 *vendor, Uint16 *product, Uint16 *version, Uint16 *crc16);
-# 667 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 667 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_JoystickConnected(SDL_Joystick *joystick);
-# 680 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 680 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickID SDL_GetJoystickInstanceID(SDL_Joystick *joystick);
-# 699 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 699 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumJoystickAxes(SDL_Joystick *joystick);
-# 713 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 713 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumJoystickHats(SDL_Joystick *joystick);
-# 727 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 727 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumJoystickButtons(SDL_Joystick *joystick);
-# 742 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 742 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) void SDL_SetJoystickEventsEnabled(SDL_bool enabled);
-# 758 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 758 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_JoystickEventsEnabled(void);
-# 768 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 768 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) void SDL_UpdateJoysticks(void);
-# 792 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 792 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) Sint16 SDL_GetJoystickAxis(SDL_Joystick *joystick,
                                                    int axis);
-# 809 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 809 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetJoystickAxisInitialState(SDL_Joystick *joystick,
                                                    int axis, Sint16 *state);
-# 850 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 850 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) Uint8 SDL_GetJoystickHat(SDL_Joystick *joystick,
                                                  int hat);
-# 865 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 865 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) Uint8 SDL_GetJoystickButton(SDL_Joystick *joystick,
                                                     int button);
-# 886 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 886 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_RumbleJoystick(SDL_Joystick *joystick, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms);
-# 912 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 912 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_RumbleJoystickTriggers(SDL_Joystick *joystick, Uint16 left_rumble, Uint16 right_rumble, Uint32 duration_ms);
-# 926 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 926 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_JoystickHasLED(SDL_Joystick *joystick);
-# 938 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 938 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_JoystickHasRumble(SDL_Joystick *joystick);
-# 950 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 950 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_JoystickHasRumbleTriggers(SDL_Joystick *joystick);
-# 967 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 967 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetJoystickLED(SDL_Joystick *joystick, Uint8 red, Uint8 green, Uint8 blue);
-# 980 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 980 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) int SDL_SendJoystickEffect(SDL_Joystick *joystick, const void *data, int size);
-# 991 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 991 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) void SDL_CloseJoystick(SDL_Joystick *joystick);
-# 1002 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h"
+# 1002 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickPowerLevel SDL_GetJoystickPowerLevel(SDL_Joystick *joystick);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 1009 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_joystick.h" 2
-# 36 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 1009 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_joystick.h" 2
+# 36 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h" 2
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 38 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h" 2
-# 58 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 38 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h" 2
+# 58 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 struct SDL_Gamepad;
 typedef struct SDL_Gamepad SDL_Gamepad;
 
@@ -2252,7 +2252,7 @@ typedef enum
     SDL_GAMEPAD_BUTTON_TOUCHPAD,
     SDL_GAMEPAD_BUTTON_MAX
 } SDL_GamepadButton;
-# 118 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 118 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 typedef enum
 {
     SDL_GAMEPAD_AXIS_INVALID = -1,
@@ -2290,131 +2290,131 @@ typedef struct SDL_GamepadBinding
     } value;
 
 } SDL_GamepadBinding;
-# 188 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 188 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_AddGamepadMapping(const char *mappingString);
-# 218 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 218 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_AddGamepadMappingsFromRW(SDL_RWops *rw, int freerw);
-# 234 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 234 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumGamepadMappings(void);
-# 245 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 245 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) char * SDL_GetGamepadMappingForIndex(int mapping_index);
-# 261 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 261 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) char * SDL_GetGamepadMappingForGUID(SDL_JoystickGUID guid);
-# 279 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 279 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) char * SDL_GetGamepadMapping(SDL_Gamepad *gamepad);
-# 293 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 293 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickID * SDL_GetGamepads(int *count);
-# 307 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 307 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_IsGamepad(SDL_JoystickID instance_id);
-# 323 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 323 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetGamepadInstanceName(SDL_JoystickID instance_id);
-# 339 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 339 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetGamepadInstancePath(SDL_JoystickID instance_id);
-# 354 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 354 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetGamepadInstancePlayerIndex(SDL_JoystickID instance_id);
-# 370 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 370 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_JoystickGUID SDL_GetGamepadInstanceGUID(SDL_JoystickID instance_id);
-# 384 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 384 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetGamepadInstanceVendor(SDL_JoystickID instance_id);
-# 398 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 398 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetGamepadInstanceProduct(SDL_JoystickID instance_id);
-# 412 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 412 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetGamepadInstanceProductVersion(SDL_JoystickID instance_id);
-# 424 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 424 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_GamepadType SDL_GetGamepadInstanceType(SDL_JoystickID instance_id);
-# 437 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 437 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) char * SDL_GetGamepadInstanceMapping(SDL_JoystickID instance_id);
-# 452 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 452 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_Gamepad * SDL_OpenGamepad(SDL_JoystickID instance_id);
-# 464 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 464 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_Gamepad * SDL_GetGamepadFromInstanceID(SDL_JoystickID instance_id);
-# 477 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 477 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_Gamepad * SDL_GetGamepadFromPlayerIndex(int player_index);
-# 495 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 495 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetGamepadName(SDL_Gamepad *gamepad);
-# 512 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 512 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetGamepadPath(SDL_Gamepad *gamepad);
-# 525 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 525 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_GamepadType SDL_GetGamepadType(SDL_Gamepad *gamepad);
-# 537 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 537 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetGamepadPlayerIndex(SDL_Gamepad *gamepad);
-# 550 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 550 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetGamepadPlayerIndex(SDL_Gamepad *gamepad, int player_index);
-# 562 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 562 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetGamepadVendor(SDL_Gamepad *gamepad);
-# 574 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 574 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetGamepadProduct(SDL_Gamepad *gamepad);
-# 586 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 586 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetGamepadProductVersion(SDL_Gamepad *gamepad);
-# 598 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 598 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) Uint16 SDL_GetGamepadFirmwareVersion(SDL_Gamepad *gamepad);
-# 610 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 610 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetGamepadSerial(SDL_Gamepad *gamepad);
-# 625 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 625 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GamepadConnected(SDL_Gamepad *gamepad);
-# 644 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 644 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_Joystick * SDL_GetGamepadJoystick(SDL_Gamepad *gamepad);
-# 658 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 658 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) void SDL_SetGamepadEventsEnabled(SDL_bool enabled);
-# 673 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 673 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GamepadEventsEnabled(void);
-# 684 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 684 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) void SDL_UpdateGamepads(void);
-# 707 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 707 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_GamepadAxis SDL_GetGamepadAxisFromString(const char *str);
-# 723 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 723 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) const char* SDL_GetGamepadStringForAxis(SDL_GamepadAxis axis);
-# 738 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 738 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_GamepadBinding SDL_GetGamepadBindForAxis(SDL_Gamepad *gamepad, SDL_GamepadAxis axis);
-# 752 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 752 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GamepadHasAxis(SDL_Gamepad *gamepad, SDL_GamepadAxis axis);
-# 771 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 771 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) Sint16 SDL_GetGamepadAxis(SDL_Gamepad *gamepad, SDL_GamepadAxis axis);
-# 787 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 787 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_GamepadButton SDL_GetGamepadButtonFromString(const char *str);
-# 803 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 803 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) const char* SDL_GetGamepadStringForButton(SDL_GamepadButton button);
-# 818 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 818 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_GamepadBinding SDL_GetGamepadBindForButton(SDL_Gamepad *gamepad, SDL_GamepadButton button);
-# 832 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 832 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GamepadHasButton(SDL_Gamepad *gamepad, SDL_GamepadButton button);
-# 846 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 846 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) Uint8 SDL_GetGamepadButton(SDL_Gamepad *gamepad, SDL_GamepadButton button);
-# 856 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 856 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumGamepadTouchpads(SDL_Gamepad *gamepad);
-# 868 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 868 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumGamepadTouchpadFingers(SDL_Gamepad *gamepad, int touchpad);
-# 885 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 885 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetGamepadTouchpadFinger(SDL_Gamepad *gamepad, int touchpad, int finger, Uint8 *state, float *x, float *y, float *pressure);
-# 896 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 896 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GamepadHasSensor(SDL_Gamepad *gamepad, SDL_SensorType type);
-# 909 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 909 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetGamepadSensorEnabled(SDL_Gamepad *gamepad, SDL_SensorType type, SDL_bool enabled);
-# 920 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 920 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GamepadSensorEnabled(SDL_Gamepad *gamepad, SDL_SensorType type);
-# 931 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 931 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) float SDL_GetGamepadSensorDataRate(SDL_Gamepad *gamepad, SDL_SensorType type);
-# 948 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 948 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetGamepadSensorData(SDL_Gamepad *gamepad, SDL_SensorType type, float *data, int num_values);
-# 968 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 968 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_RumbleGamepad(SDL_Gamepad *gamepad, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms);
-# 993 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 993 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_RumbleGamepadTriggers(SDL_Gamepad *gamepad, Uint16 left_rumble, Uint16 right_rumble, Uint32 duration_ms);
-# 1004 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 1004 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GamepadHasLED(SDL_Gamepad *gamepad);
-# 1017 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 1017 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GamepadHasRumble(SDL_Gamepad *gamepad);
-# 1030 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 1030 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GamepadHasRumbleTriggers(SDL_Gamepad *gamepad);
-# 1044 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 1044 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetGamepadLED(SDL_Gamepad *gamepad, Uint8 red, Uint8 green, Uint8 blue);
-# 1057 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 1057 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) int SDL_SendGamepadEffect(SDL_Gamepad *gamepad, const void *data, int size);
-# 1069 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 1069 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) void SDL_CloseGamepad(SDL_Gamepad *gamepad);
-# 1083 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 1083 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) const char* SDL_GetGamepadAppleSFSymbolsNameForButton(SDL_Gamepad *gamepad, SDL_GamepadButton button);
-# 1096 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h"
+# 1096 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h"
 extern __attribute__ ((visibility("default"))) const char* SDL_GetGamepadAppleSFSymbolsNameForAxis(SDL_Gamepad *gamepad, SDL_GamepadAxis axis);
 
 
@@ -2422,20 +2422,20 @@ extern __attribute__ ((visibility("default"))) const char* SDL_GetGamepadAppleSF
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 1104 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_gamepad.h" 2
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 1104 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_gamepad.h" 2
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h" 2
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keycode.h" 1
-# 32 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keycode.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_scancode.h" 1
-# 43 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_scancode.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keycode.h" 1
+# 32 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keycode.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_scancode.h" 1
+# 43 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_scancode.h"
 typedef enum
 {
     SDL_SCANCODE_UNKNOWN = 0,
-# 54 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_scancode.h"
+# 54 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_scancode.h"
     SDL_SCANCODE_A = 4,
     SDL_SCANCODE_B = 5,
     SDL_SCANCODE_C = 6,
@@ -2485,13 +2485,13 @@ typedef enum
     SDL_SCANCODE_LEFTBRACKET = 47,
     SDL_SCANCODE_RIGHTBRACKET = 48,
     SDL_SCANCODE_BACKSLASH = 49,
-# 116 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_scancode.h"
+# 116 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_scancode.h"
     SDL_SCANCODE_NONUSHASH = 50,
-# 128 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_scancode.h"
+# 128 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_scancode.h"
     SDL_SCANCODE_SEMICOLON = 51,
     SDL_SCANCODE_APOSTROPHE = 52,
     SDL_SCANCODE_GRAVE = 53,
-# 147 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_scancode.h"
+# 147 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_scancode.h"
     SDL_SCANCODE_COMMA = 54,
     SDL_SCANCODE_PERIOD = 55,
     SDL_SCANCODE_SLASH = 56,
@@ -2546,7 +2546,7 @@ typedef enum
     SDL_SCANCODE_KP_PERIOD = 99,
 
     SDL_SCANCODE_NONUSBACKSLASH = 100,
-# 210 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_scancode.h"
+# 210 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_scancode.h"
     SDL_SCANCODE_APPLICATION = 101,
     SDL_SCANCODE_POWER = 102,
 
@@ -2675,7 +2675,7 @@ typedef enum
     SDL_SCANCODE_RGUI = 231,
 
     SDL_SCANCODE_MODE = 257,
-# 356 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_scancode.h"
+# 356 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_scancode.h"
     SDL_SCANCODE_AUDIONEXT = 258,
     SDL_SCANCODE_AUDIOPREV = 259,
     SDL_SCANCODE_AUDIOSTOP = 260,
@@ -2693,7 +2693,7 @@ typedef enum
     SDL_SCANCODE_AC_STOP = 272,
     SDL_SCANCODE_AC_REFRESH = 273,
     SDL_SCANCODE_AC_BOOKMARKS = 274,
-# 383 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_scancode.h"
+# 383 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_scancode.h"
     SDL_SCANCODE_BRIGHTNESSDOWN = 275,
     SDL_SCANCODE_BRIGHTNESSUP = 276,
     SDL_SCANCODE_DISPLAYSWITCH = 277,
@@ -2706,10 +2706,10 @@ typedef enum
 
     SDL_SCANCODE_APP1 = 283,
     SDL_SCANCODE_APP2 = 284,
-# 405 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_scancode.h"
+# 405 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_scancode.h"
     SDL_SCANCODE_AUDIOREWIND = 285,
     SDL_SCANCODE_AUDIOFASTFORWARD = 286,
-# 417 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_scancode.h"
+# 417 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_scancode.h"
     SDL_SCANCODE_SOFTLEFT = 287,
 
 
@@ -2728,8 +2728,8 @@ typedef enum
     SDL_NUM_SCANCODES = 512
 
 } SDL_Scancode;
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keycode.h" 2
-# 45 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keycode.h"
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keycode.h" 2
+# 45 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keycode.h"
 typedef Sint32 SDL_Keycode;
 
 
@@ -3040,14 +3040,14 @@ typedef enum
 
     SDL_KMOD_RESERVED = SDL_KMOD_SCROLL
 } SDL_Keymod;
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h" 1
-# 32 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h" 2
-# 51 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h" 1
+# 32 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h" 2
+# 51 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 typedef enum
 {
     SDL_PIXELTYPE_UNKNOWN,
@@ -3107,7 +3107,7 @@ typedef enum
     SDL_PACKEDLAYOUT_2101010,
     SDL_PACKEDLAYOUT_1010102
 } SDL_PackedLayout;
-# 160 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 160 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 typedef enum
 {
     SDL_PIXELFORMAT_UNKNOWN,
@@ -3208,7 +3208,7 @@ typedef enum
 
     SDL_PIXELFORMAT_ARGB2101010 =
         ((1 << 28) | ((SDL_PIXELTYPE_PACKED32) << 24) | ((SDL_PACKEDORDER_ARGB) << 20) | ((SDL_PACKEDLAYOUT_2101010) << 16) | ((32) << 8) | ((4) << 0)),
-# 269 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 269 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
     SDL_PIXELFORMAT_RGBA32 = SDL_PIXELFORMAT_ABGR8888,
     SDL_PIXELFORMAT_ARGB32 = SDL_PIXELFORMAT_BGRA8888,
     SDL_PIXELFORMAT_BGRA32 = SDL_PIXELFORMAT_ARGB8888,
@@ -3280,48 +3280,48 @@ typedef struct SDL_PixelFormat
     int refcount;
     struct SDL_PixelFormat *next;
 } SDL_PixelFormat;
-# 350 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 350 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) const char* SDL_GetPixelFormatName(Uint32 format);
-# 368 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 368 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetMasksForPixelFormatEnum(Uint32 format,
                                                             int *bpp,
                                                             Uint32 * Rmask,
                                                             Uint32 * Gmask,
                                                             Uint32 * Bmask,
                                                             Uint32 * Amask);
-# 392 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 392 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_GetPixelFormatEnumForMasks(int bpp,
                                                           Uint32 Rmask,
                                                           Uint32 Gmask,
                                                           Uint32 Bmask,
                                                           Uint32 Amask);
-# 413 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 413 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) SDL_PixelFormat * SDL_CreatePixelFormat(Uint32 pixel_format);
-# 424 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 424 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroyPixelFormat(SDL_PixelFormat *format);
-# 440 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 440 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) SDL_Palette * SDL_CreatePalette(int ncolors);
-# 455 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 455 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetPixelFormatPalette(SDL_PixelFormat * format,
                                                       SDL_Palette *palette);
-# 473 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 473 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetPaletteColors(SDL_Palette * palette,
                                                  const SDL_Color * colors,
                                                  int firstcolor, int ncolors);
-# 486 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 486 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroyPalette(SDL_Palette * palette);
-# 518 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 518 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_MapRGB(const SDL_PixelFormat * format,
                                           Uint8 r, Uint8 g, Uint8 b);
-# 553 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 553 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_MapRGBA(const SDL_PixelFormat * format,
                                            Uint8 r, Uint8 g, Uint8 b,
                                            Uint8 a);
-# 578 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 578 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) void SDL_GetRGB(Uint32 pixel,
                                         const SDL_PixelFormat * format,
                                         Uint8 * r, Uint8 * g, Uint8 * b);
-# 607 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h"
+# 607 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h"
 extern __attribute__ ((visibility("default"))) void SDL_GetRGBA(Uint32 pixel,
                                          const SDL_PixelFormat * format,
                                          Uint8 * r, Uint8 * g, Uint8 * b,
@@ -3332,14 +3332,14 @@ extern __attribute__ ((visibility("default"))) void SDL_GetRGBA(Uint32 pixel,
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 618 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_pixels.h" 2
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h" 1
-# 36 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 37 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h" 2
-# 48 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 618 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_pixels.h" 2
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h" 1
+# 36 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 37 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h" 2
+# 48 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 typedef struct SDL_Point
 {
     int x;
@@ -3357,13 +3357,13 @@ typedef struct SDL_FPoint
     float x;
     float y;
 } SDL_FPoint;
-# 78 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 78 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 typedef struct SDL_Rect
 {
     int x, y;
     int w, h;
 } SDL_Rect;
-# 98 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 98 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 typedef struct SDL_FRect
 {
     float x;
@@ -3398,23 +3398,23 @@ __attribute__((always_inline)) static __inline__ SDL_bool SDL_RectsEqual(const S
     return (a && b && (a->x == b->x) && (a->y == b->y) &&
             (a->w == b->w) && (a->h == b->h)) ? SDL_TRUE : SDL_FALSE;
 }
-# 146 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 146 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasRectIntersection(const SDL_Rect * A,
                                                      const SDL_Rect * B);
-# 164 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 164 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetRectIntersection(const SDL_Rect * A,
                                                    const SDL_Rect * B,
                                                    SDL_Rect * result);
-# 180 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 180 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRectUnion(const SDL_Rect * A,
                                            const SDL_Rect * B,
                                            SDL_Rect * result);
-# 201 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 201 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetRectEnclosingPoints(const SDL_Point * points,
                                                    int count,
                                                    const SDL_Rect * clip,
                                                    SDL_Rect * result);
-# 224 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 224 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetRectAndLineIntersection(const SDL_Rect *
                                                           rect, int *X1,
                                                           int *Y1, int *X2,
@@ -3466,23 +3466,23 @@ __attribute__((always_inline)) static __inline__ SDL_bool SDL_RectsEqualFloat(co
 {
     return SDL_RectsEqualEpsilon(a, b, 1.1920928955078125e-07F);
 }
-# 289 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 289 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasRectIntersectionFloat(const SDL_FRect * A,
                                                       const SDL_FRect * B);
-# 307 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 307 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetRectIntersectionFloat(const SDL_FRect * A,
                                                     const SDL_FRect * B,
                                                     SDL_FRect * result);
-# 323 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 323 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRectUnionFloat(const SDL_FRect * A,
                                             const SDL_FRect * B,
                                             SDL_FRect * result);
-# 345 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 345 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetRectEnclosingPointsFloat(const SDL_FPoint * points,
                                                     int count,
                                                     const SDL_FRect * clip,
                                                     SDL_FRect * result);
-# 369 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h"
+# 369 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetRectAndLineIntersectionFloat(const SDL_FRect *
                                                            rect, float *X1,
                                                            float *Y1, float *X2,
@@ -3492,14 +3492,14 @@ extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetRectAndLineInters
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 379 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_rect.h" 2
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h" 1
-# 37 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 38 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h" 2
-# 64 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 379 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_rect.h" 2
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h" 1
+# 37 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 38 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h" 2
+# 64 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 typedef struct SDL_BlitMap SDL_BlitMap;
 
 
@@ -3551,134 +3551,134 @@ typedef enum
     SDL_YUV_CONVERSION_BT709,
     SDL_YUV_CONVERSION_AUTOMATIC
 } SDL_YUV_CONVERSION_MODE;
-# 130 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 130 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) SDL_Surface * SDL_CreateSurface
     (int width, int height, Uint32 format);
-# 156 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 156 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) SDL_Surface * SDL_CreateSurfaceFrom
     (void *pixels, int width, int height, int pitch, Uint32 format);
-# 173 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 173 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroySurface(SDL_Surface *surface);
-# 187 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 187 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetSurfacePalette(SDL_Surface *surface,
                                                   SDL_Palette *palette);
-# 211 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 211 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_LockSurface(SDL_Surface *surface);
-# 222 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 222 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) void SDL_UnlockSurface(SDL_Surface *surface);
-# 246 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 246 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) SDL_Surface * SDL_LoadBMP_RW(SDL_RWops *src,
                                                     int freesrc);
-# 276 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 276 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_SaveBMP_RW
     (SDL_Surface *surface, SDL_RWops *dst, int freedst);
-# 304 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 304 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetSurfaceRLE(SDL_Surface *surface,
                                               int flag);
-# 319 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 319 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_SurfaceHasRLE(SDL_Surface *surface);
-# 345 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 345 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetSurfaceColorKey(SDL_Surface *surface,
                                             int flag, Uint32 key);
-# 361 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 361 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_SurfaceHasColorKey(SDL_Surface *surface);
-# 381 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 381 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetSurfaceColorKey(SDL_Surface *surface,
                                             Uint32 *key);
-# 405 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 405 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetSurfaceColorMod(SDL_Surface *surface,
                                                    Uint8 r, Uint8 g, Uint8 b);
-# 424 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 424 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetSurfaceColorMod(SDL_Surface *surface,
                                                    Uint8 *r, Uint8 *g,
                                                    Uint8 *b);
-# 446 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 446 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetSurfaceAlphaMod(SDL_Surface *surface,
                                                    Uint8 alpha);
-# 462 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 462 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetSurfaceAlphaMod(SDL_Surface *surface,
                                                    Uint8 *alpha);
-# 481 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 481 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetSurfaceBlendMode(SDL_Surface *surface,
                                                     SDL_BlendMode blendMode);
-# 496 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 496 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetSurfaceBlendMode(SDL_Surface *surface,
                                                     SDL_BlendMode *blendMode);
-# 519 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 519 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_SetSurfaceClipRect(SDL_Surface *surface,
                                                  const SDL_Rect *rect);
-# 540 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 540 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetSurfaceClipRect(SDL_Surface *surface,
                                              SDL_Rect *rect);
-# 554 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 554 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) SDL_Surface * SDL_DuplicateSurface(SDL_Surface *surface);
-# 576 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 576 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) SDL_Surface * SDL_ConvertSurface(SDL_Surface *surface,
                                                         const SDL_PixelFormat *format);
-# 599 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 599 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) SDL_Surface * SDL_ConvertSurfaceFormat(SDL_Surface *surface,
                                                               Uint32 pixel_format);
-# 618 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 618 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_ConvertPixels(int width, int height,
                                               Uint32 src_format,
                                               const void *src, int src_pitch,
                                               Uint32 dst_format,
                                               void *dst, int dst_pitch);
-# 644 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 644 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_PremultiplyAlpha(int width, int height,
                                                  Uint32 src_format,
                                                  const void *src, int src_pitch,
                                                  Uint32 dst_format,
                                                  void *dst, int dst_pitch);
-# 673 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 673 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_FillSurfaceRect
     (SDL_Surface *dst, const SDL_Rect *rect, Uint32 color);
-# 699 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 699 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_FillSurfaceRects
     (SDL_Surface *dst, const SDL_Rect *rects, int count, Uint32 color);
-# 768 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 768 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_BlitSurface
     (SDL_Surface *src, const SDL_Rect *srcrect,
      SDL_Surface *dst, SDL_Rect *dstrect);
-# 791 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 791 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_BlitSurfaceUnchecked
     (SDL_Surface *src, SDL_Rect *srcrect,
      SDL_Surface *dst, SDL_Rect *dstrect);
-# 813 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 813 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_SoftStretch(SDL_Surface *src,
                                             const SDL_Rect *srcrect,
                                             SDL_Surface *dst,
                                             const SDL_Rect *dstrect);
-# 832 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 832 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_SoftStretchLinear(SDL_Surface *src,
                                             const SDL_Rect *srcrect,
                                             SDL_Surface *dst,
                                             const SDL_Rect *dstrect);
-# 854 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 854 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_BlitSurfaceScaled
     (SDL_Surface *src, const SDL_Rect *srcrect,
     SDL_Surface *dst, SDL_Rect *dstrect);
-# 877 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 877 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) int SDL_BlitSurfaceUncheckedScaled
     (SDL_Surface *src, SDL_Rect *srcrect,
     SDL_Surface *dst, SDL_Rect *dstrect);
-# 888 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 888 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) void SDL_SetYUVConversionMode(SDL_YUV_CONVERSION_MODE mode);
-# 897 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 897 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) SDL_YUV_CONVERSION_MODE SDL_GetYUVConversionMode(void);
-# 909 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h"
+# 909 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h"
 extern __attribute__ ((visibility("default"))) SDL_YUV_CONVERSION_MODE SDL_GetYUVConversionModeForResolution(int width, int height);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 916 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_surface.h" 2
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 916 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_surface.h" 2
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h" 2
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 37 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 37 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h" 2
 
 
 
@@ -3697,7 +3697,7 @@ typedef enum
     SDL_SYSTEM_THEME_LIGHT,
     SDL_SYSTEM_THEME_DARK,
 } SDL_SystemTheme;
-# 65 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 65 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 typedef struct
 {
     SDL_DisplayID displayID;
@@ -3722,7 +3722,7 @@ typedef enum
     SDL_ORIENTATION_PORTRAIT,
     SDL_ORIENTATION_PORTRAIT_FLIPPED
 } SDL_DisplayOrientation;
-# 123 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 123 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 typedef struct SDL_Window SDL_Window;
 
 
@@ -3758,7 +3758,7 @@ typedef enum
     SDL_WINDOW_TRANSPARENT = 0x40000000,
 
 } SDL_WindowFlags;
-# 180 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 180 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 typedef enum
 {
     SDL_FLASH_CANCEL,
@@ -3847,143 +3847,143 @@ typedef enum
     SDL_GL_CONTEXT_RESET_NO_NOTIFICATION = 0x0000,
     SDL_GL_CONTEXT_RESET_LOSE_CONTEXT = 0x0001
 } SDL_GLContextResetNotification;
-# 281 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 281 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumVideoDrivers(void);
-# 296 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 296 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetVideoDriver(int index);
-# 309 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 309 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetCurrentVideoDriver(void);
-# 318 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 318 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_SystemTheme SDL_GetSystemTheme(void);
-# 330 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 330 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_DisplayID * SDL_GetDisplays(int *count);
-# 342 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 342 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_DisplayID SDL_GetPrimaryDisplay(void);
-# 355 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 355 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetDisplayName(SDL_DisplayID displayID);
-# 372 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 372 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetDisplayBounds(SDL_DisplayID displayID, SDL_Rect *rect);
-# 396 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 396 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetDisplayUsableBounds(SDL_DisplayID displayID, SDL_Rect *rect);
-# 409 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 409 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_DisplayOrientation SDL_GetDisplayOrientation(SDL_DisplayID displayID);
-# 434 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 434 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) const SDL_DisplayMode ** SDL_GetFullscreenDisplayModes(SDL_DisplayID displayID, int *count);
-# 460 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 460 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) const SDL_DisplayMode * SDL_GetClosestFullscreenDisplayMode(SDL_DisplayID displayID, int w, int h, float refresh_rate);
-# 479 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 479 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) const SDL_DisplayMode * SDL_GetDesktopDisplayMode(SDL_DisplayID displayID);
-# 498 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 498 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) const SDL_DisplayMode * SDL_GetCurrentDisplayMode(SDL_DisplayID displayID);
-# 512 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 512 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_DisplayID SDL_GetDisplayForPoint(const SDL_Point *point);
-# 527 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 527 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_DisplayID SDL_GetDisplayForRect(const SDL_Rect *rect);
-# 542 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 542 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_DisplayID SDL_GetDisplayForWindow(SDL_Window *window);
-# 563 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 563 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowFullscreenMode(SDL_Window *window, const SDL_DisplayMode *mode);
-# 576 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 576 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) const SDL_DisplayMode * SDL_GetWindowFullscreenMode(SDL_Window *window);
-# 590 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 590 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) void * SDL_GetWindowICCProfile(SDL_Window *window, size_t *size);
-# 602 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 602 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_GetWindowPixelFormat(SDL_Window *window);
-# 666 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 666 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_Window * SDL_CreateWindow(const char *title, int w, int h, Uint32 flags);
-# 717 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 717 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_Window * SDL_CreatePopupWindow(SDL_Window *parent, int offset_x, int offset_y, int w, int h, Uint32 flags);
-# 736 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 736 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_Window * SDL_CreateWindowFrom(const void *data);
-# 752 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 752 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_WindowID SDL_GetWindowID(SDL_Window *window);
-# 768 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 768 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_Window * SDL_GetWindowFromID(SDL_WindowID id);
-# 781 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 781 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_Window * SDL_GetWindowParent(SDL_Window *window);
-# 799 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 799 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_GetWindowFlags(SDL_Window *window);
-# 815 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 815 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowTitle(SDL_Window *window, const char *title);
-# 828 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 828 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetWindowTitle(SDL_Window *window);
-# 840 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 840 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowIcon(SDL_Window *window, SDL_Surface *icon);
-# 856 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 856 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) void * SDL_SetWindowData(SDL_Window *window, const char *name, void *userdata);
-# 869 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 869 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) void * SDL_GetWindowData(SDL_Window *window, const char *name);
-# 886 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 886 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowPosition(SDL_Window *window, int x, int y);
-# 904 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 904 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetWindowPosition(SDL_Window *window, int *x, int *y);
-# 926 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 926 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowSize(SDL_Window *window, int w, int h);
-# 951 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 951 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetWindowSize(SDL_Window *window, int *w, int *h);
-# 986 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 986 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetWindowBordersSize(SDL_Window *window, int *top, int *left, int *bottom, int *right);
-# 1006 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1006 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetWindowSizeInPixels(SDL_Window *window, int *w, int *h);
-# 1022 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1022 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowMinimumSize(SDL_Window *window, int min_w, int min_h);
-# 1040 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1040 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetWindowMinimumSize(SDL_Window *window, int *w, int *h);
-# 1056 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1056 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowMaximumSize(SDL_Window *window, int max_w, int max_h);
-# 1074 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1074 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetWindowMaximumSize(SDL_Window *window, int *w, int *h);
-# 1094 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1094 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowBordered(SDL_Window *window, SDL_bool bordered);
-# 1114 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1114 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowResizable(SDL_Window *window, SDL_bool resizable);
-# 1132 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1132 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowAlwaysOnTop(SDL_Window *window, SDL_bool on_top);
-# 1146 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1146 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_ShowWindow(SDL_Window *window);
-# 1159 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1159 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_HideWindow(SDL_Window *window);
-# 1170 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1170 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_RaiseWindow(SDL_Window *window);
-# 1184 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1184 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_MaximizeWindow(SDL_Window *window);
-# 1198 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1198 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_MinimizeWindow(SDL_Window *window);
-# 1212 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1212 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_RestoreWindow(SDL_Window *window);
-# 1230 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1230 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowFullscreen(SDL_Window *window, SDL_bool fullscreen);
-# 1255 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1255 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_Surface * SDL_GetWindowSurface(SDL_Window *window);
-# 1274 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1274 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_UpdateWindowSurface(SDL_Window *window);
-# 1296 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1296 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_UpdateWindowSurfaceRects(SDL_Window *window, const SDL_Rect *rects, int numrects);
-# 1318 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1318 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowGrab(SDL_Window *window, SDL_bool grabbed);
-# 1350 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1350 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowKeyboardGrab(SDL_Window *window, SDL_bool grabbed);
-# 1368 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1368 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowMouseGrab(SDL_Window *window, SDL_bool grabbed);
-# 1380 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1380 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetWindowGrab(SDL_Window *window);
-# 1393 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1393 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetWindowKeyboardGrab(SDL_Window *window);
-# 1406 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1406 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetWindowMouseGrab(SDL_Window *window);
-# 1418 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1418 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_Window * SDL_GetGrabbedWindow(void);
-# 1437 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1437 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowMouseRect(SDL_Window *window, const SDL_Rect *rect);
-# 1450 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1450 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) const SDL_Rect * SDL_GetWindowMouseRect(SDL_Window *window);
-# 1469 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1469 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowOpacity(SDL_Window *window, float opacity);
-# 1490 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1490 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetWindowOpacity(SDL_Window *window, float *out_opacity);
-# 1502 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1502 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowModalFor(SDL_Window *modal_window, SDL_Window *parent_window);
-# 1519 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1519 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowInputFocus(SDL_Window *window);
 
 
@@ -4004,72 +4004,72 @@ typedef enum
     SDL_HITTEST_RESIZE_BOTTOMLEFT,
     SDL_HITTEST_RESIZE_LEFT
 } SDL_HitTestResult;
-# 1550 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1550 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 typedef SDL_HitTestResult ( *SDL_HitTest)(SDL_Window *win,
                                                  const SDL_Point *area,
                                                  void *data);
-# 1594 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1594 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowHitTest(SDL_Window *window, SDL_HitTest callback, void *callback_data);
-# 1606 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1606 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_FlashWindow(SDL_Window *window, SDL_FlashOperation operation);
-# 1621 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1621 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroyWindow(SDL_Window *window);
-# 1640 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1640 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_ScreenSaverEnabled(void);
-# 1653 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1653 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_EnableScreenSaver(void);
-# 1672 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1672 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_DisableScreenSaver(void);
-# 1700 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1700 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GL_LoadLibrary(const char *path);
-# 1753 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1753 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_FunctionPointer SDL_GL_GetProcAddress(const char *proc);
-# 1770 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1770 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_FunctionPointer SDL_EGL_GetProcAddress(const char *proc);
-# 1779 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1779 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) void SDL_GL_UnloadLibrary(void);
-# 1800 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1800 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GL_ExtensionSupported(const char *extension);
-# 1810 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1810 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) void SDL_GL_ResetAttributes(void);
-# 1830 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1830 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GL_SetAttribute(SDL_GLattr attr, int value);
-# 1845 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1845 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GL_GetAttribute(SDL_GLattr attr, int *value);
-# 1867 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1867 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_GLContext SDL_GL_CreateContext(SDL_Window *window);
-# 1883 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1883 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GL_MakeCurrent(SDL_Window *window, SDL_GLContext context);
-# 1893 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1893 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_Window * SDL_GL_GetCurrentWindow(void);
-# 1905 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1905 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_GLContext SDL_GL_GetCurrentContext(void);
-# 1915 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1915 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_EGLDisplay SDL_EGL_GetCurrentEGLDisplay(void);
-# 1925 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1925 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_EGLConfig SDL_EGL_GetCurrentEGLConfig(void);
-# 1936 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1936 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) SDL_EGLSurface SDL_EGL_GetWindowEGLSurface(SDL_Window *window);
-# 1960 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1960 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) void SDL_EGL_SetEGLAttributeCallbacks(SDL_EGLAttribArrayCallback platformAttribCallback,
                                                               SDL_EGLIntArrayCallback surfaceAttribCallback,
                                                               SDL_EGLIntArrayCallback contextAttribCallback);
-# 1991 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1991 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GL_SetSwapInterval(int interval);
-# 2010 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 2010 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GL_GetSwapInterval(int *interval);
-# 2028 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 2028 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GL_SwapWindow(SDL_Window *window);
-# 2041 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
+# 2041 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
 extern __attribute__ ((visibility("default"))) int SDL_GL_DeleteContext(SDL_GLContext context);
-# 2050 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 2051 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_video.h" 2
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h" 2
+# 2050 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 2051 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_video.h" 2
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h" 2
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 37 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h" 2
-# 47 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 37 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h" 2
+# 47 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 typedef struct SDL_Keysym
 {
     SDL_Scancode scancode;
@@ -4077,56 +4077,56 @@ typedef struct SDL_Keysym
     Uint16 mod;
     Uint32 unused;
 } SDL_Keysym;
-# 64 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 64 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) SDL_Window * SDL_GetKeyboardFocus(void);
-# 95 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 95 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) const Uint8 * SDL_GetKeyboardState(int *numkeys);
-# 106 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 106 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) void SDL_ResetKeyboard(void);
-# 119 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 119 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) SDL_Keymod SDL_GetModState(void);
-# 138 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 138 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) void SDL_SetModState(SDL_Keymod modstate);
-# 154 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 154 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) SDL_Keycode SDL_GetKeyFromScancode(SDL_Scancode scancode);
-# 170 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 170 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) SDL_Scancode SDL_GetScancodeFromKey(SDL_Keycode key);
-# 195 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 195 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetScancodeName(SDL_Scancode scancode);
-# 210 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 210 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) SDL_Scancode SDL_GetScancodeFromName(const char *name);
-# 229 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 229 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetKeyName(SDL_Keycode key);
-# 244 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 244 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) SDL_Keycode SDL_GetKeyFromName(const char *name);
-# 261 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 261 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) void SDL_StartTextInput(void);
-# 272 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 272 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_TextInputActive(void);
-# 281 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 281 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) void SDL_StopTextInput(void);
-# 291 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 291 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) void SDL_ClearComposition(void);
-# 300 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 300 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_TextInputShown(void);
-# 322 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 322 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetTextInputRect(const SDL_Rect *rect);
-# 335 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 335 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasScreenKeyboardSupport(void);
-# 347 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h"
+# 347 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_ScreenKeyboardShown(SDL_Window *window);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 354 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_keyboard.h" 2
-# 36 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h" 1
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 36 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 354 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_keyboard.h" 2
+# 36 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h" 1
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 36 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h" 2
 
 
 
@@ -4164,61 +4164,61 @@ typedef enum
     SDL_MOUSEWHEEL_NORMAL,
     SDL_MOUSEWHEEL_FLIPPED
 } SDL_MouseWheelDirection;
-# 83 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 83 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) SDL_Window * SDL_GetMouseFocus(void);
-# 106 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 106 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_GetMouseState(float *x, float *y);
-# 135 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 135 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_GetGlobalMouseState(float *x, float *y);
-# 154 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 154 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_GetRelativeMouseState(float *x, float *y);
-# 175 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 175 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) void SDL_WarpMouseInWindow(SDL_Window * window,
                                                    float x, float y);
-# 198 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 198 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) int SDL_WarpMouseGlobal(float x, float y);
-# 217 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 217 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetRelativeMouseMode(SDL_bool enabled);
-# 263 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 263 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) int SDL_CaptureMouse(SDL_bool enabled);
-# 274 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 274 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetRelativeMouseMode(void);
-# 316 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 316 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) SDL_Cursor * SDL_CreateCursor(const Uint8 * data,
                                                      const Uint8 * mask,
                                                      int w, int h, int hot_x,
                                                      int hot_y);
-# 335 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 335 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) SDL_Cursor * SDL_CreateColorCursor(SDL_Surface *surface,
                                                           int hot_x,
                                                           int hot_y);
-# 350 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 350 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) SDL_Cursor * SDL_CreateSystemCursor(SDL_SystemCursor id);
-# 369 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 369 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetCursor(SDL_Cursor * cursor);
-# 383 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 383 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) SDL_Cursor * SDL_GetCursor(void);
-# 397 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 397 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) SDL_Cursor * SDL_GetDefaultCursor(void);
-# 413 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 413 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroyCursor(SDL_Cursor * cursor);
-# 426 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 426 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) int SDL_ShowCursor(void);
-# 439 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 439 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) int SDL_HideCursor(void);
-# 452 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 452 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_CursorVisible(void);
-# 477 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 478 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_mouse.h" 2
-# 37 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_quit.h" 1
-# 38 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h" 2
+# 477 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 478 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_mouse.h" 2
+# 37 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_quit.h" 1
+# 38 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h" 2
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_touch.h" 1
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_touch.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 36 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_touch.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_touch.h" 1
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_touch.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 36 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_touch.h" 2
 
 
 
@@ -4242,31 +4242,31 @@ typedef struct SDL_Finger
     float y;
     float pressure;
 } SDL_Finger;
-# 83 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_touch.h"
+# 83 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_touch.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumTouchDevices(void);
-# 96 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_touch.h"
+# 96 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_touch.h"
 extern __attribute__ ((visibility("default"))) SDL_TouchID SDL_GetTouchDevice(int index);
-# 107 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_touch.h"
+# 107 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_touch.h"
 extern __attribute__ ((visibility("default"))) const char* SDL_GetTouchName(int index);
-# 117 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_touch.h"
+# 117 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_touch.h"
 extern __attribute__ ((visibility("default"))) SDL_TouchDeviceType SDL_GetTouchDeviceType(SDL_TouchID touchID);
-# 131 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_touch.h"
+# 131 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_touch.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumTouchFingers(SDL_TouchID touchID);
-# 145 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_touch.h"
+# 145 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_touch.h"
 extern __attribute__ ((visibility("default"))) SDL_Finger * SDL_GetTouchFinger(SDL_TouchID touchID, int index);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 152 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_touch.h" 2
-# 40 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 152 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_touch.h" 2
+# 40 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h" 2
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 43 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h" 2
-# 55 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 43 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h" 2
+# 55 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 typedef enum
 {
     SDL_EVENT_FIRST = 0,
@@ -4835,13 +4835,13 @@ typedef union SDL_Event
     SDL_SysWMEvent syswm;
     SDL_TouchFingerEvent tfinger;
     SDL_DropEvent drop;
-# 637 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 637 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
     Uint8 padding[128];
 } SDL_Event;
 
 
 _Static_assert(sizeof(SDL_Event) == sizeof(((SDL_Event *)((void*)0))->padding), "sizeof(SDL_Event) == sizeof(((SDL_Event *)NULL)->padding)");
-# 668 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 668 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) void SDL_PumpEvents(void);
 
 
@@ -4851,89 +4851,89 @@ typedef enum
     SDL_PEEKEVENT,
     SDL_GETEVENT
 } SDL_eventaction;
-# 716 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 716 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) int SDL_PeepEvents(SDL_Event * events, int numevents,
                                            SDL_eventaction action,
                                            Uint32 minType, Uint32 maxType);
-# 735 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 735 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasEvent(Uint32 type);
-# 754 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 754 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_HasEvents(Uint32 minType, Uint32 maxType);
-# 776 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 776 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) void SDL_FlushEvent(Uint32 type);
-# 801 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 801 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) void SDL_FlushEvents(Uint32 minType, Uint32 maxType);
-# 848 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 848 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) int SDL_PollEvent(SDL_Event * event);
-# 870 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 870 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) int SDL_WaitEvent(SDL_Event *event);
-# 899 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 899 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) int SDL_WaitEventTimeout(SDL_Event *event, Sint32 timeoutMS);
-# 933 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 933 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) int SDL_PushEvent(SDL_Event * event);
-# 947 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 947 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 typedef int ( * SDL_EventFilter) (void *userdata, SDL_Event * event);
-# 991 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 991 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) void SDL_SetEventFilter(SDL_EventFilter filter,
                                                 void *userdata);
-# 1009 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 1009 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetEventFilter(SDL_EventFilter * filter,
                                                     void **userdata);
-# 1038 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 1038 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) void SDL_AddEventWatch(SDL_EventFilter filter,
                                                void *userdata);
-# 1054 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 1054 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) void SDL_DelEventWatch(SDL_EventFilter filter,
                                                void *userdata);
-# 1073 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 1073 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) void SDL_FilterEvents(SDL_EventFilter filter,
                                               void *userdata);
-# 1086 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 1086 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) void SDL_SetEventEnabled(Uint32 type, SDL_bool enabled);
-# 1098 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 1098 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_EventEnabled(Uint32 type);
-# 1118 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h"
+# 1118 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_RegisterEvents(int numevents);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 1125 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_events.h" 2
-# 43 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_filesystem.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_filesystem.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_filesystem.h" 2
-# 82 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_filesystem.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 1125 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_events.h" 2
+# 43 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_filesystem.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_filesystem.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_filesystem.h" 2
+# 82 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_filesystem.h"
 extern __attribute__ ((visibility("default"))) char * SDL_GetBasePath(void);
-# 139 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_filesystem.h"
+# 139 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_filesystem.h"
 extern __attribute__ ((visibility("default"))) char * SDL_GetPrefPath(const char *org, const char *app);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 146 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_filesystem.h" 2
-# 44 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 146 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_filesystem.h" 2
+# 44 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h" 1
-# 114 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 115 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h" 2
-# 140 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h" 1
+# 114 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 115 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h" 2
+# 140 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 struct SDL_Haptic;
 typedef struct SDL_Haptic SDL_Haptic;
-# 459 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 459 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 typedef struct SDL_HapticDirection
 {
     Uint8 type;
     Sint32 dir[3];
 } SDL_HapticDirection;
-# 477 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 477 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 typedef struct SDL_HapticConstant
 {
 
@@ -4957,7 +4957,7 @@ typedef struct SDL_HapticConstant
     Uint16 fade_length;
     Uint16 fade_level;
 } SDL_HapticConstant;
-# 558 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 558 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 typedef struct SDL_HapticPeriodic
 {
 
@@ -4986,7 +4986,7 @@ typedef struct SDL_HapticPeriodic
     Uint16 fade_length;
     Uint16 fade_level;
 } SDL_HapticPeriodic;
-# 611 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 611 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 typedef struct SDL_HapticCondition
 {
 
@@ -5010,7 +5010,7 @@ typedef struct SDL_HapticCondition
     Uint16 deadband[3];
     Sint16 center[3];
 } SDL_HapticCondition;
-# 648 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 648 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 typedef struct SDL_HapticRamp
 {
 
@@ -5035,7 +5035,7 @@ typedef struct SDL_HapticRamp
     Uint16 fade_length;
     Uint16 fade_level;
 } SDL_HapticRamp;
-# 685 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 685 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 typedef struct SDL_HapticLeftRight
 {
 
@@ -5048,7 +5048,7 @@ typedef struct SDL_HapticLeftRight
     Uint16 large_magnitude;
     Uint16 small_magnitude;
 } SDL_HapticLeftRight;
-# 713 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 713 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 typedef struct SDL_HapticCustom
 {
 
@@ -5075,7 +5075,7 @@ typedef struct SDL_HapticCustom
     Uint16 fade_length;
     Uint16 fade_level;
 } SDL_HapticCustom;
-# 809 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 809 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 typedef union SDL_HapticEffect
 {
 
@@ -5087,90 +5087,90 @@ typedef union SDL_HapticEffect
     SDL_HapticLeftRight leftright;
     SDL_HapticCustom custom;
 } SDL_HapticEffect;
-# 834 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 834 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_NumHaptics(void);
-# 850 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 850 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_HapticName(int device_index);
-# 877 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 877 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) SDL_Haptic * SDL_HapticOpen(int device_index);
-# 891 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 891 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticOpened(int device_index);
-# 905 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 905 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticIndex(SDL_Haptic * haptic);
-# 916 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 916 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_MouseIsHaptic(void);
-# 929 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 929 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) SDL_Haptic * SDL_HapticOpenFromMouse(void);
-# 943 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 943 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_JoystickIsHaptic(SDL_Joystick * joystick);
-# 966 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 966 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) SDL_Haptic * SDL_HapticOpenFromJoystick(SDL_Joystick *
                                                                joystick);
-# 978 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 978 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) void SDL_HapticClose(SDL_Haptic * haptic);
-# 996 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 996 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticNumEffects(SDL_Haptic * haptic);
-# 1013 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1013 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticNumEffectsPlaying(SDL_Haptic * haptic);
-# 1027 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1027 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) unsigned int SDL_HapticQuery(SDL_Haptic * haptic);
-# 1042 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1042 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticNumAxes(SDL_Haptic * haptic);
-# 1058 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1058 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticEffectSupported(SDL_Haptic * haptic,
                                                       SDL_HapticEffect *
                                                       effect);
-# 1077 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1077 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticNewEffect(SDL_Haptic * haptic,
                                                 SDL_HapticEffect * effect);
-# 1101 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1101 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticUpdateEffect(SDL_Haptic * haptic,
                                                    int effect,
                                                    SDL_HapticEffect * data);
-# 1127 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1127 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticRunEffect(SDL_Haptic * haptic,
                                                 int effect,
                                                 Uint32 iterations);
-# 1146 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1146 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticStopEffect(SDL_Haptic * haptic,
                                                  int effect);
-# 1162 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1162 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) void SDL_HapticDestroyEffect(SDL_Haptic * haptic,
                                                      int effect);
-# 1180 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1180 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticGetEffectStatus(SDL_Haptic * haptic,
                                                       int effect);
-# 1202 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1202 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticSetGain(SDL_Haptic * haptic, int gain);
-# 1221 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1221 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticSetAutocenter(SDL_Haptic * haptic,
                                                     int autocenter);
-# 1241 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1241 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticPause(SDL_Haptic * haptic);
-# 1256 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1256 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticUnpause(SDL_Haptic * haptic);
-# 1267 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1267 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticStopAll(SDL_Haptic * haptic);
-# 1283 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1283 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticRumbleSupported(SDL_Haptic * haptic);
-# 1299 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1299 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticRumbleInit(SDL_Haptic * haptic);
-# 1316 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1316 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticRumblePlay(SDL_Haptic * haptic, float strength, Uint32 length );
-# 1331 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h"
+# 1331 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h"
 extern __attribute__ ((visibility("default"))) int SDL_HapticRumbleStop(SDL_Haptic * haptic);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 1338 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_haptic.h" 2
-# 47 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h" 1
-# 67 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 68 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 1338 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_haptic.h" 2
+# 47 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h" 1
+# 67 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 68 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h" 2
 
 
 
@@ -5226,89 +5226,89 @@ typedef struct SDL_hid_device_info
 
     struct SDL_hid_device_info *next;
 } SDL_hid_device_info;
-# 143 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 143 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_init(void);
-# 158 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 158 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_exit(void);
-# 179 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 179 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_hid_device_change_count(void);
-# 201 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 201 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) SDL_hid_device_info * SDL_hid_enumerate(unsigned short vendor_id, unsigned short product_id);
-# 213 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 213 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) void SDL_hid_free_enumeration(SDL_hid_device_info *devs);
-# 231 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 231 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) SDL_hid_device * SDL_hid_open(unsigned short vendor_id, unsigned short product_id, const wchar_t *serial_number);
-# 246 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 246 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) SDL_hid_device * SDL_hid_open_path(const char *path, int bExclusive );
-# 272 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 272 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_write(SDL_hid_device *dev, const unsigned char *data, size_t length);
-# 293 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 293 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_read_timeout(SDL_hid_device *dev, unsigned char *data, size_t length, int milliseconds);
-# 313 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 313 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_read(SDL_hid_device *dev, unsigned char *data, size_t length);
-# 332 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 332 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_set_nonblocking(SDL_hid_device *dev, int nonblock);
-# 356 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 356 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_send_feature_report(SDL_hid_device *dev, const unsigned char *data, size_t length);
-# 378 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 378 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_get_feature_report(SDL_hid_device *dev, unsigned char *data, size_t length);
-# 389 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 389 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_close(SDL_hid_device *dev);
-# 402 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 402 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_get_manufacturer_string(SDL_hid_device *dev, wchar_t *string, size_t maxlen);
-# 415 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 415 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_get_product_string(SDL_hid_device *dev, wchar_t *string, size_t maxlen);
-# 428 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 428 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_get_serial_number_string(SDL_hid_device *dev, wchar_t *string, size_t maxlen);
-# 442 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 442 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) int SDL_hid_get_indexed_string(SDL_hid_device *dev, int string_index, wchar_t *string, size_t maxlen);
-# 451 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h"
+# 451 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h"
 extern __attribute__ ((visibility("default"))) void SDL_hid_ble_scan(SDL_bool active);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 458 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hidapi.h" 2
-# 48 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h" 1
-# 44 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 45 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h" 2
-# 2314 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 458 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hidapi.h" 2
+# 48 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h" 1
+# 44 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 45 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h" 2
+# 2314 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
 typedef enum
 {
     SDL_HINT_DEFAULT,
     SDL_HINT_NORMAL,
     SDL_HINT_OVERRIDE
 } SDL_HintPriority;
-# 2339 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 2339 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_SetHintWithPriority(const char *name,
                                                          const char *value,
                                                          SDL_HintPriority priority);
-# 2359 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 2359 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_SetHint(const char *name,
                                              const char *value);
-# 2377 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 2377 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_ResetHint(const char *name);
-# 2392 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 2392 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
 extern __attribute__ ((visibility("default"))) void SDL_ResetHints(void);
-# 2405 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 2405 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetHint(const char *name);
-# 2420 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 2420 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_GetHintBoolean(const char *name, SDL_bool default_value);
-# 2430 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 2430 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
 typedef void ( *SDL_HintCallback)(void *userdata, const char *name, const char *oldValue, const char *newValue);
-# 2446 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 2446 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
 extern __attribute__ ((visibility("default"))) int SDL_AddHintCallback(const char *name,
                                                 SDL_HintCallback callback,
                                                 void *userdata);
-# 2462 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 2462 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
 extern __attribute__ ((visibility("default"))) void SDL_DelHintCallback(const char *name,
                                                  SDL_HintCallback callback,
                                                  void *userdata);
-# 2480 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h"
+# 2480 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h"
 extern __attribute__ ((visibility("default"))) void SDL_ClearHints(void);
 
 
@@ -5316,14 +5316,14 @@ extern __attribute__ ((visibility("default"))) void SDL_ClearHints(void);
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 2488 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_hints.h" 2
-# 49 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_init.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_init.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_init.h" 2
-# 53 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_init.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 2488 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_hints.h" 2
+# 49 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_init.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_init.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_init.h" 2
+# 53 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_init.h"
 typedef enum
 {
     SDL_INIT_TIMER = 0x00000001,
@@ -5335,49 +5335,49 @@ typedef enum
     SDL_INIT_EVENTS = 0x00004000,
     SDL_INIT_SENSOR = 0x00008000
 } SDL_InitFlags;
-# 115 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_init.h"
+# 115 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_init.h"
 extern __attribute__ ((visibility("default"))) int SDL_Init(Uint32 flags);
-# 132 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_init.h"
+# 132 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_init.h"
 extern __attribute__ ((visibility("default"))) int SDL_InitSubSystem(Uint32 flags);
-# 147 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_init.h"
+# 147 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_init.h"
 extern __attribute__ ((visibility("default"))) void SDL_QuitSubSystem(Uint32 flags);
-# 161 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_init.h"
+# 161 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_init.h"
 extern __attribute__ ((visibility("default"))) Uint32 SDL_WasInit(Uint32 flags);
-# 179 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_init.h"
+# 179 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_init.h"
 extern __attribute__ ((visibility("default"))) void SDL_Quit(void);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 186 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_init.h" 2
-# 50 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 186 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_init.h" 2
+# 50 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_loadso.h" 1
-# 47 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_loadso.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 48 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_loadso.h" 2
-# 65 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_loadso.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_loadso.h" 1
+# 47 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_loadso.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 48 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_loadso.h" 2
+# 65 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_loadso.h"
 extern __attribute__ ((visibility("default"))) void * SDL_LoadObject(const char *sofile);
-# 92 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_loadso.h"
+# 92 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_loadso.h"
 extern __attribute__ ((visibility("default"))) SDL_FunctionPointer SDL_LoadFunction(void *handle, const char *name);
-# 104 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_loadso.h"
+# 104 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_loadso.h"
 extern __attribute__ ((visibility("default"))) void SDL_UnloadObject(void *handle);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 111 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_loadso.h" 2
-# 54 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_locale.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_locale.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_locale.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 111 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_loadso.h" 2
+# 54 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_locale.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_locale.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_locale.h" 2
 
 
 
@@ -5391,7 +5391,7 @@ typedef struct SDL_Locale
     const char *language;
     const char *country;
 } SDL_Locale;
-# 91 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_locale.h"
+# 91 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_locale.h"
 extern __attribute__ ((visibility("default"))) SDL_Locale * SDL_GetPreferredLocales(void);
 
 
@@ -5400,14 +5400,14 @@ extern __attribute__ ((visibility("default"))) SDL_Locale * SDL_GetPreferredLoca
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 100 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_locale.h" 2
-# 55 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h" 1
-# 42 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 43 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h" 2
-# 64 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 100 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_locale.h" 2
+# 55 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h" 1
+# 42 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 43 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h" 2
+# 64 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 typedef enum
 {
     SDL_LOG_CATEGORY_APPLICATION,
@@ -5431,7 +5431,7 @@ typedef enum
     SDL_LOG_CATEGORY_RESERVED8,
     SDL_LOG_CATEGORY_RESERVED9,
     SDL_LOG_CATEGORY_RESERVED10,
-# 96 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 96 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
     SDL_LOG_CATEGORY_CUSTOM
 } SDL_LogCategory;
 
@@ -5448,42 +5448,42 @@ typedef enum
     SDL_LOG_PRIORITY_CRITICAL,
     SDL_NUM_LOG_PRIORITIES
 } SDL_LogPriority;
-# 123 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 123 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogSetAllPriority(SDL_LogPriority priority);
-# 136 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 136 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogSetPriority(int category,
                                                 SDL_LogPriority priority);
-# 149 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 149 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) SDL_LogPriority SDL_LogGetPriority(int category);
-# 161 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 161 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogResetPriorities(void);
-# 182 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 182 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_Log( const char *fmt, ...) __attribute__ (( format( __printf__, 1, 1 +1 )));
-# 203 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 203 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogVerbose(int category, const char *fmt, ...) __attribute__ (( format( __printf__, 2, 2 +1 )));
-# 224 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 224 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogDebug(int category, const char *fmt, ...) __attribute__ (( format( __printf__, 2, 2 +1 )));
-# 245 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 245 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogInfo(int category, const char *fmt, ...) __attribute__ (( format( __printf__, 2, 2 +1 )));
-# 266 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 266 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogWarn(int category, const char *fmt, ...) __attribute__ (( format( __printf__, 2, 2 +1 )));
-# 287 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 287 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogError(int category, const char *fmt, ...) __attribute__ (( format( __printf__, 2, 2 +1 )));
-# 308 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 308 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogCritical(int category, const char *fmt, ...) __attribute__ (( format( __printf__, 2, 2 +1 )));
-# 330 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 330 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogMessage(int category,
                                             SDL_LogPriority priority,
                                                                      const char *fmt, ...) __attribute__ (( format( __printf__, 3, 3 +1 )));
-# 353 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 353 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogMessageV(int category,
                                              SDL_LogPriority priority,
                                              const char *fmt, va_list ap);
-# 367 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 367 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 typedef void ( *SDL_LogOutputFunction)(void *userdata, int category, SDL_LogPriority priority, const char *message);
-# 381 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 381 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogGetOutputFunction(SDL_LogOutputFunction *callback, void **userdata);
-# 393 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h"
+# 393 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h"
 extern __attribute__ ((visibility("default"))) void SDL_LogSetOutputFunction(SDL_LogOutputFunction callback, void *userdata);
 
 
@@ -5491,13 +5491,13 @@ extern __attribute__ ((visibility("default"))) void SDL_LogSetOutputFunction(SDL
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 401 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_log.h" 2
-# 56 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_messagebox.h" 1
-# 28 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_messagebox.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 29 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_messagebox.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 401 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_log.h" 2
+# 56 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_messagebox.h" 1
+# 28 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_messagebox.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 29 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_messagebox.h" 2
 
 
 
@@ -5575,9 +5575,9 @@ typedef struct
 
     const SDL_MessageBoxColorScheme *colorScheme;
 } SDL_MessageBoxData;
-# 140 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_messagebox.h"
+# 140 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_messagebox.h"
 extern __attribute__ ((visibility("default"))) int SDL_ShowMessageBox(const SDL_MessageBoxData *messageboxdata, int *buttonid);
-# 182 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_messagebox.h"
+# 182 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_messagebox.h"
 extern __attribute__ ((visibility("default"))) int SDL_ShowSimpleMessageBox(Uint32 flags, const char *title, const char *message, SDL_Window *window);
 
 
@@ -5585,20 +5585,20 @@ extern __attribute__ ((visibility("default"))) int SDL_ShowSimpleMessageBox(Uint
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 190 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_messagebox.h" 2
-# 57 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_metal.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_metal.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_metal.h" 2
-# 44 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_metal.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 190 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_messagebox.h" 2
+# 57 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_metal.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_metal.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_metal.h" 2
+# 44 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_metal.h"
 typedef void *SDL_MetalView;
-# 69 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_metal.h"
+# 69 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_metal.h"
 extern __attribute__ ((visibility("default"))) SDL_MetalView SDL_Metal_CreateView(SDL_Window * window);
-# 83 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_metal.h"
+# 83 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_metal.h"
 extern __attribute__ ((visibility("default"))) void SDL_Metal_DestroyView(SDL_MetalView view);
-# 95 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_metal.h"
+# 95 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_metal.h"
 extern __attribute__ ((visibility("default"))) void * SDL_Metal_GetLayer(SDL_MetalView view);
 
 
@@ -5607,44 +5607,44 @@ extern __attribute__ ((visibility("default"))) void * SDL_Metal_GetLayer(SDL_Met
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 104 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_metal.h" 2
-# 58 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_misc.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_misc.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_misc.h" 2
-# 69 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_misc.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 104 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_metal.h" 2
+# 58 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_misc.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_misc.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_misc.h" 2
+# 69 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_misc.h"
 extern __attribute__ ((visibility("default"))) int SDL_OpenURL(const char *url);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 76 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_misc.h" 2
-# 59 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 76 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_misc.h" 2
+# 59 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_platform.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_platform.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_platform.h" 2
-# 55 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_platform.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_platform.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_platform.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_platform.h" 2
+# 55 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_platform.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetPlatform (void);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 62 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_platform.h" 2
-# 63 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_power.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_power.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_power.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 62 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_platform.h" 2
+# 63 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_power.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_power.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_power.h" 2
 
 
 
@@ -5661,22 +5661,22 @@ typedef enum
     SDL_POWERSTATE_CHARGING,
     SDL_POWERSTATE_CHARGED
 } SDL_PowerState;
-# 77 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_power.h"
+# 77 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_power.h"
 extern __attribute__ ((visibility("default"))) SDL_PowerState SDL_GetPowerInfo(int *seconds, int *percent);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 84 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_power.h" 2
-# 64 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 84 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_power.h" 2
+# 64 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h" 1
-# 56 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 57 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h" 1
+# 56 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 57 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h" 2
 
 
 
@@ -5781,144 +5781,144 @@ typedef struct SDL_Renderer SDL_Renderer;
 
 struct SDL_Texture;
 typedef struct SDL_Texture SDL_Texture;
-# 181 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 181 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetNumRenderDrivers(void);
-# 206 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 206 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetRenderDriver(int index);
-# 226 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 226 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_CreateWindowAndRenderer(int width, int height, Uint32 window_flags, SDL_Window **window, SDL_Renderer **renderer);
-# 257 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 257 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) SDL_Renderer * SDL_CreateRenderer(SDL_Window *window, const char *name, Uint32 flags);
-# 278 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 278 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) SDL_Renderer * SDL_CreateSoftwareRenderer(SDL_Surface *surface);
-# 291 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 291 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) SDL_Renderer * SDL_GetRenderer(SDL_Window *window);
-# 302 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 302 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) SDL_Window * SDL_GetRenderWindow(SDL_Renderer *renderer);
-# 317 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 317 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRendererInfo(SDL_Renderer *renderer, SDL_RendererInfo *info);
-# 335 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 335 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRenderWindowSize(SDL_Renderer *renderer, int *w, int *h);
-# 353 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 353 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRenderOutputSize(SDL_Renderer *renderer, int *w, int *h);
-# 374 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 374 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetCurrentRenderOutputSize(SDL_Renderer *renderer, int *w, int *h);
-# 398 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 398 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) SDL_Texture * SDL_CreateTexture(SDL_Renderer *renderer, Uint32 format, int access, int w, int h);
-# 424 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 424 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) SDL_Texture * SDL_CreateTextureFromSurface(SDL_Renderer *renderer, SDL_Surface *surface);
-# 448 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 448 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_QueryTexture(SDL_Texture *texture, Uint32 *format, int *access, int *w, int *h);
-# 474 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 474 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetTextureColorMod(SDL_Texture *texture, Uint8 r, Uint8 g, Uint8 b);
-# 492 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 492 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetTextureColorMod(SDL_Texture *texture, Uint8 *r, Uint8 *g, Uint8 *b);
-# 515 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 515 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetTextureAlphaMod(SDL_Texture *texture, Uint8 alpha);
-# 530 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 530 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetTextureAlphaMod(SDL_Texture *texture, Uint8 *alpha);
-# 548 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 548 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetTextureBlendMode(SDL_Texture *texture, SDL_BlendMode blendMode);
-# 562 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 562 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetTextureBlendMode(SDL_Texture *texture, SDL_BlendMode *blendMode);
-# 578 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 578 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetTextureScaleMode(SDL_Texture *texture, SDL_ScaleMode scaleMode);
-# 592 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 592 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetTextureScaleMode(SDL_Texture *texture, SDL_ScaleMode *scaleMode);
-# 606 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 606 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetTextureUserData(SDL_Texture *texture, void *userdata);
-# 619 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 619 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) void * SDL_GetTextureUserData(SDL_Texture *texture);
-# 650 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 650 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_UpdateTexture(SDL_Texture *texture, const SDL_Rect *rect, const void *pixels, int pitch);
-# 679 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 679 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_UpdateYUVTexture(SDL_Texture *texture,
                                                  const SDL_Rect *rect,
                                                  const Uint8 *Yplane, int Ypitch,
                                                  const Uint8 *Uplane, int Upitch,
                                                  const Uint8 *Vplane, int Vpitch);
-# 706 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 706 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_UpdateNVTexture(SDL_Texture *texture,
                                                  const SDL_Rect *rect,
                                                  const Uint8 *Yplane, int Ypitch,
                                                  const Uint8 *UVplane, int UVpitch);
-# 738 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 738 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_LockTexture(SDL_Texture *texture,
                                             const SDL_Rect *rect,
                                             void **pixels, int *pitch);
-# 774 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 774 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_LockTextureToSurface(SDL_Texture *texture,
                                             const SDL_Rect *rect,
                                             SDL_Surface **surface);
-# 795 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 795 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) void SDL_UnlockTexture(SDL_Texture *texture);
-# 819 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 819 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetRenderTarget(SDL_Renderer *renderer, SDL_Texture *texture);
-# 834 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 834 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) SDL_Texture * SDL_GetRenderTarget(SDL_Renderer *renderer);
-# 867 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 867 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetRenderLogicalPresentation(SDL_Renderer *renderer, int w, int h, SDL_RendererLogicalPresentation mode, SDL_ScaleMode scale_mode);
-# 887 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 887 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRenderLogicalPresentation(SDL_Renderer *renderer, int *w, int *h, SDL_RendererLogicalPresentation *mode, SDL_ScaleMode *scale_mode);
-# 905 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 905 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderCoordinatesFromWindow(SDL_Renderer *renderer, float window_x, float window_y, float *x, float *y);
-# 925 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 925 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderCoordinatesToWindow(SDL_Renderer *renderer, float x, float y, float *window_x, float *window_y);
-# 944 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 944 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_ConvertEventToRenderCoordinates(SDL_Renderer *renderer, SDL_Event *event);
-# 959 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 959 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetRenderViewport(SDL_Renderer *renderer, const SDL_Rect *rect);
-# 973 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 973 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRenderViewport(SDL_Renderer *renderer, SDL_Rect *rect);
-# 989 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 989 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetRenderClipRect(SDL_Renderer *renderer, const SDL_Rect *rect);
-# 1005 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1005 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRenderClipRect(SDL_Renderer *renderer, SDL_Rect *rect);
-# 1019 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1019 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_RenderClipEnabled(SDL_Renderer *renderer);
-# 1042 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1042 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetRenderScale(SDL_Renderer *renderer, float scaleX, float scaleY);
-# 1057 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1057 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRenderScale(SDL_Renderer *renderer, float *scaleX, float *scaleY);
-# 1088 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1088 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetRenderDrawColor(SDL_Renderer *renderer, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
-# 1109 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1109 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRenderDrawColor(SDL_Renderer *renderer, Uint8 *r, Uint8 *g, Uint8 *b, Uint8 *a);
-# 1133 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1133 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetRenderDrawBlendMode(SDL_Renderer *renderer, SDL_BlendMode blendMode);
-# 1147 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1147 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRenderDrawBlendMode(SDL_Renderer *renderer, SDL_BlendMode *blendMode);
-# 1163 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1163 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderClear(SDL_Renderer *renderer);
-# 1175 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1175 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderPoint(SDL_Renderer *renderer, float x, float y);
-# 1188 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1188 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderPoints(SDL_Renderer *renderer, const SDL_FPoint *points, int count);
-# 1202 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1202 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderLine(SDL_Renderer *renderer, float x1, float y1, float x2, float y2);
-# 1216 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1216 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderLines(SDL_Renderer *renderer, const SDL_FPoint *points, int count);
-# 1228 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1228 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderRect(SDL_Renderer *renderer, const SDL_FRect *rect);
-# 1242 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1242 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderRects(SDL_Renderer *renderer, const SDL_FRect *rects, int count);
-# 1255 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1255 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderFillRect(SDL_Renderer *renderer, const SDL_FRect *rect);
-# 1269 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1269 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderFillRects(SDL_Renderer *renderer, const SDL_FRect *rects, int count);
-# 1285 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1285 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderTexture(SDL_Renderer *renderer, SDL_Texture *texture, const SDL_FRect *srcrect, const SDL_FRect *dstrect);
-# 1309 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1309 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderTextureRotated(SDL_Renderer *renderer, SDL_Texture *texture,
                                                      const SDL_FRect *srcrect, const SDL_FRect *dstrect,
                                                      const double angle, const SDL_FPoint *center,
                                                      const SDL_RendererFlip flip);
-# 1334 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1334 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderGeometry(SDL_Renderer *renderer,
                                                SDL_Texture *texture,
                                                const SDL_Vertex *vertices, int num_vertices,
                                                const int *indices, int num_indices);
-# 1365 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1365 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderGeometryRaw(SDL_Renderer *renderer,
                                                SDL_Texture *texture,
                                                const float *xy, int xy_stride,
@@ -5926,49 +5926,49 @@ extern __attribute__ ((visibility("default"))) int SDL_RenderGeometryRaw(SDL_Ren
                                                const float *uv, int uv_stride,
                                                int num_vertices,
                                                const void *indices, int num_indices, int size_indices);
-# 1399 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1399 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderReadPixels(SDL_Renderer *renderer,
                                                  const SDL_Rect *rect,
                                                  Uint32 format,
                                                  void *pixels, int pitch);
-# 1443 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1443 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderPresent(SDL_Renderer *renderer);
-# 1458 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1458 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroyTexture(SDL_Texture *texture);
-# 1472 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1472 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) void SDL_DestroyRenderer(SDL_Renderer *renderer);
-# 1503 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1503 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_RenderFlush(SDL_Renderer *renderer);
-# 1541 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1541 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GL_BindTexture(SDL_Texture *texture, float *texw, float *texh);
-# 1557 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1557 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GL_UnbindTexture(SDL_Texture *texture);
-# 1573 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1573 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) void * SDL_GetRenderMetalLayer(SDL_Renderer *renderer);
-# 1594 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1594 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) void * SDL_GetRenderMetalCommandEncoder(SDL_Renderer *renderer);
-# 1606 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1606 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetRenderVSync(SDL_Renderer *renderer, int vsync);
-# 1619 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h"
+# 1619 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetRenderVSync(SDL_Renderer *renderer, int *vsync);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 1626 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_render.h" 2
-# 67 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 1626 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_render.h" 2
+# 67 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_shape.h" 1
-# 31 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_shape.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 32 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_shape.h" 2
-# 64 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_shape.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_shape.h" 1
+# 31 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_shape.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 32 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_shape.h" 2
+# 64 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_shape.h"
 extern __attribute__ ((visibility("default"))) SDL_Window * SDL_CreateShapedWindow(const char *title, int w, int h, Uint32 flags);
-# 77 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_shape.h"
+# 77 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_shape.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_IsShapedWindow(const SDL_Window *window);
 
 
@@ -5999,28 +5999,28 @@ typedef struct SDL_WindowShapeMode {
 
     SDL_WindowShapeParams parameters;
 } SDL_WindowShapeMode;
-# 123 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_shape.h"
+# 123 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_shape.h"
 extern __attribute__ ((visibility("default"))) int SDL_SetWindowShape(SDL_Window *window,SDL_Surface *shape,SDL_WindowShapeMode *shape_mode);
-# 142 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_shape.h"
+# 142 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_shape.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetShapedWindowMode(SDL_Window *window,SDL_WindowShapeMode *shape_mode);
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 149 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_shape.h" 2
-# 71 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 149 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_shape.h" 2
+# 71 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_system.h" 1
-# 36 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_system.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 37 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_system.h" 2
-# 165 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_system.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_system.h" 1
+# 36 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_system.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 37 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_system.h" 2
+# 165 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_system.h"
 extern __attribute__ ((visibility("default"))) int SDL_LinuxSetThreadPriority(Sint64 threadID, int priority);
-# 181 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_system.h"
+# 181 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_system.h"
 extern __attribute__ ((visibility("default"))) int SDL_LinuxSetThreadPriorityAndPolicy(Sint64 threadID, int sdlPriority, int schedPolicy);
-# 583 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_system.h"
+# 583 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_system.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_IsTablet(void);
 
 
@@ -6054,39 +6054,39 @@ extern __attribute__ ((visibility("default"))) void SDL_OnApplicationWillEnterFo
 
 
 extern __attribute__ ((visibility("default"))) void SDL_OnApplicationDidBecomeActive(void);
-# 650 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_system.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 651 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_system.h" 2
-# 73 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
+# 650 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_system.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 651 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_system.h" 2
+# 73 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 35 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h" 2
-# 61 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 35 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h" 2
+# 61 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h"
 extern __attribute__ ((visibility("default"))) Uint64 SDL_GetTicks(void);
-# 71 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h"
+# 71 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h"
 extern __attribute__ ((visibility("default"))) Uint64 SDL_GetTicksNS(void);
-# 88 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h"
+# 88 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h"
 extern __attribute__ ((visibility("default"))) Uint64 SDL_GetPerformanceCounter(void);
-# 99 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h"
+# 99 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h"
 extern __attribute__ ((visibility("default"))) Uint64 SDL_GetPerformanceFrequency(void);
-# 112 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h"
+# 112 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h"
 extern __attribute__ ((visibility("default"))) void SDL_Delay(Uint32 ms);
-# 125 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h"
+# 125 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h"
 extern __attribute__ ((visibility("default"))) void SDL_DelayNS(Uint64 ns);
-# 135 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h"
+# 135 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h"
 typedef Uint32 ( *SDL_TimerCallback)(Uint32 interval, void *param);
 
 
 
 
 typedef int SDL_TimerID;
-# 174 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h"
+# 174 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h"
 extern __attribute__ ((visibility("default"))) SDL_TimerID SDL_AddTimer(Uint32 interval,
                                                  SDL_TimerCallback callback,
                                                  void *param);
-# 189 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h"
+# 189 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h"
 extern __attribute__ ((visibility("default"))) SDL_bool SDL_RemoveTimer(SDL_TimerID id);
 
 
@@ -6094,24 +6094,24 @@ extern __attribute__ ((visibility("default"))) SDL_bool SDL_RemoveTimer(SDL_Time
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 197 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_timer.h" 2
-# 75 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 197 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_timer.h" 2
+# 75 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_version.h" 1
-# 33 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_version.h"
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 34 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_version.h" 2
-# 51 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_version.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_version.h" 1
+# 33 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_version.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 34 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_version.h" 2
+# 51 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_version.h"
 typedef struct SDL_version
 {
     Uint8 major;
     Uint8 minor;
     Uint8 patch;
 } SDL_version;
-# 125 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_version.h"
+# 125 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_version.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetVersion(SDL_version * ver);
-# 154 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_version.h"
+# 154 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_version.h"
 extern __attribute__ ((visibility("default"))) const char * SDL_GetRevision(void);
 
 
@@ -6119,17 +6119,17 @@ extern __attribute__ ((visibility("default"))) const char * SDL_GetRevision(void
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 162 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_version.h" 2
-# 77 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 162 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_version.h" 2
+# 77 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_oldnames.h" 1
-# 79 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL.h" 2
-# 2 "../../Dard/bindings/sdl/headers/sdl.h" 2
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h" 1
-# 135 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_oldnames.h" 1
+# 79 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL.h" 2
+# 2 "/home/alex/code/Dard/./bindings/sdl/sample/sdl.c" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h" 1
+# 135 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h"
 struct gbm_device;
-# 153 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h"
+# 153 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h"
 struct wl_display;
 struct wl_egl_window;
 struct wl_surface;
@@ -6137,7 +6137,7 @@ struct xdg_popup;
 struct xdg_positioner;
 struct xdg_surface;
 struct xdg_toplevel;
-# 177 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h"
+# 177 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h"
 # 1 "/usr/include/X11/Xlib.h" 1 3 4
 # 38 "/usr/include/X11/Xlib.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/sys/types.h" 1 3 4
@@ -10451,17 +10451,17 @@ extern void XFreeEventData(
 
 
 #pragma clang diagnostic pop
-# 178 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h" 2
+# 178 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h" 2
 # 1 "/usr/include/X11/Xatom.h" 1 3 4
-# 179 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h" 2
+# 179 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h" 2
 
 
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
-# 185 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h" 2
-# 202 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h"
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_begin_code.h" 1
+# 185 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h" 2
+# 202 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h"
 typedef enum
 {
     SDL_SYSWM_UNKNOWN,
@@ -10490,7 +10490,7 @@ struct SDL_SysWMmsg
 
     union
     {
-# 239 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h"
+# 239 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h"
         struct {
             XEvent event;
         } x11;
@@ -10515,14 +10515,14 @@ struct SDL_SysWMinfo
 
     union
     {
-# 278 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h"
+# 278 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h"
         struct
         {
             Display *display;
             int screen;
             Window window;
         } x11;
-# 317 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h"
+# 317 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h"
         struct
         {
             struct wl_display *display;
@@ -10533,7 +10533,7 @@ struct SDL_SysWMinfo
             struct xdg_popup *xdg_popup;
             struct xdg_positioner *xdg_positioner;
         } wl;
-# 346 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h"
+# 346 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h"
         struct
         {
             int dev_index;
@@ -10550,7 +10550,7 @@ struct SDL_SysWMinfo
 _Static_assert(sizeof(struct SDL_SysWMinfo) == (16 * (sizeof (void *) >= 8 ? sizeof (void *) : sizeof(Uint64))), "sizeof(struct SDL_SysWMinfo) == SDL_SYSWM_CURRENT_INFO_SIZE");
 
 typedef struct SDL_SysWMinfo SDL_SysWMinfo;
-# 378 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h"
+# 378 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h"
 extern __attribute__ ((visibility("default"))) int SDL_GetWindowWMInfo(SDL_Window *window, SDL_SysWMinfo *info, Uint32 version);
 
 
@@ -10558,7 +10558,7 @@ extern __attribute__ ((visibility("default"))) int SDL_GetWindowWMInfo(SDL_Windo
 
 
 
-# 1 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
-# 386 "/home/alex/code/Dard/3rdparty/SDL/include/SDL3/SDL_syswm.h" 2
-# 3 "../../Dard/bindings/sdl/headers/sdl.h" 2
+# 1 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_close_code.h" 1
+# 386 "/home/alex/code/Dard/./3rdparty/SDL/include/SDL3/SDL_syswm.h" 2
+# 3 "/home/alex/code/Dard/./bindings/sdl/sample/sdl.c" 2
 

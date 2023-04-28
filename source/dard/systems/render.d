@@ -3,12 +3,10 @@ module dard.systems.render;
 import dard.base.system;
 import dard.base.context;
 import dard.types.math.vector;
-import dard.types.string;
 
 import dard.systems.config;
 import dard.systems.broker;
 import dard.systems.window;
-import dard.types.nogc_delegate;
 
 import std.exception;
 import core.time;
@@ -16,6 +14,7 @@ import core.time;
 import bindbc.bgfx;
 
 import sdl;
+import nanovg;
 
 public import dard.systems.window_dir.events;
 
@@ -50,19 +49,17 @@ public:
 
         bgfx_set_view_clear(0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303070ff, 1.0f, 0);
 
-        mixin genFunction!"winResize [ref _windowSize](ref WindowResized e) {
+        subscribe!WindowResized(window, (ref WindowResized e) {
             bgfx_reset(e.newSize.x, e.newSize.y, BGFX_RESET_NONE, bgfx_texture_format_t
                 .BGFX_TEXTURE_FORMAT_RGBA8U);
             _windowSize = e.newSize;
-        }";
-        subscribe!WindowResized(window, winResize);
+        });
 
-        // bgfx_reset(e.x, e.y, BGFX_RESET_NONE, bgfx_texture_format_t
-        //         .BGFX_TEXTURE_FORMAT_RGBA8U);
-
+        _nvgContext = nvgCreateC(1, 0);
     }
 
     ~this() {
+        nvgDeleteC(_nvgContext);
         bgfx_shutdown();
     }
 
@@ -72,12 +69,21 @@ public:
     }
 
     void render(Duration dur) {
-        bgfx_dbg_text_clear(cast(ubyte) 0, false);
+        bgfx_dbg_text_clear(0, false);
         bgfx_dbg_text_printf(0, 0, 0x0f, "Frame duration %d usecs", cast(int) dur.total!"usecs");
+
+        nvgBeginFrame(_nvgContext, cast(ushort) _windowSize.x, cast(ushort) _windowSize.y, 1.0f);
+        nvgRoundedRect(_nvgContext, 10.0f, 10.0f, 100.0f, 100.0f, 10.0f);
+        NVGcolor c;
+        c.rgba = [1.0f, 1.0f, 1.0f, 1.0f];
+        nvgFillColor(_nvgContext, c);
+        nvgFill(_nvgContext);
+        nvgEndFrame(_nvgContext);
 
         bgfx_frame(false);
     }
 
 private:
+    NVGcontext* _nvgContext;
     Vector2u _windowSize;
 }

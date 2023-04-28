@@ -13,7 +13,6 @@ import dard.systems.config;
 import dard.systems.engine;
 
 import dard.base.context;
-import dard.types.smart_ptr;
 
 import std.exception;
 import std.string;

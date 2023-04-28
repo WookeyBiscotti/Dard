@@ -3,7 +3,6 @@ module dard.systems.window;
 import dard.base.system;
 import dard.base.context;
 import dard.types.math.vector;
-import dard.types.string;
 
 import dard.systems.config;
 import dard.systems.broker;
@@ -25,7 +24,7 @@ public:
         immutable auto windowSize = context.system!Config
             .value!Vector2u(WINDOW_RESULUTION);
         const auto appName = context.system!Config
-            .value!String(APPLICATION_NAME);
+            .value!string(APPLICATION_NAME);
 
         SDL_SetHint("SDL_VIDEO_DRIVER", "x11");
         SDL_Init(SDL_InitFlags.SDL_INIT_VIDEO);

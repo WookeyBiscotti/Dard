@@ -13,3 +13,4 @@ dard-test-*
 *.o
 *.obj
 *.lst
+/libdard.a
