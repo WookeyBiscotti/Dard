@@ -14,7 +14,7 @@ import core.time;
 import bindbc.bgfx;
 
 import sdl;
-import nanovg;
+public import nanovg;
 
 public import dard.systems.window_dir.events;
 
@@ -32,7 +32,7 @@ public:
 
         SDL_SysWMinfo wmi;
         enforce(!SDL_GetWindowWMInfo(context.system!WindowSystem
-                .getSDLWindow(), &wmi, 1));
+                .sdlWindow(), &wmi, 1));
 
         bgfx_init_t init_ = void;
         bgfx_init_ctor(&init_);
@@ -59,28 +59,34 @@ public:
     }
 
     ~this() {
-        nvgDeleteC(_nvgContext);
+        _nvgContext.nvgDeleteC();
         bgfx_shutdown();
     }
 
     void clear() {
         bgfx_set_view_rect(0, 0, 0, cast(ushort) _windowSize.x, cast(ushort) _windowSize.y);
         bgfx_touch(0);
+
+        _nvgContext.nvgBeginFrame(cast(ushort) _windowSize.x, cast(ushort) _windowSize.y, 1.0f);
     }
 
     void render(Duration dur) {
+        // _nvgContext.nvgRoundedRect(10.0f, 10.0f, 100.0f, 100.0f, 10.0f);
+        // NVGcolor c;
+        // c.rgba = [1.0f, 1.0f, 1.0f, 1.0f];
+        // _nvgContext.nvgFillColor(c);
+        // _nvgContext.nvgFill();
+
         bgfx_dbg_text_clear(0, false);
         bgfx_dbg_text_printf(0, 0, 0x0f, "Frame duration %d usecs", cast(int) dur.total!"usecs");
 
-        nvgBeginFrame(_nvgContext, cast(ushort) _windowSize.x, cast(ushort) _windowSize.y, 1.0f);
-        nvgRoundedRect(_nvgContext, 10.0f, 10.0f, 100.0f, 100.0f, 10.0f);
-        NVGcolor c;
-        c.rgba = [1.0f, 1.0f, 1.0f, 1.0f];
-        nvgFillColor(_nvgContext, c);
-        nvgFill(_nvgContext);
-        nvgEndFrame(_nvgContext);
+        _nvgContext.nvgEndFrame();
 
         bgfx_frame(false);
+    }
+
+    NVGcontext* nvg() {
+        return _nvgContext;
     }
 
 private:

@@ -41,27 +41,27 @@ private:
 }
 
 unittest {
-    // class System1 : System {
-    //     this(Context context) {
-    //         super(context);
-    //     }
+    static class System1 : System {
+        this(Context context) {
+            super(context);
+        }
 
-    //     int a = 0;
-    // }
+        int a = 0;
+    }
 
-    // class System2 : System {
-    //     this(Context context) {
-    //         super(context);
-    //     }
+    static class System2 : System {
+        this(Context context) {
+            super(context);
+        }
 
-    //     float b = 0;
-    // }
+        float b = 0;
+    }
 
-    // auto c = new Context;
+    auto c = new Context;
 
-    // c.createSystem!System1().a = 10;
-    // c.createSystem!System2().b = 17;
+    c.createSystem!System1().a = 10;
+    c.createSystem!System2().b = 17;
 
-    // assert(c.system!System1().a == 10);
-    // assert(c.system!System2().b == 17);
+    assert(c.system!System1().a == 10);
+    assert(c.system!System2().b == 17);
 }

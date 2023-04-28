@@ -2,10 +2,14 @@ module dard.systems.ui_dir.widget;
 
 import dard.systems.ui;
 import dard.systems.broker;
+import dard.systems.render;
+import dard.systems.logger;
 
 import dard.types.math.vector;
 
-import dard.systems.ui_dir.group_widget;
+public import dard.systems.ui_dir.group_widget;
+public import dard.systems.ui_dir.styles;
+public import dard.systems.ui_dir.internal_events;
 
 enum Corner {
     LeftUp,
@@ -14,12 +18,18 @@ enum Corner {
     RightDown,
 }
 
+import std.random;
+
+auto rnd = Random(42);
+
 class Widget : Transceiver {
     mixin ImplTransceiver;
 
     this(UiSystem system, GroupWidget parent = null) {
         _system = system;
         _broker = system.context.system!Broker;
+
+        this.parent(parent);
     }
 
     auto minSize() const {
@@ -28,6 +38,12 @@ class Widget : Transceiver {
 
     auto minSize(Vector2f minSize) {
         _minSize = minSize;
+        if (_size.x < _minSize.x) {
+            _size.x = _minSize.x;
+        }
+        if (_size.y < _minSize.y) {
+            _size.y = _minSize.y;
+        }
 
         return this;
     }
@@ -38,6 +54,12 @@ class Widget : Transceiver {
 
     auto maxSize(Vector2f maxSize) {
         _maxSize = maxSize;
+        if (_size.x > _maxSize.x) {
+            _size.x = _maxSize.x;
+        }
+        if (_size.y > _maxSize.y) {
+            _size.y = _maxSize.y;
+        }
 
         return this;
     }
@@ -58,6 +80,18 @@ class Widget : Transceiver {
 
     auto size(Vector2f size) {
         _size = size;
+        if (_size.x > _maxSize.x) {
+            _maxSize.x = _size.x;
+        }
+        if (_size.y > _maxSize.y) {
+            _maxSize.y = _size.y;
+        }
+        if (_size.x < _minSize.x) {
+            _minSize.x = _size.x;
+        }
+        if (_size.y < _minSize.y) {
+            _minSize.y = _size.y;
+        }
 
         return this;
     }
@@ -87,7 +121,13 @@ class Widget : Transceiver {
     }
 
     auto parent(GroupWidget parent) {
+        if (_parent && _parent.contains(this)) {
+            _parent.removeChild(this);
+        }
         _parent = parent;
+        if (_parent && !_parent.contains(this)) {
+            _parent.addChild(this);
+        }
 
         return this;
     }
@@ -125,14 +165,46 @@ class Widget : Transceiver {
             pos += Vector2f(_pos.x, _parent.size().y - _pos.y);
             break;
         case Corner.RightUp:
-            pos += Vector2f(_parent.size().x - _pos.x, _pos.y);
+            pos += Vector2f(_parent.size().x - _pos.x - _size.x, _pos.y);
             break;
         case Corner.RightDown:
-            pos += Vector2f(_parent.size().x - _pos.x, _parent.size().y - _pos.y);
+            pos += Vector2f(_parent.size().x - _pos.x, _parent.size().y - _pos.y - _size.y);
             break;
         }
 
         return pos;
+    }
+
+    final Vector2f realSize() const {
+        return _size;
+    }
+
+    void draw() {
+        auto nvg = system().context.system!Render.nvg();
+        nvg.nvgSave();
+        scope (exit) {
+            nvg.nvgRestore();
+        }
+
+        auto p = realPosition();
+        auto s = realSize();
+        nvg.nvgSave();
+        nvg.nvgBeginPath();
+        nvg.nvgRect(p.x, p.y, s.x, s.y);
+        nvg.nvgFillColor(cast(NVGcolor) defStyleVal!(Styles.EMPTY_WIDGET_BACKGROUND_COLOR));
+        nvg.nvgFill();
+    }
+
+    Widget onPressed(const ref UIMouseButtonPressed) {
+        return null;
+    }
+
+    Widget onReleased(const ref UIMouseButtonReleased) {
+        return null;
+    }
+
+    UiSystem system() {
+        return _system;
     }
 
 private:
@@ -142,13 +214,13 @@ private:
 
     Corner _corner = Corner.LeftUp;
 
-    Vector2f _minSize;
-    Vector2f _maxSize;
+    Vector2f _minSize = [0, 0];
+    Vector2f _maxSize = [0, 0];
 
-    Vector2f _size;
-    Vector2f _pos;
+    Vector2f _size = [0, 0];
+    Vector2f _pos = [0, 0];
 
-    bool _isPart;
-    Vector2f _partSize;
-    Vector2f _partPos;
+    bool _isPart = false;
+    Vector2f _partSize = [0, 0];
+    Vector2f _partPos = [0, 0];
 }

@@ -12,6 +12,7 @@ class Logger : System {
 public:
     this(Context context) {
         super(context);
+
         _logger = new FileLogger(stdout);
         sharedLog = cast(shared)(_logger);
     }

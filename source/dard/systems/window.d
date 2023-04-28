@@ -48,6 +48,9 @@ public:
                 e.newSize.x = re.window.data1;
                 e.newSize.y = re.window.data2;
                 send(e);
+            } else {
+                auto e = WindowEvent(&re);
+                send(e);
             }
         }
     }
@@ -60,7 +63,7 @@ public:
         return Vector2u(cast(uint) size.x, cast(uint) size.y);
     }
 
-    auto getSDLWindow() {
+    auto sdlWindow() {
         return _window;
     }
 

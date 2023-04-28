@@ -10,7 +10,7 @@ public:
     }
 
     void addComponenet(T)() if (is(T : Component)) {
-        _components[typeid(T)] = Component(this);
+        _components[typeid(T)] = new Component(this);
     }
 
 private:

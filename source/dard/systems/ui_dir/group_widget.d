@@ -4,7 +4,7 @@ import dard.systems.ui_dir.widget;
 import dard.systems.ui;
 
 class GroupWidget : Widget {
-    this(UiSystem system) {
+    this(UiSystem system, GroupWidget parent = null) {
         super(system);
     }
 
