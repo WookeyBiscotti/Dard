@@ -1,4 +1,4 @@
-module dard.systems.broker_dir.transceiver;
+module dard.systems.broker.transceiver;
 
 import dard.systems.broker;
 

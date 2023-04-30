@@ -1,4 +1,4 @@
-module dard.systems.ui_dir.styles;
+module dard.systems.ui.styles;
 
 import dard.types.color;
 

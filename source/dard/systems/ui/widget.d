@@ -1,4 +1,4 @@
-module dard.systems.ui_dir.widget;
+module dard.systems.ui.widget;
 
 import dard.systems.ui;
 import dard.systems.broker;
@@ -6,10 +6,6 @@ import dard.systems.render;
 import dard.systems.logger;
 
 import dard.types.math.vector;
-
-public import dard.systems.ui_dir.group_widget;
-public import dard.systems.ui_dir.styles;
-public import dard.systems.ui_dir.internal_events;
 
 enum Corner {
     LeftUp,

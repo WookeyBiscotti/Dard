@@ -1,15 +1,14 @@
-module dard.systems.config;
+module dard.systems.config.config;
 
 import std.typecons;
 import std.algorithm.mutation;
 import std.conv;
 import std.stdio;
 
+import dard.systems.config;
 import dard.base.system;
 import dard.base.context;
 import dard.types.math.vector;
-
-import dard.systems.config_dir.value;
 
 class Config : System {
 public:

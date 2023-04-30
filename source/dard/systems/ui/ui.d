@@ -1,4 +1,4 @@
-module dard.systems.ui;
+module dard.systems.ui.ui;
 
 import dard.base.system;
 import dard.base.context;
@@ -10,10 +10,7 @@ import dard.systems.window;
 
 import sdl;
 
-public import dard.systems.ui_dir.group_widget;
-public import dard.systems.ui_dir.widget;
-public import dard.systems.ui_dir.simple_group_widget;
-public import dard.systems.ui_dir.internal_events;
+import dard.systems.ui;
 
 class UiSystem : System, Transceiver {
 public:
@@ -35,9 +32,9 @@ public:
         subscribe!WindowEvent(window, (ref WindowEvent e) {
             if (e.e.type == SDL_EventType.SDL_EVENT_MOUSE_BUTTON_DOWN) {
                 auto p = Vector2f(e.e.button.x, e.e.button.y);
+                auto ue = UIMouseButtonPressed(p);
                 Widget w = _root;
                 while (w) {
-                    auto ue = UIMouseButtonPressed(p);
                     w = w.onPressed(ue);
                 }
             }

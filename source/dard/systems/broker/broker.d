@@ -1,4 +1,4 @@
-module dard.systems.broker;
+module dard.systems.broker.broker;
 
 import std.typecons;
 
@@ -6,7 +6,7 @@ import dard.base.system;
 import dard.base.context;
 import dard.utils.static_cast;
 
-public import dard.systems.broker_dir.transceiver;
+import dard.systems.broker.transceiver;
 
 class Broker : System {
 public:

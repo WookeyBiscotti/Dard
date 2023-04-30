@@ -10,15 +10,14 @@ import dard.systems.render;
 import dard.systems.broker;
 import dard.systems.ui;
 import dard.systems.window;
-
-import dard.systems.ui_dir.simple_button;
+import dard.systems.asset;
 
 import core.time;
 import core.thread;
 
 class Engine : System, Transceiver {
 public:
-    mixin ImplTransceiver!();
+    mixin ImplTransceiver;
 
     this(Context context) {
         super(context);
@@ -34,6 +33,7 @@ public:
         auto window = context.createSystem!WindowSystem();
         auto render = context.createSystem!Render();
         auto ui = context.createSystem!UiSystem();
+        auto assets = context.createSystem!AssetSystem();
 
         ui.root().addChild(new SimpleButton(ui, ui.root())).size(Vector2f(100, 20))
             .corner(Corner.RightUp).position(Vector2f(0, 0));

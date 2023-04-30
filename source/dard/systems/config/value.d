@@ -1,4 +1,4 @@
-module dard.systems.config_dir.value;
+module dard.systems.config.value;
 
 import std.variant;
 

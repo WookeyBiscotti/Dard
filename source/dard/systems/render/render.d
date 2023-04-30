@@ -1,4 +1,4 @@
-module dard.systems.render;
+module dard.systems.render.render;
 
 import dard.base.system;
 import dard.base.context;
@@ -15,8 +15,6 @@ import bindbc.bgfx;
 
 import sdl;
 public import nanovg;
-
-public import dard.systems.window_dir.events;
 
 class Render : System, Transceiver {
 public:
@@ -71,12 +69,6 @@ public:
     }
 
     void render(Duration dur) {
-        // _nvgContext.nvgRoundedRect(10.0f, 10.0f, 100.0f, 100.0f, 10.0f);
-        // NVGcolor c;
-        // c.rgba = [1.0f, 1.0f, 1.0f, 1.0f];
-        // _nvgContext.nvgFillColor(c);
-        // _nvgContext.nvgFill();
-
         bgfx_dbg_text_clear(0, false);
         bgfx_dbg_text_printf(0, 0, 0x0f, "Frame duration %d usecs", cast(int) dur.total!"usecs");
 

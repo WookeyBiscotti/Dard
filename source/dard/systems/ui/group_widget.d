@@ -1,6 +1,5 @@
-module dard.systems.ui_dir.group_widget;
+module dard.systems.ui.group_widget;
 
-import dard.systems.ui_dir.widget;
 import dard.systems.ui;
 
 class GroupWidget : Widget {

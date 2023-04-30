@@ -1,4 +1,4 @@
-module dard.systems.window;
+module dard.systems.window.window;
 
 import dard.base.system;
 import dard.base.context;
@@ -11,7 +11,7 @@ import core.thread;
 
 import sdl;
 
-public import dard.systems.window_dir.events;
+import dard.systems.window.events;
 
 class WindowSystem : System, Transceiver {
 public:

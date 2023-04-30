@@ -1,4 +1,4 @@
-module dard.systems.ui_dir.internal_events;
+module dard.systems.ui.internal_events;
 
 public import dard.types.math.vector;
 

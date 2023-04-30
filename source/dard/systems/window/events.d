@@ -1,4 +1,4 @@
-module dard.systems.window_dir.events;
+module dard.systems.window.events;
 
 import dard.types.math.vector;
 import sdl;

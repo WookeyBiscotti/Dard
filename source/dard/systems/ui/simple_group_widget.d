@@ -1,8 +1,5 @@
-module dard.systems.ui_dir.simple_group_widget;
+module dard.systems.ui.simple_group_widget;
 
-import dard.systems.ui_dir.group_widget;
-import dard.systems.ui_dir.internal_events;
-import dard.systems.ui_dir.widget;
 import dard.systems.ui;
 
 import std.algorithm;
@@ -41,7 +38,6 @@ class SimpleGroupWidget : GroupWidget {
             c.draw();
         }
     }
-
     override Widget onPressed(const ref UIMouseButtonPressed e) {
         return findWidgetUnderPoint(e.p);
     }
