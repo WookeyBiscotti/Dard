@@ -7,18 +7,19 @@ import dard.systems.logger;
 
 import dard.types.math.vector;
 
+import std.math.traits;
+
 enum Corner {
     LeftUp,
     LeftDown,
     RightUp,
     RightDown,
+    Center,
 }
 
-import std.random;
-
-auto rnd = Random(42);
-
 class Widget : Transceiver {
+    enum DontChange = float.nan;
+
     mixin ImplTransceiver;
 
     this(UiSystem system, GroupWidget parent = null) {
@@ -33,6 +34,12 @@ class Widget : Transceiver {
     }
 
     auto minSize(Vector2f minSize) {
+        if (minSize.x.isNaN()) {
+            minSize.x = _minSize.x;
+        }
+        if (minSize.y.isNaN()) {
+            minSize.y = _minSize.y;
+        }
         _minSize = minSize;
         if (_size.x < _minSize.x) {
             _size.x = _minSize.x;
@@ -49,6 +56,13 @@ class Widget : Transceiver {
     }
 
     auto maxSize(Vector2f maxSize) {
+        if (maxSize.x.isNaN()) {
+            maxSize.x = _maxSize.x;
+        }
+        if (maxSize.y.isNaN()) {
+            maxSize.y = _maxSize.y;
+        }
+
         _maxSize = maxSize;
         if (_size.x > _maxSize.x) {
             _size.x = _maxSize.x;
@@ -75,6 +89,12 @@ class Widget : Transceiver {
     }
 
     auto size(Vector2f size) {
+        if (size.x.isNaN()) {
+            size.x = _size.x;
+        }
+        if (size.y.isNaN()) {
+            size.y = _size.y;
+        }
         _size = size;
         if (_size.x > _maxSize.x) {
             _maxSize.x = _size.x;
@@ -148,6 +168,10 @@ class Widget : Transceiver {
         return this;
     }
 
+    UiSystem system() {
+        return _system;
+    }
+
     final Vector2f realPosition() const {
         if (!_parent) {
             return _pos;
@@ -158,13 +182,18 @@ class Widget : Transceiver {
             // pos += Vector2f();
             break;
         case Corner.LeftDown:
-            pos += Vector2f(_pos.x, _parent.size().y - _pos.y);
+            pos += Vector2f(_pos.x, _parent.realSize().y - _pos.y);
             break;
         case Corner.RightUp:
-            pos += Vector2f(_parent.size().x - _pos.x - _size.x, _pos.y);
+            pos += Vector2f(_parent.realSize().x - _pos.x - _size.x, _pos.y);
             break;
         case Corner.RightDown:
-            pos += Vector2f(_parent.size().x - _pos.x, _parent.size().y - _pos.y - _size.y);
+            pos += Vector2f(_parent.realSize().x - _pos.x,
+                    _parent.realSize().y - _pos.y - _size.y);
+            break;
+        case Corner.Center:
+            pos += Vector2f(0.5f * (_parent.realSize()
+                    .x - _size.x) + _pos.x, 0.5f * (_parent.realSize().y - _size.y) + _pos.y);
             break;
         }
 
@@ -176,31 +205,30 @@ class Widget : Transceiver {
     }
 
     void draw() {
-        auto nvg = system().context.system!Render.nvg();
-        nvg.nvgSave();
-        scope (exit) {
-            nvg.nvgRestore();
-        }
-
-        auto p = realPosition();
-        auto s = realSize();
-        nvg.nvgSave();
-        nvg.nvgBeginPath();
-        nvg.nvgRect(p.x, p.y, s.x, s.y);
-        nvg.nvgFillColor(cast(NVGcolor) defStyleVal!(Styles.EMPTY_WIDGET_BACKGROUND_COLOR));
-        nvg.nvgFill();
     }
 
-    Widget onPressed(const ref UIMouseButtonPressed) {
+    Widget onPressed(ref const UIMouseButtonPressed) {
         return null;
     }
 
-    Widget onReleased(const ref UIMouseButtonReleased) {
+    Widget onReleased(ref const UIMouseButtonReleased) {
         return null;
     }
 
-    UiSystem system() {
-        return _system;
+    Widget onHovered(ref const UIHovered) {
+        return null;
+    }
+
+    Widget onUnhovered(ref const UIUnhovered) {
+        return null;
+    }
+
+    Widget onMouseMove(ref const UIMouseMove) {
+        return null;
+    }
+
+    Widget widgetUnderPoint(Vector2f p) {
+        return this;
     }
 
 private:

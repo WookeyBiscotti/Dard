@@ -1,21 +1,25 @@
-module dard.systems.asset;
+module dard.systems.asset.asset;
 
 import dard.base.system;
 import dard.base.context;
 import dard.systems.logger;
+import dard.systems.asset;
+import dard.systems.render;
 
 import std.container.util;
 import std.typecons;
-
-public import dard.systems.asset_dir.font;
 
 class AssetSystem : System {
 public:
     this(Context context) {
         super(context);
-        import dard.systems.asset_dir.builtin_default_font;
+        auto f = RefCounted!FontAsset(BinaryData(builtin_default_font));
 
-        _fonts["__default__"] = FontAsset(BinaryData(builtin_default_font));
+        auto nvg = context.system!Render.nvg();
+
+        auto data = f.data.to!(ubyte[]);
+        f.nvgFont = nvgCreateFontMem(nvg, "__default__", data.ptr, cast(int) data.length, 0);
+        _fonts["__default__"] = f;
     }
 
     void loadFont(string filepath, string name) {

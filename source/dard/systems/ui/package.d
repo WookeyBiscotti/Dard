@@ -7,3 +7,4 @@ public import dard.systems.ui.simple_group_widget;
 public import dard.systems.ui.styles;
 public import dard.systems.ui.ui;
 public import dard.systems.ui.widget;
+public import dard.systems.ui.text;

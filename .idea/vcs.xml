@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/3rdparty/SDL" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/3rdparty/bgfx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/3rdparty/bimg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/3rdparty/bx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/dstep" vcs="Git" />
+  </component>
+</project>

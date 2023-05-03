@@ -8,6 +8,7 @@
 		"emsi_containers": "0.9.0",
 		"ikod-containers": "0.0.22",
 		"memutils": "1.0.9",
+		"nanovg": {"path":"bindings/nanovg"},
 		"sdl": {"path":"bindings/sdl"},
 		"test_allocator": "0.3.3",
 		"unit-threaded": "2.1.6"

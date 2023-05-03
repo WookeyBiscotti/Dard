@@ -35,8 +35,8 @@ public:
         auto ui = context.createSystem!UiSystem();
         auto assets = context.createSystem!AssetSystem();
 
-        ui.root().addChild(new SimpleButton(ui, ui.root())).size(Vector2f(100, 20))
-            .corner(Corner.RightUp).position(Vector2f(0, 0));
+        ui.root().addChild(new SimpleButton(ui, "Abcdefg", ui.root()))
+            .size(Vector2f(100, Widget.DontChange)).corner(Corner.Center).position(Vector2f(0, 0));
         auto frameDuration = dur!"seconds"(1) / 60;
 
         bool isRunning = true;

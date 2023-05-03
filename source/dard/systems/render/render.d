@@ -46,6 +46,7 @@ public:
         bgfx_set_debug(BGFX_DEBUG_TEXT);
 
         bgfx_set_view_clear(0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303070ff, 1.0f, 0);
+        // bgfx_set_view_clear(0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0xffffffff, 1.0f, 0);
 
         subscribe!WindowResized(window, (ref WindowResized e) {
             bgfx_reset(e.newSize.x, e.newSize.y, BGFX_RESET_NONE, bgfx_texture_format_t

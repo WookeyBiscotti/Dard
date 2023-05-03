@@ -1,4 +1,4 @@
-module dard.systems.asset_dir.binary_data;
+module dard.systems.asset.binary_data;
 
 import dard.systems.logger;
 
