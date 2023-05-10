@@ -3,8 +3,9 @@ module dard.systems.config.value;
 import std.variant;
 
 import dard.types.math.vector;
+import dard.types.string;
 
-alias Value = Algebraic!(bool, long, string, Vector2f, Vector2u);
+alias Value = Algebraic!(bool, long, String, Vector2f, Vector2u);
 
 struct EngineValue {
     enum Access {
@@ -16,4 +17,4 @@ struct EngineValue {
     Value value;
 }
 
-alias ValueTree = EngineValue[string];
+alias ValueTree = EngineValue[String];

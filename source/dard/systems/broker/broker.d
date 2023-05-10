@@ -3,6 +3,7 @@ module dard.systems.broker.broker;
 import std.typecons;
 
 import dard.base.system;
+import dard.systems.logger;
 import dard.base.context;
 import dard.utils.static_cast;
 
@@ -33,18 +34,34 @@ public:
     }
 
     void unsubscribe(E)(Transceiver r) {
+        if (_currentCallDeep != 0) {
+            _deleteRSTWait ~= RST(r, s, typeid(E));
+            _dirtyFlag = true;
+
+            return;
+        }
         unsubscribeImpl(r, typeid(E));
+    }
+
+    void unsubscribe(Transceiver r, TypeInfo t) {
+        if (_currentCallDeep != 0) {
+            _deleteRTWait ~= RT(r, t);
+            _dirtyFlag = true;
+
+            return;
+        }
+        unsubscribeImpl(r, t);
     }
 
     void unsubscribe(E)(Transceiver r, Transceiver s) {
         if (_currentCallDeep != 0) {
-            _deleteRSTWait ~= tuple!(r, s, typeid(E));
+            _deleteRSTWait ~= RST(r, s, typeid(E));
             _dirtyFlag = true;
 
             return;
         }
 
-        unsubscribeImpl(receiver, sender, typeId);
+        unsubscribeImpl(r, s, typeid(E));
     }
 
     void unsubscribe(Transceiver r, Transceiver s) {
@@ -159,8 +176,8 @@ private:
     }
 
     void unsubscribeImpl(Transceiver r, Transceiver s, TypeInfo type) {
-        _personalEventsFn.require(s).require(type).remove(r);
         _personalReceiversFns.require(r).require(s).remove(type);
+        _personalEventsFn.require(s).require(type).remove(r);
     }
 
     void unsubscribeImpl(Transceiver r, Transceiver s) {
@@ -174,18 +191,43 @@ private:
         }
     }
 
-    void unsubscribeAllImpl(Transceiver t) {
+    void unsubscribeAllImpl(Transceiver s) {
+
+        // _personalEventsFn.require(s).require(l.type).require(r) = l;
+        // _personalReceiversFns.require(r).require(s).require(l.type);
+        // log(cast(void*) s);
+        // log(s);
         // remove as sender
-        if (auto types = t in _personalEventsFn) {
-            foreach (ref receivers; types.byValue()) {
-                foreach (ref receiver; receivers.byKey()) {
-                    if (auto senders = receiver in _personalReceiversFns) {
-                        (*senders).remove(t);
+        if (auto types = s in _personalEventsFn) {
+            foreach (ref receivers; *types) {
+                foreach (r; receivers.byKey()) {
+                    // log(cast(void*) r);
+                    // log(r);
+                    if (auto senders = r in _personalReceiversFns) {
+                        (*senders).remove(s);
                     }
                 }
             }
         }
-        _personalEventsFn.remove(t);
+        _personalEventsFn.remove(s);
+
+        if (auto senders = s in _personalReceiversFns) {
+            foreach (sender, ref types; *senders) {
+                foreach (t; types.byKey()) {
+                    _personalEventsFn.require(sender).require(t).remove(s);
+                }
+            }
+        }
+
+        // remove as receiver
+        if (auto types = s in _receiversFns) {
+            log(cast(void*) types);
+            log(types);
+            while (!!types.length) {
+                unsubscribe(s, types.keys[0]);
+                (*types).remove(types.keys[0]);
+            }
+        }
     }
 
     struct EventFromOneListner {

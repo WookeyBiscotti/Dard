@@ -1,9 +1,10 @@
 module dard.systems.asset.binary_data;
 
 import dard.systems.logger;
+import dard.types.string;
 
 struct BinaryData {
-    this(string filename) {
+    this(String filename) {
         import std.file;
 
         try {

@@ -1,11 +1,13 @@
 module dard.systems.ui.text;
 
 public import dard.types.color;
+public import dard.types.string;
 import dard.types.math.vector;
 
 import nanovg;
 
-import std.string;
+// import std.string;
+import core.lifetime;
 
 struct Text {
     Color fontColor;
@@ -37,8 +39,8 @@ struct Text {
         _dirt = true;
     }
 
-    void text(string text) {
-        _text = text;
+    void text(String text) {
+        move(text, _text);
         _dirt = true;
     }
 
@@ -69,5 +71,5 @@ private:
     Vector2f _size;
     int _nvgFont;
     float _fontSize = 10;
-    string _text;
+    String _text;
 }

@@ -4,6 +4,7 @@ import dard.base.system;
 import dard.base.context;
 
 import dard.types.math.vector;
+import dard.types.memory;
 
 import dard.systems.logger;
 import dard.systems.render;
@@ -22,7 +23,7 @@ public:
     this(Context context) {
         super(context);
         context.createSystem!Broker;
-        _broker = context.system!Broker;
+        _broker = ImplTransceiverData(this, context.system!Broker);
     }
 
     void run() {
@@ -35,8 +36,19 @@ public:
         auto ui = context.createSystem!UiSystem();
         auto assets = context.createSystem!AssetSystem();
 
-        ui.root().addChild(new SimpleButton(ui, "Abcdefg", ui.root()))
-            .size(Vector2f(100, Widget.DontChange)).corner(Corner.Center).position(Vector2f(0, 0));
+        GroupWidget g = New!LayoutGroup(ui, ui.root());
+        g.corner(Corner.Center).position(Vector2f(0, 0)).size(Vector2f(100, 100));
+
+        New!SimpleButton(ui, String("btn1"), g);
+        New!SimpleButton(ui, String("btn2"), g);
+
+        // ui.root().addChild(cast(SharedPtr!Widget) gr).corner(Corner.Center)
+        //     .position(Vector2f(0, 0)).size(Vector2f(100, 100));
+        // gr.addChild(btn).size(Vector2f(100, Widget.DontChange));
+        // gr.addChild(btn2).size(Vector2f(100, Widget.DontChange));
+
+        // ui.root().addChild(btn).size(Vector2f(100, Widget.DontChange))
+        //     .corner(Corner.Center).position(Vector2f(0, 0));
         auto frameDuration = dur!"seconds"(1) / 60;
 
         bool isRunning = true;
@@ -46,8 +58,8 @@ public:
         while (isRunning) {
             immutable auto t1 = MonoTime.currTime();
 
-            render.clear();
             window.update();
+            render.clear();
             ui.update();
 
             // import core.memory;

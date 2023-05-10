@@ -17,6 +17,10 @@ enum Corner {
     Center,
 }
 
+struct WidgetResized {
+    Vector2f newSize;
+}
+
 class Widget : Transceiver {
     enum DontChange = float.nan;
 
@@ -24,9 +28,15 @@ class Widget : Transceiver {
 
     this(UiSystem system, GroupWidget parent = null) {
         _system = system;
-        _broker = system.context.system!Broker;
+        _broker = ImplTransceiverData(this, system.context.system!Broker);
 
-        this.parent(parent);
+        if (parent) {
+            this.parent(parent);
+        }
+    }
+
+    ~this() {
+        parent(null);
     }
 
     auto minSize() const {
@@ -41,11 +51,17 @@ class Widget : Transceiver {
             minSize.y = _minSize.y;
         }
         _minSize = minSize;
-        if (_size.x < _minSize.x) {
-            _size.x = _minSize.x;
+
+        auto newSize = _size;
+        if (newSize.x < _minSize.x) {
+            newSize.x = _minSize.x;
         }
-        if (_size.y < _minSize.y) {
-            _size.y = _minSize.y;
+        if (newSize.y < _minSize.y) {
+            newSize.y = _minSize.y;
+        }
+
+        if (newSize != _size) {
+            size(newSize);
         }
 
         return this;
@@ -62,13 +78,18 @@ class Widget : Transceiver {
         if (maxSize.y.isNaN()) {
             maxSize.y = _maxSize.y;
         }
-
         _maxSize = maxSize;
-        if (_size.x > _maxSize.x) {
-            _size.x = _maxSize.x;
+
+        auto newSize = _size;
+        if (newSize.x > _maxSize.x) {
+            newSize.x = _maxSize.x;
         }
-        if (_size.y > _maxSize.y) {
-            _size.y = _maxSize.y;
+        if (newSize.y > _maxSize.y) {
+            newSize.y = _maxSize.y;
+        }
+
+        if (newSize != _size) {
+            size(newSize);
         }
 
         return this;
@@ -88,13 +109,18 @@ class Widget : Transceiver {
         return _size;
     }
 
-    auto size(Vector2f size) {
+    Widget size(Vector2f size) {
         if (size.x.isNaN()) {
             size.x = _size.x;
         }
         if (size.y.isNaN()) {
             size.y = _size.y;
         }
+
+        if (size == _size) {
+            return this;
+        }
+
         _size = size;
         if (_size.x > _maxSize.x) {
             _maxSize.x = _size.x;
@@ -108,6 +134,9 @@ class Widget : Transceiver {
         if (_size.y < _minSize.y) {
             _minSize.y = _size.y;
         }
+
+        auto e = WidgetResized(_size);
+        send(e);
 
         return this;
     }
@@ -137,9 +166,14 @@ class Widget : Transceiver {
     }
 
     auto parent(GroupWidget parent) {
+        if (_parent == parent) {
+            return this;
+        }
+
         if (_parent && _parent.contains(this)) {
             _parent.removeChild(this);
         }
+
         _parent = parent;
         if (_parent && !_parent.contains(this)) {
             _parent.addChild(this);
@@ -179,7 +213,7 @@ class Widget : Transceiver {
         Vector2f pos = _parent.realPosition();
         final switch (_corner) {
         case Corner.LeftUp:
-            // pos += Vector2f();
+            pos += _pos;
             break;
         case Corner.LeftDown:
             pos += Vector2f(_pos.x, _parent.realSize().y - _pos.y);
@@ -231,7 +265,7 @@ class Widget : Transceiver {
         return this;
     }
 
-private:
+protected:
     UiSystem _system;
 
     GroupWidget _parent;
@@ -239,7 +273,7 @@ private:
     Corner _corner = Corner.LeftUp;
 
     Vector2f _minSize = [0, 0];
-    Vector2f _maxSize = [0, 0];
+    Vector2f _maxSize = [float.max, float.max];
 
     Vector2f _size = [0, 0];
     Vector2f _pos = [0, 0];

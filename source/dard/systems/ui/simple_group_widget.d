@@ -1,36 +1,56 @@
 module dard.systems.ui.simple_group_widget;
 
 import dard.systems.ui;
+import dard.systems.logger;
+import dard.types.vector;
+import dard.types.memory;
 
 import std.algorithm;
 
 class SimpleGroupWidget : GroupWidget {
-    this(UiSystem system) {
-        super(system);
+    this(UiSystem system, GroupWidget parent = null) {
+        super(system, parent);
     }
 
-    override Widget addChild(Widget c) {
+    ~this() {
+        while (!_childs.empty()) {
+            auto c = _childs[$ - 1];
+            _childs.popBack();
+            Delete(c);
+        }
+    }
+
+    override void addChild(Widget c) {
         if (!contains(c)) {
             _childs ~= c;
         }
-
-        return c;
+        if (c.parent() != this) {
+            c.parent(this);
+        }
     }
 
     override Widget removeChild(Widget c) {
-        _childs.remove!(e => e == c);
+        for (auto i = 0; i != _childs.length; ++i) {
+            if (_childs[i] == c) {
+                auto p = _childs[i];
+                _childs[i] = _childs[$ - 1];
+                _childs.popBack();
 
-        return c;
-    }
-
-    override bool contains(Widget c) const {
-        foreach (el; _childs) {
-            if (el == c) {
-                return true;
+                return p;
             }
         }
 
-        return false;
+        return null;
+    }
+
+    override const(Widget) contains(Widget c) const {
+        for (auto i = 0; i != _childs.length; ++i) {
+            if (_childs[i] == c) {
+                return _childs[i];
+            }
+        }
+
+        return null;
     }
 
     override void draw() {
@@ -71,7 +91,7 @@ class SimpleGroupWidget : GroupWidget {
         return this;
     }
 
-private:
+protected:
     Widget findWidgetUnderPoint(Vector2f p) {
         import dard.utils.geometry.algs;
 
@@ -84,5 +104,5 @@ private:
         return null;
     }
 
-    Widget[] _childs;
+    Array!Widget _childs;
 }

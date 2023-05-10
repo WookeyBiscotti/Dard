@@ -2,13 +2,35 @@ module dard.systems.broker.transceiver;
 
 import dard.systems.broker;
 
+struct ImplTransceiverData {
+    this() @disable;
+
+    this(Transceiver self, Broker broker) {
+        _broker = broker;
+        _self = self;
+    }
+
+    ~this() {
+        _broker.unsubscribeAll(_self);
+    }
+
+    ref getRef() inout @property {
+        return _broker;
+    }
+
+    private Broker _broker;
+    private Transceiver _self;
+
+    alias getRef this;
+}
+
 mixin template ImplTransceiver() {
     static assert(is(typeof(this) : Transceiver));
 
     import dard.types.notnull;
     import dard.utils.static_cast;
 
-    NotNull!Broker _broker;
+    ImplTransceiverData _broker;
 
     void send(E)(ref E e) {
         _broker.send!E(this, e);

@@ -22,15 +22,14 @@ public:
 
     this(Context context) {
         super(context);
-        _broker = context.system!Broker;
+        _broker = ImplTransceiverData(this, context.system!Broker);
 
         auto window = context.system!WindowSystem;
 
         _windowSize = window.size();
 
         SDL_SysWMinfo wmi;
-        enforce(!SDL_GetWindowWMInfo(context.system!WindowSystem
-                .sdlWindow(), &wmi, 1));
+        enforce(!SDL_GetWindowWMInfo(context.system!WindowSystem.sdlWindow(), &wmi, 1));
 
         bgfx_init_t init_ = void;
         bgfx_init_ctor(&init_);
@@ -38,8 +37,7 @@ public:
         init_.platformData.nwh = cast(void*) wmi.info.x11.window;
         init_.resolution.width = _windowSize.x;
         init_.resolution.height = _windowSize.y;
-        init_.resolution.format = bgfx_texture_format_t
-            .BGFX_TEXTURE_FORMAT_RGBA8U;
+        init_.resolution.format = bgfx_texture_format_t.BGFX_TEXTURE_FORMAT_RGBA8U;
         enforce(bgfx_init(&init_));
 
         // bgfx_set_debug(BGFX_DEBUG_TEXT | BGFX_DEBUG_STATS);
@@ -49,8 +47,8 @@ public:
         // bgfx_set_view_clear(0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0xffffffff, 1.0f, 0);
 
         subscribe!WindowResized(window, (ref WindowResized e) {
-            bgfx_reset(e.newSize.x, e.newSize.y, BGFX_RESET_NONE, bgfx_texture_format_t
-                .BGFX_TEXTURE_FORMAT_RGBA8U);
+            bgfx_reset(e.newSize.x, e.newSize.y, BGFX_RESET_NONE,
+                bgfx_texture_format_t.BGFX_TEXTURE_FORMAT_RGBA8U);
             _windowSize = e.newSize;
         });
 
@@ -71,7 +69,7 @@ public:
 
     void render(Duration dur) {
         bgfx_dbg_text_clear(0, false);
-        bgfx_dbg_text_printf(0, 0, 0x0f, "Frame duration %d usecs", cast(int) dur.total!"usecs");
+        bgfx_dbg_text_printf(0, 0, 0x0f, "FPS: %d", cast(uint)(1_000_000.0f / dur.total!"usecs"));
 
         _nvgContext.nvgEndFrame();
 

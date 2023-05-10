@@ -4,12 +4,21 @@ import dard.base.entity;
 import dard.base.system;
 import dard.base.component;
 import dard.utils.static_cast;
+
 import std.algorithm : reverse;
 import std.stdio;
 import std.exception;
+import std.typecons;
+import std.container;
 
 final class Context {
 public:
+     ~this() {
+        foreach_reverse (s; _systemsList) {
+            destroy!false(s);
+        }
+    }
+
     T createSystem(T, Args...)(Args args) {
         auto p = new T(this, args);
 
@@ -29,15 +38,9 @@ public:
         return static_cast!S(_systems.get(typeid(T), null));
     }
 
-    ~this() {
-        foreach_reverse (s; _systemsList) {
-            destroy(s);
-        }
-    }
-
 private:
     System[TypeInfo] _systems;
-    System[] _systemsList;
+    Array!System _systemsList;
 }
 
 unittest {

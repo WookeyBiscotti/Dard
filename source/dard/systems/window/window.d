@@ -3,6 +3,7 @@ module dard.systems.window.window;
 import dard.base.system;
 import dard.base.context;
 import dard.types.math.vector;
+import dard.types.string;
 
 import dard.systems.config;
 import dard.systems.broker;
@@ -19,17 +20,17 @@ public:
 
     this(Context context) {
         super(context);
-        _broker = context.system!Broker();
+        _broker = ImplTransceiverData(this, context.system!Broker);
 
         immutable auto windowSize = context.system!Config
             .value!Vector2u(WINDOW_RESULUTION);
         const auto appName = context.system!Config
-            .value!string(APPLICATION_NAME);
+            .value!String(APPLICATION_NAME);
 
         SDL_SetHint("SDL_VIDEO_DRIVER", "x11");
         SDL_Init(SDL_InitFlags.SDL_INIT_VIDEO);
-        _window = SDL_CreateWindow(appName.ptr, windowSize.x, windowSize.y, SDL_WindowFlags
-                .SDL_WINDOW_RESIZABLE);
+        _window = SDL_CreateWindow(appName.ptr, windowSize.x, windowSize.y,
+                SDL_WindowFlags.SDL_WINDOW_RESIZABLE);
     }
 
     ~this() {

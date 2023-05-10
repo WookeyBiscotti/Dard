@@ -1,6 +1,6 @@
 module dard.base.system;
 
-import dard.base.context;
+public import dard.base.context;
 
 class System {
 public:

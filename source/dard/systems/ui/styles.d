@@ -1,10 +1,11 @@
 module dard.systems.ui.styles;
 
 import dard.types.color;
+import dard.types.string;
 
 import std.sumtype;
 
-alias StyleValue = SumType!(float, int, bool, Color, string);
+alias StyleValue = SumType!(float, int, bool, Color, String);
 
 enum Styles {
     WIDGET_BACKGROUND_COLOR,
