@@ -192,17 +192,10 @@ private:
     }
 
     void unsubscribeAllImpl(Transceiver s) {
-
-        // _personalEventsFn.require(s).require(l.type).require(r) = l;
-        // _personalReceiversFns.require(r).require(s).require(l.type);
-        // log(cast(void*) s);
-        // log(s);
         // remove as sender
         if (auto types = s in _personalEventsFn) {
             foreach (ref receivers; *types) {
                 foreach (r; receivers.byKey()) {
-                    // log(cast(void*) r);
-                    // log(r);
                     if (auto senders = r in _personalReceiversFns) {
                         (*senders).remove(s);
                     }
@@ -211,6 +204,7 @@ private:
         }
         _personalEventsFn.remove(s);
 
+        // remove as receiver
         if (auto senders = s in _personalReceiversFns) {
             foreach (sender, ref types; *senders) {
                 foreach (t; types.byKey()) {
@@ -218,8 +212,8 @@ private:
                 }
             }
         }
+        _personalEventsFn.remove(s);
 
-        // remove as receiver
         if (auto types = s in _receiversFns) {
             log(cast(void*) types);
             log(types);

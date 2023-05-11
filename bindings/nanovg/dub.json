@@ -1,0 +1,6 @@
+{
+    "name": "nanovg",
+    "targetType": "staticLibrary",
+    "lflags": ["-L$PACKAGE_DIR", "-L$PACKAGE_DIR/cpp_source/build/"],
+    "libs":["nanovg", "nanovgc"]
+}

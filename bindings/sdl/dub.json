@@ -1,0 +1,5 @@
+{
+    "name": "sdl",
+    "targetType": "sourceLibrary",
+    "lflags": ["$PACKAGE_DIR/../../3rdparty/SDL/build/libSDL3.a"]
+}

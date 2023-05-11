@@ -1,5 +1,6 @@
 {
     "name": "dard",
+    "targetType": "staticLibrary",
     "dependencies": {
         "dlib": "~>1.1.0",
         "automem": "~>0.6.9",
@@ -20,6 +21,12 @@
     "lflags-linux": [
         "-L/home/alex/code/Dard/3rdparty/bgfx/.build/linux64_gcc/bin"
     ],
+    "importPaths": [
+        "source"
+    ],
+    "sourcePaths": [
+        "source"
+    ],
     "libs": [
         "bgfxDebug",
         "bxDebug",
@@ -29,5 +36,8 @@
         "stdc++",
         "GL",
         "X11"
+    ],
+    "dflags": [
+        "-i=-ldc"
     ]
 }

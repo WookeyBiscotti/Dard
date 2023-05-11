@@ -1,0 +1,5 @@
+name "nanovg"
+
+// targetType "staticLibrary"
+lflags "-Lbindings/nanovg/"
+libs "nanovg"

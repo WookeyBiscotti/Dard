@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../../../../../usr/lib/ldc/x86_64-linux-gnu/include/d"
+		},
+		{
+			"path": "../../BrainEngine"
 		}
 	],
 	"settings": {
