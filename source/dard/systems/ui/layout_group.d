@@ -73,6 +73,16 @@ class LayoutGroup : SimpleGroupWidget {
         return res;
     }
 
+    LayoutGroup distanceBetweenChildren(float distanceBetweenChildren) {
+        _distanceBetweenChildren = distanceBetweenChildren;
+
+        return this;
+    }
+
+    // LayoutGroup
+    // Vector2f _indentTopLeft = [0, 0];
+    // Vector2f _indentBotRight = [0, 0];
+
 private:
     void updateChildsPositionSize() {
         if (_recursion) {

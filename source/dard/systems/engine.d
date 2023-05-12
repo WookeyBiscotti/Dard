@@ -12,6 +12,7 @@ import dard.systems.broker;
 import dard.systems.ui;
 import dard.systems.window;
 import dard.systems.asset;
+import dard.systems.scene;
 
 import core.time;
 import core.thread;
@@ -24,9 +25,7 @@ public:
         super(context);
         context.createSystem!Broker;
         _broker = ImplTransceiverData(this, context.system!Broker);
-    }
 
-    void run() {
         context.createSystem!Logger();
 
         log("Systems initializing");
@@ -35,32 +34,35 @@ public:
         auto render = context.createSystem!Render();
         auto ui = context.createSystem!UiSystem();
         auto assets = context.createSystem!AssetSystem();
+        auto scenes = context.createSystem!SceneSystem();
+    }
 
-        GroupWidget g = New!LayoutGroup(ui, ui.root());
-        g.corner(Corner.Center).position(Vector2f(0, 0)).size(Vector2f(100, 100));
-
-        New!SimpleButton(ui, String("btn1"), g);
-        New!SimpleButton(ui, String("btn2"), g);
-
-        // ui.root().addChild(cast(SharedPtr!Widget) gr).corner(Corner.Center)
-        //     .position(Vector2f(0, 0)).size(Vector2f(100, 100));
-        // gr.addChild(btn).size(Vector2f(100, Widget.DontChange));
-        // gr.addChild(btn2).size(Vector2f(100, Widget.DontChange));
-
-        // ui.root().addChild(btn).size(Vector2f(100, Widget.DontChange))
-        //     .corner(Corner.Center).position(Vector2f(0, 0));
-        auto frameDuration = dur!"seconds"(1) / 60;
+    void run() {
+        auto window = context.system!WindowSystem();
+        auto render = context.system!Render();
+        auto ui = context.system!UiSystem();
+        auto assets = context.system!AssetSystem();
+        auto scenes = context.system!SceneSystem();
 
         bool isRunning = true;
         subscribe!WindowClose(context.system!WindowSystem, (ref WindowClose e) {
             isRunning = false;
         });
+
+        Duration frameDuration = dur!"seconds"(1) / _maxFrames;
         while (isRunning) {
             immutable auto t1 = MonoTime.currTime();
+
+            auto scene = scenes.current();
+            if (!scene) {
+                break;
+            }
 
             window.update();
             render.clear();
             ui.update();
+
+            scene.update(frameDuration);
 
             // import core.memory;
             // GC.collect();
@@ -71,9 +73,15 @@ public:
 
             immutable auto t3 = MonoTime.currTime();
             auto dt2 = t3 - t1;
+
             if (dt2 < frameDuration) {
                 Thread.sleep(frameDuration - dt2);
+                frameDuration = dur!"seconds"(1) / _maxFrames;
+            } else {
+                frameDuration = dt2;
             }
         }
     }
+
+    uint _maxFrames = 60;
 }
