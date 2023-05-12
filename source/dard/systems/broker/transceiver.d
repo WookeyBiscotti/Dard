@@ -32,7 +32,7 @@ mixin template ImplTransceiver() {
 
     ImplTransceiverData _broker;
 
-    void send(E)(ref E e) {
+    void send(E)(in E e) {
         _broker.send!E(this, e);
     }
 

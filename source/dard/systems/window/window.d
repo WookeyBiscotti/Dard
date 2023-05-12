@@ -42,16 +42,14 @@ public:
         SDL_Event re = void;
         while (SDL_PollEvent(&re)) {
             if (re.type == SDL_EventType.SDL_EVENT_WINDOW_CLOSE_REQUESTED) {
-                WindowClose e = void;
-                send(e);
+                send(WindowClose());
             } else if (re.type == SDL_EventType.SDL_EVENT_WINDOW_RESIZED) {
                 WindowResized e;
                 e.newSize.x = re.window.data1;
                 e.newSize.y = re.window.data2;
                 send(e);
             } else {
-                auto e = WindowEvent(&re);
-                send(e);
+                send(WindowEvent(&re));
             }
         }
     }

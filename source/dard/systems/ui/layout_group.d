@@ -34,7 +34,7 @@ class LayoutGroup : SimpleGroupWidget {
         if (!contains(c)) {
             _childs ~= c;
 
-            subscribe!WidgetResized(c, (ref WidgetResized e) {
+            subscribe!WidgetResized(c, (in WidgetResized e) {
                 updateChildsPositionSize();
             });
         }

@@ -135,8 +135,7 @@ class Widget : Transceiver {
             _minSize.y = _size.y;
         }
 
-        auto e = WidgetResized(_size);
-        send(e);
+        send(WidgetResized(_size));
 
         return this;
     }

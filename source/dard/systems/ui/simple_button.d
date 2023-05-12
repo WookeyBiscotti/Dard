@@ -4,6 +4,9 @@ import dard.systems.ui;
 import dard.systems.render;
 import dard.systems.asset;
 
+struct ButtonRelease {
+}
+
 class SimpleButton : Widget {
     this(UiSystem system, String label, GroupWidget parent = null) {
         super(system, parent);
@@ -49,6 +52,8 @@ class SimpleButton : Widget {
 
     override Widget onReleased(const ref UIMouseButtonReleased) {
         _state = false;
+
+        send(ButtonRelease());
 
         return null;
     }

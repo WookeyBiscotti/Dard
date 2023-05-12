@@ -26,11 +26,11 @@ public:
 
         _root.size(cast(Vector2f) window.size());
 
-        subscribe!WindowResized(window, (ref WindowResized e) {
+        subscribe!WindowResized(window, (in WindowResized e) {
             _root.size(cast(Vector2f) e.newSize);
         });
 
-        subscribe!WindowEvent(window, (ref WindowEvent e) {
+        subscribe!WindowEvent(window, (in WindowEvent e) {
             if (e.e.type == SDL_EventType.SDL_EVENT_MOUSE_BUTTON_DOWN) {
                 auto p = Vector2f(e.e.button.x, e.e.button.y);
                 auto ue = UIMouseButtonPressed(p);

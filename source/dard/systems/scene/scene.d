@@ -5,11 +5,12 @@ import dard.systems.broker;
 
 public import core.time : Duration;
 
-class Scene : System, Transceiver {
+class Scene : Transceiver {
     mixin ImplTransceiver;
 
     this(Context context) {
-        super(context);
+        _context = context;
+
         _broker = ImplTransceiverData(this, context.system!Broker);
     }
 
@@ -17,4 +18,11 @@ class Scene : System, Transceiver {
     abstract void deactivate();
 
     abstract void update(Duration frameDuration);
+
+    Context context() {
+        return _context;
+    }
+
+private:
+    Context _context;
 }

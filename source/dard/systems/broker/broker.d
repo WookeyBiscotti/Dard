@@ -11,25 +11,25 @@ import dard.systems.broker.transceiver;
 
 class Broker : System {
 public:
-    alias FnOne(E) = void delegate(ref E);
-    alias FnAll(E) = void delegate(Transceiver s, ref E);
+    alias FnOne(E) = void delegate(in E);
+    alias FnAll(E) = void delegate(Transceiver s, in E);
 
-    alias FnOneRaw = void delegate(void* e);
-    alias FnAllRaw = void delegate(Transceiver s, void* e);
+    alias FnOneRaw = void delegate(const void* e);
+    alias FnAllRaw = void delegate(Transceiver s, const void* e);
 
     this(Context contex) {
         super(context);
     }
 
     void subscribe(E)(Transceiver s, Transceiver r, FnOne!(E) fn) {
-        subscribe(typeid(E), s, r, (void* e) { fn(*(cast(E*) e)); });
+        subscribe(typeid(E), s, r, (const void* e) { fn(*(cast(const E*) e)); });
     }
 
     void subscribe(E)(Transceiver r, FnAll!E fn) {
         subscribe(typeid(E), s, r, fn);
     }
 
-    void send(E)(Transceiver sender, ref E event) {
+    void send(E)(Transceiver sender, in E event) {
         send(sender, typeid(E), &event);
     }
 
@@ -91,7 +91,7 @@ private:
         addNewPersonalListner(r, s, EventFromOneListner(type, fn));
     }
 
-    void send(Transceiver sender, TypeInfo type, void* e) {
+    void send(Transceiver sender, TypeInfo type, const void* e) {
         assert(sender);
 
         _currentCallDeep++;

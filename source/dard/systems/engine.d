@@ -45,7 +45,7 @@ public:
         auto scenes = context.system!SceneSystem();
 
         bool isRunning = true;
-        subscribe!WindowClose(context.system!WindowSystem, (ref WindowClose e) {
+        subscribe!WindowClose(context.system!WindowSystem, (in WindowClose e) {
             isRunning = false;
         });
 
