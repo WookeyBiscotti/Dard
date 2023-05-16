@@ -11,7 +11,7 @@ struct CheckBoxRelease {
 }
 
 class CheckBox : Widget {
-    this(UiSystem system, GroupWidget parent = null, in String label = Str!"") {
+    this(UiSystem system, GroupWidget parent = null) {
         super(system, parent);
 
         minSize(Vector2f(defStyleVal!(Styles.DEFAULT_WIDGET_HEIGHT),
@@ -47,9 +47,9 @@ class CheckBox : Widget {
         if (_startChange) {
             _state = !_state;
             _startChange = false;
-        }
 
-        send(ButtonRelease());
+            send(CheckBoxRelease(_state));
+        }
 
         return null;
     }

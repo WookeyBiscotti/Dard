@@ -2,9 +2,11 @@ module dard.systems.ui.layout_group;
 
 import dard.systems.ui;
 import dard.systems.logger;
+import dard.systems.render;
 import dard.types.vector;
 import dard.types.small_vector;
 import dard.types.memory;
+import dard.base.context;
 
 import std.algorithm.mutation;
 
@@ -75,6 +77,60 @@ class LayoutGroup : SimpleGroupWidget {
 
     LayoutGroup distanceBetweenChildren(float distanceBetweenChildren) {
         _distanceBetweenChildren = distanceBetweenChildren;
+
+        return this;
+    }
+
+    override void draw() {
+        auto nvg = system().context().system!Render.nvg();
+
+        const p = realPosition();
+        const s = realSize();
+
+        Rect(p, s, defStyleVal!(Styles.WIDGET_UP_COLOR).makeDarker(0.2f),
+                defStyleVal!(Styles.WIDGET_UP_COLOR).makeLighter(0.2f), 5).draw(nvg);
+
+        super.draw();
+    }
+
+    auto indentTop(float i) {
+        _indentTopLeft.y = i;
+
+        return this;
+    }
+
+    auto indentLeft(float i) {
+        _indentTopLeft.x = i;
+
+        return this;
+    }
+
+    auto indentBot(float i) {
+        _indentBotRight.x = i;
+
+        return this;
+    }
+
+    auto indentRight(float i) {
+        _indentBotRight.x = i;
+
+        return this;
+    }
+
+    auto indent(float i) {
+        _indentBotRight.x = i;
+        _indentBotRight.y = i;
+        _indentTopLeft.x = i;
+        _indentTopLeft.y = i;
+
+        return this;
+    }
+
+    auto layout(Layout layout) {
+        if (_layout != layout) {
+            _layout = layout;
+            updateChildsPositionSize();
+        }
 
         return this;
     }
@@ -179,9 +235,7 @@ private:
                             dw = w / elms.length();
 
                             auto newMinSize = float.max;
-                            log(elms.length);
                             foreach (i, ref e; elms) {
-                                log(e);
                                 if (C(e._maxSize) <= minSize + dw) {
                                     w -= C(e._maxSize) - C(e._size);
                                     C(e._size) = C(e._maxSize);

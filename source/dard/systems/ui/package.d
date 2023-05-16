@@ -12,3 +12,4 @@ public import dard.systems.ui.rect;
 public import dard.systems.ui.layout_group;
 public import dard.systems.ui.text_panel;
 public import dard.systems.ui.check_box;
+public import dard.systems.ui.check_text;
