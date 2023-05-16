@@ -1,7 +1,7 @@
 module dard.systems.ui.group_widget;
 
 import dard.systems.ui;
-public import dard.types.memory : SharedPtr, Delete;
+public import dard.types.memory : SharedPtr, Delete, New;
 
 class GroupWidget : Widget {
     this(UiSystem system, GroupWidget parent = null) {
@@ -15,6 +15,12 @@ class GroupWidget : Widget {
     /// Parent destroy children
     void eraseChild(Widget c) {
         Delete(removeChild(c));
+    }
+
+    WidgetType make(WidgetType, Args...)(Args args) {
+        auto w = New!WidgetType(_system, this, args);
+
+        return w;
     }
 
     abstract const(Widget) contains(Widget c) const;

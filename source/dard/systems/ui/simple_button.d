@@ -8,14 +8,14 @@ struct ButtonRelease {
 }
 
 class SimpleButton : Widget {
-    this(UiSystem system, String label, GroupWidget parent = null) {
+    this(UiSystem system, GroupWidget parent = null, in String label = Str!"") {
         super(system, parent);
 
         minSize(Vector2f(0, defStyleVal!(Styles.DEFAULT_WIDGET_HEIGHT)));
 
         auto nvg = system.context.system!Render.nvg();
 
-        _text.text(label);
+        _text.text(String(label));
         _text.nvgFont(nvgFindFont(nvg, defStyleVal!(Styles.DEFAULT_FONT)));
         _text.fontColor = defStyleVal!(Styles.DEFAULT_FONT_COLOR);
         _text.fontSize(defStyleVal!(Styles.DEFAULT_FONT_SIZE));

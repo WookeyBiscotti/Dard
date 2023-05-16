@@ -91,6 +91,22 @@ class SimpleGroupWidget : GroupWidget {
         return this;
     }
 
+    override Widget findChild(in String name) const {
+        auto r = super.findChild(name);
+        if (r) {
+            return r;
+        }
+
+        foreach (c; _childs) {
+            r = c.findChild(name);
+            if (r) {
+                return r;
+            }
+        }
+
+        return null;
+    }
+
 protected:
     Widget findWidgetUnderPoint(Vector2f p) {
         import dard.utils.geometry.algs;

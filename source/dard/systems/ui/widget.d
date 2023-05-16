@@ -8,6 +8,7 @@ import dard.systems.logger;
 import dard.types.math.vector;
 
 import std.math.traits;
+import core.lifetime : move;
 
 enum Corner {
     LeftUp,
@@ -264,6 +265,24 @@ class Widget : Transceiver {
         return this;
     }
 
+    ref const(String) name() const {
+        return _name;
+    }
+
+    auto name(String name) {
+        move(name, _name);
+
+        return this;
+    }
+
+    Widget findChild(in String name) const {
+        if (name == _name) {
+            return cast(Widget) this;
+        }
+
+        return null;
+    }
+    
 protected:
     UiSystem _system;
 
@@ -280,4 +299,6 @@ protected:
     bool _isPart = false;
     Vector2f _partSize = [0, 0];
     Vector2f _partPos = [0, 0];
+
+    String _name;
 }

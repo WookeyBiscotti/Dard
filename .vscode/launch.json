@@ -5,11 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "code-d",
+            "request": "launch",
+            "name": "Debug D project",
+            "cwd": "${workspaceFolder}",
+            "program": "../BrainEngine/brain_engine"
+        },
+        {
             "name": "Debug",
             "type": "gdb",
             "request": "launch",
             // "target": "./dard-test-library",
-            "target": "./dard",
+            "target": "../BrainEngine/brain_engine",
             "cwd": "${workspaceRoot}",
             "valuesFormatting": "parseText"
         }

@@ -8,6 +8,7 @@ import std.sumtype;
 alias StyleValue = SumType!(float, int, bool, Color, String);
 
 enum Styles {
+    WIDGET_INPUT_COLLOR,
     WIDGET_BACKGROUND_COLOR,
     WIDGET_UP_COLOR,
     WIDGET_DOWN_COLOR,
@@ -38,5 +39,7 @@ template defStyleVal(Styles s) {
         enum defStyleVal = 20.0f;
     } else static if (s == Styles.WIDGET_DOWN_COLOR) {
         enum defStyleVal = Color(40, 40, 40);
+    } else static if (s == Styles.WIDGET_INPUT_COLLOR) {
+        enum defStyleVal = Color(230, 230, 230);
     }
 }

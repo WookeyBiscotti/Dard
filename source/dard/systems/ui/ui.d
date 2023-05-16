@@ -9,6 +9,7 @@ import dard.systems.config;
 import dard.systems.broker;
 import dard.systems.window;
 import dard.systems.ui;
+import dard.systems.logger;
 import dard.types.vector;
 
 import sdl;
