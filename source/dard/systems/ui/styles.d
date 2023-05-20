@@ -36,7 +36,7 @@ template defStyleVal(Styles s) {
     } else static if (s == Styles.WIDGET_UP_COLOR) {
         enum defStyleVal = Color(60, 60, 60);
     } else static if (s == Styles.DEFAULT_WIDGET_HEIGHT) {
-        enum defStyleVal = 20.0f;
+        enum defStyleVal = 30.0f;
     } else static if (s == Styles.WIDGET_DOWN_COLOR) {
         enum defStyleVal = Color(40, 40, 40);
     } else static if (s == Styles.WIDGET_INPUT_COLLOR) {

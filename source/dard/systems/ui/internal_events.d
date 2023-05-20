@@ -26,3 +26,18 @@ struct UIMouseButtonReleased {
     Vector2f p;
     bool force = false;
 }
+
+struct UIMouseDragStart {
+    Vector2f p;
+    bool force = false;
+}
+
+struct UIMouseDrag {
+    Vector2f p;
+    bool force = false;
+}
+
+struct UIMouseDragStop {
+    Vector2f p;
+    bool force = false;
+}

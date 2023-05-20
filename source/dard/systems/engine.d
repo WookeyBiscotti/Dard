@@ -10,9 +10,11 @@ import dard.systems.logger;
 import dard.systems.render;
 import dard.systems.broker;
 import dard.systems.ui;
+import dard.systems.config;
 import dard.systems.window;
 import dard.systems.asset;
 import dard.systems.scene;
+import dard.systems.filesystem;
 
 import core.time;
 import core.thread;
@@ -30,14 +32,19 @@ public:
 
         log("Systems initializing");
 
-        auto window = context.createSystem!WindowSystem();
-        auto render = context.createSystem!Render();
-        auto ui = context.createSystem!UiSystem();
-        auto assets = context.createSystem!AssetSystem();
-        auto scenes = context.createSystem!SceneSystem();
+        context.createSystem!FileSystem();
+
+        context.createSystem!WindowSystem();
+        context.createSystem!Render();
+        context.createSystem!UiSystem();
+        context.createSystem!AssetSystem();
+        context.createSystem!SceneSystem();
     }
 
     void run() {
+        auto config = context.system!ConfigSystem();
+        config.load();
+
         auto window = context.system!WindowSystem();
         auto render = context.system!Render();
         auto ui = context.system!UiSystem();

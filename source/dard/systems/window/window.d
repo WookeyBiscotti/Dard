@@ -20,17 +20,37 @@ public:
 
     this(Context context) {
         super(context);
+        _co = ConfigObserver(context.system!ConfigSystem);
+
         _broker = ImplTransceiverData(this, context.system!Broker);
 
-        immutable auto windowSize = context.system!Config
+        immutable auto windowSize = context.system!ConfigSystem
             .value!Vector2u(WINDOW_RESULUTION);
-        const auto appName = context.system!Config
+        const auto appName = context.system!ConfigSystem
             .value!String(APPLICATION_NAME);
+        const auto windowFullscreen = context.system!ConfigSystem
+            .value!bool(WINDOW_FULLSCREEN);
 
         SDL_SetHint("SDL_VIDEO_DRIVER", "x11");
         SDL_Init(SDL_InitFlags.SDL_INIT_VIDEO);
         _window = SDL_CreateWindow(appName.ptr, windowSize.x, windowSize.y,
                 SDL_WindowFlags.SDL_WINDOW_RESIZABLE);
+
+        fullscreen(windowFullscreen);
+
+        _co.subscribe(WINDOW_RESULUTION, (in String, in EngineValue v) {
+            auto r = v.value.peek!Vector2u;
+            if (r) {
+                size(*r);
+            }
+        });
+
+        _co.subscribe(WINDOW_FULLSCREEN, (in String, in EngineValue v) {
+            auto r = v.value.peek!bool;
+            if (r) {
+                fullscreen(*r);
+            }
+        });
     }
 
     ~this() {
@@ -47,6 +67,11 @@ public:
                 WindowResized e;
                 e.newSize.x = re.window.data1;
                 e.newSize.y = re.window.data2;
+
+                context().system!ConfigSystem.setValue(WINDOW_RESULUTION,
+                        EngineValue(EngineValue.Access.DYNAMIC,
+                            Value(Vector2u(cast(uint) e.newSize.x, cast(uint) e.newSize.y))));
+
                 send(e);
             } else {
                 send(WindowEvent(&re));
@@ -62,10 +87,25 @@ public:
         return Vector2u(cast(uint) size.x, cast(uint) size.y);
     }
 
+    void size(in Vector2u s) {
+        if (s == size()) {
+            return;
+        }
+
+        SDL_SetWindowSize(_window, s.x, s.y);
+
+        send(WindowResized(Vector2i(cast(int) s.x, cast(int) s.y)));
+    }
+
+    void fullscreen(bool f) {
+        SDL_SetWindowFullscreen(_window, f ? SDL_bool.SDL_TRUE : SDL_bool.SDL_FALSE);
+    }
+
     auto sdlWindow() {
         return _window;
     }
 
 private:
     SDL_Window* _window = void;
+    ConfigObserver _co;
 }

@@ -38,6 +38,7 @@ class Widget : Transceiver {
 
     ~this() {
         parent(null);
+        _system.removeWidget(this);
     }
 
     auto minSize() const {
@@ -241,28 +242,40 @@ class Widget : Transceiver {
     void draw() {
     }
 
-    Widget onPressed(ref const UIMouseButtonPressed) {
+    Widget onPressed(in UIMouseButtonPressed) {
         return null;
     }
 
-    Widget onReleased(ref const UIMouseButtonReleased) {
+    Widget onReleased(in UIMouseButtonReleased) {
         return null;
     }
 
-    Widget onHovered(ref const UIHovered) {
+    Widget onHovered(in UIHovered) {
         return null;
     }
 
-    Widget onUnhovered(ref const UIUnhovered) {
+    Widget onUnhovered(in UIUnhovered) {
         return null;
     }
 
-    Widget onMouseMove(ref const UIMouseMove) {
+    Widget onMouseMove(in UIMouseMove) {
         return null;
     }
 
     Widget widgetUnderPoint(Vector2f p) {
         return this;
+    }
+
+    Widget onDragStart(in UIMouseDragStart) {
+        return null;
+    }
+
+    Widget onDrag(in UIMouseDrag) {
+        return null;
+    }
+
+    Widget onDragStop(in UIMouseDragStop) {
+        return null;
     }
 
     ref const(String) name() const {
@@ -282,7 +295,7 @@ class Widget : Transceiver {
 
         return null;
     }
-    
+
 protected:
     UiSystem _system;
 

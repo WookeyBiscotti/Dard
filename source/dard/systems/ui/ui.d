@@ -37,10 +37,21 @@ public:
                 auto ue = UIMouseButtonPressed(p);
                 Widget w = _root.get();
                 while (w) {
+                    auto sw = w;
                     w = w.onPressed(ue);
+                    if (!w) {
+                        _lastDraged = sw;
+                        _lastDraged.onDragStart(UIMouseDragStart(p, false));
+                    }
                 }
             } else if (e.e.type == SDL_EventType.SDL_EVENT_MOUSE_BUTTON_UP) {
                 auto p = Vector2f(e.e.button.x, e.e.button.y);
+
+                if (_lastDraged) {
+                    _lastDraged.onDragStart(UIMouseDragStart(p, false));
+                    _lastDraged = null;
+                }
+
                 auto ue = UIMouseButtonReleased(p);
                 Widget w = _root.get();
                 while (w) {
@@ -48,6 +59,10 @@ public:
                 }
             } else if (e.e.type == SDL_EventType.SDL_EVENT_MOUSE_MOTION) {
                 auto p = Vector2f(e.e.motion.x, e.e.motion.y);
+                if (_lastDraged) {
+                    _lastDraged.onDrag(UIMouseDrag(p, false));
+                }
+
                 Widget w = _root.widgetUnderPoint(p);
                 if (w) {
                     if (_lastHovered != w) {
@@ -81,10 +96,20 @@ public:
         _root.draw();
     }
 
+    void removeWidget(Widget w) {
+        if (_lastDraged == w) {
+            _lastDraged = null;
+        }
+        if (_lastHovered == w) {
+            _lastHovered = null;
+        }
+    }
+
 private:
     UniquePtr!GroupWidget _root;
 
     Widget _lastHovered;
+    Widget _lastDraged;
 }
 
 unittest {

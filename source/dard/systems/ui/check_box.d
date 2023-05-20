@@ -37,13 +37,13 @@ class CheckBox : Widget {
         }
     }
 
-    override Widget onPressed(ref const UIMouseButtonPressed e) {
+    override Widget onPressed(in UIMouseButtonPressed e) {
         _startChange = true;
 
         return null;
     }
 
-    override Widget onReleased(const ref UIMouseButtonReleased) {
+    override Widget onReleased(in UIMouseButtonReleased) {
         if (_startChange) {
             _state = !_state;
             _startChange = false;
@@ -54,7 +54,7 @@ class CheckBox : Widget {
         return null;
     }
 
-    override Widget onUnhovered(ref const UIUnhovered e) {
+    override Widget onUnhovered(in UIUnhovered e) {
         _startChange = false;
 
         return null;

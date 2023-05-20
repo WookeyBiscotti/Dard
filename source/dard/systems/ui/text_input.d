@@ -1,14 +1,12 @@
-module dard.systems.ui.simple_button;
+module dard.systems.ui.text_input;
 
 import dard.systems.ui;
 import dard.systems.render;
 import dard.systems.asset;
 
-struct ButtonRelease {
-}
 
-class SimpleButton : Widget {
-    this(UiSystem system, GroupWidget parent = null, in String label = Str!"") {
+class TextInput: Widget {
+    this(UiSystem system, GroupWidget parent = null) {
         super(system, parent);
 
         minSize(Vector2f(0, defStyleVal!(Styles.DEFAULT_WIDGET_HEIGHT)));
@@ -16,7 +14,6 @@ class SimpleButton : Widget {
 
         auto nvg = system.context.system!Render.nvg();
 
-        _text.text(String(label));
         _text.nvgFont(nvgFindFont(nvg, defStyleVal!(Styles.DEFAULT_FONT)));
         _text.fontColor = defStyleVal!(Styles.DEFAULT_FONT_COLOR);
         _text.fontSize(defStyleVal!(Styles.DEFAULT_FONT_SIZE));

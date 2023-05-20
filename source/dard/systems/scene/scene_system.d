@@ -5,6 +5,7 @@ import dard.types.string;
 import dard.types.traits;
 import dard.types.memory;
 import dard.systems.scene;
+import dard.systems.logger;
 
 public import dard.base.context : Context;
 
@@ -64,6 +65,13 @@ class SceneSystem : System {
             scene.activate();
         }
         _current = scene;
+    }
+
+private:
+    void logAll() {
+        foreach (k, v; _cache) {
+            log(k, v);
+        }
     }
 
 private:

@@ -14,19 +14,23 @@ struct Text {
     Vector2f p = [0, 0];
 
     void draw(NVGcontext* nvg) {
+        auto s = size(nvg);
+
         nvgFontFaceId(nvg, _nvgFont);
         nvgFontSize(nvg, _fontSize);
         nvgFontBlur(nvg, 0);
         nvgFillColor(nvg, cast(NVGcolor) fontColor);
-        nvgText(nvg, p.x, p.y, _text.ptr, null);
+        nvgText(nvg, p.x, p.y + s.y, _text.ptr, null);
     }
 
     void drawShadow(NVGcontext* nvg, Color color, float blur, Vector2f dp = Vector2f(0, 0)) {
+        auto s = size(nvg);
+
         nvgFontFaceId(nvg, _nvgFont);
         nvgFontSize(nvg, _fontSize);
         nvgFontBlur(nvg, blur);
         nvgFillColor(nvg, cast(NVGcolor) color);
-        nvgText(nvg, p.x + dp.x, p.y + dp.y, _text.ptr, null);
+        nvgText(nvg, p.x + dp.x, p.y + dp.y + s.y, _text.ptr, null);
     }
 
     void nvgFont(int id) {
@@ -67,7 +71,6 @@ struct Text {
 
 private:
     bool _dirt;
-
     Vector2f _size;
     int _nvgFont;
     float _fontSize = 10;

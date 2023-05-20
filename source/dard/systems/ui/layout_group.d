@@ -87,8 +87,8 @@ class LayoutGroup : SimpleGroupWidget {
         const p = realPosition();
         const s = realSize();
 
-        Rect(p, s, defStyleVal!(Styles.WIDGET_UP_COLOR).makeDarker(0.2f),
-                defStyleVal!(Styles.WIDGET_UP_COLOR).makeLighter(0.2f), 5).draw(nvg);
+        Rect(p, s, defStyleVal!(Styles.WIDGET_DOWN_COLOR).makeDarker(0.2f),
+                defStyleVal!(Styles.WIDGET_DOWN_COLOR).makeLighter(0.2f), 5).draw(nvg);
 
         super.draw();
     }
@@ -134,10 +134,6 @@ class LayoutGroup : SimpleGroupWidget {
 
         return this;
     }
-
-    // LayoutGroup
-    // Vector2f _indentTopLeft = [0, 0];
-    // Vector2f _indentBotRight = [0, 0];
 
 private:
     void updateChildsPositionSize() {

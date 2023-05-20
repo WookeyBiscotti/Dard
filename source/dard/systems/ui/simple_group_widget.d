@@ -59,23 +59,35 @@ class SimpleGroupWidget : GroupWidget {
         }
     }
 
-    override Widget onPressed(const ref UIMouseButtonPressed e) {
+    override Widget onPressed(in UIMouseButtonPressed e) {
         return findWidgetUnderPoint(e.p);
     }
 
-    override Widget onReleased(const ref UIMouseButtonReleased e) {
+    override Widget onReleased(in UIMouseButtonReleased e) {
         return findWidgetUnderPoint(e.p);
     }
 
-    override Widget onHovered(ref const UIHovered e) {
+    override Widget onHovered(in UIHovered e) {
         return findWidgetUnderPoint(e.p);
     }
 
-    override Widget onUnhovered(ref const UIUnhovered e) {
+    override Widget onUnhovered(in UIUnhovered e) {
         return findWidgetUnderPoint(e.p);
     }
 
-    override Widget onMouseMove(ref const UIMouseMove e) {
+    override Widget onMouseMove(in UIMouseMove e) {
+        return findWidgetUnderPoint(e.p);
+    }
+
+    override Widget onDragStart(in UIMouseDragStart e) {
+        return findWidgetUnderPoint(e.p);
+    }
+
+    override Widget onDrag(in UIMouseDrag e) {
+        return findWidgetUnderPoint(e.p);
+    }
+
+    override Widget onDragStop(in UIMouseDragStop e) {
         return findWidgetUnderPoint(e.p);
     }
 
