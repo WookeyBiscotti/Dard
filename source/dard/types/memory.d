@@ -7,6 +7,7 @@ import automem.ref_counted;
 import dard.types.unique;
 
 import std.experimental.allocator.mallocator : Mallocator;
+import std.experimental.allocator.typed;
 
 alias SharedPtr(T) = RefCounted!T;
 public auto makeShared(T, Args...)(Args args) {
@@ -28,25 +29,15 @@ public auto makeUniqueFromPtr(T)(T p) {
 import core.stdc.stdlib : malloc, free;
 import core.lifetime : emplace;
 
-auto New(T, Args...)(Args args) {
-    static if (is(T == class)) {
-        enum sizeT = __traits(classInstanceSize, T);
-        auto ptr = cast(T) malloc(sizeT);
-        emplace!T(ptr, args);
+private alias MyAllocator = TypedAllocator!(Mallocator, AllocFlag.immutableShared);
+private __gshared MyAllocator al;
 
-        return ptr;
-    } else {
-        static assert(false);
-    }
+auto New(T, Args...)(Args args) {
+    return al.make!(T)(args);
 }
 
 auto Delete(T)(T ptr) {
-    static if (is(T == class)) {
-        destroy!false(ptr);
-        free(cast(void*) cast(Object) ptr);
-    } else {
-        assert(false, "TODO: Implement");
-    }
+    al.dispose!T(ptr);
 }
 
 // import std.traits;
