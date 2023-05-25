@@ -20,7 +20,6 @@ public:
 
     this(Context context) {
         super(context);
-        _broker = ImplTransceiverData(this, context.system!Broker);
 
         auto window = context.system!WindowSystem;
         _root = UniquePtr!SimpleGroupWidget(this);

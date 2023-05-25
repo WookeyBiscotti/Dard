@@ -25,8 +25,6 @@ public:
 
     this(Context context) {
         super(context);
-        context.createSystem!Broker;
-        _broker = ImplTransceiverData(this, context.system!Broker);
 
         context.createSystem!Logger();
 

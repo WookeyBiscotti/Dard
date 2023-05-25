@@ -29,7 +29,6 @@ class Widget : Transceiver {
 
     this(UiSystem system, GroupWidget parent = null) {
         _system = system;
-        _broker = ImplTransceiverData(this, system.context.system!Broker);
 
         if (parent) {
             this.parent(parent);

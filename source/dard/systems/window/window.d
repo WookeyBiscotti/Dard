@@ -22,7 +22,6 @@ public:
         super(context);
         _co = ConfigObserver(context.system!ConfigSystem);
 
-        _broker = ImplTransceiverData(this, context.system!Broker);
 
         immutable auto windowSize = context.system!ConfigSystem
             .value!Vector2u(WINDOW_RESULUTION);

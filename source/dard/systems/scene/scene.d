@@ -11,7 +11,6 @@ class Scene : Transceiver {
     this(Context context) {
         _context = context;
 
-        _broker = ImplTransceiverData(this, context.system!Broker);
     }
 
     abstract void activate();
