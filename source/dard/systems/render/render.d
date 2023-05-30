@@ -8,6 +8,8 @@ import dard.systems.config;
 import dard.systems.broker;
 import dard.systems.window;
 
+import dard.components.camera;
+
 import std.exception;
 import core.time;
 
@@ -72,14 +74,32 @@ public:
 
         _nvgContext.nvgEndFrame();
 
+        if (_mainCamera) {
+            bgfx_set_view_transform(0, &_mainCamera.view.arrayof, &_mainCamera.proj.arrayof);
+        }
+
         bgfx_frame(false);
+    }
+
+    float aspect() const {
+        return cast(float) _windowSize.x / cast(float) _windowSize.y;
     }
 
     NVGcontext* nvg() {
         return _nvgContext;
     }
 
+    void mainCamera(Camera c) {
+        _mainCamera = c;
+    }
+
+    Camera mainCamera() {
+        return _mainCamera;
+    }
+
 private:
     NVGcontext* _nvgContext;
     Vector2u _windowSize;
+
+    Camera _mainCamera;
 }

@@ -1,11 +1,18 @@
 module dard.base.component;
 
-import dard.base.entity;
+public import dard.base.entity;
+import dard.systems.broker;
 
-class Component {
+class Component : Transceiver {
 public:
+    mixin ImplTransceiver;
+
     this(Entity e) {
         _entity = e;
+    }
+
+    Entity entity() {
+        return _entity;
     }
 
 private:

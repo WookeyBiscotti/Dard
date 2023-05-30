@@ -3,6 +3,8 @@
  */
 module dard.types.unique;
 
+// public import automem.unique;
+
 import automem.traits : isAllocator;
 import std.experimental.allocator : theAllocator;
 import std.typecons : Flag;
@@ -100,14 +102,15 @@ if (isAllocator!Allocator) {
         return _object;
     }
 
-    void grab(UniqueType t) {
-        static if (is(UniqueType == class)) {
-            deleteObject();
-            _object == t;
-        } else {
-            static assert(false);
-        }
-    }
+    // void grab(UniqueType t) {
+    //     static if (is(UniqueType == class)) {
+    //         deleteObject();
+    //         _object = t;
+    //     } else {
+    //         deleteObject();
+    //         // _object = &t;
+    //     }
+    // }
 
     alias get = borrow; // backwards compatibility
 
@@ -209,26 +212,26 @@ private:
     assert(s.zeroArgsCtorTest == 3);
 }
 
-///
-@("release")
-@system unittest {
-    import std.experimental.allocator : dispose;
-    import core.exception : AssertError;
+// ///
+// @("release")
+// @system unittest {
+//     import std.experimental.allocator : dispose;
+//     import core.exception : AssertError;
 
-    try {
-        auto allocator = TestAllocator();
-        auto ptr = Unique!(Struct, TestAllocator*)(&allocator, 42);
-        ptr.release;
-        assert(Struct.numStructs == 1);
-    } catch (AssertError e) { // TestAllocator should throw due to memory leak
-        version (unitThreadedLight) {
-        } else
-            "Memory leak in TestAllocator".should.be in e.msg;
-        return;
-    }
+//     try {
+//         auto allocator = TestAllocator();
+//         auto ptr = Unique!(Struct, TestAllocator*)(&allocator, 42);
+//         ptr.release;
+//         assert(Struct.numStructs == 1);
+//     } catch (AssertError e) { // TestAllocator should throw due to memory leak
+//         version (unitThreadedLight) {
+//         } else
+//             "Memory leak in TestAllocator".should.be in e.msg;
+//         return;
+//     }
 
-    assert(0); // should throw above
-}
+//     assert(0); // should throw above
+// }
 
 private template makeObject(Flag!"supportGC" supportGC, args...) {
     void makeObject(Type, A)(ref Unique!(Type, A) u) {

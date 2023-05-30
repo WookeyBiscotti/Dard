@@ -38,6 +38,7 @@
         "X11"
     ],
     "dflags": [
-        "-i=-ldc"
+        "-i=-ldc",
+        "-mixin=mixins_instantation.d"
     ]
 }

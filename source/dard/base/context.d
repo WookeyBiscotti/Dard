@@ -4,6 +4,7 @@ import dard.base.entity;
 import dard.base.system;
 import dard.base.component;
 import dard.utils.static_cast;
+import dard.systems.logger;
 
 import std.algorithm : reverse;
 import std.stdio;
@@ -38,9 +39,28 @@ public:
         return static_cast!S(_systems.get(typeid(T), null));
     }
 
+    void registerDestructor(T)() {
+        if (typeof(T) in _dtors) {
+            return;
+        } else {
+            _dtors[typeof(T)] = function void(void* p) {
+                destroy!false(*cast(T*) p);
+            };
+        }
+    }
+
+    void destruct(TypeInfo t, void* p) {
+        if (auto d = t in _dtors) {
+            (*d)(p);
+        } else {
+            warning("Cant find destructor");
+        }
+    }
+
 private:
     System[TypeInfo] _systems;
     Array!System _systemsList;
+    void function(void*)[TypeInfo] _dtors;
 }
 
 unittest {

@@ -5,6 +5,7 @@ import automem.ref_counted;
 // import automem.unique;
 
 import dard.types.unique;
+import dard.utils.static_cast;
 
 import std.experimental.allocator.mallocator : Mallocator;
 import std.experimental.allocator.typed;
@@ -39,6 +40,33 @@ auto New(T, Args...)(Args args) {
 auto Delete(T)(T ptr) {
     al.dispose!T(ptr);
 }
+
+// private struct Counter {
+//     uint shared_;
+//     uint weak;
+// }
+
+// struct SharedPtr2(T) if (is(T == class)) {
+// private:
+//     struct Data(T) {
+//         Counter counter;
+//         void* ptr;
+//         T get() {
+//             return cast(T) ptr;
+//         }
+//     }
+
+//     Data!T* _data;
+
+//     this(Args...)(Args args) {
+
+//     }
+
+// public:
+    
+
+
+// }
 
 // import std.traits;
 // import core.lifetime;
