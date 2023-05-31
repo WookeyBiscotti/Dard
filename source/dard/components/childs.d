@@ -16,6 +16,13 @@ public:
         return _childs;
     }
 
+    auto make() {
+        auto e = makeShared!Entity(entity.context, entity);
+        _childs ~= e;
+
+        return e;
+    }
+
 private:
     Array!(SharedPtr!Entity) _childs;
 }

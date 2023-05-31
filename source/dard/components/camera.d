@@ -15,10 +15,17 @@ public:
     this(Entity e) {
         super(e);
 
-        _eye = e.get!Transform.position() + Vector3f(10, 0, 0);
+        _eye = e.transform.position + Vector3f(10, 0, 0);
         _aspect = entity.context.system!Render.aspect();
 
         updateViewProj();
+    }
+
+    ~this() {
+        auto rend = entity.context.system!Render;
+        if (rend.mainCamera() == this) {
+            rend.mainCamera(null);
+        }
     }
 
     inout ref auto view() {
@@ -31,7 +38,7 @@ public:
 
 private:
     void updateViewProj() {
-        _view = lookAtMatrix!float(entity.get!Transform.position(), _eye, _up);
+        _view = lookAtMatrix!float(entity.transform.position, _eye, _up);
         _proj = perspectiveMatrix(_fov, _aspect, _near, _far);
     }
 
