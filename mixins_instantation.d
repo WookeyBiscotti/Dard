@@ -377,6 +377,9 @@ lhs == rhs
 // expansion at source/dard/base/entity.d(18,9)
 @("buildin") typeof(scoped!C(Parameters!(C.__ctor).init)) _transform;
 
+// expansion at source/dard/base/entity.d(20,9)
+public ref auto transform() {return _transform;}
+
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7542,41)
 (*self)._object
 
@@ -1275,23 +1278,17 @@ lhs < rhs
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7542,41)
-(*self)._object
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.makeObject
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.makeObject
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.opPostMove
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.opPostMove
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7615,29)
-b._object
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
@@ -2096,9 +2093,6 @@ a.opPostMove
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
 a.opPostMove
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7615,29)
-b._object
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7615,29)
 b._object

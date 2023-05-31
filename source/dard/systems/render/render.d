@@ -18,6 +18,12 @@ import bindbc.bgfx;
 import sdl;
 public import nanovg;
 
+auto getCurrentRender() {
+    return bgfx_get_renderer_type();
+}
+
+public alias RenderType = bgfx_renderer_type_t;
+
 class Render : System, Transceiver {
 public:
     mixin ImplTransceiver;

@@ -2,25 +2,37 @@ module dard.systems.asset.binary_data;
 
 import dard.systems.logger;
 import dard.types.string;
+import dard.types.memory;
+import std.stdio;
 
 struct BinaryData {
-    this(String filename) {
-        import std.file;
+    this(File file) {
+        _data = NewArray!(ubyte)(file.size());
+        file.rawRead(_data);
+        _dataOwned = true;
+    }
 
-        try {
-            data = read(filename);
-        } catch (FileException e) {
-            warning("Error while loading file: " ~ e.toString());
+    @disable this(this);
+
+    this(ubyte[] data) {
+        _data = data;
+    }
+
+    ~this() {
+        if (_dataOwned) {
+            Delete!ubyte(_data);
         }
     }
 
-    this(ubyte[] d) {
-        data = d;
+    inout auto data() {
+        return _data;
     }
 
     auto to(T : U[], U)() {
-        return cast(T) data;
+        return cast(T) _data;
     }
 
-    const void[] data = null;
+private:
+    bool _dataOwned;
+    ubyte[] _data;
 }

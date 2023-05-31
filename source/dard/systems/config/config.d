@@ -4,6 +4,7 @@ import std.typecons;
 import std.algorithm.mutation;
 import std.conv;
 import std.stdio;
+import std.path;
 
 import dard.systems.config;
 import dard.systems.filesystem;
@@ -17,9 +18,13 @@ class ConfigSystem : System {
 public:
     this() @disable;
 
-    this(Context context, in ValueTree values) {
+    this(Context context, in ValueTree values, string[] cmdArgs) {
         super(context);
         _values = cast(ValueTree) values.dup;
+        setValue(APPLICATION_PATH, EngineValue(EngineValue.Access.STATIC,
+                Value(String(cmdArgs[0]))));
+        setValue(APPLICATION_ROOT, EngineValue(EngineValue.Access.STATIC,
+                Value(String(dirName(cmdArgs[0])))));
     }
 
     ref const(T) value(T)(in String name) const {
@@ -33,7 +38,7 @@ public:
         return *p;
     }
 
-    bool setValue(in String name, EngineValue newValue) {
+    final bool setValue(in String name, EngineValue newValue) {
         auto found = name in _values;
         if (found) {
             if (found.value.type() != newValue.value.type()) {
@@ -45,6 +50,9 @@ public:
             if (found.access != newValue.access) {
                 return false;
             }
+        } else {
+            _values[name] = newValue;
+            found = name in _values;
         }
 
         *found = newValue;
@@ -152,6 +160,8 @@ private:
 enum {
     // dfmt off
     APPLICATION_NAME = String("application_name"),
+    APPLICATION_PATH = String("application_path"),
+    APPLICATION_ROOT = String("application_root"),
     WINDOW_RESULUTION = String("window_resolution"),
     WINDOW_FULLSCREEN = String("window_fullscreen"),
    // dfmt on

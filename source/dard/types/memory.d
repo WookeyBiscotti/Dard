@@ -37,8 +37,20 @@ auto New(T, Args...)(Args args) {
     return al.make!(T)(args);
 }
 
-auto Delete(T)(T ptr) {
+auto Delete(T)(T* ptr) {
     al.dispose!T(ptr);
+}
+
+auto Delete(T)(T ptr) if (is(T == class) || is(T == interface)) {
+    al.dispose!T(ptr);
+}
+
+auto NewArray(T, Args...)(size_t len) {
+    return al.makeArray!T(len);
+}
+
+auto Delete(T)(T[] ptr) {
+    al.dispose(ptr);
 }
 
 // private struct Counter {
@@ -63,8 +75,6 @@ auto Delete(T)(T ptr) {
 //     }
 
 // public:
-    
-
 
 // }
 
