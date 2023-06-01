@@ -20,6 +20,10 @@ public auto makeUnique(T, Args...)(Args args) {
     return UniquePtr!T.construct(args);
 }
 
+public auto makeUnique2(T, Args...)(Args args) {
+    return UniquePtr2!T(New!T(args));
+}
+
 public auto makeUniqueFromPtr(T)(T p) {
     UniquePtr!T up;
     up.grab(p);
@@ -51,6 +55,43 @@ auto NewArray(T, Args...)(size_t len) {
 
 auto Delete(T)(T[] ptr) {
     al.dispose(ptr);
+}
+
+struct UniquePtr2(T) if (is(T == class)) {
+public:
+    this(T ptr) {
+        _ptr = cast(void*) ptr;
+    }
+
+    this(TT)(UniquePtr2!TT other) {
+        _ptr = other._ptr;
+        other._ptr = null;
+    }
+
+    @disable this(this);
+
+    ~this() {
+        if (_ptr) {
+            Delete(_ptr);
+        }
+    }
+
+    ref auto opAssign(T)(UniquePtr2!T other) {
+        if (_ptr) {
+            Delete(_ptr);
+        }
+        _ptr = other._ptr;
+        other._ptr = null;
+
+        return this;
+    }
+
+    T get() {
+        return cast(T) _ptr;
+    }
+
+private:
+    void* _ptr;
 }
 
 // private struct Counter {

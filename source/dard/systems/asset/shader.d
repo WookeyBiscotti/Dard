@@ -15,12 +15,18 @@ struct ShaderAsset {
     this(Context context, File file, in String name) {
         auto data = BinaryData(file);
 
-        auto m = bgfx_make_ref(data.data.ptr, data.data.sizeof);
+        auto m = bgfx_make_ref(data.data.ptr, cast(uint) data.data.length);
         _sh = bgfx_create_shader(m);
     }
 
+    auto bgfx() {
+        return _sh;
+    }
+
     ~this() {
-        bgfx_destroy_shader(_sh);
+        if (_sh.idx) {
+            bgfx_destroy_shader(_sh);
+        }
     }
 
 private:
@@ -56,7 +62,7 @@ auto makeDefaultVsShader() {
         fatal("No such shaders");
     }
 
-    auto m = bgfx_make_ref(data.ptr, data.sizeof);
+    auto m = bgfx_make_ref(data.ptr, cast(uint) data.length);
 
     auto s = RefCounted!ShaderAsset();
     s._sh = bgfx_create_shader(m);
@@ -93,7 +99,7 @@ auto makeDefaultFsShader() {
         fatal("No such shaders");
     }
 
-    auto m = bgfx_make_ref(data.ptr, data.sizeof);
+    auto m = bgfx_make_ref(data.ptr, cast(uint) data.length);
 
     auto s = RefCounted!ShaderAsset();
     s._sh = bgfx_create_shader(m);

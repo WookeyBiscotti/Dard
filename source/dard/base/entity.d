@@ -8,10 +8,12 @@ import dard.components.transform;
 import dard.components.childs;
 import dard.types.vector;
 import dard.types.memory;
+import dard.types.hash_map;
 
 import std.typecons;
 import std.traits;
 import std.format;
+import core.lifetime;
 
 class Entity : Transceiver {
     private mixin template BuiltIn(string Name, C) {
@@ -31,7 +33,7 @@ public:
     }
 
     ref auto make(T, Args...)(Args args) if (is(T : Component)) {
-        _components[typeid(T)] = makeUnique!T(this, args);
+        _components[typeid(T)] = UniquePtr!Component(makeUnique!T(this, args));
 
         return get!T();
     }
@@ -58,7 +60,6 @@ private:
     Entity _parent;
 
     mixin BuiltIn!("transform", Transform);
-    // mixin BuiltIn!("_childs", Childs);
 
-    UniquePtr!Component[TypeInfo] _components;
+    HashMap!(TypeInfo, UniquePtr!Component) _components;
 }

@@ -23,10 +23,10 @@ public:
 
     this(const void[] vertextBuffer, const ushort[] indexBuffer, in VertexLayout layout) {
         _layout = layout;
-        auto vm = bgfx_make_ref(vertextBuffer.ptr, vertextBuffer.sizeof);
+        auto vm = bgfx_make_ref(vertextBuffer.ptr, cast(uint) vertextBuffer.length);
         _vbh = bgfx_create_vertex_buffer(vm, &_layout.bgfx(), BGFX_BUFFER_COMPUTE_READ);
 
-        auto im = bgfx_make_ref(indexBuffer.ptr, indexBuffer.sizeof);
+        auto im = bgfx_make_ref(indexBuffer.ptr, cast(uint)(indexBuffer.length * ushort.sizeof));
         _ibh = bgfx_create_index_buffer(im, BGFX_BUFFER_COMPUTE_READ);
     }
 
