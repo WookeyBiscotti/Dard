@@ -12,6 +12,7 @@ import dard.systems.logger;
 import dard.base.context;
 import dard.types.string;
 import dard.types.memory;
+import dard.types.ref_count;
 
 struct ProgramAsset {
     this(Context context, File file, in String name) {
@@ -26,6 +27,10 @@ struct ProgramAsset {
         _prog = bgfx_create_program(_vs.bgfx(), _fs.bgfx(), false);
     }
 
+    ref auto bgfx() {
+        return _prog;
+    }
+
     ~this() {
         if (_prog.idx) {
             bgfx_destroy_program(_prog);
@@ -33,14 +38,14 @@ struct ProgramAsset {
     }
 
 private:
-    RefCounted!ShaderAsset _vs;
-    RefCounted!ShaderAsset _fs;
+    RC!ShaderAsset _vs;
+    RC!ShaderAsset _fs;
 
     bgfx_program_handle_t _prog;
 }
 
 auto makeDefaultProgram(AssetSystem sys) {
-    auto p = RefCounted!ProgramAsset();
+    auto p = RC!ProgramAsset();
     p._vs = sys.shader(S!"__default.vs__");
     p._fs = sys.shader(S!"__default.fs__");
 

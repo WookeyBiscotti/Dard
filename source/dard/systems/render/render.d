@@ -2,13 +2,17 @@ module dard.systems.render.render;
 
 import dard.base.system;
 import dard.base.context;
+import dard.base.scene;
 import dard.types.math.vector;
+import dard.types.hash_map;
 
 import dard.systems.config;
 import dard.systems.broker;
+import dard.systems.scene;
 import dard.systems.window;
 
 import dard.components.camera;
+import dard.components.graphic_object;
 
 import std.exception;
 import core.time;
@@ -82,6 +86,13 @@ public:
 
         if (_mainCamera) {
             bgfx_set_view_transform(0, &_mainCamera.view.arrayof, &_mainCamera.proj.arrayof);
+
+            auto currentScene = context.system!SceneSystem.current;
+            if (_objects.containsKey(currentScene)) {
+                foreach (ref v; _objects[currentScene]) {
+                    v.submit();
+                }
+            }
         }
 
         bgfx_frame(false);
@@ -103,7 +114,18 @@ public:
         return _mainCamera;
     }
 
+    void addObject(GraphicObject obj) {
+        _objects.getOrAdd(obj.entity.scene, HashSet!GraphicObject()).insert(obj);
+    }
+
+    void removeObject(GraphicObject obj) {
+        _objects.getOrAdd(obj.entity.scene, HashSet!GraphicObject()).remove(obj);
+    }
+
 private:
+    HashMap!(Scene, HashSet!GraphicObject) _objects;
+    // HashSet!GraphicObject _objects;
+
     NVGcontext* _nvgContext;
     Vector2u _windowSize;
 

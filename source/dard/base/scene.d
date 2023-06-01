@@ -7,7 +7,7 @@ public import dard.types.time;
 
 class Scene : Entity {
     this(Context c) {
-        super(c, null);
+        super(c, this, null);
     }
 
     abstract void activate();

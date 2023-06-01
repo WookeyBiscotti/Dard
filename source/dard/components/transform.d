@@ -58,7 +58,7 @@ public:
         return this;
     }
 
-    auto transformation() {
+    ref auto transformation() {
         if (_dirty) {
             _toWorldSpaceMat = translationMatrix(_position) * _rotation.toMatrix4x4() * scaleMatrix(
                     _scale);

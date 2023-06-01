@@ -8,6 +8,7 @@ import dard.systems.asset;
 import dard.base.context;
 import dard.types.string;
 import dard.types.memory;
+import dard.types.ref_count;
 
 struct MaterialAsset {
     this(Context context, File file, in String name) {
@@ -19,12 +20,16 @@ struct MaterialAsset {
         _prog = context.system!AssetSystem.program(String(js["program"].str()));
     }
 
+    ref auto program() {
+        return _prog;
+    }
+
 private:
-    RefCounted!ProgramAsset _prog;
+    RC!ProgramAsset _prog;
 }
 
 auto makeDefaultMaterial(AssetSystem sys) {
-    auto p = RefCounted!MaterialAsset();
+    auto p = RC!MaterialAsset();
     p._prog = sys.program(S!"__default__");
 
     return p;

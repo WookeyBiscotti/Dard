@@ -17,7 +17,7 @@ public:
     }
 
     auto make() {
-        auto e = makeShared!Entity(entity.context, entity);
+        auto e = makeShared!Entity(entity.context, entity.scene, entity);
         _childs ~= e;
 
         return e;

@@ -10,6 +10,7 @@ import dard.systems.render;
 import dard.systems.logger;
 import dard.base.context;
 import dard.types.string;
+import dard.types.ref_count;
 
 struct ShaderAsset {
     this(Context context, File file, in String name) {
@@ -64,7 +65,7 @@ auto makeDefaultVsShader() {
 
     auto m = bgfx_make_ref(data.ptr, cast(uint) data.length);
 
-    auto s = RefCounted!ShaderAsset();
+    auto s = RC!ShaderAsset();
     s._sh = bgfx_create_shader(m);
 
     return s;
@@ -101,7 +102,7 @@ auto makeDefaultFsShader() {
 
     auto m = bgfx_make_ref(data.ptr, cast(uint) data.length);
 
-    auto s = RefCounted!ShaderAsset();
+    auto s = RC!ShaderAsset();
     s._sh = bgfx_create_shader(m);
 
     return s;

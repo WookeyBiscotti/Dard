@@ -30,6 +30,14 @@ public:
         _ibh = bgfx_create_index_buffer(im, BGFX_BUFFER_COMPUTE_READ);
     }
 
+    auto bgfxVbh() {
+        return _vbh;
+    }
+
+    auto bgfxIbh() {
+        return _ibh;
+    }
+
     ~this() {
         if (_memoryOwned) {
             Delete!ubyte(_data);

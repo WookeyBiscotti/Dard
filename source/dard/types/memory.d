@@ -72,6 +72,7 @@ public:
 
     ~this() {
         if (_ptr) {
+            destroy!false(cast(T) _ptr);
             Delete(_ptr);
         }
     }

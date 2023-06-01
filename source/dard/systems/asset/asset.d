@@ -10,6 +10,7 @@ import dard.systems.asset;
 import dard.types.string;
 import dard.types.path;
 import dard.types.hash_map;
+import dard.types.ref_count;
 
 import std.container.util;
 import std.typecons;
@@ -54,7 +55,7 @@ package auto makeDefaultCudeMesh() {
         6, 3, 7,
     ];
 
-    return RefCounted!MeshAsset(cast(const void[]) defaultCubeVerteces,
+    return RC!MeshAsset(cast(const void[]) defaultCubeVerteces,
             defaultCubeTriList, defaultCubeVertexLayout());
 }
 
@@ -63,14 +64,17 @@ public:
     this(Context context) {
         super(context);
 
-        _fonts[S!"__default__"] = RefCounted!FontAsset(context,
+        _fonts[S!"__default__"] = RC!FontAsset(context,
                 BinaryData(builtin_default_font), Str!"__default__");
-        _meshs[S!"__default__"] = makeDefaultCudeMesh();
         _meshs[S!"__default__"] = makeDefaultCudeMesh();
         _shaders[S!"__default.fs__"] = makeDefaultFsShader();
         _shaders[S!"__default.vs__"] = makeDefaultVsShader();
         _programs[S!"__default__"] = makeDefaultProgram(this);
         _materials[S!"__default__"] = makeDefaultMaterial(this);
+        _object3ds[S!"__default__"] = makeDefaultObject3D(this);
+    }
+
+    ~this(){
     }
 
     Path meshPath() {
@@ -91,6 +95,11 @@ public:
     Path materialPath() {
         return buildPath(context.system!ConfigSystem
                 .value!String(APPLICATION_ROOT).toString, P!"materials");
+    }
+
+    Path object3dPath() {
+        return buildPath(context.system!ConfigSystem
+                .value!String(APPLICATION_ROOT).toString, P!"object3d");
     }
 
     Path shaderPath() {
@@ -126,12 +135,13 @@ private:
     mixin assetImpl!(ShaderAsset, "shader");
     mixin assetImpl!(ProgramAsset, "program");
     mixin assetImpl!(MaterialAsset, "material");
+    mixin assetImpl!(Object3DAsset, "object3d");
 
     mixin template assetImpl(T, string Name) {
         mixin(format(q{
-            private HashMap!(const String, RefCounted!T) _%ss;
+            private HashMap!(const String, RC!T) _%ss;
 
-            public RefCounted!T %s(in String name) {
+            public RC!T %s(in String name) {
                 if (auto a = name in _%ss) {
                     return *a;
                 }
@@ -149,7 +159,7 @@ private:
 
                 auto file = File(buildPath(%sPath(),  buildNormalizedPath(filepath.toString)));
                 // TODO: Проверить плохой вариант
-                _%ss[name] = RefCounted!T(context(), file, name);
+                _%ss[name] = RC!T(context(), file, name);
             }
         }, Name, Name, Name, Name, capitalize(Name), Name, Name, Name));
     }

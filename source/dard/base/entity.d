@@ -2,6 +2,7 @@ module dard.base.entity;
 
 public import dard.base.context;
 import dard.base.component;
+import dard.base.scene;
 import dard.types.memory;
 import dard.systems.broker;
 import dard.components.transform;
@@ -25,8 +26,9 @@ class Entity : Transceiver {
 public:
     mixin ImplTransceiver;
 
-    this(Context c, Entity parent) {
+    this(Context c, Scene scene, Entity parent) {
         _context = c;
+        _scene = scene;
         _parent = parent;
 
         _transform = scoped!Transform(this);
@@ -46,6 +48,10 @@ public:
         assert(false, "No such component");
     }
 
+    ref auto tr() {
+        return _transform;
+    }
+
     Entity parent() {
         return _parent;
     }
@@ -54,10 +60,16 @@ public:
         return _context;
     }
 
+    Scene scene() {
+        return _scene;
+    }
+
 private:
     Context _context;
 
     Entity _parent;
+
+    Scene _scene;
 
     mixin BuiltIn!("transform", Transform);
 
