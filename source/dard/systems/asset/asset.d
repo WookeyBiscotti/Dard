@@ -8,6 +8,7 @@ import dard.systems.render;
 import dard.systems.config;
 import dard.types.string;
 import dard.types.path;
+import dard.types.hash_map;
 
 import std.container.util;
 import std.typecons;
@@ -66,6 +67,9 @@ public:
         _meshs[String("__default__")] = makeDefaultCudeMesh();
     }
 
+    ~this() {
+    }
+
     Path meshPath() {
         return buildPath(context.system!ConfigSystem
                 .value!String(APPLICATION_ROOT).toString, P!"meshes");
@@ -110,7 +114,7 @@ private:
 
     mixin template assetImpl(T, string Name) {
         mixin(format(q{
-            private RefCounted!T[const String] _%ss;
+            private HashMap!(const String, RefCounted!T) _%ss;
 
             public RefCounted!T %s(in String name) {
                 if (auto a = name in _%ss) {

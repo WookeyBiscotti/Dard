@@ -34,6 +34,9 @@ public:
         if (_memoryOwned) {
             Delete!ubyte(_data);
         }
+
+        bgfx_destroy_vertex_buffer(_vbh);
+        bgfx_destroy_index_buffer(_ibh);
     }
 
 private:

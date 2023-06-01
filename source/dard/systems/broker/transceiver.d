@@ -1,6 +1,7 @@
 module dard.systems.broker.transceiver;
 
 import dard.systems.broker;
+public import dard.types.hash_map;
 
 alias EventDlg(E) = void delegate(in E);
 alias EventRawDlg = void delegate(const void* E);

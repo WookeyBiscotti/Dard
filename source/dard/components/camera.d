@@ -22,9 +22,10 @@ public:
     }
 
     ~this() {
-        auto rend = entity.context.system!Render;
-        if (rend.mainCamera() == this) {
-            rend.mainCamera(null);
+        if (auto rend = entity.context.system!Render) {
+            if (rend.mainCamera() == this) {
+                rend.mainCamera(null);
+            }
         }
     }
 
