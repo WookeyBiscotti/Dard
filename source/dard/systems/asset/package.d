@@ -7,3 +7,4 @@ public import dard.systems.asset.font;
 public import dard.systems.asset.mesh;
 public import dard.systems.asset.shader;
 public import dard.systems.asset.program;
+public import dard.systems.asset.material;

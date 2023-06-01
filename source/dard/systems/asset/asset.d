@@ -69,10 +69,8 @@ public:
         _meshs[S!"__default__"] = makeDefaultCudeMesh();
         _shaders[S!"__default.fs__"] = makeDefaultFsShader();
         _shaders[S!"__default.vs__"] = makeDefaultVsShader();
-        _programs[S!"__default__"] = defaultProgram(this);
-    }
-
-    ~this() {
+        _programs[S!"__default__"] = makeDefaultProgram(this);
+        _materials[S!"__default__"] = makeDefaultMaterial(this);
     }
 
     Path meshPath() {
@@ -88,6 +86,11 @@ public:
     Path programPath() {
         return buildPath(context.system!ConfigSystem
                 .value!String(APPLICATION_ROOT).toString, P!"programs");
+    }
+
+    Path materialPath() {
+        return buildPath(context.system!ConfigSystem
+                .value!String(APPLICATION_ROOT).toString, P!"materials");
     }
 
     Path shaderPath() {
@@ -122,6 +125,7 @@ private:
     mixin assetImpl!(MeshAsset, "mesh");
     mixin assetImpl!(ShaderAsset, "shader");
     mixin assetImpl!(ProgramAsset, "program");
+    mixin assetImpl!(MaterialAsset, "material");
 
     mixin template assetImpl(T, string Name) {
         mixin(format(q{

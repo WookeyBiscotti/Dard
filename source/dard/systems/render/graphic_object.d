@@ -11,5 +11,5 @@ class GraphicObject : Component {
 
 private:
     MeshAsset _mesh;
-    Material _material;
+    MaterialAsset _material;
 }

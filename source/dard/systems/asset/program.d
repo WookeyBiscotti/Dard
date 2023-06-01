@@ -39,7 +39,7 @@ private:
     bgfx_program_handle_t _prog;
 }
 
-auto defaultProgram(AssetSystem sys) {
+auto makeDefaultProgram(AssetSystem sys) {
     auto p = RefCounted!ProgramAsset();
     p._vs = sys.shader(S!"__default.vs__");
     p._fs = sys.shader(S!"__default.fs__");
