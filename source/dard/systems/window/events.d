@@ -13,3 +13,15 @@ struct WindowResized {
 struct WindowEvent {
     SDL_Event* e;
 }
+
+struct KeyUp {
+    SDL_KeyboardEvent* e;
+}
+
+struct KeyDown {
+    SDL_KeyboardEvent* e;
+}
+
+struct MouseMove {
+    SDL_MouseMotionEvent* e;
+}

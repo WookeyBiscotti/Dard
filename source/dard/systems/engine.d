@@ -67,7 +67,7 @@ public:
             render.clear();
             ui.update();
 
-            scene.update(frameDuration);
+            scene.updateFromEngine(frameDuration);
 
             // import core.memory;
             // GC.collect();

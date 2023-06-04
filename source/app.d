@@ -20,10 +20,5 @@
 // import sdl;
 
 // void main() {
-// 	auto config = Config.predefinedValues();
-
-// 	auto ctx = scoped!Context;
-// 	ctx.createSystem!Config(config);
-
-// 	ctx.createSystem!Engine().run();
+//     return;
 // }

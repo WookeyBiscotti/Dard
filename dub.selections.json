@@ -4,13 +4,13 @@
 		"automem": "0.6.9",
 		"bindbc-bgfx": "0.8.0+118",
 		"bindbc-loader": "1.0.3",
-		"dlib": "1.1.0",
+		"dlib": "1.2.0",
 		"emsi_containers": "0.9.0",
 		"ikod-containers": "0.0.22",
 		"memutils": "1.0.9",
 		"nanovg": {"path":"bindings/nanovg"},
 		"sdl": {"path":"bindings/sdl"},
-		"test_allocator": "0.3.3",
+		"test_allocator": "0.3.4",
 		"unit-threaded": "2.1.6"
 	}
 }

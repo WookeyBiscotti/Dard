@@ -23,7 +23,7 @@ class SceneSystem : System {
     }
 
     void addCache(in String name, MallocRef!Scene s) {
-        _cache[name] = UniquePtr2!Scene(s);
+        _cache[name] = UniquePtr!Scene(s);
     }
 
     Scene scene(in String name) {
@@ -32,7 +32,7 @@ class SceneSystem : System {
         }
         if (auto f = name in _factory) {
             auto s = (*f)(context);
-            _cache[name] = UniquePtr2!Scene(s);
+            _cache[name] = UniquePtr!Scene(s);
 
             return s;
         }
@@ -73,6 +73,5 @@ private:
     Scene _current;
 
     MallocRef!Scene delegate(Context context)[const String] _factory;
-    // HashMap!(const String, Scene) _cache;
-    HashMap!(const String, UniquePtr2!Scene) _cache;
+    HashMap!(const String, UniquePtr!Scene) _cache;
 }

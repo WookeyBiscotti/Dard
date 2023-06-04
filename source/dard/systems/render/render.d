@@ -124,10 +124,11 @@ public:
 
 private:
     HashMap!(Scene, HashSet!GraphicObject) _objects;
-    // HashSet!GraphicObject _objects;
 
     NVGcontext* _nvgContext;
     Vector2u _windowSize;
 
     Camera _mainCamera;
+
+    
 }

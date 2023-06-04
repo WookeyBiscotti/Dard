@@ -22,7 +22,6 @@ public:
         super(context);
         _co = ConfigObserver(context.system!ConfigSystem);
 
-
         immutable auto windowSize = context.system!ConfigSystem
             .value!Vector2u(WINDOW_RESULUTION);
         const auto appName = context.system!ConfigSystem
@@ -32,6 +31,7 @@ public:
 
         SDL_SetHint("SDL_VIDEO_DRIVER", "x11");
         SDL_Init(SDL_InitFlags.SDL_INIT_VIDEO);
+
         _window = SDL_CreateWindow(appName.ptr, windowSize.x, windowSize.y,
                 SDL_WindowFlags.SDL_WINDOW_RESIZABLE);
 
@@ -73,12 +73,24 @@ public:
 
                 send(e);
             } else {
+                switch (re.type) {
+                case SDL_EventType.SDL_EVENT_KEY_DOWN:
+                    send(KeyDown(&re.key));
+                    break;
+                case SDL_EventType.SDL_EVENT_KEY_UP:
+                    send(KeyUp(&re.key));
+                    break;
+                case SDL_EventType.SDL_EVENT_MOUSE_MOTION:
+                    send(MouseMove(&re.motion));
+                    break;
+                default:
+                }
                 send(WindowEvent(&re));
             }
         }
     }
 
-    Vector2u size() {
+    final Vector2u size() {
         Vector2i size = void;
         auto res = SDL_GetWindowSize(_window, &size.x, &size.y);
         assert(!res);
@@ -86,7 +98,7 @@ public:
         return Vector2u(cast(uint) size.x, cast(uint) size.y);
     }
 
-    void size(in Vector2u s) {
+    final void size(in Vector2u s) {
         if (s == size()) {
             return;
         }
@@ -96,12 +108,20 @@ public:
         send(WindowResized(Vector2i(cast(int) s.x, cast(int) s.y)));
     }
 
-    void fullscreen(bool f) {
+    final void fullscreen(bool f) {
         SDL_SetWindowFullscreen(_window, f ? SDL_bool.SDL_TRUE : SDL_bool.SDL_FALSE);
     }
 
     auto sdlWindow() {
         return _window;
+    }
+
+    bool isKeyPressed(SDL_Scancode sc) const {
+        return SDL_GetKeyboardState(null)[sc] != 0;
+    }
+
+    void setRelativeMouseMove(bool v) {
+        SDL_SetRelativeMouseMode(v ? SDL_bool.SDL_TRUE : SDL_bool.SDL_FALSE);
     }
 
 private:

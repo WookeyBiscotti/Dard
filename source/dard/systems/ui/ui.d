@@ -22,12 +22,12 @@ public:
         super(context);
 
         auto window = context.system!WindowSystem;
-        _root = UniquePtr!SimpleGroupWidget(this);
+        _root = makeUnique!SimpleGroupWidget(this);
 
         _root.size(cast(Vector2f) window.size());
 
         subscribe!WindowResized(window, (in WindowResized e) {
-            _root.size(cast(Vector2f) e.newSize);
+            _root.get().size(cast(Vector2f) e.newSize);
         });
 
         subscribe!WindowEvent(window, (in WindowEvent e) {
@@ -62,7 +62,7 @@ public:
                     _lastDraged.onDrag(UIMouseDrag(p, false));
                 }
 
-                Widget w = _root.widgetUnderPoint(p);
+                Widget w = _root.get().widgetUnderPoint(p);
                 if (w) {
                     if (_lastHovered != w) {
                         if (_lastHovered) {
@@ -92,7 +92,7 @@ public:
     }
 
     void update() {
-        _root.draw();
+        _root.get().draw();
     }
 
     void removeWidget(Widget w) {

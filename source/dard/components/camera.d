@@ -11,14 +11,14 @@ import dlib.math.transformation;
 class Camera : Component {
 public:
     static immutable UP = Vector3f(0, 0, 1);
+    static immutable FRONT = Vector3f(1, 0, 0);
 
     this(Entity e) {
         super(e);
 
-        _eye = e.transform.position + Vector3f(10, 0, 0);
-        _aspect = entity.context.system!Render.aspect();
+        update();
 
-        updateViewProj();
+        subscribe!TransformUpdated(e.transform, _ => update());
     }
 
     ~this() {
@@ -37,14 +37,43 @@ public:
         return _proj;
     }
 
-private:
-    void updateViewProj() {
-        _view = lookAtMatrix!float(entity.transform.position, _eye, _up);
+    auto fov() {
+        return _fov;
+    }
+
+    void fov(float fov) {
+        _fov = fov;
+
         _proj = perspectiveMatrix(_fov, _aspect, _near, _far);
     }
 
-    Vector3f _eye;
-    Vector3f _up = UP;
+    // auto pitch() {
+    //     return _euler.x;
+    // }
+
+    // void pitchAdd(float v) {
+    //     _euler.x += v;
+
+    //     update();
+    // }
+
+private:
+    void update() {
+        auto eye = entity.transform.position + entity.transform.rotation.rotate(FRONT);
+        // auto eye = entity.transform.position + FRONT;
+
+        _view = lookAtMatrix!float(entity.transform.position, eye, UP);
+        // _view = lookAtMatrix!float(entity.transform.position, eye,
+        //         entity.transform.rotation.rotate(UP));
+
+        _aspect = entity.context.system!Render.aspect();
+        _proj = perspectiveMatrix(_fov, _aspect, _near, _far);
+    }
+
+    // bool _shooterType;
+
+    // Vector3f _eye;
+    // Vector3f _euler = [0, 0, 0];
 
     float _fov = 45.0f;
     float _aspect;

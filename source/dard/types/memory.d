@@ -2,29 +2,29 @@ module dard.types.memory;
 
 import automem.ref_counted;
 
-// import automem.unique;
-
-import dard.types.unique;
 import dard.utils.static_cast;
 
 import std.experimental.allocator.mallocator : Mallocator;
 import std.experimental.allocator.typed;
+import std.typecons : Proxy;
+
+import dard.systems.logger;
 
 alias SharedPtr(T) = RefCounted!T;
-public auto makeShared(T, Args...)(Args args) {
+auto makeShared(T, Args...)(Args args) {
     return RefCounted!T.construct(args);
 }
 
-alias UniquePtr(T) = Unique!(T, Mallocator);
-public auto makeUnique(T, Args...)(Args args) {
-    return UniquePtr!T.construct(args);
+// alias UniquePtr(T) = UniquePtr2!(T);
+// public auto makeUnique(T, Args...)(Args args) {
+//     return UniquePtr!T.construct(args);
+// }
+
+auto makeUnique(T, Args...)(Args args) {
+    return UniquePtr!T(New!T(args));
 }
 
-public auto makeUnique2(T, Args...)(Args args) {
-    return UniquePtr2!T(New!T(args));
-}
-
-public auto makeUniqueFromPtr(T)(T p) {
+auto makeUniqueFromPtr(T)(T p) {
     UniquePtr!T up;
     up.grab(p);
 
@@ -57,13 +57,18 @@ auto Delete(T)(T[] ptr) {
     al.dispose(ptr);
 }
 
-struct UniquePtr2(T) if (is(T == class)) {
+struct UniquePtr(T) if (is(T == class)) {
 public:
+    // alias _ptr this;
+
+    mixin Proxy!_ptr;
+
     this(T ptr) {
-        _ptr = cast(void*) ptr;
+        // _ptr = cast(void*) ptr;
+        _ptr = ptr;
     }
 
-    this(TT)(UniquePtr2!TT other) {
+    this(TT)(UniquePtr!TT other) {
         _ptr = other._ptr;
         other._ptr = null;
     }
@@ -72,12 +77,12 @@ public:
 
     ~this() {
         if (_ptr) {
-            destroy!false(cast(T) _ptr);
+            // destroy!false(cast(T) _ptr);
             Delete(_ptr);
         }
     }
 
-    ref auto opAssign(T)(UniquePtr2!T other) {
+    ref auto opAssign(T)(UniquePtr!T other) {
         if (_ptr) {
             Delete(_ptr);
         }
@@ -92,32 +97,104 @@ public:
     }
 
 private:
-    void* _ptr;
+    T _ptr;
 }
 
-// private struct Counter {
-//     uint shared_;
-//     uint weak;
-// }
+private struct Counter {
+    uint shared_;
+    uint weak;
+}
 
-// struct SharedPtr2(T) if (is(T == class)) {
-// private:
-//     struct Data(T) {
-//         Counter counter;
-//         void* ptr;
-//         T get() {
-//             return cast(T) ptr;
-//         }
+struct SharedPtr2(T) if (is(T == class)) {
+private:
+    struct Data(T) {
+        Counter counter;
+        void* ptr;
+        T get() {
+            return cast(T) ptr;
+        }
+    }
+
+    Data!T* _data;
+
+public:
+    static auto make(Args...)(Args args) {
+        SharedPtr2!T p;
+
+        p._data = New!(Data!T)();
+        p._data.ptr = cast(void*) New!T(args);
+        p._data.counter.shared_ = 1;
+
+        return p;
+    }
+
+    this(OT)(in SharedPtr2!OT other) {
+        this = other;
+        // _data = other._data;
+        // if (_data) {
+        //     if (_data.counter.shared_ != 0) {
+        //         _data.counter.shared_++;
+        //     }
+        // }
+    }
+
+    auto opAssign(T)(SharedPtr2!OT other) if (is(T : OT)) {
+        reset();
+
+        _data = other._data;
+        if (_data) {
+            if (_data.counter.shared_ != 0) {
+                _data.counter.shared_++;
+            }
+        }
+
+        return this;
+    }
+
+    ~this() {
+        reset();
+    }
+
+    void reset() {
+        if (!_data) {
+            return;
+        }
+
+        if (_data.counter.shared_ == 0) {
+            return;
+        }
+
+        --_data.counter.shared_;
+        if (_data.counter.shared_ == 0) {
+            Delete(_data.get());
+
+            if (_data.counter.weak == 0) {
+                Delete(_data);
+            }
+        }
+    }
+
+    T get() {
+        if (!_data) {
+            return null;
+        }
+        if (_data.counter.shared_ == 0) {
+            return null;
+        }
+
+        return _data.get();
+    }
+}
+
+// unittest {
+//     class A {
+//         int a;
+//         alias a this;
 //     }
 
-//     Data!T* _data;
+//     auto pa = SharedPtr2!A.make();
 
-//     this(Args...)(Args args) {
-
-//     }
-
-// public:
-
+//     assert(pa.get().a == 0);
 // }
 
 // import std.traits;

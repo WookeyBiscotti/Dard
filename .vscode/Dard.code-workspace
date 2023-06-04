@@ -4,13 +4,13 @@
 			"path": ".."
 		},
 		{
+			"path": "../../BrainEngine"
+		},
+		{
 			"path": "../../../.dub/packages"
 		},
 		{
 			"path": "../../../../../usr/lib/ldc/x86_64-linux-gnu/include/d"
-		},
-		{
-			"path": "../../BrainEngine"
 		}
 	],
 	"settings": {

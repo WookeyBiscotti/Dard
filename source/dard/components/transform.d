@@ -2,13 +2,16 @@ module dard.components.transform;
 
 import dlib.math.matrix;
 import dlib.math.transformation;
-import dlib.math.quaternion;
 import dlib.math.utils;
 
 import std.math.constants;
 
+import dard.types.math.quaternion;
 import dard.types.math.vector;
 import dard.base.component;
+
+struct TransformUpdated {
+}
 
 class Transform : Component {
 public:
@@ -19,6 +22,7 @@ public:
     auto move(in Vector3f p) {
         _position += p;
         _dirty = true;
+        send(TransformUpdated());
 
         return this;
     }
@@ -26,6 +30,23 @@ public:
     auto move(string c)(float l) {
         mixin("_position." ~ c ~ " += l;");
         _dirty = true;
+        send(TransformUpdated());
+
+        return this;
+    }
+
+    auto moveWithRotation(in Vector3f p) {
+        _position += _rotation.rotate(p);
+        _dirty = true;
+        send(TransformUpdated());
+
+        return this;
+    }
+
+    auto moveWithRotation(string c)(float l) {
+        Vector3f p = [0, 0, 0];
+        mixin("p." ~ c ~ " += l;");
+        moveWithRotation(p);
 
         return this;
     }
@@ -33,6 +54,7 @@ public:
     auto rotate(in Quaternionf r) {
         _rotation *= r;
         _dirty = true;
+        send(TransformUpdated());
 
         return this;
     }
@@ -40,6 +62,29 @@ public:
     auto rotate(string axis)(float a) {
         mixin("_rotation *= rotationQuaternion!float(Axis." ~ axis ~ ", a);");
         _dirty = true;
+        send(TransformUpdated());
+
+        return this;
+    }
+
+    auto rotateEuler(string axis)(float a) {
+        Vector3f e = [0, 0, 0];
+        mixin("e." ~ axis ~ " += a;");
+        rotate(Quaternionf.fromEulerAngles(e));
+
+        return this;
+    }
+
+    auto rotationEuler(Vector3f e) {
+        rotation(Quaternionf.fromEulerAngles(e));
+
+        return this;
+    }
+
+    auto rotationEuler(string axis)(float e) {
+        Vector3f e = [0, 0, 0];
+        mixin("e." ~ axis ~ " += a;");
+        rotation(Quaternionf.fromEulerAngles(e));
 
         return this;
     }
@@ -47,6 +92,7 @@ public:
     auto scale(in Vector3f s) {
         _scale *= s;
         _dirty = true;
+        send(TransformUpdated());
 
         return this;
     }
@@ -54,6 +100,7 @@ public:
     auto scale(string c)(float s) {
         mixin("_scale." ~ c ~ " += s;");
         _dirty = true;
+        send(TransformUpdated());
 
         return this;
     }
@@ -62,15 +109,22 @@ public:
         if (_dirty) {
             _toWorldSpaceMat = translationMatrix(_position) * _rotation.toMatrix4x4() * scaleMatrix(
                     _scale);
-
             _dirty = false;
         }
 
         return _toWorldSpaceMat;
     }
 
-    inout ref auto position() {
+    ref auto position() const {
         return _position;
+    }
+
+    ref auto rotation() const {
+        return _rotation;
+    }
+
+    void rotation(in Quaternionf q) {
+        _rotation = q;
     }
 
 private:

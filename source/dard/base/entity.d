@@ -48,10 +48,6 @@ public:
         assert(false, "No such component");
     }
 
-    ref auto tr() {
-        return _transform;
-    }
-
     Entity parent() {
         return _parent;
     }

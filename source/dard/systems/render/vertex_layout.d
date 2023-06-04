@@ -20,11 +20,13 @@ public:
         return this;
     }
 
-    void end() {
+    ref auto end() {
         bgfx_vertex_layout_end(&_layout);
+
+        return this;
     }
 
-    const ref auto bgfx() {
+    ref auto bgfx() {
         return _layout;
     }
 
