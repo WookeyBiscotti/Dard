@@ -5,11 +5,15 @@ import dard.base.context;
 import dard.base.scene;
 import dard.types.math.vector;
 import dard.types.hash_map;
+import dard.types.string;
+import dard.types.memory;
 
 import dard.systems.config;
 import dard.systems.broker;
 import dard.systems.scene;
 import dard.systems.window;
+import dard.systems.render;
+import dard.systems.logger;
 
 import dard.components.camera;
 import dard.components.graphic_object;
@@ -122,13 +126,35 @@ public:
         _objects.getOrAdd(obj.entity.scene, HashSet!GraphicObject()).remove(obj);
     }
 
+    void registerUniformFactory(in String name, SharedPtr!Uniform function(Context) creator) {
+        _uniformsFactory[name] = creator;
+    }
+
+    SharedPtr!Uniform uniform(in String name) {
+        if (auto u = name in _uniforms) {
+            return *u;
+        }
+
+        if (auto u = name in _uniformsFactory) {
+            auto su = (*u)(context());
+            _uniforms[name] = su;
+
+            return su;
+        }
+
+        fatal("Cant create uniform:" ~ name);
+        assert(0);
+    }
+
+    // TODO: Удалять неисползуемые юниформы(uniforms)
+
 private:
     HashMap!(Scene, HashSet!GraphicObject) _objects;
+    HashMap!(String, SharedPtr!Uniform) _uniforms;
+    HashMap!(String, SharedPtr!Uniform function(Context)) _uniformsFactory;
 
     NVGcontext* _nvgContext;
     Vector2u _windowSize;
 
     Camera _mainCamera;
-
-    
 }

@@ -15,15 +15,9 @@ import dard.systems.logger;
 // auto makeShared(T, Args...)(Args args) {
 //     return RefCounted!T.construct(args);
 // }
-alias SharedPtr(T) = SharedPtr2!T;
 auto makeShared(T, Args...)(Args args) {
-    return SharedPtr2!T.makeShared(args);
+    return SharedPtr!T.makeShared(args);
 }
-
-// alias UniquePtr(T) = UniquePtr2!(T);
-// public auto makeUnique(T, Args...)(Args args) {
-//     return UniquePtr!T.construct(args);
-// }
 
 auto makeUnique(T, Args...)(Args args) {
     return UniquePtr!T(New!T(args));
@@ -121,7 +115,7 @@ private struct Counter {
     uint weak;
 }
 
-struct SharedPtr2(T) if (is(T == class)) {
+struct SharedPtr(T) if (is(T == class)) {
 private:
     struct Data(T) {
         Counter counter;
@@ -138,7 +132,7 @@ public:
     alias get this;
 
     static auto makeShared(Args...)(Args args) {
-        SharedPtr2!T p;
+        SharedPtr!T p;
 
         p._data = New!(Data!T)();
         p._ptr = cast(void*) New!T(args);
@@ -148,7 +142,7 @@ public:
         return p;
     }
 
-    this(ref return scope const SharedPtr2!T other) {
+    this(ref return scope const SharedPtr!T other) {
         _data = cast(Data!T*) other._data;
         _ptr = cast(void*) other._ptr;
         if (_data) {
@@ -158,7 +152,7 @@ public:
         }
     }
 
-    ref opAssign(OT)(ref SharedPtr2!OT other) if (is(T : OT)) {
+    ref opAssign(OT)(SharedPtr!OT other) if (is(T : OT)) {
         reset();
 
         _data = other._data;
@@ -221,7 +215,7 @@ unittest {
 
     bool d = false;
     {
-        auto pa = SharedPtr2!A.make(&d);
+        auto pa = SharedPtr!A.makeShared(&d);
         assert(d == false);
         auto pb = pa;
         pa.get().a = 11;

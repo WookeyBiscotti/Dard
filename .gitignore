@@ -14,3 +14,4 @@ dard-test-*
 *.obj
 *.lst
 /libdard.a
+/mixins_instantation.d
