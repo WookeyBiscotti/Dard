@@ -5,23 +5,26 @@ import dard.base.system;
 import dard.base.component;
 import dard.utils.static_cast;
 import dard.systems.logger;
+import dard.types.small_vector;
+import dard.types.memory;
 
 import std.algorithm : reverse;
 import std.stdio;
 import std.exception;
 import std.typecons;
-import std.container;
+
+// import std.container;
 
 final class Context {
 public:
      ~this() {
         foreach_reverse (s; _systemsList) {
-            destroy!false(s);
+            Delete(s);
         }
     }
 
     T createSystem(T, Args...)(Args args) {
-        auto p = new T(this, args);
+        auto p = New!T(this, args);
 
         _systems[typeid(T)] = p;
         _systemsList ~= p;
@@ -59,7 +62,7 @@ public:
 
 private:
     System[TypeInfo] _systems;
-    Array!System _systemsList;
+    SmallVector!(System, 16) _systemsList;
     void function(void*)[TypeInfo] _dtors;
 }
 

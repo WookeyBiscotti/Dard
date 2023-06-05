@@ -22,7 +22,9 @@ public:
         super(context);
 
         auto window = context.system!WindowSystem;
-        _root = makeUnique!SimpleGroupWidget(this);
+        makeUnique!SimpleGroupWidget(this).moveTo(_root);
+        // log(cast(void*) _root.get());
+        // log(_root.get());
 
         _root.size(cast(Vector2f) window.size());
 
@@ -109,53 +111,4 @@ private:
 
     Widget _lastHovered;
     Widget _lastDraged;
-}
-
-unittest {
-    import std.stdio;
-    import std.conv;
-    import core.memory;
-
-    GC.enable();
-
-    class A {
-        ~this() {
-            writeln("A::~this()");
-        }
-
-        int[1024000] d;
-    }
-
-    class B {
-        A[string] d;
-        alias d this;
-    }
-
-    auto p = new B;
-
-    {
-        p = (new A[string]);
-
-        foreach (i; 0 .. 2) {
-            p[i.to!string] = new A();
-        }
-
-        // GC.runFinalizers(GC.addrOf(cast(void*) p));
-
-        p = null;
-    }
-    writeln(GC.stats());
-    writeln(GC.profileStats());
-
-    GC.collect();
-    GC.minimize();
-
-    writeln(GC.stats());
-    writeln(GC.profileStats());
-
-    writeln("scope end");
-
-    GC.collect();
-    GC.minimize();
-    writeln("scope end2");
 }

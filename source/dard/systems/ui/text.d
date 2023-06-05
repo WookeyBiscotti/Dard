@@ -6,7 +6,6 @@ import dard.types.math.vector;
 
 import nanovg;
 
-// import std.string;
 import core.lifetime;
 
 struct Text {

@@ -2,6 +2,7 @@
     "name": "dard",
     "targetType": "staticLibrary",
     "dependencies": {
+        "dlib": "~>1.2.0",
         "automem": "~>0.6.9",
         "ikod-containers": "~>0.0.22",
         "emsi_containers": "~>0.9.0",
@@ -11,12 +12,11 @@
         },
         "nanovg": {
             "path": "bindings/nanovg"
-        },
-        "dlib":"~>1.2.0"
+        }
     },
     "subConfigurations": {
         "bindbc-bgfx": "static",
-        "dlib": "import"
+        "dlib": "library"
     },
     "lflags-linux": [
         "-L/home/alex/code/Dard/3rdparty/bgfx/.build/linux64_gcc/bin"
