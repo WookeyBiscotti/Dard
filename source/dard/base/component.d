@@ -11,6 +11,9 @@ public:
         _entity = e;
     }
 
+    ~this() {
+    }
+
     Entity entity() {
         return _entity;
     }

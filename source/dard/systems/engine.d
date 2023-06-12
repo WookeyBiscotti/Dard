@@ -58,7 +58,13 @@ public:
         while (isRunning) {
             immutable auto t1 = MonoTime.currTime();
 
+            import core.memory;
+            
+            GC.collect();
+
             auto scene = scenes.current();
+            // import std.stdio; 
+            // writeln(cast(void*)scene);
             if (!scene) {
                 break;
             }
@@ -69,8 +75,7 @@ public:
 
             scene.updateFromEngine(frameDuration);
 
-            // import core.memory;
-            // GC.collect();
+            // GC.runFinalizers(segment);
 
             immutable auto t2 = MonoTime.currTime();
             immutable auto dt = t2 - t1;

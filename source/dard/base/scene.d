@@ -39,7 +39,7 @@ class Scene : Entity {
     }
 
     void timeScale(float timeScale) {
-        _timeScale = max(min(1_000_000, timeScale), 0.000_1f);
+        _timeScale = max(min(1_000, timeScale), 0.000_1f);
     }
 
     float timeScale() {

@@ -10,13 +10,14 @@
             "name": "Debug D project",
             "cwd": "${workspaceFolder}",
             "program": "../BrainEngine/brain_engine"
+            // "program": "./dard-test-library"
         },
         {
             "name": "Debug",
             "type": "gdb",
             "request": "launch",
-            // "target": "./dard-test-library",
-            "target": "../BrainEngine/brain_engine",
+            "target": "./dard-test-library",
+            // "target": "../BrainEngine/brain_engine",
             "cwd": "${workspaceRoot}",
             "valuesFormatting": "parseText"
         }

@@ -7,13 +7,12 @@ import dard.utils.static_cast;
 import dard.systems.logger;
 import dard.types.small_vector;
 import dard.types.memory;
+import dard.types.hash_map;
 
 import std.algorithm : reverse;
 import std.stdio;
 import std.exception;
 import std.typecons;
-
-// import std.container;
 
 final class Context {
 public:
@@ -61,7 +60,8 @@ public:
     }
 
 private:
-    System[TypeInfo] _systems;
+    // System[TypeInfo] _systems;
+    HashMap3!(TypeInfo, System) _systems;
     SmallVector!(System, 16) _systemsList;
     void function(void*)[TypeInfo] _dtors;
 }

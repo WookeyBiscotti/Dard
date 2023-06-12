@@ -23,16 +23,18 @@ class SceneSystem : System {
     }
 
     void addCache(in String name, MallocRef!Scene s) {
-        _cache[name] = UniquePtr!Scene(s);
+        _cache.require(name).moveFrom(UniquePtr!Scene.makeUnique(s));
     }
 
     Scene scene(in String name) {
+        import core.lifetime;
+
         if (auto s = name in _cache) {
             return s.get();
         }
         if (auto f = name in _factory) {
             auto s = (*f)(context);
-            _cache[name] = UniquePtr!Scene(s);
+            _cache.require(name).moveFrom(UniquePtr!Scene.makeUnique(s));
 
             return s;
         }
@@ -72,6 +74,8 @@ class SceneSystem : System {
 private:
     Scene _current;
 
-    MallocRef!Scene delegate(Context context)[const String] _factory;
-    HashMap!(const String, UniquePtr!Scene) _cache;
+    // MallocRef!Scene delegate(Context context)[const String] _factory;
+    HashMap3!(String, Scene delegate(Context context)) _factory;
+    HashMap3!(String, UniquePtr!Scene) _cache;
+    // UniquePtr!Scene[const String] _cache;
 }

@@ -21,11 +21,11 @@ struct Object3DAsset {
         _material = context.system!AssetSystem.material(String(js["material"].str()));
     }
 
-    ref auto mesh() {
+    ref mesh() {
         return _mesh;
     }
 
-    ref auto material() {
+    ref material() {
         return _material;
     }
 

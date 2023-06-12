@@ -5,6 +5,7 @@ import automem.ref_counted;
 import dard.utils.static_cast;
 
 import std.experimental.allocator.mallocator : Mallocator;
+import std.experimental.allocator.gc_allocator : GCAllocator;
 import std.experimental.allocator.typed;
 import std.typecons : Proxy;
 import std.traits;
@@ -20,7 +21,7 @@ auto makeShared(T, Args...)(Args args) {
 }
 
 auto makeUnique(T, Args...)(Args args) {
-    return UniquePtr!T(New!T(args));
+    return UniquePtr!T.makeUnique(New!T(args));
 }
 
 auto makeUniqueFromPtr(T)(T p) {
@@ -34,23 +35,57 @@ import core.stdc.stdlib : malloc, free;
 import core.lifetime : emplace;
 
 private alias MyAllocator = TypedAllocator!(Mallocator, AllocFlag.immutableShared);
+private alias MyGCAllocator = TypedAllocator!(GCAllocator, AllocFlag.immutableShared);
 private __gshared MyAllocator al;
+private __gshared MyAllocator alGc;
 
-auto New(T, Args...)(Args args) {
-    log(typeid(T));
+static bool[string] newNames;
 
-    return al.make!(T)(args);
+auto New(T, Args...)(auto ref Args args) {
+    import std.stdio;
+    import std.algorithm.searching;
+    import core.memory;
+
+    auto ptr = al.make!(T)(args);
+    static if (is(T == struct)) {
+        // if (typeid(T).name.canFind("delegate")) {
+            // newNames.require(typeid(T).name);
+            // writeln(newNames);
+            // writeln(typeid(*ptr).name, " ptr: ", cast(void*) ptr);
+            // GC.addRange(ptr, T.sizeof, typeid(T));
+            // if (T.stringof == "Node") {
+            // GC.addRange(ptr, T.sizeof);
+        // }
+        // }
+    } else {
+        // writeln(ptr, "  ptr: ", cast(void*) ptr);
+        // GC.addRange(cast(void*) ptr, __traits(classInstanceSize, T), typeid(T));
+    }
+
+    return ptr;
 }
 
-auto Delete(T)(T* ptr) {
+void Delete(T)(T* ptr) {
     al.dispose!T(ptr);
+}
+
+auto NewGC(T, Args...)(auto ref Args args) {
+    return alGc.make!(T)(args);
+}
+
+void DeleteGC(T)(T* ptr) {
+    alGc.dispose!T(ptr);
+}
+
+void DeleteGC(T)(T ptr) if (is(T == class) || is(T == interface)) {
+    alGc.dispose!T(ptr);
 }
 
 auto Delete(T)(T ptr) if (is(T == class) || is(T == interface)) {
     al.dispose!T(ptr);
 }
 
-auto NewArray(T, Args...)(size_t len) {
+auto NewArray(T)(size_t len) {
     return al.makeArray!T(len);
 }
 
@@ -62,11 +97,20 @@ struct UniquePtr(T) if (is(T == class)) {
 public:
     alias get this;
 
-    this(T ptr) {
-        _ptr = cast(void*) ptr;
+    this(UniquePtr!T other) {
+        _ptr = other._ptr;
+        other._ptr = null;
     }
 
-    @disable this(this);
+    static auto makeUnique(T ptr) {
+        UniquePtr!T p;
+        p._ptr = cast(void*) ptr;
+
+        return p;
+    }
+
+    void opPostMove(ref UniquePtr!T) nothrow {
+    }
 
     ~this() {
         reset();
@@ -80,6 +124,8 @@ public:
 
         return this;
     }
+
+    this(this) @disable;
 
     ref T opCast(T)() @disable;
 

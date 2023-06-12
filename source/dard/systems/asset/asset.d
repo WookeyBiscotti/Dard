@@ -35,32 +35,32 @@ public:
         _object3ds[S!"__default__"] = makeDefaultObject3D(this);
     }
 
-    ~this(){
+    ~this() {
     }
 
     Path meshPath() {
         return buildPath(context.system!ConfigSystem
-                .value!String(APPLICATION_ROOT).toString, P!"meshes");
+                .value!String(APPLICATION_ROOT).toString, "data", P!"meshes");
     }
 
     Path fontPath() {
         return buildPath(context.system!ConfigSystem
-                .value!String(APPLICATION_ROOT).toString, P!"fonts");
+                .value!String(APPLICATION_ROOT).toString, "data", P!"fonts");
     }
 
     Path programPath() {
         return buildPath(context.system!ConfigSystem
-                .value!String(APPLICATION_ROOT).toString, P!"programs");
+                .value!String(APPLICATION_ROOT).toString, "data", P!"programs");
     }
 
     Path materialPath() {
         return buildPath(context.system!ConfigSystem
-                .value!String(APPLICATION_ROOT).toString, P!"materials");
+                .value!String(APPLICATION_ROOT).toString, "data", P!"materials");
     }
 
     Path object3dPath() {
         return buildPath(context.system!ConfigSystem
-                .value!String(APPLICATION_ROOT).toString, P!"object3d");
+                .value!String(APPLICATION_ROOT).toString, "data", P!"object3d");
     }
 
     Path shaderPath() {
@@ -100,7 +100,7 @@ private:
 
     mixin template assetImpl(T, string Name) {
         mixin(format(q{
-            private HashMap!(const String, RC!T) _%ss;
+            private HashMap!(String, RC!T) _%ss;
 
             public RC!T %s(in String name) {
                 if (auto a = name in _%ss) {

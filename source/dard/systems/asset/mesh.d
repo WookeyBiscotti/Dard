@@ -26,8 +26,6 @@ package ulong readData(ref File f, ubyte* data, uint size) {
     ubyte[] arr = data[0 .. size];
 
     return f.rawRead(arr).length;
-
-    // return size;
 }
 
 struct MeshAsset {
@@ -129,25 +127,51 @@ public:
     // }
 
     this(const void[] vertextBuffer, const ushort[] indexBuffer, in VertexLayout layout) {
-        // _layout = layout;
-        // auto vm = bgfx_make_ref(vertextBuffer.ptr, cast(uint) vertextBuffer.length);
-        // _vbh = bgfx_create_vertex_buffer(vm, &_layout.bgfx(), BGFX_BUFFER_COMPUTE_READ);
+        _layout = layout;
+        Group group;
+        Primitive p;
+        p.numIndices = uint.max;
+        p.numVertices = uint.max;
+        p.startIndex = 0;
+        p.startVertex = 0;
+        group.prims ~= p;
+        auto vm = bgfx_make_ref(vertextBuffer.ptr, cast(uint) vertextBuffer.length);
+        group.vbh = bgfx_create_vertex_buffer(vm, &_layout.bgfx(), BGFX_BUFFER_COMPUTE_READ);
+        auto im = bgfx_make_ref(indexBuffer.ptr, cast(uint)(indexBuffer.length * ushort.sizeof));
+        group.ibh = bgfx_create_index_buffer(im, BGFX_BUFFER_COMPUTE_READ);
 
-        // auto im = bgfx_make_ref(indexBuffer.ptr, cast(uint)(indexBuffer.length * ushort.sizeof));
-        // _ibh = bgfx_create_index_buffer(im, BGFX_BUFFER_COMPUTE_READ);
+        group.numVertices = uint.max;
+        group.numIndices = uint.max;
+
+        _groups ~= group;
     }
 
-    auto bgfxVbh() {
-        // return _vbh;
-    }
+    void submit(bgfx_view_id_t id, bgfx_program_handle_t program,
+            const(float)* mtx, ulong state = BGFX_STATE_MASK) {
 
-    auto bgfxIbh() {
-        // return _ibh;
+        if (BGFX_STATE_MASK == state) {
+            state = 0 | BGFX_STATE_WRITE_RGB | BGFX_STATE_WRITE_A | BGFX_STATE_WRITE_Z
+                | BGFX_STATE_DEPTH_TEST_LESS | BGFX_STATE_CULL_CCW | BGFX_STATE_MSAA;
+        }
+
+        bgfx_set_transform(mtx, 1);
+        bgfx_set_state(state, 0);
+
+        foreach (const ref Group g; _groups) {
+            bgfx_set_index_buffer(g.ibh, 0, g.numIndices);
+            bgfx_set_vertex_buffer(0, g.vbh, 0, g.numVertices);
+
+            bgfx_submit(id, program, 0, BGFX_DISCARD_INDEX_BUFFER | BGFX_DISCARD_VERTEX_STREAMS);
+        }
+
+        bgfx_discard(BGFX_DISCARD_ALL);
     }
 
     ~this() {
-        // bgfx_destroy_vertex_buffer(_vbh);
-        // bgfx_destroy_index_buffer(_ibh);
+        foreach (const ref Group g; _groups) {
+            bgfx_destroy_vertex_buffer(g.vbh);
+            bgfx_destroy_index_buffer(g.ibh);
+        }
     }
 
 private:
@@ -160,6 +184,7 @@ auto makeDefaultCudeMesh() {
         VertexLayout l;
         l.begin();
         l.add(Attribute.BGFX_ATTRIB_POSITION, 3, AttributeType.BGFX_ATTRIB_TYPE_FLOAT);
+        // l.add(Attribute.BGFX_ATTRIB_NORMAL, 3, AttributeType.BGFX_ATTRIB_TYPE_UINT8, true, true);
         l.add(Attribute.BGFX_ATTRIB_COLOR0, 4, AttributeType.BGFX_ATTRIB_TYPE_UINT8, true);
         l.end();
 
@@ -170,28 +195,69 @@ auto makeDefaultCudeMesh() {
         float x;
         float y;
         float z;
+
+        // ubyte nx;
+        // ubyte ny;
+        // ubyte nz;
+
         uint rgba;
     }
 
     immutable DefaultCubeVertex[] defaultCubeVerteces = [
-        {-1.0f, 1.0f, 1.0f, 0xff000000}, {1.0f, 1.0f, 1.0f, 0xff0000ff},
-        {-1.0f, -1.0f, 1.0f, 0xff00ff00}, {1.0f, -1.0f, 1.0f, 0xff00ffff},
-        {-1.0f, 1.0f, -1.0f, 0xffff0000}, {1.0f, 1.0f, -1.0f, 0xffff00ff},
-        {-1.0f, -1.0f, -1.0f, 0xffffff00}, {1.0f, -1.0f, -1.0f, 0xffffffff},
+        // dfmt off
+        {1.0f, 1.0f, 1.0f, 0xff000000},
+        {1.0f, -1.0f, 1.0f, 0xff0000ff},
+        {-1.0f, -1.0f, 1.0f, 0xff00ff00},
+        {-1.0f, 1.0f, 1.0f, 0xff00ff00},
+
+        {-1.0f, 1.0f, 1.0f, 0xff000000},
+        {-1.0f, 1.0f, 1.0f, 0xff000000},
+
+        {1.0f, 1.0f, 1.0f, 0xff0000ff},
+        {1.0f, 1.0f, 1.0f, 0xff0000ff},
+
+        {-1.0f, -1.0f, 1.0f, 0xff00ff00},
+        {-1.0f, -1.0f, 1.0f, 0xff00ff00},
+
+        {1.0f, -1.0f, 1.0f, 0xff00ffff},
+        {1.0f, -1.0f, 1.0f, 0xff00ffff},
+        {1.0f, -1.0f, 1.0f, 0xff00ffff},
+
+        {-1.0f, 1.0f, -1.0f, 0xffff0000},
+        {-1.0f, 1.0f, -1.0f, 0xffff0000},
+        {-1.0f, 1.0f, -1.0f, 0xffff0000},
+
+        {1.0f, 1.0f, -1.0f, 0xffff00ff},
+        {1.0f, 1.0f, -1.0f, 0xffff00ff},
+        {1.0f, 1.0f, -1.0f, 0xffff00ff},
+
+        {-1.0f, -1.0f, -1.0f, 0xffffff00},
+        {-1.0f, -1.0f, -1.0f, 0xffffff00},
+        {-1.0f, -1.0f, -1.0f, 0xffffff00},
+
+        {1.0f, -1.0f, -1.0f, 0xffffffff},
+        {1.0f, -1.0f, -1.0f, 0xffffffff},
+        {1.0f, -1.0f, -1.0f, 0xffffffff},
+        // dfmt on
     ];
 
+    // immutable ushort[] defaultCubeTriList = [
+    //     0, 1, 2, // 0
+    //     1, 3, 2, 4, 6, 5, // 2
+    //     5, 6, 7, 0, 2, 4, // 4
+    //     4, 2, 6, 1, 5, 3, // 6
+    //     5, 7, 3, 0, 4, 1, // 8
+    //     4, 5, 1, 2, 3, 6, // 10
+    //     6, 3, 7,
+    // ];
+    // dfmt off
     immutable ushort[] defaultCubeTriList = [
-        0, 1, 2, // 0
-        1, 3, 2, 4, 6, 5, // 2
-        5, 6, 7, 0, 2, 4, // 4
-        4, 2, 6, 1, 5, 3, // 6
-        5, 7, 3, 0, 4, 1, // 8
-        4, 5, 1, 2, 3, 6, // 10
-        6, 3, 7,
-    ];
+        3, 0, 1, 1, 2, 3
+        ];
 
     return RC!MeshAsset(cast(const void[]) defaultCubeVerteces,
             defaultCubeTriList, defaultCubeVertexLayout());
+    // dfmt on
 }
 
 package {
@@ -224,7 +290,7 @@ package {
         bgfx_vertex_buffer_handle_t vbh = bgfx_vertex_buffer_handle_t(ushort.max);
         bgfx_index_buffer_handle_t ibh = bgfx_index_buffer_handle_t(ushort.max);
 
-        ushort numVertices;
+        uint numVertices;
         // ubyte* vertices;
         uint numIndices;
         // ushort* indices;

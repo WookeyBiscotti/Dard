@@ -9,25 +9,32 @@ alias EventRawDlg = void delegate(const void* E);
 mixin template ImplTransceiver() {
     static assert(is(typeof(this) : Transceiver));
 
-    EventRawDlg[Transceiver][TypeInfo] _dlgs;
-    bool[TypeInfo][Transceiver] _senders;
+    HashMap3!(TypeInfo, HashMap3!(Transceiver, EventRawDlg, true), true) _dlgs;
+
+    // EventRawDlg[Transceiver][TypeInfo] _dlgs;
+    // bool[TypeInfo][Transceiver] _senders;
+    HashMap3!(Transceiver, HashMap3!(TypeInfo, bool)) _senders;
+    // HashMap2!(Transceiver, HashMap2!(TypeInfo, bool)) _senders;
 
     ~this() {
-        foreach (ref dgs; _dlgs.byValue()) {
+        foreach (type, ref dgs; _dlgs) {
             while (dgs.length) {
-                dgs.keys[0].unsubscribe(this);
+                dgs.front.key.unsubscribe(this);
             }
         }
         unsubscribe();
     }
 
     final override void send(TypeInfo t, const(void)* e) {
-        foreach (ref d; _dlgs.require(t).byValue()) {
+        foreach (ref d; _dlgs.require(t)) {
             d(e);
         }
     }
 
     final override void subscribe(TypeInfo t, Transceiver s, EventRawDlg dlg) {
+        // import std.stdio;
+
+        // writeln(dlg.ptr);
         _senders.require(s).require(t);
         s.addListner(t, this, dlg);
     }
@@ -43,13 +50,17 @@ mixin template ImplTransceiver() {
     }
 
     final override void unsubscribe() {
-        foreach (ref s; _senders.byKey()) {
-            s.removeListner(this);
+        foreach (s, ref v; _senders) {
+            (cast(Transceiver) s).removeListner(this);
         }
-        _senders = null;
+        _senders.clear();
     }
 
     final override void addListner(TypeInfo t, Transceiver r, EventRawDlg dlg) {
+        // _dlgs.require(t).require(r) = dlg;
+        // import std.stdio;
+
+        // writeln(dlg.ptr);
         _dlgs.require(t).require(r) = dlg;
     }
 
@@ -58,18 +69,18 @@ mixin template ImplTransceiver() {
     }
 
     final override void removeListner(Transceiver r) {
-        foreach (ref rs; _dlgs.byValue()) {
+        foreach (ref rs; _dlgs) {
             rs.remove(r);
         }
     }
 
     final override void removeAllListners() {
-        foreach (const ref dgs; _dlgs.byValue) {
+        foreach (dgs; _dlgs) {
             while (!dgs.length) {
-                dgs.keys[0].unsubscribe(this);
+                dgs.front.key.unsubscribe(this);
             }
         }
-        _dlgs = null;
+        _dlgs.clear();
     }
 
     void send(E)(in E e) {
@@ -77,7 +88,22 @@ mixin template ImplTransceiver() {
     }
 
     void subscribe(E)(Transceiver s, EventDlg!E dlg) {
-        subscribe(typeid(E), s, (const void* e) { dlg(*(cast(const E*) e)); });
+        subscribe(typeid(E), s, (const void* e) {
+            import std.stdio;
+            import core.memory;
+
+            // writeln("-------------------------");
+            // writeln("dlg.ptr ", dlg.ptr);
+            // writeln("e ", e);
+            // writeln("s ", s);
+            // writeln(GC.query(GC.addrOf(dlg.ptr)));
+            // writeln(GC.query(GC.addrOf(e)));
+            // writeln(GC.query(GC.addrOf(cast(void*) s)));
+            // writeln("-------------------------");
+            // writeln("cast(const E*) ", cast(void*) e);
+            // writeln("SIGF addr ", (cast(Object*) 0x555555E69820).toString);
+            dlg(*(cast(const E*) e));
+        });
     }
 
     void unsubscribe(E)(Transceiver s) {

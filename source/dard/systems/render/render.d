@@ -7,6 +7,8 @@ import dard.types.math.vector;
 import dard.types.hash_map;
 import dard.types.string;
 import dard.types.memory;
+import dard.types.ref_count;
+import dard.types.vector;
 
 import dard.systems.config;
 import dard.systems.broker;
@@ -14,6 +16,7 @@ import dard.systems.scene;
 import dard.systems.window;
 import dard.systems.render;
 import dard.systems.logger;
+import dard.systems.asset;
 
 import dard.components.camera;
 import dard.components.graphic_object;
@@ -50,6 +53,7 @@ public:
         bgfx_init_ctor(&init_);
         init_.platformData.ndt = wmi.info.x11.display;
         init_.platformData.nwh = cast(void*) wmi.info.x11.window;
+        init_.debug_ = false;
         init_.resolution.width = _windowSize.x;
         init_.resolution.height = _windowSize.y;
         init_.resolution.format = bgfx_texture_format_t.BGFX_TEXTURE_FORMAT_RGBA8U;
@@ -93,8 +97,13 @@ public:
 
             auto currentScene = context.system!SceneSystem.current;
             if (_objects.containsKey(currentScene)) {
-                foreach (ref v; _objects[currentScene]) {
-                    v.submit();
+                Array!GraphicObject[MaterialAsset* ] ms;
+                foreach (v, k; _objects[currentScene]) {
+                    ms.require(v.material) ~= *cast(GraphicObject*)(&v);
+                }
+
+                foreach (v, k; _objects[currentScene]) {
+                    (cast(GraphicObject*)&v).submit(0);
                 }
             }
         }
@@ -119,11 +128,14 @@ public:
     }
 
     void addObject(GraphicObject obj) {
-        _objects.getOrAdd(obj.entity.scene, HashSet!GraphicObject()).insert(obj);
+        // _objects.require(obj.entity.scene)[obj] = true;
+        // _objects.require(obj.entity.scene)[obj] = true;
+        // pragma(msg ,typeof(_objects.getOrAdd(obj.entity.scene, HashSet!GraphicObject())));
+        _objects.getOrAdd(obj.entity.scene, HashSet!GraphicObject()).opIndexAssign(true, obj);
     }
 
     void removeObject(GraphicObject obj) {
-        _objects.getOrAdd(obj.entity.scene, HashSet!GraphicObject()).remove(obj);
+        _objects.require(obj.entity.scene).remove(obj);
     }
 
     void registerUniformFactory(in String name, SharedPtr!Uniform function(Context) creator) {
@@ -146,15 +158,43 @@ public:
         assert(0);
     }
 
+    void registerPassFactory(in String name, RC!Pass function(Context) creator) {
+        _passesFactory[name] = creator;
+    }
+
+    RC!Pass pass(in String name) {
+        if (auto u = name in _passes) {
+            return *u;
+        }
+
+        if (auto u = name in _passesFactory) {
+            auto su = (*u)(context());
+            _passes[name] = su;
+
+            return su;
+        }
+
+        fatal("Cant create pass:" ~ name);
+        assert(0);
+    }
+
     // TODO: Удалять неисползуемые юниформы(uniforms)
 
 private:
     HashMap!(Scene, HashSet!GraphicObject) _objects;
+
     HashMap!(String, SharedPtr!Uniform) _uniforms;
     HashMap!(String, SharedPtr!Uniform function(Context)) _uniformsFactory;
+
+    HashMap!(String, RC!Pass) _passes;
+    HashMap!(String, RC!Pass function(Context)) _passesFactory;
 
     NVGcontext* _nvgContext;
     Vector2u _windowSize;
 
     Camera _mainCamera;
+}
+
+struct RenderPass {
+
 }

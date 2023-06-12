@@ -30,6 +30,37 @@ public:
         return _layout;
     }
 
+    bool contains(in VertexLayout o) const {
+        for (uint i = 0; i != Attribute.BGFX_ATTRIB_COUNT; ++i) {
+            auto attr = cast(Attribute) i;
+            if (bgfx_vertex_layout_has(&_layout, attr)) {
+                if (bgfx_vertex_layout_has(&o._layout, attr)) {
+                    struct LI {
+                        ubyte num = void;
+                        AttributeType t = void;
+                        bool norm = void;
+                        bool isInt = void;
+                    }
+
+                    LI l1;
+                    bgfx_vertex_layout_decode(&_layout, attr, &l1.num,
+                            &l1.t, &l1.norm, &l1.isInt);
+                    LI l2;
+                    bgfx_vertex_layout_decode(&_layout, attr, &l2.num,
+                            &l2.t, &l2.norm, &l2.isInt);
+
+                    if (l1 != l2) {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
 private:
     bgfx_vertex_layout_t _layout;
 }

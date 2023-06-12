@@ -23,8 +23,6 @@ public:
 
         auto window = context.system!WindowSystem;
         makeUnique!SimpleGroupWidget(this).moveTo(_root);
-        // log(cast(void*) _root.get());
-        // log(_root.get());
 
         _root.size(cast(Vector2f) window.size());
 
