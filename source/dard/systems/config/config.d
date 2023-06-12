@@ -5,6 +5,7 @@ import std.algorithm.mutation;
 import std.conv;
 import std.stdio;
 import std.path;
+import core.memory;
 
 import dard.systems.config;
 import dard.systems.filesystem;
@@ -25,6 +26,13 @@ public:
                 Value(String(cmdArgs[0]))));
         setValue(APPLICATION_ROOT, EngineValue(EngineValue.Access.STATIC,
                 Value(String(dirName(cmdArgs[0])))));
+
+        GC.addRange(cast(void*) this, __traits(classInstanceSize,
+                ConfigSystem), typeid(ConfigSystem));
+    }
+
+    ~this() {
+        GC.removeRange(cast(void*) this);
     }
 
     ref const(T) value(T)(in String name) const {

@@ -1,6 +1,9 @@
 module dard.types.vector;
 
-public import automem.array : Array;
+public import automem.array : Array2 = Array;
+public import std.experimental.allocator.mallocator: Mallocator;
+
+alias Array(T) = Array2!(T, Mallocator); 
 
 import dard.types.memory;
 

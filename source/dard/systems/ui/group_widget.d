@@ -17,6 +17,9 @@ class GroupWidget : Widget {
         Delete(removeChild(c));
     }
 
+    abstract size_t childsCount() const;
+    abstract Widget child(size_t idx);
+
     WidgetType make(WidgetType, Args...)(Args args) {
         auto w = New!WidgetType(_system, this, args);
 

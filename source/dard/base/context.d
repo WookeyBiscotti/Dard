@@ -63,7 +63,8 @@ private:
     // System[TypeInfo] _systems;
     HashMap3!(TypeInfo, System) _systems;
     SmallVector!(System, 16) _systemsList;
-    void function(void*)[TypeInfo] _dtors;
+    HashMap3!(TypeInfo, void function(void*)) _dtors;
+    // void function(void*)[TypeInfo] _dtors;
 }
 
 unittest {

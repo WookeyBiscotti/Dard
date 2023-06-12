@@ -8,6 +8,7 @@ import dard.systems.logger;
 import dard.types.math.vector;
 
 import std.math.traits;
+import std.stdio;
 import core.lifetime : move;
 
 enum Corner {
@@ -33,11 +34,15 @@ class Widget : Transceiver {
         if (parent) {
             this.parent(parent);
         }
+
+        writeln("Widget.ctor ", typeid(this), " ", cast(void*) this);
     }
 
     ~this() {
         parent(null);
         _system.removeWidget(this);
+
+        writeln("Widget.dtor ", typeid(this), " ", cast(void*) this);
     }
 
     auto minSize() const {

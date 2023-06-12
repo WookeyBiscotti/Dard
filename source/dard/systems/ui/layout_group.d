@@ -135,6 +135,12 @@ class LayoutGroup : SimpleGroupWidget {
         return this;
     }
 
+    invariant() {
+        foreach(c; _childs) {
+            assert(c !is null);
+        }
+    }
+
 private:
     void updateChildsPositionSize() {
         if (_recursion) {
