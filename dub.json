@@ -22,9 +22,9 @@
         "-L/home/alex/code/Dard/3rdparty/bgfx/.build/linux64_gcc/bin"
     ],
     "libs": [
-        "bgfxDebug",
-        "bxDebug",
-        "bimgDebug"
+        "bgfxRelease",
+        "bxRelease",
+        "bimgRelease"
     ],
     "libs-linux": [
         "stdc++",
@@ -33,6 +33,7 @@
     ],
     "dflags": [
         "-i=-ldc",
-        "-mixin=mixins_instantation.d"
+        "-mixin=mixins_instantation.d",
+        "-boundscheck=off"
     ]
 }

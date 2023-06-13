@@ -1,9 +1,9 @@
 module dard.types.vector;
 
 public import automem.array : Array2 = Array;
-public import std.experimental.allocator.mallocator: Mallocator;
+public import std.experimental.allocator.mallocator : Mallocator;
 
-alias Array(T) = Array2!(T, Mallocator); 
+alias Array(T) = Array2!(T, Mallocator);
 
 import dard.types.memory;
 
@@ -31,7 +31,7 @@ struct Vector(T) {
             if (_size + 1 > _store.length) {
                 expand();
             }
-            _store[_size] = value;
+            _store[_size] = cast(T) value;
             _size++;
         }
     }
@@ -48,7 +48,7 @@ struct Vector(T) {
 
     static if (IsCopyable) {
         void opIndexAssign(T)(in T value, size_t idx) {
-            _store[idx] = value;
+            _store[idx] = cast(T) value;
         }
     }
 
@@ -59,12 +59,24 @@ struct Vector(T) {
     void resize(size_t newSize) {
         if (newSize < _size) {
             foreach (i; newSize .. _size) {
-                destroy(_store[i]);
+                _destroy(_store[i]);
             }
         } else if (newSize > _store.length) {
             realloc(newSize);
         }
         _size = newSize;
+    }
+
+    void popBack() {
+        resize(length - 1);
+    }
+
+    bool empty() const {
+        return _size == 0;
+    }
+
+    void opOpAssign(string op : "~")(T value) {
+        pushBack(value);
     }
 
     int opApply(scope int delegate(ref T) dg) {
@@ -101,6 +113,8 @@ struct Vector(T) {
         }
     }
 
+    alias opDollar = length;
+
 private:
     void expand() {
         assert(_store.length == _size);
@@ -129,11 +143,20 @@ private:
         if (newCapacity < _size) {
             if (newCapacity != 0) {
                 for (size_t i = newSize; i != _size; ++i) {
-                    destroy(arr[i]);
+                    _destroy(arr[i]);
                 }
             }
         }
         _store = arr;
+    }
+
+    static if (is(T == class) || is(T == interface)) {
+        void _destroy(ref T v) {
+        }
+    } else {
+        void _destroy(ref T v) {
+            destroy(v);
+        }
     }
 
     T[] _store;

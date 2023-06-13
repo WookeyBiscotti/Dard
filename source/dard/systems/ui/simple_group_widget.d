@@ -13,25 +13,11 @@ class SimpleGroupWidget : GroupWidget {
         super(system, parent);
     }
 
-    void logAll() const {
-        foreach (size_t i; 0 .. this.childsCount) {
-            log(cast(void*)(cast(SimpleGroupWidget) this).child(i));
-        }
-    }
-
     ~this() {
         import std.stdio;
 
-        log(cast(void*) this);
-        log(this.childsCount);
-
-        logAll();
-
         while (!_childs.empty()) {
             auto c = _childs[$ - 1];
-            writeln(typeid(this), " ", cast(void*) this);
-            writeln("WTF ", cast(void*) c);
-            writeln(typeid(c));
             _childs.popBack();
             Delete(c);
         }
@@ -47,8 +33,6 @@ class SimpleGroupWidget : GroupWidget {
         if (c.parent() != this) {
             c.parent(this);
         }
-
-        logAll();
     }
 
     override Widget removeChild(Widget c) {
@@ -61,7 +45,6 @@ class SimpleGroupWidget : GroupWidget {
                 return p;
             }
         }
-        logAll();
         return null;
     }
 
@@ -71,7 +54,6 @@ class SimpleGroupWidget : GroupWidget {
                 return _childs[i];
             }
         }
-        logAll();
 
         return null;
     }
@@ -80,21 +62,17 @@ class SimpleGroupWidget : GroupWidget {
         foreach (c; _childs) {
             c.draw();
         }
-        logAll();
     }
 
     override Widget onPressed(in UIMouseButtonPressed e) {
-        logAll();
         return findWidgetUnderPoint(e.p);
     }
 
     override Widget onReleased(in UIMouseButtonReleased e) {
-        logAll();
         return findWidgetUnderPoint(e.p);
     }
 
     override Widget onHovered(in UIHovered e) {
-        logAll();
         return findWidgetUnderPoint(e.p);
     }
 
@@ -142,7 +120,6 @@ class SimpleGroupWidget : GroupWidget {
                 return r;
             }
         }
-        logAll();
         return null;
     }
 
@@ -180,5 +157,5 @@ protected:
         return null;
     }
 
-    Array!Widget _childs;
+    Vector!Widget _childs;
 }

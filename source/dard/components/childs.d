@@ -24,5 +24,5 @@ public:
     }
 
 private:
-    Array!(SharedPtr!Entity) _childs;
+    Vector!(SharedPtr!Entity) _childs;
 }

@@ -60,11 +60,9 @@ public:
 
             import core.memory;
             
-            GC.collect();
+            // GC.collect();
 
             auto scene = scenes.current();
-            // import std.stdio; 
-            // writeln(cast(void*)scene);
             if (!scene) {
                 break;
             }

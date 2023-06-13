@@ -28,8 +28,8 @@ cast(T)a < cast(T) b
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(449,16)
-cast(T)a < cast(T) b
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/format/spec.d(170,13)
 private ubyte _flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf;@property bool flDash() @safe pure nothrow @nogc const { return (_flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf & 1U) != 0;}
@@ -46,6 +46,9 @@ private ubyte _flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf;@prop
 @property void flEqual(bool v) @safe pure nothrow @nogc { if (v) _flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf |= 32U;else _flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf &= cast(typeof(_flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf))(-1-cast(typeof(_flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf))32U);}
 @property bool flSeparator() @safe pure nothrow @nogc const { return (_flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf & 64U) != 0;}
 @property void flSeparator(bool v) @safe pure nothrow @nogc { if (v) _flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf |= 64U;else _flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf &= cast(typeof(_flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf))(-1-cast(typeof(_flDash_flZero_flSpace_flPlus_flHash_flEqual_flSeparator__bf))64U);}
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(449,16)
+cast(T)a < cast(T) b
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(219,13)
 alias a = __a ;
@@ -175,9 +178,6 @@ lhs == rhs
                 grapheme ~= ch;
             range.popFront();
         
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/uni/package.d(7015,17)
 
@@ -2438,18 +2438,6 @@ core.stdc.stdio.stderr
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(211,13)
-throw boundsException;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(387,17)
-throw boundsException;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(390,17)
-throw boundsException;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
@@ -2764,9 +2752,6 @@ a < b
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(211,13)
-throw boundsException;
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
@@ -3332,6 +3317,30 @@ a < b
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(449,16)
 cast(T)a < cast(T) b
 
@@ -3509,116 +3518,44 @@ throw boundsException;
         return to;
     
 
+// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(387,17)
+throw boundsException;
+
+// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(390,17)
+throw boundsException;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(387,17)
+throw boundsException;
+
+// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(390,17)
+throw boundsException;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(387,17)
+throw boundsException;
+
+// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(390,17)
+throw boundsException;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(387,17)
+throw boundsException;
+
+// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(390,17)
+throw boundsException;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
 // expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(211,13)
 throw boundsException;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(387,17)
-throw boundsException;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(390,17)
-throw boundsException;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/array/arrayassign.d(90,5)
-
-        import core.internal.traits : hasElaborateCopyConstructor, Unqual;
-        import core.lifetime : copyEmplace;
-        import core.stdc.string : memcpy;
-
-        void[] vFrom = (cast(void*) from.ptr)[0 .. from.length];
-        void[] vTo = (cast(void*) to.ptr)[0 .. to.length];
-        enum elemSize = T.sizeof;
-
-        enforceRawArraysConformable("copy", elemSize, vFrom, vTo, true);
-
-        void[elemSize] tmp = void;
-
-        
-        static if (hasElaborateCopyConstructor!T)
-            
-        if (vFrom.ptr < vTo.ptr && vTo.ptr < vFrom.ptr + elemSize * vFrom.length)
-            foreach_reverse (i, ref dst; to)
-            {
-
-            memcpy(&tmp, cast(void*) &dst, elemSize);
-            copyEmplace(from[i], dst);
-            auto elem = cast(Unqual!T*) &tmp;
-            destroy(*elem);
-        }
-
-        else
-            foreach (i, ref dst; to)
-            {
-
-            memcpy(&tmp, cast(void*) &dst, elemSize);
-            copyEmplace(from[i], dst);
-            auto elem = cast(Unqual!T*) &tmp;
-            destroy(*elem);
-        }
-
-        else
-            
-        if (vFrom.ptr < vTo.ptr && vTo.ptr < vFrom.ptr + elemSize * vFrom.length)
-            foreach_reverse (i, ref dst; to)
-            {
-
-            memcpy(&tmp, cast(void*) &dst, elemSize);
-            memcpy(cast(void*) &dst, cast(void*) &from[i], elemSize);
-            auto elem = cast(Unqual!T*) &tmp;
-            destroy(*elem);
-        }
-
-        else
-            foreach (i, ref dst; to)
-            {
-
-            memcpy(&tmp, cast(void*) &dst, elemSize);
-            memcpy(cast(void*) &dst, cast(void*) &from[i], elemSize);
-            auto elem = cast(Unqual!T*) &tmp;
-            destroy(*elem);
-        }
-
-
-        return to;
-    
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(387,17)
-throw boundsException;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(390,17)
-throw boundsException;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(387,17)
-throw boundsException;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(390,17)
-throw boundsException;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(387,17)
-throw boundsException;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(390,17)
-throw boundsException;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(387,17)
-throw boundsException;
-
-// expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(390,17)
-throw boundsException;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
 // expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(387,17)
 throw boundsException;
