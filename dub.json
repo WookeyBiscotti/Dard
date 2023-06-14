@@ -22,9 +22,9 @@
         "-L/home/alex/code/Dard/3rdparty/bgfx/.build/linux64_gcc/bin"
     ],
     "libs": [
-        "bgfxRelease",
-        "bxRelease",
-        "bimgRelease"
+        "bgfxDebug",
+        "bxDebug",
+        "bimgDebug"
     ],
     "libs-linux": [
         "stdc++",

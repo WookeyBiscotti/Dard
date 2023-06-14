@@ -15,18 +15,20 @@ import dard.systems.asset.binary_data;
 
 import std.stdio;
 
-package ulong readT(T)(ref File f, ref T p)
-if (!is(T == class) && !is(T == interface)) {
-    ubyte[T.sizeof]* arr = cast(ubyte[T.sizeof]*)&p;
+import dard.systems.filesystem.utils;
 
-    return f.rawRead(*arr).length;
-}
+// package ulong readT(T)(ref File f, ref T p)
+// if (!is(T == class) && !is(T == interface)) {
+//     ubyte[T.sizeof]* arr = cast(ubyte[T.sizeof]*)&p;
 
-package ulong readData(ref File f, ubyte* data, uint size) {
-    ubyte[] arr = data[0 .. size];
+//     return f.rawRead(*arr).length;
+// }
 
-    return f.rawRead(arr).length;
-}
+// package ulong readData(ref File f, ubyte* data, uint size) {
+//     ubyte[] arr = data[0 .. size];
+
+//     return f.rawRead(arr).length;
+// }
 
 struct MeshAsset {
 public:
@@ -46,16 +48,16 @@ public:
         immutable uint kChunkPrimitive =  *cast(uint*) cast(char*)['P', 'R', 'I', '\0'];
         // dfmt on
 
+        Group group;
         uint chunk;
         while (file.readT(chunk) == 4) {
-            Group group;
             switch (chunk) {
             case kChunkVertexBuffer: {
                     file.readT(group.sphere);
                     file.readT(group.aabb);
                     file.readT(group.obb);
 
-                    file.readT(_layout.bgfx());
+                    _layout.read(file);
 
                     ushort stride = _layout.bgfx().stride;
 
@@ -106,6 +108,7 @@ public:
                     }
 
                     _groups ~= group;
+                    group = group.init;
                 }
                 break;
             default:
@@ -140,7 +143,7 @@ public:
         auto im = bgfx_make_ref(indexBuffer.ptr, cast(uint)(indexBuffer.length * ushort.sizeof));
         group.ibh = bgfx_create_index_buffer(im, BGFX_BUFFER_COMPUTE_READ);
 
-        group.numVertices = uint.max;
+        group.numVertices = ushort.max;
         group.numIndices = uint.max;
 
         _groups ~= group;
@@ -151,7 +154,7 @@ public:
 
         if (BGFX_STATE_MASK == state) {
             state = 0 | BGFX_STATE_WRITE_RGB | BGFX_STATE_WRITE_A | BGFX_STATE_WRITE_Z
-                | BGFX_STATE_DEPTH_TEST_LESS | BGFX_STATE_CULL_CCW | BGFX_STATE_MSAA;
+                | BGFX_STATE_DEPTH_TEST_LESS | BGFX_STATE_CULL_CW | BGFX_STATE_MSAA;
         }
 
         bgfx_set_transform(mtx, 1);
@@ -222,7 +225,6 @@ auto makeDefaultCudeMesh() {
 
     return RC!MeshAsset(cast(const void[]) defaultCubeVerteces,
             defaultCubeTriList, defaultCubeVertexLayout());
-    // dfmt on
 }
 
 package {
@@ -255,7 +257,7 @@ package {
         bgfx_vertex_buffer_handle_t vbh = bgfx_vertex_buffer_handle_t(ushort.max);
         bgfx_index_buffer_handle_t ibh = bgfx_index_buffer_handle_t(ushort.max);
 
-        uint numVertices;
+        ushort numVertices;
         // ubyte* vertices;
         uint numIndices;
         // ushort* indices;

@@ -16,7 +16,7 @@ struct ShaderAsset {
     this(Context context, File file, in String name) {
         auto data = BinaryData(file);
 
-        auto m = bgfx_make_ref(data.data.ptr, cast(uint) data.data.length);
+        auto m = bgfx_copy(data.data.ptr, cast(uint) data.data.length);
         _sh = bgfx_create_shader(m);
     }
 

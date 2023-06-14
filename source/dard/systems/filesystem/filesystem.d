@@ -1,4 +1,4 @@
-module dard.systems.filesystem;
+module dard.systems.filesystem.filesystem;
 
 import dard.base.system;
 import dard.types.string;

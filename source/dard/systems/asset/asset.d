@@ -60,7 +60,7 @@ public:
 
     Path object3dPath() {
         return buildPath(context.system!ConfigSystem
-                .value!String(APPLICATION_ROOT).toString, "data", P!"object3d");
+                .value!String(APPLICATION_ROOT).toString, "data", P!"objects3d");
     }
 
     Path shaderPath() {
@@ -87,7 +87,7 @@ public:
         }
 
         return buildPath(context.system!ConfigSystem
-                .value!String(APPLICATION_ROOT).toString, P!"shaders", subPath);
+                .value!String(APPLICATION_ROOT).toString, "data", P!"shaders", subPath);
     }
 
 private:

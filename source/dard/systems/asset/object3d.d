@@ -13,6 +13,7 @@ import dard.types.ref_count;
 struct Object3DAsset {
     this(Context context, File file, in String name) {
         auto data = NewArray!char(file.size());
+        file.rawRead(data);
         scope (exit)
             Delete(data);
         auto js = parseJSON(data);
