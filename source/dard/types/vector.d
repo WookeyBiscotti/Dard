@@ -20,9 +20,12 @@ struct Vector(T) {
     void opPostMove(inout ref Vector!T) inout {
     }
 
-    ~this() {
-        if (_store.ptr) {
-            Delete(_store);
+    ~this() nothrow {
+        try {
+            if (_store.ptr) {
+                Delete(_store);
+            }
+        } catch (Exception) {
         }
     }
 
@@ -34,6 +37,16 @@ struct Vector(T) {
             _store[_size] = cast(T) value;
             _size++;
         }
+
+        this(this This)(ref const This other) {
+            resize(other._size);
+            foreach (i; 0 .. other._size) {
+                _store[i] = other._store;
+            }
+        }
+
+    } else {
+        this(this) @disable;
     }
 
     void emplaceBack(Args...)(auto ref Args args) {
@@ -75,8 +88,8 @@ struct Vector(T) {
         return _size == 0;
     }
 
-    void opOpAssign(string op : "~")(T value) {
-        pushBack(value);
+    void opOpAssign(string op : "~")(in T value) {
+        pushBack(cast(T) value);
     }
 
     int opApply(scope int delegate(ref T) dg) {

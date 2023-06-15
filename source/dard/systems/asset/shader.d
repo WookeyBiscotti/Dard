@@ -24,7 +24,7 @@ struct ShaderAsset {
         return _sh;
     }
 
-    ~this() {
+    ~this() nothrow {
         if (_sh.idx) {
             bgfx_destroy_shader(_sh);
         }

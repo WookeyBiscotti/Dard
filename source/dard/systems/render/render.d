@@ -54,7 +54,6 @@ public:
         init_.platformData.ndt = wmi.info.x11.display;
         init_.platformData.nwh = cast(void*) wmi.info.x11.window;
         init_.debug_ = false;
-        init_.callback = null;
         init_.resolution.width = _windowSize.x;
         init_.resolution.height = _windowSize.y;
         init_.resolution.format = bgfx_texture_format_t.BGFX_TEXTURE_FORMAT_RGBA8U;

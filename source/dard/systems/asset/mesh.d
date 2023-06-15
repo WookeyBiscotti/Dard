@@ -243,6 +243,42 @@ package {
     }
 
     struct Primitive {
+        ~this() nothrow {
+        }
+
+        this(this This)(ref const This other) nothrow {
+            startIndex = other.startIndex;
+            numIndices = other.numIndices;
+            startVertex = other.startVertex;
+            numVertices = other.numVertices;
+
+            sphere = other.sphere;
+            aabb = other.aabb;
+            obb = other.obb;
+            material = other.material;
+        }
+
+        void opAssign(in Primitive other) nothrow {
+            // import std.exception;
+
+            // scope (failure) {
+            // assert(0);
+            // }
+            startIndex = other.startIndex;
+            numIndices = other.numIndices;
+            startVertex = other.startVertex;
+            numVertices = other.numVertices;
+
+            sphere = other.sphere;
+            aabb = other.aabb;
+            obb = other.obb;
+            // assumeWontThrow(material = other.material);
+            try {
+                material = cast(RC!MaterialAsset) other.material;
+            } catch (Exception e) {
+            }
+        }
+
         uint startIndex;
         uint numIndices;
         uint startVertex;
@@ -251,6 +287,8 @@ package {
         Sphere sphere;
         AABB aabb;
         OBB obb;
+
+        RC!MaterialAsset material;
     }
 
     struct Group {
@@ -265,6 +303,6 @@ package {
         Sphere sphere;
         AABB aabb;
         OBB obb;
-        Array!Primitive prims;
+        Vector!Primitive prims;
     }
 }

@@ -21,6 +21,12 @@ struct MaterialAsset {
         auto js = parseJSON(data);
 
         _prog = context.system!AssetSystem.program(String(js["program"].str()));
+        if (auto t = "transparent" in js) {
+            _transparent = t.boolean;
+        }
+    }
+
+    ~this() nothrow {
     }
 
     ref auto program() {
@@ -28,19 +34,13 @@ struct MaterialAsset {
     }
 
 private:
-    Array!Pass _passes;
+    bool _transparent = false;
     RC!ProgramAsset _prog;
 }
 
 auto makeDefaultMaterial(AssetSystem sys) {
     auto p = RC!MaterialAsset();
     p._prog = sys.program(S!"__default__");
-
-    Pass pass;
-    pass.prog = sys.program(S!"__default__");
-    pass.outViews ~= MAIN_VIEW;
-    p._passes ~= pass;
-
 
     return p;
 }

@@ -32,7 +32,7 @@ struct ProgramAsset {
         return _prog;
     }
 
-    ~this() {
+    ~this() nothrow {
         if (_prog.idx) {
             bgfx_destroy_program(_prog);
         }
