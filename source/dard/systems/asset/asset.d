@@ -43,9 +43,17 @@ public:
                 .value!String(APPLICATION_ROOT).toString, "data", P!"meshes");
     }
 
+    String meshAutoPath(in String name) {
+        return String(buildPath(meshPath, name ~ ".bgfx.bin"));
+    }
+
     Path fontPath() {
         return buildPath(context.system!ConfigSystem
                 .value!String(APPLICATION_ROOT).toString, "data", P!"fonts");
+    }
+
+    String fontAutoPath(in String name) {
+        return String(buildPath(fontPath, name ~ ".ttf"));
     }
 
     Path programPath() {
@@ -53,14 +61,26 @@ public:
                 .value!String(APPLICATION_ROOT).toString, "data", P!"programs");
     }
 
+    String programAutoPath(in String name) {
+        return String(buildPath(programPath, name));
+    }
+
     Path materialPath() {
         return buildPath(context.system!ConfigSystem
                 .value!String(APPLICATION_ROOT).toString, "data", P!"materials");
     }
 
+    String materialAutoPath(in String name) {
+        return String(buildPath(materialPath, name));
+    }
+
     Path object3dPath() {
         return buildPath(context.system!ConfigSystem
                 .value!String(APPLICATION_ROOT).toString, "data", P!"objects3d");
+    }
+
+    String object3dAutoPath(in String name) {
+        return String(buildPath(object3dPath, name));
     }
 
     Path shaderPath() {
@@ -90,7 +110,16 @@ public:
                 .value!String(APPLICATION_ROOT).toString, "data", P!"shaders", subPath);
     }
 
+    String shaderAutoPath(in String name) {
+        import std.string;
+
+        return String(buildPath(shaderPath, name.toString[0 .. $ - 3],
+                name.toString.endsWith("vs") ? "main.vs.bin" : "main.fs.bin"));
+    }
+
 private:
+    bool _autoLoad = true;
+
     mixin assetImpl!(FontAsset, "font");
     mixin assetImpl!(MeshAsset, "mesh");
     mixin assetImpl!(ShaderAsset, "shader");
@@ -106,7 +135,15 @@ private:
                 if (auto a = name in _%ss) {
                     return *a;
                 }
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "`, use default");
+                auto autoPath = %sAutoPath(name);
+                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` in cache with name: `"~
+                    autoPath~"`, try to load");
+
+                load%s(autoPath, name);
+                if (auto a = name in _%ss) {
+                    return *a;
+                }
+                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` load default");
 
                 return _%ss[Str!"__default__"];
             }
@@ -122,6 +159,7 @@ private:
                 // TODO: Проверить плохой вариант
                 _%ss[name] = RC!T(context(), file, name);
             }
-        }, Name, Name, Name, Name, capitalize(Name), Name, Name, Name));
+        }, Name, Name, Name, Name, capitalize(Name), Name, Name,
+                capitalize(Name), Name, Name, Name));
     }
 }
