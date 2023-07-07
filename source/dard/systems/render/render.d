@@ -18,6 +18,8 @@ import dard.systems.render;
 import dard.systems.logger;
 import dard.systems.asset;
 
+import dard.systems.render.components.light;
+
 import dard.components.camera;
 import dard.components.graphic_object;
 
@@ -128,14 +130,19 @@ public:
     }
 
     void addObject(GraphicObject obj) {
-        // _objects.require(obj.entity.scene)[obj] = true;
-        // _objects.require(obj.entity.scene)[obj] = true;
-        // pragma(msg ,typeof(_objects.getOrAdd(obj.entity.scene, HashSet!GraphicObject())));
-        _objects.getOrAdd(obj.entity.scene, HashSet!GraphicObject()).opIndexAssign(true, obj);
+        _objects.require(obj.entity.scene).opIndexAssign(true, obj);
     }
 
     void removeObject(GraphicObject obj) {
         _objects.require(obj.entity.scene).remove(obj);
+    }
+
+    void addLight(Light l) {
+        _light.require(l.entity.scene).opIndexAssign(true, l);
+    }
+
+    void removeLight(Light l) {
+        _light.require(l.entity.scene).remove(l);
     }
 
     void registerUniformFactory(in String name, SharedPtr!Uniform function(Context) creator) {
@@ -158,43 +165,17 @@ public:
         assert(0);
     }
 
-    void registerPassFactory(in String name, RC!Pass function(Context) creator) {
-        _passesFactory[name] = creator;
-    }
-
-    RC!Pass pass(in String name) {
-        if (auto u = name in _passes) {
-            return *u;
-        }
-
-        if (auto u = name in _passesFactory) {
-            auto su = (*u)(context());
-            _passes[name] = su;
-
-            return su;
-        }
-
-        fatal("Cant create pass:" ~ name);
-        assert(0);
-    }
-
     // TODO: Удалять неисползуемые юниформы(uniforms)
 
 private:
     HashMap!(Scene, HashSet!GraphicObject) _objects;
+    HashMap!(Scene, HashSet!Light) _light;
 
     HashMap!(String, SharedPtr!Uniform) _uniforms;
     HashMap!(String, SharedPtr!Uniform function(Context)) _uniformsFactory;
-
-    HashMap!(String, RC!Pass) _passes;
-    HashMap!(String, RC!Pass function(Context)) _passesFactory;
 
     NVGcontext* _nvgContext;
     Vector2u _windowSize;
 
     Camera _mainCamera;
-}
-
-struct RenderPass {
-
 }

@@ -118,8 +118,6 @@ public:
     }
 
 private:
-    bool _autoLoad = true;
-
     mixin assetImpl!(FontAsset, "font");
     mixin assetImpl!(MeshAsset, "mesh");
     mixin assetImpl!(ShaderAsset, "shader");

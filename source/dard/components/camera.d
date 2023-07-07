@@ -3,10 +3,14 @@ module dard.components.camera;
 import dard.base.component;
 import dard.types.math.matrix;
 import dard.types.math.vector;
+import dard.types.math.quaternion;
 import dard.components.transform;
 import dard.systems.render;
 
 import dlib.math.transformation;
+
+import std.math.constants;
+import std.algorithm;
 
 class Camera : Component {
 public:
@@ -47,15 +51,21 @@ public:
         _proj = perspectiveMatrix(_fov, _aspect, _near, _far);
     }
 
-    // auto pitch() {
-    //     return _euler.x;
-    // }
+    void pitchAdd(float v) {
+        auto r = entity.transform.rotation.toEulerAngles;
+        r.y += v;
+        r.y = clamp(r.y, -PI_2 + 0.1, PI_2 - 0.1);
+        entity.transform.rotation(Quaternionf.fromEulerAngles(r));
 
-    // void pitchAdd(float v) {
-    //     _euler.x += v;
+        update();
+    }
 
-    //     update();
-    // }
+    void yawAdd(float v) {
+        auto r = entity.transform.rotation.toEulerAngles;
+        r.z += v;
+        entity.transform.rotation(Quaternionf.fromEulerAngles(r));
+        update();
+    }
 
 private:
     void update() {
