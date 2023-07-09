@@ -17,19 +17,6 @@ import std.stdio;
 
 import dard.systems.filesystem.utils;
 
-// package ulong readT(T)(ref File f, ref T p)
-// if (!is(T == class) && !is(T == interface)) {
-//     ubyte[T.sizeof]* arr = cast(ubyte[T.sizeof]*)&p;
-
-//     return f.rawRead(*arr).length;
-// }
-
-// package ulong readData(ref File f, ubyte* data, uint size) {
-//     ubyte[] arr = data[0 .. size];
-
-//     return f.rawRead(arr).length;
-// }
-
 struct MeshAsset {
 public:
     // this(File file, VertexLayout layout) {
@@ -116,19 +103,6 @@ public:
         }
     }
 
-    // static auto makeQuad(in V3 position, in V3 origin, in V3 normal, in V2 size) {
-    //     RC!MeshAsset ma;
-    //     ma._layout = VertexLayout().begin().add(Attribute.BGFX_ATTRIB_POSITION, 3,
-    //             AttributeType.BGFX_ATTRIB_TYPE_FLOAT).add(Attribute.BGFX_ATTRIB_TEXCOORD0,
-    //             2, AttributeType.BGFX_ATTRIB_TYPE_FLOAT).end();
-
-    //     return ma;
-    // }
-
-    // Point in center of quad
-    // this(in V3 position, in V3 origin, in V3 normal, in V2 size, in VertexLayout layout) {
-    // }
-
     this(const void[] vertextBuffer, const ushort[] indexBuffer, in VertexLayout layout) {
         _layout = layout;
         Group group;
@@ -187,7 +161,6 @@ auto makeDefaultCudeMesh() {
         VertexLayout l;
         l.begin();
         l.add(Attribute.BGFX_ATTRIB_POSITION, 3, AttributeType.BGFX_ATTRIB_TYPE_FLOAT);
-        // l.add(Attribute.BGFX_ATTRIB_NORMAL, 3, AttributeType.BGFX_ATTRIB_TYPE_UINT8, true, true);
         l.add(Attribute.BGFX_ATTRIB_COLOR0, 4, AttributeType.BGFX_ATTRIB_TYPE_UINT8, true);
         l.end();
 
@@ -198,10 +171,6 @@ auto makeDefaultCudeMesh() {
         float x;
         float y;
         float z;
-
-        // ubyte nx;
-        // ubyte ny;
-        // ubyte nz;
 
         uint rgba;
     }
@@ -259,11 +228,6 @@ package {
         }
 
         void opAssign(in Primitive other) nothrow {
-            // import std.exception;
-
-            // scope (failure) {
-            // assert(0);
-            // }
             startIndex = other.startIndex;
             numIndices = other.numIndices;
             startVertex = other.startVertex;
@@ -272,7 +236,6 @@ package {
             sphere = other.sphere;
             aabb = other.aabb;
             obb = other.obb;
-            // assumeWontThrow(material = other.material);
             try {
                 material = cast(RC!MaterialAsset) other.material;
             } catch (Exception e) {

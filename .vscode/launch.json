@@ -13,7 +13,7 @@
             // "program": "./dard-test-library"
         },
         {
-            "name": "Debug",
+            "name": "Debug tests",
             "type": "gdb",
             "request": "launch",
             "target": "./dard-test-library",

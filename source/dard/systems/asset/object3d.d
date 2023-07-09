@@ -11,7 +11,13 @@ import dard.types.memory;
 import dard.types.ref_count;
 
 struct Object3DAsset {
+    this(Context context) {
+        _context = context;
+    }
+
     this(Context context, File file, in String name) {
+        _context = context;
+
         auto data = NewArray!char(file.size());
         file.rawRead(data);
         scope (exit)
@@ -31,6 +37,8 @@ struct Object3DAsset {
     }
 
 private:
+    Context _context;
+
     RC!MeshAsset _mesh;
     RC!MaterialAsset _material;
 }

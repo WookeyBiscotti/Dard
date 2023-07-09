@@ -64,7 +64,7 @@ public:
         // bgfx_set_debug(BGFX_DEBUG_TEXT | BGFX_DEBUG_STATS);
         bgfx_set_debug(BGFX_DEBUG_TEXT);
 
-        bgfx_set_view_clear(0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303070ff, 1.0f, 0);
+        bgfx_set_view_clear(MAIN_VIEW, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303070ff, 1.0f, 0);
         // bgfx_set_view_clear(0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0xffffffff, 1.0f, 0);
 
         subscribe!WindowResized(window, (in WindowResized e) {

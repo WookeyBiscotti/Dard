@@ -10,6 +10,7 @@ import dard.base.context;
 import dard.types.string;
 import dard.types.memory;
 import dard.types.vector;
+import dard.systems.render.uniform;
 import dard.types.ref_count;
 
 struct MaterialAsset {
