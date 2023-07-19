@@ -416,370 +416,14 @@ lhs == rhs
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
 lhs == rhs
 
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at source/dard/systems/asset/asset.d(129,9)
-
-            private HashMap!(String, RC!T) _fonts;
-
-            public RC!T font(in String name) {
-                if (auto a = name in _fonts) {
-                    return *a;
-                }
-                auto autoPath = fontAutoPath(name);
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` in cache with name: `"~
-                    autoPath~"`, try to load");
-
-                loadFont(autoPath, name);
-                if (auto a = name in _fonts) {
-                    return *a;
-                }
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` load default");
-
-                return _fonts[Str!"__default__"];
-            }
-
-            public void loadFont(in String filepath, in String name) {
-                if (auto f = name in _fonts) {
-                    warning("This asset alias already in use: " ~ name);
-
-                    return;
-                }
-
-                auto file = File(buildPath(fontPath(),  buildNormalizedPath(filepath.toString)));
-                // TODO: Проверить плохой вариант
-                _fonts[name] = RC!T(context(), file, name);
-            }
-        
+// expansion at source/dard/systems/asset/asset.d(66,9)
+private HashMap3!(String, RC!T) _fonts;
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/internal/memory.d(32,18)
 onOutOfMemoryError();
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/hash.d(551,5)
-
-    enum bool isChained = is(typeof(seed) : size_t);
-    static if (!isChained) enum size_t seed = 0;
-    static if (hasCallableToHash!(typeof(val))) //CTFE depends on toHash()
-    {
-        static if (!__traits(isSame, typeof(val), __traits(parent, val.toHash))
-            && is(typeof(val is null)))
-        {
-            static if (isChained)
-                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))), seed);
-            else
-                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))));
-        }
-        else
-        {
-            static if (isChained)
-                return hashOf(cast(size_t) val.toHash(), seed);
-            else
-                return val.toHash();
-        }
-    }
-    else
-    {
-        import core.internal.convert : toUbyte;
-        static if (__traits(hasMember, T, "toHash") && is(typeof(T.toHash) == function))
-        {
-            // TODO: in the future maybe this should be changed to a static
-            // assert(0), because if there's a `toHash` the programmer probably
-            // expected it to be called and a compilation failure here will
-            // expose a bug in his code.
-            //   In the future we also might want to disallow non-const toHash
-            // altogether.
-            pragma(msg, "Warning: struct "~__traits(identifier, T)
-                ~" has method toHash, however it cannot be called with "
-                ~typeof(val).stringof~" this.");
-            static if (__traits(compiles, __traits(getLocation, T.toHash)))
-            {
-                enum file = __traits(getLocation, T.toHash)[0];
-                enum line = __traits(getLocation, T.toHash)[1].stringof;
-                pragma(msg, "  ",__traits(identifier, T),".toHash defined here: ",file,"(",line,")");
-            }
-        }
-
-        static if (T.tupleof.length == 0)
-        {
-            return seed;
-        }
-        else static if ((is(T == struct) && !canBitwiseHash!T) || T.tupleof.length == 1)
-        {
-            static if (isChained) size_t h = seed;
-            static foreach (i, F; typeof(val.tupleof))
-            {
-                static if (__traits(isStaticArray, F))
-                {
-                    static if (i == 0 && !isChained) size_t h = 0;
-                    static if (F.sizeof > 0 && canBitwiseHash!F)
-                        // May use smallBytesHash instead of bytesHash.
-                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
-                    else
-                        // We can avoid the "double hashing" the top-level version uses
-                        // for consistency with TypeInfo.getHash.
-                        foreach (ref e; val.tupleof[i])
-                            h = hashOf(e, h);
-                }
-                else static if (is(F == struct) || is(F == union))
-                {
-                    static if (hasCallableToHash!F)
-                    {
-                        static if (!__traits(isSame, F, __traits(parent, val.tupleof[i].toHash))
-                            && is(typeof(val.tupleof[i] is null)))
-                        {
-                            static if (i == 0 && !isChained)
-                                size_t h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)));
-                            else
-                                h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)), h);
-                        }
-                        else
-                        {
-                            static if (i == 0 && !isChained)
-                                size_t h = val.tupleof[i].toHash();
-                            else
-                                h = hashOf(cast(size_t) val.tupleof[i].toHash(), h);
-                        }
-                    }
-                    else static if (F.tupleof.length == 1)
-                    {
-                        // Handle the single member case separately to avoid unnecessarily using bytesHash.
-                        static if (i == 0 && !isChained)
-                            size_t h = hashOf(val.tupleof[i].tupleof[0]);
-                        else
-                            h = hashOf(val.tupleof[i].tupleof[0], h);
-                    }
-                    else static if (canBitwiseHash!F)
-                    {
-                        // May use smallBytesHash instead of bytesHash.
-                        static if (i == 0 && !isChained) size_t h = 0;
-                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
-                    }
-                    else
-                    {
-                        // Nothing special happening.
-                        static if (i == 0 && !isChained)
-                            size_t h = hashOf(val.tupleof[i]);
-                        else
-                            h = hashOf(val.tupleof[i], h);
-                    }
-                }
-                else
-                {
-                    // Nothing special happening.
-                    static if (i == 0 && !isChained)
-                        size_t h = hashOf(val.tupleof[i]);
-                    else
-                        h = hashOf(val.tupleof[i], h);
-                }
-            }
-            return h;
-        }
-        else static if (is(typeof(toUbyte(val)) == const(ubyte)[]))//CTFE ready for structs without reference fields
-        {
-            // Not using bytesHashWithExactSizeAndAlignment here because
-            // the result may differ from typeid(T).hashOf(&val).
-            return bytesHashAlignedBy!T(toUbyte(val), seed);
-        }
-        else // CTFE unsupported
-        {
-            assert(!__ctfe, "unable to compute hash of "~T.stringof~" at compile time");
-            const(ubyte)[] bytes = (() @trusted => (cast(const(ubyte)*)&val)[0 .. T.sizeof])();
-            // Not using bytesHashWithExactSizeAndAlignment here because
-            // the result may differ from typeid(T).hashOf(&val).
-            return bytesHashAlignedBy!T(bytes, seed);
-        }
-    }
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/hash.d(551,5)
-
-    enum bool isChained = is(typeof(seed) : size_t);
-    static if (!isChained) enum size_t seed = 0;
-    static if (hasCallableToHash!(typeof(val))) //CTFE depends on toHash()
-    {
-        static if (!__traits(isSame, typeof(val), __traits(parent, val.toHash))
-            && is(typeof(val is null)))
-        {
-            static if (isChained)
-                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))), seed);
-            else
-                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))));
-        }
-        else
-        {
-            static if (isChained)
-                return hashOf(cast(size_t) val.toHash(), seed);
-            else
-                return val.toHash();
-        }
-    }
-    else
-    {
-        import core.internal.convert : toUbyte;
-        static if (__traits(hasMember, T, "toHash") && is(typeof(T.toHash) == function))
-        {
-            // TODO: in the future maybe this should be changed to a static
-            // assert(0), because if there's a `toHash` the programmer probably
-            // expected it to be called and a compilation failure here will
-            // expose a bug in his code.
-            //   In the future we also might want to disallow non-const toHash
-            // altogether.
-            pragma(msg, "Warning: struct "~__traits(identifier, T)
-                ~" has method toHash, however it cannot be called with "
-                ~typeof(val).stringof~" this.");
-            static if (__traits(compiles, __traits(getLocation, T.toHash)))
-            {
-                enum file = __traits(getLocation, T.toHash)[0];
-                enum line = __traits(getLocation, T.toHash)[1].stringof;
-                pragma(msg, "  ",__traits(identifier, T),".toHash defined here: ",file,"(",line,")");
-            }
-        }
-
-        static if (T.tupleof.length == 0)
-        {
-            return seed;
-        }
-        else static if ((is(T == struct) && !canBitwiseHash!T) || T.tupleof.length == 1)
-        {
-            static if (isChained) size_t h = seed;
-            static foreach (i, F; typeof(val.tupleof))
-            {
-                static if (__traits(isStaticArray, F))
-                {
-                    static if (i == 0 && !isChained) size_t h = 0;
-                    static if (F.sizeof > 0 && canBitwiseHash!F)
-                        // May use smallBytesHash instead of bytesHash.
-                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
-                    else
-                        // We can avoid the "double hashing" the top-level version uses
-                        // for consistency with TypeInfo.getHash.
-                        foreach (ref e; val.tupleof[i])
-                            h = hashOf(e, h);
-                }
-                else static if (is(F == struct) || is(F == union))
-                {
-                    static if (hasCallableToHash!F)
-                    {
-                        static if (!__traits(isSame, F, __traits(parent, val.tupleof[i].toHash))
-                            && is(typeof(val.tupleof[i] is null)))
-                        {
-                            static if (i == 0 && !isChained)
-                                size_t h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)));
-                            else
-                                h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)), h);
-                        }
-                        else
-                        {
-                            static if (i == 0 && !isChained)
-                                size_t h = val.tupleof[i].toHash();
-                            else
-                                h = hashOf(cast(size_t) val.tupleof[i].toHash(), h);
-                        }
-                    }
-                    else static if (F.tupleof.length == 1)
-                    {
-                        // Handle the single member case separately to avoid unnecessarily using bytesHash.
-                        static if (i == 0 && !isChained)
-                            size_t h = hashOf(val.tupleof[i].tupleof[0]);
-                        else
-                            h = hashOf(val.tupleof[i].tupleof[0], h);
-                    }
-                    else static if (canBitwiseHash!F)
-                    {
-                        // May use smallBytesHash instead of bytesHash.
-                        static if (i == 0 && !isChained) size_t h = 0;
-                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
-                    }
-                    else
-                    {
-                        // Nothing special happening.
-                        static if (i == 0 && !isChained)
-                            size_t h = hashOf(val.tupleof[i]);
-                        else
-                            h = hashOf(val.tupleof[i], h);
-                    }
-                }
-                else
-                {
-                    // Nothing special happening.
-                    static if (i == 0 && !isChained)
-                        size_t h = hashOf(val.tupleof[i]);
-                    else
-                        h = hashOf(val.tupleof[i], h);
-                }
-            }
-            return h;
-        }
-        else static if (is(typeof(toUbyte(val)) == const(ubyte)[]))//CTFE ready for structs without reference fields
-        {
-            // Not using bytesHashWithExactSizeAndAlignment here because
-            // the result may differ from typeid(T).hashOf(&val).
-            return bytesHashAlignedBy!T(toUbyte(val), seed);
-        }
-        else // CTFE unsupported
-        {
-            assert(!__ctfe, "unable to compute hash of "~T.stringof~" at compile time");
-            const(ubyte)[] bytes = (() @trusted => (cast(const(ubyte)*)&val)[0 .. T.sizeof])();
-            // Not using bytesHashWithExactSizeAndAlignment here because
-            // the result may differ from typeid(T).hashOf(&val).
-            return bytesHashAlignedBy!T(bytes, seed);
-        }
-    }
-
-// expansion at source/dard/systems/asset/asset.d(129,9)
-
-            private HashMap!(String, RC!T) _meshs;
-
-            public RC!T mesh(in String name) {
-                if (auto a = name in _meshs) {
-                    return *a;
-                }
-                auto autoPath = meshAutoPath(name);
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` in cache with name: `"~
-                    autoPath~"`, try to load");
-
-                loadMesh(autoPath, name);
-                if (auto a = name in _meshs) {
-                    return *a;
-                }
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` load default");
-
-                return _meshs[Str!"__default__"];
-            }
-
-            public void loadMesh(in String filepath, in String name) {
-                if (auto f = name in _meshs) {
-                    warning("This asset alias already in use: " ~ name);
-
-                    return;
-                }
-
-                auto file = File(buildPath(meshPath(),  buildNormalizedPath(filepath.toString)));
-                // TODO: Проверить плохой вариант
-                _meshs[name] = RC!T(context(), file, name);
-            }
-        
+// expansion at source/dard/systems/asset/asset.d(66,9)
+private HashMap3!(String, RC!T) _meshes;
 
 // expansion at ../../.dub/packages/bindbc-bgfx/0.8.0+118/bindbc-bgfx/source/bindbc/bgfx/types.d(464,1)
 alias BGFX_FATAL_DEBUGCHECK = bgfx_fatal_t.BGFX_FATAL_DEBUGCHECK;alias BGFX_FATAL_INVALIDSHADER = bgfx_fatal_t.BGFX_FATAL_INVALIDSHADER;alias BGFX_FATAL_UNABLETOINITIALIZE = bgfx_fatal_t.BGFX_FATAL_UNABLETOINITIALIZE;alias BGFX_FATAL_UNABLETOCREATETEXTURE = bgfx_fatal_t.BGFX_FATAL_UNABLETOCREATETEXTURE;alias BGFX_FATAL_DEVICELOST = bgfx_fatal_t.BGFX_FATAL_DEVICELOST;alias BGFX_FATAL_COUNT = bgfx_fatal_t.BGFX_FATAL_COUNT;
@@ -826,141 +470,293 @@ alias BGFX_RENDER_FRAME_NOCONTEXT = bgfx_render_frame_t.BGFX_RENDER_FRAME_NOCONT
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/internal/memory.d(40,18)
 onOutOfMemoryError();
 
-// expansion at source/dard/systems/asset/asset.d(129,9)
+// expansion at source/dard/systems/asset/asset.d(66,9)
+private HashMap3!(String, RC!T) _shadersFS;
 
-            private HashMap!(String, RC!T) _shaders;
+// expansion at source/dard/systems/asset/asset.d(66,9)
+private HashMap3!(String, RC!T) _shadersVS;
 
-            public RC!T shader(in String name) {
-                if (auto a = name in _shaders) {
-                    return *a;
-                }
-                auto autoPath = shaderAutoPath(name);
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` in cache with name: `"~
-                    autoPath~"`, try to load");
+// expansion at source/dard/systems/asset/asset.d(66,9)
+private HashMap3!(String, RC!T) _programs;
 
-                loadShader(autoPath, name);
-                if (auto a = name in _shaders) {
-                    return *a;
-                }
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` load default");
+// expansion at source/dard/systems/asset/asset.d(66,9)
+private HashMap3!(String, RC!T) _materials;
 
-                return _shaders[Str!"__default__"];
+// expansion at source/dard/systems/asset/asset.d(66,9)
+private HashMap3!(String, RC!T) _object3ds;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/hash.d(551,5)
+
+    enum bool isChained = is(typeof(seed) : size_t);
+    static if (!isChained) enum size_t seed = 0;
+    static if (hasCallableToHash!(typeof(val))) //CTFE depends on toHash()
+    {
+        static if (!__traits(isSame, typeof(val), __traits(parent, val.toHash))
+            && is(typeof(val is null)))
+        {
+            static if (isChained)
+                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))), seed);
+            else
+                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))));
+        }
+        else
+        {
+            static if (isChained)
+                return hashOf(cast(size_t) val.toHash(), seed);
+            else
+                return val.toHash();
+        }
+    }
+    else
+    {
+        import core.internal.convert : toUbyte;
+        static if (__traits(hasMember, T, "toHash") && is(typeof(T.toHash) == function))
+        {
+            // TODO: in the future maybe this should be changed to a static
+            // assert(0), because if there's a `toHash` the programmer probably
+            // expected it to be called and a compilation failure here will
+            // expose a bug in his code.
+            //   In the future we also might want to disallow non-const toHash
+            // altogether.
+            pragma(msg, "Warning: struct "~__traits(identifier, T)
+                ~" has method toHash, however it cannot be called with "
+                ~typeof(val).stringof~" this.");
+            static if (__traits(compiles, __traits(getLocation, T.toHash)))
+            {
+                enum file = __traits(getLocation, T.toHash)[0];
+                enum line = __traits(getLocation, T.toHash)[1].stringof;
+                pragma(msg, "  ",__traits(identifier, T),".toHash defined here: ",file,"(",line,")");
             }
+        }
 
-            public void loadShader(in String filepath, in String name) {
-                if (auto f = name in _shaders) {
-                    warning("This asset alias already in use: " ~ name);
-
-                    return;
+        static if (T.tupleof.length == 0)
+        {
+            return seed;
+        }
+        else static if ((is(T == struct) && !canBitwiseHash!T) || T.tupleof.length == 1)
+        {
+            static if (isChained) size_t h = seed;
+            static foreach (i, F; typeof(val.tupleof))
+            {
+                static if (__traits(isStaticArray, F))
+                {
+                    static if (i == 0 && !isChained) size_t h = 0;
+                    static if (F.sizeof > 0 && canBitwiseHash!F)
+                        // May use smallBytesHash instead of bytesHash.
+                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
+                    else
+                        // We can avoid the "double hashing" the top-level version uses
+                        // for consistency with TypeInfo.getHash.
+                        foreach (ref e; val.tupleof[i])
+                            h = hashOf(e, h);
                 }
-
-                auto file = File(buildPath(shaderPath(),  buildNormalizedPath(filepath.toString)));
-                // TODO: Проверить плохой вариант
-                _shaders[name] = RC!T(context(), file, name);
+                else static if (is(F == struct) || is(F == union))
+                {
+                    static if (hasCallableToHash!F)
+                    {
+                        static if (!__traits(isSame, F, __traits(parent, val.tupleof[i].toHash))
+                            && is(typeof(val.tupleof[i] is null)))
+                        {
+                            static if (i == 0 && !isChained)
+                                size_t h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)));
+                            else
+                                h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)), h);
+                        }
+                        else
+                        {
+                            static if (i == 0 && !isChained)
+                                size_t h = val.tupleof[i].toHash();
+                            else
+                                h = hashOf(cast(size_t) val.tupleof[i].toHash(), h);
+                        }
+                    }
+                    else static if (F.tupleof.length == 1)
+                    {
+                        // Handle the single member case separately to avoid unnecessarily using bytesHash.
+                        static if (i == 0 && !isChained)
+                            size_t h = hashOf(val.tupleof[i].tupleof[0]);
+                        else
+                            h = hashOf(val.tupleof[i].tupleof[0], h);
+                    }
+                    else static if (canBitwiseHash!F)
+                    {
+                        // May use smallBytesHash instead of bytesHash.
+                        static if (i == 0 && !isChained) size_t h = 0;
+                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
+                    }
+                    else
+                    {
+                        // Nothing special happening.
+                        static if (i == 0 && !isChained)
+                            size_t h = hashOf(val.tupleof[i]);
+                        else
+                            h = hashOf(val.tupleof[i], h);
+                    }
+                }
+                else
+                {
+                    // Nothing special happening.
+                    static if (i == 0 && !isChained)
+                        size_t h = hashOf(val.tupleof[i]);
+                    else
+                        h = hashOf(val.tupleof[i], h);
+                }
             }
-        
+            return h;
+        }
+        else static if (is(typeof(toUbyte(val)) == const(ubyte)[]))//CTFE ready for structs without reference fields
+        {
+            // Not using bytesHashWithExactSizeAndAlignment here because
+            // the result may differ from typeid(T).hashOf(&val).
+            return bytesHashAlignedBy!T(toUbyte(val), seed);
+        }
+        else // CTFE unsupported
+        {
+            assert(!__ctfe, "unable to compute hash of "~T.stringof~" at compile time");
+            const(ubyte)[] bytes = (() @trusted => (cast(const(ubyte)*)&val)[0 .. T.sizeof])();
+            // Not using bytesHashWithExactSizeAndAlignment here because
+            // the result may differ from typeid(T).hashOf(&val).
+            return bytesHashAlignedBy!T(bytes, seed);
+        }
+    }
 
-// expansion at source/dard/systems/asset/asset.d(129,9)
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/hash.d(551,5)
 
-            private HashMap!(String, RC!T) _programs;
-
-            public RC!T program(in String name) {
-                if (auto a = name in _programs) {
-                    return *a;
-                }
-                auto autoPath = programAutoPath(name);
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` in cache with name: `"~
-                    autoPath~"`, try to load");
-
-                loadProgram(autoPath, name);
-                if (auto a = name in _programs) {
-                    return *a;
-                }
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` load default");
-
-                return _programs[Str!"__default__"];
+    enum bool isChained = is(typeof(seed) : size_t);
+    static if (!isChained) enum size_t seed = 0;
+    static if (hasCallableToHash!(typeof(val))) //CTFE depends on toHash()
+    {
+        static if (!__traits(isSame, typeof(val), __traits(parent, val.toHash))
+            && is(typeof(val is null)))
+        {
+            static if (isChained)
+                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))), seed);
+            else
+                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))));
+        }
+        else
+        {
+            static if (isChained)
+                return hashOf(cast(size_t) val.toHash(), seed);
+            else
+                return val.toHash();
+        }
+    }
+    else
+    {
+        import core.internal.convert : toUbyte;
+        static if (__traits(hasMember, T, "toHash") && is(typeof(T.toHash) == function))
+        {
+            // TODO: in the future maybe this should be changed to a static
+            // assert(0), because if there's a `toHash` the programmer probably
+            // expected it to be called and a compilation failure here will
+            // expose a bug in his code.
+            //   In the future we also might want to disallow non-const toHash
+            // altogether.
+            pragma(msg, "Warning: struct "~__traits(identifier, T)
+                ~" has method toHash, however it cannot be called with "
+                ~typeof(val).stringof~" this.");
+            static if (__traits(compiles, __traits(getLocation, T.toHash)))
+            {
+                enum file = __traits(getLocation, T.toHash)[0];
+                enum line = __traits(getLocation, T.toHash)[1].stringof;
+                pragma(msg, "  ",__traits(identifier, T),".toHash defined here: ",file,"(",line,")");
             }
+        }
 
-            public void loadProgram(in String filepath, in String name) {
-                if (auto f = name in _programs) {
-                    warning("This asset alias already in use: " ~ name);
-
-                    return;
+        static if (T.tupleof.length == 0)
+        {
+            return seed;
+        }
+        else static if ((is(T == struct) && !canBitwiseHash!T) || T.tupleof.length == 1)
+        {
+            static if (isChained) size_t h = seed;
+            static foreach (i, F; typeof(val.tupleof))
+            {
+                static if (__traits(isStaticArray, F))
+                {
+                    static if (i == 0 && !isChained) size_t h = 0;
+                    static if (F.sizeof > 0 && canBitwiseHash!F)
+                        // May use smallBytesHash instead of bytesHash.
+                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
+                    else
+                        // We can avoid the "double hashing" the top-level version uses
+                        // for consistency with TypeInfo.getHash.
+                        foreach (ref e; val.tupleof[i])
+                            h = hashOf(e, h);
                 }
-
-                auto file = File(buildPath(programPath(),  buildNormalizedPath(filepath.toString)));
-                // TODO: Проверить плохой вариант
-                _programs[name] = RC!T(context(), file, name);
+                else static if (is(F == struct) || is(F == union))
+                {
+                    static if (hasCallableToHash!F)
+                    {
+                        static if (!__traits(isSame, F, __traits(parent, val.tupleof[i].toHash))
+                            && is(typeof(val.tupleof[i] is null)))
+                        {
+                            static if (i == 0 && !isChained)
+                                size_t h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)));
+                            else
+                                h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)), h);
+                        }
+                        else
+                        {
+                            static if (i == 0 && !isChained)
+                                size_t h = val.tupleof[i].toHash();
+                            else
+                                h = hashOf(cast(size_t) val.tupleof[i].toHash(), h);
+                        }
+                    }
+                    else static if (F.tupleof.length == 1)
+                    {
+                        // Handle the single member case separately to avoid unnecessarily using bytesHash.
+                        static if (i == 0 && !isChained)
+                            size_t h = hashOf(val.tupleof[i].tupleof[0]);
+                        else
+                            h = hashOf(val.tupleof[i].tupleof[0], h);
+                    }
+                    else static if (canBitwiseHash!F)
+                    {
+                        // May use smallBytesHash instead of bytesHash.
+                        static if (i == 0 && !isChained) size_t h = 0;
+                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
+                    }
+                    else
+                    {
+                        // Nothing special happening.
+                        static if (i == 0 && !isChained)
+                            size_t h = hashOf(val.tupleof[i]);
+                        else
+                            h = hashOf(val.tupleof[i], h);
+                    }
+                }
+                else
+                {
+                    // Nothing special happening.
+                    static if (i == 0 && !isChained)
+                        size_t h = hashOf(val.tupleof[i]);
+                    else
+                        h = hashOf(val.tupleof[i], h);
+                }
             }
-        
-
-// expansion at source/dard/systems/asset/asset.d(129,9)
-
-            private HashMap!(String, RC!T) _materials;
-
-            public RC!T material(in String name) {
-                if (auto a = name in _materials) {
-                    return *a;
-                }
-                auto autoPath = materialAutoPath(name);
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` in cache with name: `"~
-                    autoPath~"`, try to load");
-
-                loadMaterial(autoPath, name);
-                if (auto a = name in _materials) {
-                    return *a;
-                }
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` load default");
-
-                return _materials[Str!"__default__"];
-            }
-
-            public void loadMaterial(in String filepath, in String name) {
-                if (auto f = name in _materials) {
-                    warning("This asset alias already in use: " ~ name);
-
-                    return;
-                }
-
-                auto file = File(buildPath(materialPath(),  buildNormalizedPath(filepath.toString)));
-                // TODO: Проверить плохой вариант
-                _materials[name] = RC!T(context(), file, name);
-            }
-        
-
-// expansion at source/dard/systems/asset/asset.d(129,9)
-
-            private HashMap!(String, RC!T) _object3ds;
-
-            public RC!T object3d(in String name) {
-                if (auto a = name in _object3ds) {
-                    return *a;
-                }
-                auto autoPath = object3dAutoPath(name);
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` in cache with name: `"~
-                    autoPath~"`, try to load");
-
-                loadObject3d(autoPath, name);
-                if (auto a = name in _object3ds) {
-                    return *a;
-                }
-                warning("Can't find "~typeid(T).name()~" `" ~ name ~ "` load default");
-
-                return _object3ds[Str!"__default__"];
-            }
-
-            public void loadObject3d(in String filepath, in String name) {
-                if (auto f = name in _object3ds) {
-                    warning("This asset alias already in use: " ~ name);
-
-                    return;
-                }
-
-                auto file = File(buildPath(object3dPath(),  buildNormalizedPath(filepath.toString)));
-                // TODO: Проверить плохой вариант
-                _object3ds[name] = RC!T(context(), file, name);
-            }
-        
+            return h;
+        }
+        else static if (is(typeof(toUbyte(val)) == const(ubyte)[]))//CTFE ready for structs without reference fields
+        {
+            // Not using bytesHashWithExactSizeAndAlignment here because
+            // the result may differ from typeid(T).hashOf(&val).
+            return bytesHashAlignedBy!T(toUbyte(val), seed);
+        }
+        else // CTFE unsupported
+        {
+            assert(!__ctfe, "unable to compute hash of "~T.stringof~" at compile time");
+            const(ubyte)[] bytes = (() @trusted => (cast(const(ubyte)*)&val)[0 .. T.sizeof])();
+            // Not using bytesHashWithExactSizeAndAlignment here because
+            // the result may differ from typeid(T).hashOf(&val).
+            return bytesHashAlignedBy!T(bytes, seed);
+        }
+    }
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/sumtype.d(300,13)
 enum memberName = `values_0`;
@@ -1286,9 +1082,6 @@ T values_4;
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
 lhs == rhs
 
@@ -1460,9 +1253,6 @@ lhs < rhs
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
 lhs < rhs
 
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
 // expansion at ../../.dub/packages/automem/0.6.9/automem/source/automem/vector.d(211,13)
 throw boundsException;
 
@@ -1496,11 +1286,296 @@ a > b
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(478,32)
 a > b
 
-// expansion at source/dard/components/transform.d(63,9)
-_rotation *= rotationQuaternion!float(Axis.x, a);
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/hash.d(551,5)
+
+    enum bool isChained = is(typeof(seed) : size_t);
+    static if (!isChained) enum size_t seed = 0;
+    static if (hasCallableToHash!(typeof(val))) //CTFE depends on toHash()
+    {
+        static if (!__traits(isSame, typeof(val), __traits(parent, val.toHash))
+            && is(typeof(val is null)))
+        {
+            static if (isChained)
+                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))), seed);
+            else
+                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))));
+        }
+        else
+        {
+            static if (isChained)
+                return hashOf(cast(size_t) val.toHash(), seed);
+            else
+                return val.toHash();
+        }
+    }
+    else
+    {
+        import core.internal.convert : toUbyte;
+        static if (__traits(hasMember, T, "toHash") && is(typeof(T.toHash) == function))
+        {
+            // TODO: in the future maybe this should be changed to a static
+            // assert(0), because if there's a `toHash` the programmer probably
+            // expected it to be called and a compilation failure here will
+            // expose a bug in his code.
+            //   In the future we also might want to disallow non-const toHash
+            // altogether.
+            pragma(msg, "Warning: struct "~__traits(identifier, T)
+                ~" has method toHash, however it cannot be called with "
+                ~typeof(val).stringof~" this.");
+            static if (__traits(compiles, __traits(getLocation, T.toHash)))
+            {
+                enum file = __traits(getLocation, T.toHash)[0];
+                enum line = __traits(getLocation, T.toHash)[1].stringof;
+                pragma(msg, "  ",__traits(identifier, T),".toHash defined here: ",file,"(",line,")");
+            }
+        }
+
+        static if (T.tupleof.length == 0)
+        {
+            return seed;
+        }
+        else static if ((is(T == struct) && !canBitwiseHash!T) || T.tupleof.length == 1)
+        {
+            static if (isChained) size_t h = seed;
+            static foreach (i, F; typeof(val.tupleof))
+            {
+                static if (__traits(isStaticArray, F))
+                {
+                    static if (i == 0 && !isChained) size_t h = 0;
+                    static if (F.sizeof > 0 && canBitwiseHash!F)
+                        // May use smallBytesHash instead of bytesHash.
+                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
+                    else
+                        // We can avoid the "double hashing" the top-level version uses
+                        // for consistency with TypeInfo.getHash.
+                        foreach (ref e; val.tupleof[i])
+                            h = hashOf(e, h);
+                }
+                else static if (is(F == struct) || is(F == union))
+                {
+                    static if (hasCallableToHash!F)
+                    {
+                        static if (!__traits(isSame, F, __traits(parent, val.tupleof[i].toHash))
+                            && is(typeof(val.tupleof[i] is null)))
+                        {
+                            static if (i == 0 && !isChained)
+                                size_t h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)));
+                            else
+                                h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)), h);
+                        }
+                        else
+                        {
+                            static if (i == 0 && !isChained)
+                                size_t h = val.tupleof[i].toHash();
+                            else
+                                h = hashOf(cast(size_t) val.tupleof[i].toHash(), h);
+                        }
+                    }
+                    else static if (F.tupleof.length == 1)
+                    {
+                        // Handle the single member case separately to avoid unnecessarily using bytesHash.
+                        static if (i == 0 && !isChained)
+                            size_t h = hashOf(val.tupleof[i].tupleof[0]);
+                        else
+                            h = hashOf(val.tupleof[i].tupleof[0], h);
+                    }
+                    else static if (canBitwiseHash!F)
+                    {
+                        // May use smallBytesHash instead of bytesHash.
+                        static if (i == 0 && !isChained) size_t h = 0;
+                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
+                    }
+                    else
+                    {
+                        // Nothing special happening.
+                        static if (i == 0 && !isChained)
+                            size_t h = hashOf(val.tupleof[i]);
+                        else
+                            h = hashOf(val.tupleof[i], h);
+                    }
+                }
+                else
+                {
+                    // Nothing special happening.
+                    static if (i == 0 && !isChained)
+                        size_t h = hashOf(val.tupleof[i]);
+                    else
+                        h = hashOf(val.tupleof[i], h);
+                }
+            }
+            return h;
+        }
+        else static if (is(typeof(toUbyte(val)) == const(ubyte)[]))//CTFE ready for structs without reference fields
+        {
+            // Not using bytesHashWithExactSizeAndAlignment here because
+            // the result may differ from typeid(T).hashOf(&val).
+            return bytesHashAlignedBy!T(toUbyte(val), seed);
+        }
+        else // CTFE unsupported
+        {
+            assert(!__ctfe, "unable to compute hash of "~T.stringof~" at compile time");
+            const(ubyte)[] bytes = (() @trusted => (cast(const(ubyte)*)&val)[0 .. T.sizeof])();
+            // Not using bytesHashWithExactSizeAndAlignment here because
+            // the result may differ from typeid(T).hashOf(&val).
+            return bytesHashAlignedBy!T(bytes, seed);
+        }
+    }
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/hash.d(551,5)
+
+    enum bool isChained = is(typeof(seed) : size_t);
+    static if (!isChained) enum size_t seed = 0;
+    static if (hasCallableToHash!(typeof(val))) //CTFE depends on toHash()
+    {
+        static if (!__traits(isSame, typeof(val), __traits(parent, val.toHash))
+            && is(typeof(val is null)))
+        {
+            static if (isChained)
+                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))), seed);
+            else
+                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))));
+        }
+        else
+        {
+            static if (isChained)
+                return hashOf(cast(size_t) val.toHash(), seed);
+            else
+                return val.toHash();
+        }
+    }
+    else
+    {
+        import core.internal.convert : toUbyte;
+        static if (__traits(hasMember, T, "toHash") && is(typeof(T.toHash) == function))
+        {
+            // TODO: in the future maybe this should be changed to a static
+            // assert(0), because if there's a `toHash` the programmer probably
+            // expected it to be called and a compilation failure here will
+            // expose a bug in his code.
+            //   In the future we also might want to disallow non-const toHash
+            // altogether.
+            pragma(msg, "Warning: struct "~__traits(identifier, T)
+                ~" has method toHash, however it cannot be called with "
+                ~typeof(val).stringof~" this.");
+            static if (__traits(compiles, __traits(getLocation, T.toHash)))
+            {
+                enum file = __traits(getLocation, T.toHash)[0];
+                enum line = __traits(getLocation, T.toHash)[1].stringof;
+                pragma(msg, "  ",__traits(identifier, T),".toHash defined here: ",file,"(",line,")");
+            }
+        }
+
+        static if (T.tupleof.length == 0)
+        {
+            return seed;
+        }
+        else static if ((is(T == struct) && !canBitwiseHash!T) || T.tupleof.length == 1)
+        {
+            static if (isChained) size_t h = seed;
+            static foreach (i, F; typeof(val.tupleof))
+            {
+                static if (__traits(isStaticArray, F))
+                {
+                    static if (i == 0 && !isChained) size_t h = 0;
+                    static if (F.sizeof > 0 && canBitwiseHash!F)
+                        // May use smallBytesHash instead of bytesHash.
+                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
+                    else
+                        // We can avoid the "double hashing" the top-level version uses
+                        // for consistency with TypeInfo.getHash.
+                        foreach (ref e; val.tupleof[i])
+                            h = hashOf(e, h);
+                }
+                else static if (is(F == struct) || is(F == union))
+                {
+                    static if (hasCallableToHash!F)
+                    {
+                        static if (!__traits(isSame, F, __traits(parent, val.tupleof[i].toHash))
+                            && is(typeof(val.tupleof[i] is null)))
+                        {
+                            static if (i == 0 && !isChained)
+                                size_t h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)));
+                            else
+                                h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)), h);
+                        }
+                        else
+                        {
+                            static if (i == 0 && !isChained)
+                                size_t h = val.tupleof[i].toHash();
+                            else
+                                h = hashOf(cast(size_t) val.tupleof[i].toHash(), h);
+                        }
+                    }
+                    else static if (F.tupleof.length == 1)
+                    {
+                        // Handle the single member case separately to avoid unnecessarily using bytesHash.
+                        static if (i == 0 && !isChained)
+                            size_t h = hashOf(val.tupleof[i].tupleof[0]);
+                        else
+                            h = hashOf(val.tupleof[i].tupleof[0], h);
+                    }
+                    else static if (canBitwiseHash!F)
+                    {
+                        // May use smallBytesHash instead of bytesHash.
+                        static if (i == 0 && !isChained) size_t h = 0;
+                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
+                    }
+                    else
+                    {
+                        // Nothing special happening.
+                        static if (i == 0 && !isChained)
+                            size_t h = hashOf(val.tupleof[i]);
+                        else
+                            h = hashOf(val.tupleof[i], h);
+                    }
+                }
+                else
+                {
+                    // Nothing special happening.
+                    static if (i == 0 && !isChained)
+                        size_t h = hashOf(val.tupleof[i]);
+                    else
+                        h = hashOf(val.tupleof[i], h);
+                }
+            }
+            return h;
+        }
+        else static if (is(typeof(toUbyte(val)) == const(ubyte)[]))//CTFE ready for structs without reference fields
+        {
+            // Not using bytesHashWithExactSizeAndAlignment here because
+            // the result may differ from typeid(T).hashOf(&val).
+            return bytesHashAlignedBy!T(toUbyte(val), seed);
+        }
+        else // CTFE unsupported
+        {
+            assert(!__ctfe, "unable to compute hash of "~T.stringof~" at compile time");
+            const(ubyte)[] bytes = (() @trusted => (cast(const(ubyte)*)&val)[0 .. T.sizeof])();
+            // Not using bytesHashWithExactSizeAndAlignment here because
+            // the result may differ from typeid(T).hashOf(&val).
+            return bytesHashAlignedBy!T(bytes, seed);
+        }
+    }
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at source/dard/systems/asset/asset.d(69,26)
+_shadersVS
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
@@ -1525,6 +1600,57 @@ lhs == rhs
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
 lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(646,9)
+alias _0LU = Identity!(field[0LU]);alias _1LU = Identity!(field[1LU]);
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(646,9)
+alias _0LU = Identity!(field[0LU]);
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(646,9)
+alias _0LU = Identity!(field[0LU]);alias _1LU = Identity!(field[1LU]);alias _2LU = Identity!(field[2LU]);
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at source/dard/systems/asset/asset.d(87,26)
+_shadersVS
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(646,9)
 alias _0LU = Identity!(field[0LU]);alias _1LU = Identity!(field[1LU]);
@@ -1705,12 +1831,6 @@ lhs == rhs
             return bytesHashAlignedBy!T(bytes, seed);
         }
     }
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/hash.d(543,5)
 
@@ -1851,12 +1971,6 @@ lhs < rhs
 lhs == rhs
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
 lhs == rhs
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
@@ -1886,251 +2000,47 @@ lhs < rhs
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(646,9)
-alias _0LU = Identity!(field[0LU]);
+// expansion at source/dard/systems/asset/asset.d(69,26)
+_shadersFS
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(646,9)
-alias _0LU = Identity!(field[0LU]);alias _1LU = Identity!(field[1LU]);
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(646,9)
-alias _0LU = Identity!(field[0LU]);alias _1LU = Identity!(field[1LU]);alias _2LU = Identity!(field[2LU]);
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
+// expansion at source/dard/systems/asset/asset.d(87,26)
+_shadersFS
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/hash.d(551,5)
+// expansion at source/dard/systems/asset/asset.d(69,26)
+_programs
 
-    enum bool isChained = is(typeof(seed) : size_t);
-    static if (!isChained) enum size_t seed = 0;
-    static if (hasCallableToHash!(typeof(val))) //CTFE depends on toHash()
-    {
-        static if (!__traits(isSame, typeof(val), __traits(parent, val.toHash))
-            && is(typeof(val is null)))
-        {
-            static if (isChained)
-                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))), seed);
-            else
-                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))));
-        }
-        else
-        {
-            static if (isChained)
-                return hashOf(cast(size_t) val.toHash(), seed);
-            else
-                return val.toHash();
-        }
-    }
-    else
-    {
-        import core.internal.convert : toUbyte;
-        static if (__traits(hasMember, T, "toHash") && is(typeof(T.toHash) == function))
-        {
-            // TODO: in the future maybe this should be changed to a static
-            // assert(0), because if there's a `toHash` the programmer probably
-            // expected it to be called and a compilation failure here will
-            // expose a bug in his code.
-            //   In the future we also might want to disallow non-const toHash
-            // altogether.
-            pragma(msg, "Warning: struct "~__traits(identifier, T)
-                ~" has method toHash, however it cannot be called with "
-                ~typeof(val).stringof~" this.");
-            static if (__traits(compiles, __traits(getLocation, T.toHash)))
-            {
-                enum file = __traits(getLocation, T.toHash)[0];
-                enum line = __traits(getLocation, T.toHash)[1].stringof;
-                pragma(msg, "  ",__traits(identifier, T),".toHash defined here: ",file,"(",line,")");
-            }
-        }
-
-        static if (T.tupleof.length == 0)
-        {
-            return seed;
-        }
-        else static if ((is(T == struct) && !canBitwiseHash!T) || T.tupleof.length == 1)
-        {
-            static if (isChained) size_t h = seed;
-            static foreach (i, F; typeof(val.tupleof))
-            {
-                static if (__traits(isStaticArray, F))
-                {
-                    static if (i == 0 && !isChained) size_t h = 0;
-                    static if (F.sizeof > 0 && canBitwiseHash!F)
-                        // May use smallBytesHash instead of bytesHash.
-                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
-                    else
-                        // We can avoid the "double hashing" the top-level version uses
-                        // for consistency with TypeInfo.getHash.
-                        foreach (ref e; val.tupleof[i])
-                            h = hashOf(e, h);
-                }
-                else static if (is(F == struct) || is(F == union))
-                {
-                    static if (hasCallableToHash!F)
-                    {
-                        static if (!__traits(isSame, F, __traits(parent, val.tupleof[i].toHash))
-                            && is(typeof(val.tupleof[i] is null)))
-                        {
-                            static if (i == 0 && !isChained)
-                                size_t h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)));
-                            else
-                                h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)), h);
-                        }
-                        else
-                        {
-                            static if (i == 0 && !isChained)
-                                size_t h = val.tupleof[i].toHash();
-                            else
-                                h = hashOf(cast(size_t) val.tupleof[i].toHash(), h);
-                        }
-                    }
-                    else static if (F.tupleof.length == 1)
-                    {
-                        // Handle the single member case separately to avoid unnecessarily using bytesHash.
-                        static if (i == 0 && !isChained)
-                            size_t h = hashOf(val.tupleof[i].tupleof[0]);
-                        else
-                            h = hashOf(val.tupleof[i].tupleof[0], h);
-                    }
-                    else static if (canBitwiseHash!F)
-                    {
-                        // May use smallBytesHash instead of bytesHash.
-                        static if (i == 0 && !isChained) size_t h = 0;
-                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
-                    }
-                    else
-                    {
-                        // Nothing special happening.
-                        static if (i == 0 && !isChained)
-                            size_t h = hashOf(val.tupleof[i]);
-                        else
-                            h = hashOf(val.tupleof[i], h);
-                    }
-                }
-                else
-                {
-                    // Nothing special happening.
-                    static if (i == 0 && !isChained)
-                        size_t h = hashOf(val.tupleof[i]);
-                    else
-                        h = hashOf(val.tupleof[i], h);
-                }
-            }
-            return h;
-        }
-        else static if (is(typeof(toUbyte(val)) == const(ubyte)[]))//CTFE ready for structs without reference fields
-        {
-            // Not using bytesHashWithExactSizeAndAlignment here because
-            // the result may differ from typeid(T).hashOf(&val).
-            return bytesHashAlignedBy!T(toUbyte(val), seed);
-        }
-        else // CTFE unsupported
-        {
-            assert(!__ctfe, "unable to compute hash of "~T.stringof~" at compile time");
-            const(ubyte)[] bytes = (() @trusted => (cast(const(ubyte)*)&val)[0 .. T.sizeof])();
-            // Not using bytesHashWithExactSizeAndAlignment here because
-            // the result may differ from typeid(T).hashOf(&val).
-            return bytesHashAlignedBy!T(bytes, seed);
-        }
-    }
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(219,13)
-alias a = __a ;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(220,13)
-alias b = __b ;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(221,20)
-a == b
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(219,13)
-alias a = __a ;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(220,13)
-alias b = __b ;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(221,20)
-a == b
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+// expansion at source/dard/systems/asset/asset.d(87,26)
+_programs
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(449,16)
 cast(T)a < cast(T) b
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at source/dard/systems/asset/asset.d(69,26)
+_meshes
+
+// expansion at source/dard/systems/asset/asset.d(87,26)
+_meshes
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at source/dard/systems/asset/asset.d(69,26)
+_materials
+
+// expansion at source/dard/systems/asset/asset.d(87,26)
+_materials
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
@@ -2348,6 +2258,15 @@ alias b = __b ;
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(221,20)
 a == b
 
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(219,13)
+alias a = __a ;
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(220,13)
+alias b = __b ;
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(221,20)
+a == b
+
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
@@ -2383,6 +2302,9 @@ lhs == rhs
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
 lhs == rhs
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/time.d(944,9)
 return Duration(_hnsecs / value);
@@ -2435,332 +2357,11 @@ throw boundsException;
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/hash.d(551,5)
-
-    enum bool isChained = is(typeof(seed) : size_t);
-    static if (!isChained) enum size_t seed = 0;
-    static if (hasCallableToHash!(typeof(val))) //CTFE depends on toHash()
-    {
-        static if (!__traits(isSame, typeof(val), __traits(parent, val.toHash))
-            && is(typeof(val is null)))
-        {
-            static if (isChained)
-                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))), seed);
-            else
-                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))));
-        }
-        else
-        {
-            static if (isChained)
-                return hashOf(cast(size_t) val.toHash(), seed);
-            else
-                return val.toHash();
-        }
-    }
-    else
-    {
-        import core.internal.convert : toUbyte;
-        static if (__traits(hasMember, T, "toHash") && is(typeof(T.toHash) == function))
-        {
-            // TODO: in the future maybe this should be changed to a static
-            // assert(0), because if there's a `toHash` the programmer probably
-            // expected it to be called and a compilation failure here will
-            // expose a bug in his code.
-            //   In the future we also might want to disallow non-const toHash
-            // altogether.
-            pragma(msg, "Warning: struct "~__traits(identifier, T)
-                ~" has method toHash, however it cannot be called with "
-                ~typeof(val).stringof~" this.");
-            static if (__traits(compiles, __traits(getLocation, T.toHash)))
-            {
-                enum file = __traits(getLocation, T.toHash)[0];
-                enum line = __traits(getLocation, T.toHash)[1].stringof;
-                pragma(msg, "  ",__traits(identifier, T),".toHash defined here: ",file,"(",line,")");
-            }
-        }
-
-        static if (T.tupleof.length == 0)
-        {
-            return seed;
-        }
-        else static if ((is(T == struct) && !canBitwiseHash!T) || T.tupleof.length == 1)
-        {
-            static if (isChained) size_t h = seed;
-            static foreach (i, F; typeof(val.tupleof))
-            {
-                static if (__traits(isStaticArray, F))
-                {
-                    static if (i == 0 && !isChained) size_t h = 0;
-                    static if (F.sizeof > 0 && canBitwiseHash!F)
-                        // May use smallBytesHash instead of bytesHash.
-                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
-                    else
-                        // We can avoid the "double hashing" the top-level version uses
-                        // for consistency with TypeInfo.getHash.
-                        foreach (ref e; val.tupleof[i])
-                            h = hashOf(e, h);
-                }
-                else static if (is(F == struct) || is(F == union))
-                {
-                    static if (hasCallableToHash!F)
-                    {
-                        static if (!__traits(isSame, F, __traits(parent, val.tupleof[i].toHash))
-                            && is(typeof(val.tupleof[i] is null)))
-                        {
-                            static if (i == 0 && !isChained)
-                                size_t h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)));
-                            else
-                                h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)), h);
-                        }
-                        else
-                        {
-                            static if (i == 0 && !isChained)
-                                size_t h = val.tupleof[i].toHash();
-                            else
-                                h = hashOf(cast(size_t) val.tupleof[i].toHash(), h);
-                        }
-                    }
-                    else static if (F.tupleof.length == 1)
-                    {
-                        // Handle the single member case separately to avoid unnecessarily using bytesHash.
-                        static if (i == 0 && !isChained)
-                            size_t h = hashOf(val.tupleof[i].tupleof[0]);
-                        else
-                            h = hashOf(val.tupleof[i].tupleof[0], h);
-                    }
-                    else static if (canBitwiseHash!F)
-                    {
-                        // May use smallBytesHash instead of bytesHash.
-                        static if (i == 0 && !isChained) size_t h = 0;
-                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
-                    }
-                    else
-                    {
-                        // Nothing special happening.
-                        static if (i == 0 && !isChained)
-                            size_t h = hashOf(val.tupleof[i]);
-                        else
-                            h = hashOf(val.tupleof[i], h);
-                    }
-                }
-                else
-                {
-                    // Nothing special happening.
-                    static if (i == 0 && !isChained)
-                        size_t h = hashOf(val.tupleof[i]);
-                    else
-                        h = hashOf(val.tupleof[i], h);
-                }
-            }
-            return h;
-        }
-        else static if (is(typeof(toUbyte(val)) == const(ubyte)[]))//CTFE ready for structs without reference fields
-        {
-            // Not using bytesHashWithExactSizeAndAlignment here because
-            // the result may differ from typeid(T).hashOf(&val).
-            return bytesHashAlignedBy!T(toUbyte(val), seed);
-        }
-        else // CTFE unsupported
-        {
-            assert(!__ctfe, "unable to compute hash of "~T.stringof~" at compile time");
-            const(ubyte)[] bytes = (() @trusted => (cast(const(ubyte)*)&val)[0 .. T.sizeof])();
-            // Not using bytesHashWithExactSizeAndAlignment here because
-            // the result may differ from typeid(T).hashOf(&val).
-            return bytesHashAlignedBy!T(bytes, seed);
-        }
-    }
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/hash.d(551,5)
-
-    enum bool isChained = is(typeof(seed) : size_t);
-    static if (!isChained) enum size_t seed = 0;
-    static if (hasCallableToHash!(typeof(val))) //CTFE depends on toHash()
-    {
-        static if (!__traits(isSame, typeof(val), __traits(parent, val.toHash))
-            && is(typeof(val is null)))
-        {
-            static if (isChained)
-                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))), seed);
-            else
-                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))));
-        }
-        else
-        {
-            static if (isChained)
-                return hashOf(cast(size_t) val.toHash(), seed);
-            else
-                return val.toHash();
-        }
-    }
-    else
-    {
-        import core.internal.convert : toUbyte;
-        static if (__traits(hasMember, T, "toHash") && is(typeof(T.toHash) == function))
-        {
-            // TODO: in the future maybe this should be changed to a static
-            // assert(0), because if there's a `toHash` the programmer probably
-            // expected it to be called and a compilation failure here will
-            // expose a bug in his code.
-            //   In the future we also might want to disallow non-const toHash
-            // altogether.
-            pragma(msg, "Warning: struct "~__traits(identifier, T)
-                ~" has method toHash, however it cannot be called with "
-                ~typeof(val).stringof~" this.");
-            static if (__traits(compiles, __traits(getLocation, T.toHash)))
-            {
-                enum file = __traits(getLocation, T.toHash)[0];
-                enum line = __traits(getLocation, T.toHash)[1].stringof;
-                pragma(msg, "  ",__traits(identifier, T),".toHash defined here: ",file,"(",line,")");
-            }
-        }
-
-        static if (T.tupleof.length == 0)
-        {
-            return seed;
-        }
-        else static if ((is(T == struct) && !canBitwiseHash!T) || T.tupleof.length == 1)
-        {
-            static if (isChained) size_t h = seed;
-            static foreach (i, F; typeof(val.tupleof))
-            {
-                static if (__traits(isStaticArray, F))
-                {
-                    static if (i == 0 && !isChained) size_t h = 0;
-                    static if (F.sizeof > 0 && canBitwiseHash!F)
-                        // May use smallBytesHash instead of bytesHash.
-                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
-                    else
-                        // We can avoid the "double hashing" the top-level version uses
-                        // for consistency with TypeInfo.getHash.
-                        foreach (ref e; val.tupleof[i])
-                            h = hashOf(e, h);
-                }
-                else static if (is(F == struct) || is(F == union))
-                {
-                    static if (hasCallableToHash!F)
-                    {
-                        static if (!__traits(isSame, F, __traits(parent, val.tupleof[i].toHash))
-                            && is(typeof(val.tupleof[i] is null)))
-                        {
-                            static if (i == 0 && !isChained)
-                                size_t h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)));
-                            else
-                                h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)), h);
-                        }
-                        else
-                        {
-                            static if (i == 0 && !isChained)
-                                size_t h = val.tupleof[i].toHash();
-                            else
-                                h = hashOf(cast(size_t) val.tupleof[i].toHash(), h);
-                        }
-                    }
-                    else static if (F.tupleof.length == 1)
-                    {
-                        // Handle the single member case separately to avoid unnecessarily using bytesHash.
-                        static if (i == 0 && !isChained)
-                            size_t h = hashOf(val.tupleof[i].tupleof[0]);
-                        else
-                            h = hashOf(val.tupleof[i].tupleof[0], h);
-                    }
-                    else static if (canBitwiseHash!F)
-                    {
-                        // May use smallBytesHash instead of bytesHash.
-                        static if (i == 0 && !isChained) size_t h = 0;
-                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
-                    }
-                    else
-                    {
-                        // Nothing special happening.
-                        static if (i == 0 && !isChained)
-                            size_t h = hashOf(val.tupleof[i]);
-                        else
-                            h = hashOf(val.tupleof[i], h);
-                    }
-                }
-                else
-                {
-                    // Nothing special happening.
-                    static if (i == 0 && !isChained)
-                        size_t h = hashOf(val.tupleof[i]);
-                    else
-                        h = hashOf(val.tupleof[i], h);
-                }
-            }
-            return h;
-        }
-        else static if (is(typeof(toUbyte(val)) == const(ubyte)[]))//CTFE ready for structs without reference fields
-        {
-            // Not using bytesHashWithExactSizeAndAlignment here because
-            // the result may differ from typeid(T).hashOf(&val).
-            return bytesHashAlignedBy!T(toUbyte(val), seed);
-        }
-        else // CTFE unsupported
-        {
-            assert(!__ctfe, "unable to compute hash of "~T.stringof~" at compile time");
-            const(ubyte)[] bytes = (() @trusted => (cast(const(ubyte)*)&val)[0 .. T.sizeof])();
-            // Not using bytesHashWithExactSizeAndAlignment here because
-            // the result may differ from typeid(T).hashOf(&val).
-            return bytesHashAlignedBy!T(bytes, seed);
-        }
-    }
-
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at source/dard/systems/serialization/serialize.d(16,48)
-T.b
-
-// expansion at source/dard/systems/serialization/serialize.d(20,62)
-T.b
-
-// expansion at source/dard/systems/serialization/serialize.d(21,43)
-obj.b
-
-// expansion at source/dard/systems/serialization/serialize.d(16,48)
-T.i
-
-// expansion at source/dard/systems/serialization/serialize.d(16,48)
-T.f
-
-// expansion at source/dard/systems/serialization/serialize.d(20,62)
-T.f
-
-// expansion at source/dard/systems/serialization/serialize.d(21,43)
-obj.f
-
-// expansion at source/dard/systems/serialization/serialize.d(16,48)
-T.d
-
-// expansion at source/dard/systems/serialization/serialize.d(20,62)
-T.d
-
-// expansion at source/dard/systems/serialization/serialize.d(21,43)
-obj.d
-
-// expansion at source/dard/systems/serialization/serialize.d(16,48)
-T.s
-
-// expansion at source/dard/systems/serialization/serialize.d(20,62)
-T.s
-
-// expansion at source/dard/systems/serialization/serialize.d(21,43)
-obj.s
-
-// expansion at source/dard/systems/serialization/serialize.d(16,48)
-T.str
-
-// expansion at source/dard/systems/serialization/serialize.d(20,62)
-T.str
-
-// expansion at source/dard/systems/serialization/serialize.d(21,43)
-obj.str
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
@@ -3458,182 +3059,59 @@ a < b
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(449,16)
 cast(T)a < cast(T) b
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7542,41)
-(*self)._object
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.opPostMove
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.opPostMove
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7615,29)
-b._object
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.makeObject
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.makeObject
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7542,41)
-(*self)._object
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.opPostMove
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.opPostMove
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7615,29)
-b._object
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.makeObject
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.makeObject
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7542,41)
-(*self)._object
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.opPostMove
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.opPostMove
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7615,29)
-b._object
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.makeObject
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.makeObject
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.x
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.x
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7736,77)
-a.x
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.y
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.y
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7736,77)
-a.y
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7542,41)
-(*self)._object
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.opPostMove
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.opPostMove
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7615,29)
-b._object
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.makeObject
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.makeObject
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7719,46)
-a.zeroArgsCtorTest
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7724,25)
-a.zeroArgsCtorTest
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7736,77)
-a.zeroArgsCtorTest
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7615,29)
-b._object
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7615,29)
-b._object
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7615,29)
-b._object
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(7615,29)
-b._object
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
@@ -3806,51 +3284,6 @@ throw boundsException;
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at ../../.dub/packages/dlib/1.2.0/dlib/dlib/math/matrix.d(699,21)
-{
-                auto m3inv = matrix4x4to3x3(this).inverse;
-                res = matrix3x3to4x4(m3inv);
-                Vector!(T,3) t = -(getColumn(3).xyz * m3inv);
-                res.setColumn(3, Vector!(T,4)(t.x, t.y, t.z, 1.0f));
-            }
-
-// expansion at ../../.dub/packages/dlib/1.2.0/dlib/dlib/math/matrix.d(701,21)
-{
-                Matrix!(T,N) l, u, p;
-                decomposeLUP(this, l, u, p);
-                foreach(j; 0..N)
-                {
-                    Vector!(T,N) b = p.getColumn(j);
-                    Vector!(T,N) x;
-                    solveLU(l, u, x, b);
-                    res.setColumn(j, x);
-                }
-            }
-
-// expansion at ../../.dub/packages/dlib/1.2.0/dlib/dlib/math/vector.d(728,22)
-T x; 
-
-// expansion at ../../.dub/packages/dlib/1.2.0/dlib/dlib/math/vector.d(731,22)
-T r; 
-
-// expansion at ../../.dub/packages/dlib/1.2.0/dlib/dlib/math/vector.d(734,22)
-T s; 
-
-// expansion at ../../.dub/packages/dlib/1.2.0/dlib/dlib/math/matrix.d(899,18)
-T a11;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
@@ -3881,59 +3314,32 @@ T a11;
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(467,13)
-enum int data = 0;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(467,13)
-enum int count = 0;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(646,9)
-alias _0LU = Identity!(field[0LU]);alias data = _0LU;alias _1LU = Identity!(field[1LU]);alias count = _1LU;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(646,9)
-alias _0LU = Identity!(field[0LU]);alias _1LU = Identity!(field[1LU]);
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(475,37)
-a < b
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(478,32)
-a < b
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(475,37)
-a > b
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(478,32)
-a > b
-
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at ../../.dub/packages/dlib/1.2.0/dlib/dlib/math/matrix.d(699,21)
+{
+                auto m3inv = matrix4x4to3x3(this).inverse;
+                res = matrix3x3to4x4(m3inv);
+                Vector!(T,3) t = -(getColumn(3).xyz * m3inv);
+                res.setColumn(3, Vector!(T,4)(t.x, t.y, t.z, 1.0f));
+            }
+
+// expansion at ../../.dub/packages/dlib/1.2.0/dlib/dlib/math/matrix.d(701,21)
+{
+                Matrix!(T,N) l, u, p;
+                decomposeLUP(this, l, u, p);
+                foreach(j; 0..N)
+                {
+                    Vector!(T,N) b = p.getColumn(j);
+                    Vector!(T,N) x;
+                    solveLU(l, u, x, b);
+                    res.setColumn(j, x);
+                }
+            }
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
@@ -3974,6 +3380,27 @@ a > b
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(478,32)
 a > b
 
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at 
+.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(475,37)
+a < b
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(478,32)
+a < b
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(475,37)
+a > b
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(478,32)
+a > b
+
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(475,37)
 a < b
 
@@ -3995,15 +3422,6 @@ a > b
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(219,13)
-alias a = __a ;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(220,13)
-alias b = __b ;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/functional.d(221,20)
-a == b
-
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
@@ -4046,29 +3464,188 @@ a == b
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
 
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/core/internal/hash.d(551,5)
 
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+    enum bool isChained = is(typeof(seed) : size_t);
+    static if (!isChained) enum size_t seed = 0;
+    static if (hasCallableToHash!(typeof(val))) //CTFE depends on toHash()
+    {
+        static if (!__traits(isSame, typeof(val), __traits(parent, val.toHash))
+            && is(typeof(val is null)))
+        {
+            static if (isChained)
+                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))), seed);
+            else
+                return hashOf(__traits(getMember, val, __traits(getAliasThis, typeof(val))));
+        }
+        else
+        {
+            static if (isChained)
+                return hashOf(cast(size_t) val.toHash(), seed);
+            else
+                return val.toHash();
+        }
+    }
+    else
+    {
+        import core.internal.convert : toUbyte;
+        static if (__traits(hasMember, T, "toHash") && is(typeof(T.toHash) == function))
+        {
+            // TODO: in the future maybe this should be changed to a static
+            // assert(0), because if there's a `toHash` the programmer probably
+            // expected it to be called and a compilation failure here will
+            // expose a bug in his code.
+            //   In the future we also might want to disallow non-const toHash
+            // altogether.
+            pragma(msg, "Warning: struct "~__traits(identifier, T)
+                ~" has method toHash, however it cannot be called with "
+                ~typeof(val).stringof~" this.");
+            static if (__traits(compiles, __traits(getLocation, T.toHash)))
+            {
+                enum file = __traits(getLocation, T.toHash)[0];
+                enum line = __traits(getLocation, T.toHash)[1].stringof;
+                pragma(msg, "  ",__traits(identifier, T),".toHash defined here: ",file,"(",line,")");
+            }
+        }
 
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+        static if (T.tupleof.length == 0)
+        {
+            return seed;
+        }
+        else static if ((is(T == struct) && !canBitwiseHash!T) || T.tupleof.length == 1)
+        {
+            static if (isChained) size_t h = seed;
+            static foreach (i, F; typeof(val.tupleof))
+            {
+                static if (__traits(isStaticArray, F))
+                {
+                    static if (i == 0 && !isChained) size_t h = 0;
+                    static if (F.sizeof > 0 && canBitwiseHash!F)
+                        // May use smallBytesHash instead of bytesHash.
+                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
+                    else
+                        // We can avoid the "double hashing" the top-level version uses
+                        // for consistency with TypeInfo.getHash.
+                        foreach (ref e; val.tupleof[i])
+                            h = hashOf(e, h);
+                }
+                else static if (is(F == struct) || is(F == union))
+                {
+                    static if (hasCallableToHash!F)
+                    {
+                        static if (!__traits(isSame, F, __traits(parent, val.tupleof[i].toHash))
+                            && is(typeof(val.tupleof[i] is null)))
+                        {
+                            static if (i == 0 && !isChained)
+                                size_t h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)));
+                            else
+                                h = hashOf(__traits(getMember, val.tupleof[i], __traits(getAliasThis, F)), h);
+                        }
+                        else
+                        {
+                            static if (i == 0 && !isChained)
+                                size_t h = val.tupleof[i].toHash();
+                            else
+                                h = hashOf(cast(size_t) val.tupleof[i].toHash(), h);
+                        }
+                    }
+                    else static if (F.tupleof.length == 1)
+                    {
+                        // Handle the single member case separately to avoid unnecessarily using bytesHash.
+                        static if (i == 0 && !isChained)
+                            size_t h = hashOf(val.tupleof[i].tupleof[0]);
+                        else
+                            h = hashOf(val.tupleof[i].tupleof[0], h);
+                    }
+                    else static if (canBitwiseHash!F)
+                    {
+                        // May use smallBytesHash instead of bytesHash.
+                        static if (i == 0 && !isChained) size_t h = 0;
+                        h = bytesHashWithExactSizeAndAlignment!F(toUbyte(val.tupleof[i]), h);
+                    }
+                    else
+                    {
+                        // Nothing special happening.
+                        static if (i == 0 && !isChained)
+                            size_t h = hashOf(val.tupleof[i]);
+                        else
+                            h = hashOf(val.tupleof[i], h);
+                    }
+                }
+                else
+                {
+                    // Nothing special happening.
+                    static if (i == 0 && !isChained)
+                        size_t h = hashOf(val.tupleof[i]);
+                    else
+                        h = hashOf(val.tupleof[i], h);
+                }
+            }
+            return h;
+        }
+        else static if (is(typeof(toUbyte(val)) == const(ubyte)[]))//CTFE ready for structs without reference fields
+        {
+            // Not using bytesHashWithExactSizeAndAlignment here because
+            // the result may differ from typeid(T).hashOf(&val).
+            return bytesHashAlignedBy!T(toUbyte(val), seed);
+        }
+        else // CTFE unsupported
+        {
+            assert(!__ctfe, "unable to compute hash of "~T.stringof~" at compile time");
+            const(ubyte)[] bytes = (() @trusted => (cast(const(ubyte)*)&val)[0 .. T.sizeof])();
+            // Not using bytesHashWithExactSizeAndAlignment here because
+            // the result may differ from typeid(T).hashOf(&val).
+            return bytesHashAlignedBy!T(bytes, seed);
+        }
+    }
 
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
 
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs < rhs
 
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
 
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs < rhs
 
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs < rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs < rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs < rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs == rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs < rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs < rhs
+
+// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
+lhs < rhs
 
 // expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
 lhs == rhs
@@ -4108,34 +3685,4 @@ lhs < rhs
 
 // expansion at 
 .object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at 
-.object.size_t h = 0;foreach (i, T; typeof(p.tupleof))    static if(is(T* : const(.object.Object)*))         h = h * 33 + typeid(const(.object.Object)).getHash(cast(const void*)&p.tupleof[i]);    else         h = h * 33 + typeid(T).getHash(cast(const void*)&p.tupleof[i]);return h;
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs == rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
-
-// expansion at /home/alex/.local/share/code-d/bin/compilers/ldc-1.32.0/bin/../import/std/typecons.d(539,31)
-lhs < rhs
 

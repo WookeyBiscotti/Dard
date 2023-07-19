@@ -5,6 +5,7 @@ import bindbc.bgfx;
 import std.stdio : File;
 
 import dard.systems.filesystem.utils;
+import dard.systems.asset.binary_data;
 
 public import bindbc.bgfx : Attribute = bgfx_attrib_t;
 public import bindbc.bgfx : AttributeType = bgfx_attrib_type_t;
@@ -24,33 +25,33 @@ public:
         return this;
     }
 
-    void read(ref File file) {
+    void read(ref const(ubyte)* ptr) {
         ubyte numAttrs = void;
-        readT(file, numAttrs);
+        readT(ptr, numAttrs);
 
         ushort stride = void;
-        readT(file, stride);
+        readT(ptr, stride);
 
         begin();
 
         for (uint ii = 0; ii < numAttrs; ++ii) {
             ushort offset = void;
-            readT(file, offset);
+            readT(ptr, offset);
 
             ushort attribId = void;
-            readT(file, attribId);
+            readT(ptr, attribId);
 
             ubyte num = void;
-            readT(file, num);
+            readT(ptr, num);
 
             ushort attribTypeId = void;
-            readT(file, attribTypeId);
+            readT(ptr, attribTypeId);
 
             bool normalized = void;
-            readT(file, normalized);
+            readT(ptr, normalized);
 
             bool asInt = void;
-            readT(file, asInt);
+            readT(ptr, asInt);
 
             auto attr = idToAttrib(attribId);
             auto type = idToAttribType(attribTypeId);

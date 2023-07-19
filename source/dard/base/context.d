@@ -61,9 +61,9 @@ public:
 
 private:
     // System[TypeInfo] _systems;
-    HashMap3!(TypeInfo, System) _systems;
+    HashMap3!(TypeInfo, System, true) _systems;
     SmallVector!(System, 16) _systemsList;
-    HashMap3!(TypeInfo, void function(void*)) _dtors;
+    HashMap3!(TypeInfo, void function(void*), true) _dtors;
     // void function(void*)[TypeInfo] _dtors;
 }
 

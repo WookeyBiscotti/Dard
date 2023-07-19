@@ -129,6 +129,20 @@ public:
         return 0;
     }
 
+    int opApply(scope int delegate(const ref V) dg) const {
+        auto it = ConstIterator(_begin);
+        while (!it.isEnd()) {
+            auto res = dg(*it);
+            if (res) {
+
+                return res;
+            }
+            ++it;
+        }
+
+        return 0;
+    }
+
     auto begin() {
         return Iterator(_begin);
     }
@@ -265,4 +279,45 @@ unittest {
     }
 
     assert(d == 3);
+}
+
+unittest {
+    struct A {
+        this(int* d_) {
+            d = d_;
+        }
+
+        this(this) @disable;
+
+        ~this() {
+            if (d) {
+                (*d)++;
+            }
+        }
+
+        int* d;
+    }
+
+    int d = 0;
+    {
+        List!(A, false) l;
+        l.emplaceBack(&d);
+        assert(l.lenght == 1);
+        l.emplaceBack(&d);
+        assert(l.lenght == 2);
+        l.emplaceBack(&d);
+        assert(l.lenght == 3);
+    }
+    assert(d == 3);
+
+    void constApply(const List!(int, false) l) {
+        foreach (ref key; l) {
+        }
+    }
+
+    List!(int, false) l;
+    l.pushBack(1);
+    l.pushBack(2);
+
+    constApply(l);
 }

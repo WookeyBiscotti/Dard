@@ -49,12 +49,12 @@ auto New(T, Args...)(auto ref Args args) {
     auto ptr = al.make!(T)(args);
     static if (is(T == struct)) {
         // if (typeid(T).name.canFind("delegate")) {
-            // newNames.require(typeid(T).name);
-            // writeln(newNames);
-            // writeln(typeid(*ptr).name, " ptr: ", cast(void*) ptr);
-            // GC.addRange(ptr, T.sizeof, typeid(T));
-            // if (T.stringof == "Node") {
-            // GC.addRange(ptr, T.sizeof);
+        // newNames.require(typeid(T).name);
+        // writeln(newNames);
+        // writeln(typeid(*ptr).name, " ptr: ", cast(void*) ptr);
+        // GC.addRange(ptr, T.sizeof, typeid(T));
+        // if (T.stringof == "Node") {
+        // GC.addRange(ptr, T.sizeof);
         // }
         // }
     } else {
@@ -66,7 +66,10 @@ auto New(T, Args...)(auto ref Args args) {
 }
 
 void Delete(T)(T* ptr) {
-    al.dispose!T(ptr);
+    try {
+        al.dispose!T(ptr);
+    } catch (Exception) {
+    }
 }
 
 auto NewGC(T, Args...)(auto ref Args args) {
@@ -86,7 +89,14 @@ auto Delete(T)(T ptr) if (is(T == class) || is(T == interface)) {
 }
 
 auto NewArray(T)(size_t len) {
-    return al.makeArray!T(len);
+    import std.stdio;
+    import std.algorithm.searching;
+    import core.memory;
+
+    auto arr = al.makeArray!T(len);
+    // GC.addRange(arr.ptr, (cast(byte[]) arr).length, typeid(T));
+
+    return arr;
 }
 
 auto Delete(T)(T[] ptr) {
@@ -161,13 +171,20 @@ private struct Counter {
     uint weak;
 }
 
-struct SharedPtr(T) if (is(T == class)) {
+// struct SharedPtr(T) if (is(T == class)) {
+struct SharedPtr(T) if (is(T == class) || is(T == struct)) {
 private:
+    static if (is(T == class)) {
+        alias Pointer = T;
+    } else {
+        alias Pointer = T*;
+    }
+
     struct Data(T) {
         Counter counter;
         void* ptr;
-        T get() {
-            return cast(T) ptr;
+        Pointer get() {
+            return cast(Pointer) ptr;
         }
     }
 
@@ -240,8 +257,12 @@ public:
         return _data.counter.shared_;
     }
 
-    T get() {
-        return cast(T) _ptr;
+    Pointer get() {
+        return cast(Pointer) _ptr;
+    }
+
+    const(Pointer) get() const {
+        return cast(Pointer) _ptr;
     }
 }
 

@@ -8,9 +8,11 @@ alias Array(T) = Array2!(T, Mallocator);
 import dard.types.memory;
 
 import std.traits;
+import dard.systems.logger;
 import std.algorithm;
+import core.memory;
 
-struct Vector(T) {
+struct Vector(T, bool AddGcRange = false) {
     enum IsCopyable = isCopyable!T;
 
     this(size_t initSize) {
@@ -18,14 +20,15 @@ struct Vector(T) {
     }
 
     void opPostMove(inout ref Vector!T) inout {
+        int i = 0;
     }
 
     ~this() nothrow {
-        try {
-            if (_store.ptr) {
-                Delete(_store);
+        if (_store.length > 0) {
+            realloc(0);
+            static if (AddGcRange) {
+                GC.removeRange(_store.ptr);
             }
-        } catch (Exception) {
         }
     }
 
@@ -38,16 +41,20 @@ struct Vector(T) {
             _size++;
         }
 
-        this(this This)(ref const This other) {
+        this(const ref Vector!(T, AddGcRange) other) {
             resize(other._size);
             foreach (i; 0 .. other._size) {
-                _store[i] = other._store;
+                _store[i] = cast(T)other._store[i];
             }
         }
 
+        void opOpAssign(string op : "~")(in T value) {
+            pushBack(value);
+        }
+
     } else {
-        this(this) @disable;
     }
+    this(this) @disable;
 
     void emplaceBack(Args...)(auto ref Args args) {
         if (_size + 1 > _store.length) {
@@ -86,10 +93,6 @@ struct Vector(T) {
 
     bool empty() const {
         return _size == 0;
-    }
-
-    void opOpAssign(string op : "~")(in T value) {
-        pushBack(cast(T) value);
     }
 
     int opApply(scope int delegate(ref T) dg) {
@@ -140,6 +143,9 @@ private:
         assert(newCapacity != _store.length);
 
         auto arr = newCapacity > 0 ? NewArray!T(newCapacity) : _store[0 .. 0];
+        static if (AddGcRange) {
+            GC.addRange(arr.ptr, (cast(byte[]) arr).lenght, typeid(T));
+        }
 
         immutable auto newSize = min(_size, newCapacity);
 
@@ -156,9 +162,15 @@ private:
         if (newCapacity < _size) {
             if (newCapacity != 0) {
                 for (size_t i = newSize; i != _size; ++i) {
-                    _destroy(arr[i]);
+                    _destroy(_store[i]);
                 }
             }
+        }
+        if (_store.length > 0) {
+            Delete(_store);
+        }
+        static if (AddGcRange) {
+            GC.removeRange(_store.ptr);
         }
         _store = arr;
     }

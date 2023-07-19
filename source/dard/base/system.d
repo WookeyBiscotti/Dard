@@ -8,6 +8,9 @@ public:
         _context = context;
     }
 
+    void initialize() {
+    }
+
     Context context() {
         return _context;
     }

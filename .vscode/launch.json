@@ -13,11 +13,11 @@
             // "program": "./dard-test-library"
         },
         {
-            "name": "Debug tests",
+            "name": "Debug gdb",
             "type": "gdb",
             "request": "launch",
-            "target": "./dard-test-library",
-            // "target": "../BrainEngine/brain_engine",
+            // "target": "./dard-test-library",
+            "target": "../BrainEngine/brain_engine",
             "cwd": "${workspaceRoot}",
             "valuesFormatting": "parseText"
         }

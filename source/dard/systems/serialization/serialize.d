@@ -6,7 +6,7 @@ import std.traits;
 import dard.systems.serialization;
 import dard.types.string;
 
-JSONValue serializeToJson(T)(in T obj) {
+JSONValue serialize(T)(in T obj) {
     JSONValue js;
     static if (isScalarType!T) {
         js = obj;
@@ -14,9 +14,7 @@ JSONValue serializeToJson(T)(in T obj) {
         alias membs = FieldNameTuple!T;
         static foreach (key; membs) {
             static if (!hasUDA!(T, S7eSome) || hasUDA!(mixin("T." ~ key), S7e)) {
-                writeln("T.stringof ", T.stringof, " key: ", key, " hasUDA!(S7eSome, T):", hasUDA!(S7eSome,
-                        T), " hasUDA!(mixin(' T.' ~ key): ", hasUDA!(mixin("T." ~ key), S7e));
-                js[key] = serializeToJson(mixin("obj." ~ key));
+                js[key] = serialize(mixin("obj." ~ key));
             }
         }
     }
@@ -24,14 +22,14 @@ JSONValue serializeToJson(T)(in T obj) {
     return js;
 }
 
-void deserializeFromJson(T)(in JSONValue js, ref T obj) {
+void deserialize(T)(in JSONValue js, ref T obj) {
     static if (isScalarType!T) {
         obj = js.get!T;
     } else {
         alias membs = FieldNameTuple!T;
         static foreach (key; membs) {
             static if (!hasUDA!(T, S7eSome) || hasUDA!(mixin("T." ~ key), S7e)) {
-                deserializeFromJson(js[key], mixin("obj." ~ key));
+                deserialize(js[key], mixin("obj." ~ key));
             }
         }
     }
@@ -47,13 +45,13 @@ void deserializeFromJson(T : string)(in JSONValue js, ref T obj) {
     obj = js.str;
 }
 
-JSONValue serializeToJson(T : String)(in T obj) {
+JSONValue serialize(T : String)(in T obj) {
     JSONValue js = obj.toString.dup;
 
     return js;
 }
 
-JSONValue serializeToJson(T : string)(in T obj) {
+JSONValue serialize(T : string)(in T obj) {
     JSONValue js = obj;
 
     return js;
@@ -64,7 +62,7 @@ unittest {
 
     {
         bool t = false;
-        writeln(serializeToJson(t).toPrettyString());
+        writeln(serialize(t).toPrettyString());
     }
 
     @S7eSome struct S7eMe {
@@ -78,6 +76,6 @@ unittest {
 
     {
         S7eMe t;
-        writeln(serializeToJson(t).toPrettyString());
+        writeln(serialize(t).toPrettyString());
     }
 }

@@ -35,7 +35,7 @@ public:
         context.createSystem!WindowSystem();
         context.createSystem!Render();
         context.createSystem!UiSystem();
-        context.createSystem!AssetSystem();
+        context.createSystem!AssetSystem().initialize();
         context.createSystem!SceneSystem();
     }
 

@@ -121,7 +121,7 @@ struct HashMap3(K, V, bool AddGcRange = false) {
         _size++;
     }
 
-    V* opBinaryRight(string s : "in")(in K key) {
+    auto opBinaryRight(string s : "in")(in K key) {
         if (_values.length == 0) {
             return null;
         }
@@ -130,6 +130,23 @@ struct HashMap3(K, V, bool AddGcRange = false) {
         auto list = &_values[hash % _values.length];
 
         foreach (ref v; *list) {
+            if (hashOf(v.key) == hashOf(key) && v.key == key) {
+                return &v.value;
+            }
+        }
+
+        return null;
+    }
+
+    auto opBinaryRight(string s : "in")(in K key) const {
+        if (_values.length == 0) {
+            return null;
+        }
+
+        auto hash = hashOf(key);
+        auto list = &_values[hash % _values.length];
+
+        foreach (const ref v; *list) {
             if (hashOf(v.key) == hashOf(key) && v.key == key) {
                 return &v.value;
             }
@@ -240,7 +257,7 @@ struct HashMap3(K, V, bool AddGcRange = false) {
     }
 
 private:
-    invariant() {
+    invariant () {
         assert(_size < 1000000000);
     }
 
@@ -269,6 +286,8 @@ private:
         V value;
 
         static if (IsCopyable) {
+            @disable this(this);
+
             this(in K k, in V v) {
                 key = cast(K) k;
                 value = cast(V) v;
@@ -282,13 +301,11 @@ private:
             this(in K k) {
                 key = cast(K) k;
             }
-
             void opAssign(in Pair o) {
                 key = cast(K) o.key;
                 value = cast(V) o.value;
             }
         } else {
-            @disable this(this);
             @disable void opAssign(in Pair o);
 
             this(in K k) {
@@ -299,7 +316,7 @@ private:
 
     alias ListType = List!(Pair, AddGcRange);
 
-    Vector!ListType _values;
+    Vector!(ListType, false) _values;
 
     size_t _size;
 }

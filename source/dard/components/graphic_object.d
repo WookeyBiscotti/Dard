@@ -28,8 +28,8 @@ class GraphicObject : Component {
         _object = o;
     }
 
-    MaterialAsset* material() const {
-        return &(cast(RC!Object3DAsset*)&_object).material.refCountedPayload();
+    auto material() const {
+        return _object.material;
     }
 
 private:

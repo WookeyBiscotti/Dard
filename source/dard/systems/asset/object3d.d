@@ -3,50 +3,61 @@ module dard.systems.asset.object3d;
 import std.stdio;
 import std.typecons;
 import std.json;
+import std.path;
 
 import dard.systems.asset;
+import dard.systems.config;
 import dard.base.context;
 import dard.types.string;
 import dard.types.memory;
 import dard.types.ref_count;
+import dard.types.path;
 
 struct Object3DAsset {
-    this(Context context) {
-        _context = context;
+    this(this) @disable;
+
+    this(Context) {
     }
 
-    this(Context context, File file, in String name) {
-        _context = context;
+    void deserialize(Context context, in JSONValue js) {
+        _mesh = context.system!AssetSystem
+            .get!MeshAsset(String(js["mesh"].str()));
+        _material = context.system!AssetSystem
+            .get!MaterialAsset(String(js["material"].str()));
+    }
 
-        auto data = NewArray!char(file.size());
-        file.rawRead(data);
-        scope (exit)
-            Delete(data);
-        auto js = parseJSON(data);
+    static String assetsPath(Context context) {
+        return String(buildPath(context.system!ConfigSystem
+                .value!String(APPLICATION_ROOT).toString, "data", P!"objects3d"));
+    }
 
-        _mesh = context.system!AssetSystem.mesh(String(js["mesh"].str()));
-        _material = context.system!AssetSystem.material(String(js["material"].str()));
+    static String autoPaths(Context context, in String name) {
+        return String(buildPath(assetsPath(context), name.toString));
+    }
+
+    static auto makeDefaultRC(Context context) {
+        auto p = makeShared!Object3DAsset();
+        p._mesh = context.system!AssetSystem
+            .get!MeshAsset(S!"__default__");
+        p._material = context.system!AssetSystem
+            .get!MaterialAsset(S!"__default__");
+
+        return p;
     }
 
     ref mesh() {
         return _mesh;
     }
 
-    ref material() {
-        return _material;
+    // ref material() {
+    //     return _material;
+    // }
+
+    auto material() const {
+        return _material.get();
     }
 
 private:
-    Context _context;
-
     RC!MeshAsset _mesh;
     RC!MaterialAsset _material;
-}
-
-auto makeDefaultObject3D(AssetSystem sys) {
-    auto p = RC!Object3DAsset();
-    p._mesh = sys.mesh(S!"__default__");
-    p._material = sys.material(S!"__default__");
-
-    return p;
 }
