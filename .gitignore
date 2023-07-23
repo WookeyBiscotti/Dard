@@ -16,3 +16,4 @@ dard-test-*
 /libdard.a
 /mixins_instantation.d
 /build/
+/.cache/

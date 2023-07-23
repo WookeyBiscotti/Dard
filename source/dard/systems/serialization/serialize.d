@@ -37,11 +37,11 @@ void deserialize(T)(in JSONValue js, ref T obj) {
     return js;
 }
 
-void deserializeFromJson(T : String)(in JSONValue js, ref T obj) {
+void deserialize(T : String)(in JSONValue js, ref T obj) {
     obj = js.str;
 }
 
-void deserializeFromJson(T : string)(in JSONValue js, ref T obj) {
+void deserialize(T : string)(in JSONValue js, ref T obj) {
     obj = js.str;
 }
 

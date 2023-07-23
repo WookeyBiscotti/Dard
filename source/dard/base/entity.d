@@ -38,7 +38,7 @@ public:
     }
 
     ref auto make(T, Args...)(Args args) if (is(T : Component)) {
-        _components.getOrAdd(typeid(T), UniquePtr!Component()).moveFrom(makeUnique!T(this, args));
+        _components.require(typeid(T)).moveFrom(makeUnique!T(this, args));
 
         return get!T();
     }

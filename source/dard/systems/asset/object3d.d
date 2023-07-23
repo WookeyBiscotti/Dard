@@ -53,7 +53,7 @@ struct Object3DAsset {
     //     return _material;
     // }
 
-    auto material() const {
+    auto material() {
         return _material.get();
     }
 

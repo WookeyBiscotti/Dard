@@ -58,7 +58,7 @@ public:
         while (isRunning) {
             immutable auto t1 = MonoTime.currTime();
 
-            import core.memory;
+            // import core.memory;
             
             // GC.collect();
 

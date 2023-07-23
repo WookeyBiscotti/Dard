@@ -7,6 +7,7 @@ import dard.systems.asset;
 import dard.systems.render;
 import dard.systems.config;
 import dard.systems.asset;
+import dard.systems.render.material;
 import dard.types.string;
 import dard.types.path;
 import dard.types.json;
@@ -34,73 +35,86 @@ public:
         _shadersFS[S!"__default__"] = ShaderAssetFS.makeDefaultRC(context);
         _shadersVS[S!"__default__"] = ShaderAssetVS.makeDefaultRC(context);
         _programs[S!"__default__"] = ProgramAsset.makeDefaultRC(context);
-        _materials[S!"__default__"] = MaterialAsset.makeDefaultRC(context);
+        load!MaterialAsset(S!"__default__",
+                makeShared!MaterialAsset(makeUnique!DefaultMaterial(context).moveTo!Material()));
         _object3ds[S!"__default__"] = Object3DAsset.makeDefaultRC(context);
     }
 
     ~this() {
     }
 
-    // mixin assetInterfaceImpl;
-
-    mixin assetImpl2!(FontAsset, "fonts");
-    mixin assetImpl2!(MeshAsset, "meshes");
-    mixin assetImpl2!(ShaderAssetFS, "shadersFS");
-    mixin assetImpl2!(ShaderAssetVS, "shadersVS");
-    mixin assetImpl2!(ProgramAsset, "programs");
-    mixin assetImpl2!(MaterialAsset, "materials");
-    mixin assetImpl2!(Object3DAsset, "object3ds");
+    mixin assetImpl!(FontAsset, "fonts");
+    mixin assetImpl!(MeshAsset, "meshes");
+    mixin assetImpl!(ShaderAssetFS, "shadersFS");
+    mixin assetImpl!(ShaderAssetVS, "shadersVS");
+    mixin assetImpl!(ProgramAsset, "programs");
+    mixin assetImpl!(MaterialAsset, "materials");
+    mixin assetImpl!(Object3DAsset, "object3ds");
 
 private:
-    mixin template assetInterfaceImpl() {
-        public RC!TT get(TT)(in String name) {
-            return RC!TT(context);
-        }
+    mixin template assetImpl(T, string Name) {
+        mixin("private HashMap!(String, RC!T, true) _" ~ Name ~ ";");
 
-        public void load(TT)(in String filepath, in String name) {
-            static assert(false);
-        }
-    }
+        static if (!is(T == MaterialAsset)) {
+            public RC!T get(TT : T)(in String name) {
+                alias mapT = mixin("_" ~ Name);
+                if (auto a = name in mapT) {
+                    return *a;
+                }
 
-    mixin template assetImpl2(T, string Name) {
-        mixin("private HashMap3!(String, RC!T, true) _" ~ Name ~ ";");
+                auto autoPath = T.autoPaths(context, name);
+                warning("Can't find " ~ typeid(T)
+                        .name() ~ " `" ~ name ~ "` in cache with name: `"
+                        ~ autoPath ~ "`, try to load");
 
-        public RC!T get(TT : T)(in String name) {
-            alias mapT = mixin("_" ~ Name);
-            if (auto a = name in mapT) {
-                return *a;
-            }
-            auto autoPath = T.autoPaths(context, name);
-            warning("Can't find " ~ typeid(T)
-                    .name() ~ " `" ~ name ~ "` in cache with name: `" ~ autoPath ~ "`, try to load");
+                load!T(autoPath, name);
+                if (auto a = name in mapT) {
+                    return *a;
+                }
 
-            load!T(autoPath, name);
-            if (auto a = name in mapT) {
-                return *a;
-            }
-            warning("Can't find " ~ typeid(T).name() ~ " `" ~ name ~ "` load default");
+                warning("Can't find " ~ typeid(T).name() ~ " `" ~ name ~ "` load default");
 
-            return mapT[Str!"__default__"];
-        }
-
-        public void load(TT : T)(in String filepath, in String name) {
-            alias mapT = mixin("_" ~ Name);
-
-            if (auto f = name in mapT) {
-                warning("This asset alias already in use: " ~ name);
-
-                return;
+                return mapT[Str!"__default__"];
             }
 
-            auto file = File(buildNormalizedPath(filepath.toString));
-            auto bd = BinaryData(file);
-            mapT[name] = makeShared!T(context);
-            static if (is(Parameters!(T.deserialize)[1] == const(BinaryData))) {
-                bd.meta[S!"name"] = name;
-                mapT[name].deserialize(context, bd);
-            } else {
-                auto js = parseJSON(cast(char[]) bd.data);
-                mapT[name].deserialize(context, js);
+            public void load(TT : T)(in String filepath, in String name) {
+                alias mapT = mixin("_" ~ Name);
+
+                if (auto f = name in mapT) {
+                    warning("This asset alias already in use: " ~ name);
+
+                    return;
+                }
+
+                auto file = File(buildNormalizedPath(filepath.toString));
+                auto bd = BinaryData(file);
+                mapT[name] = makeShared!T(context);
+                static if (is(Parameters!(T.deserialize)[1] == const(BinaryData))) {
+                    bd.meta[S!"name"] = name;
+                    mapT[name].deserialize(context, bd);
+                } else {
+                    auto js = parseJSON(cast(char[]) bd.data);
+                    mapT[name].deserialize(context, js);
+                }
+            }
+        }
+
+        static if (is(T == MaterialAsset)) {
+            public void load(TT : T)(in String name, SP!MaterialAsset m) {
+                alias mapT = mixin("_" ~ Name);
+
+                mapT[name] = m;
+            }
+
+            public RC!T get(TT : T)(in String name) {
+                alias mapT = mixin("_" ~ Name);
+                if (auto a = name in mapT) {
+                    return *a;
+                }
+
+                warning("Can't find " ~ typeid(T).name() ~ " `" ~ name ~ "` load default");
+
+                return mapT[Str!"__default__"];
             }
         }
     }

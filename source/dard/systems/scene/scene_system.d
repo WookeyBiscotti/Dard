@@ -75,7 +75,7 @@ private:
     Scene _current;
 
     // MallocRef!Scene delegate(Context context)[const String] _factory;
-    HashMap3!(String, Scene delegate(Context context)) _factory;
-    HashMap3!(String, UniquePtr!Scene) _cache;
+    HashMap!(String, Scene delegate(Context context)) _factory;
+    HashMap!(String, UniquePtr!Scene) _cache;
     // UniquePtr!Scene[const String] _cache;
 }

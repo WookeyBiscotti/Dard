@@ -16,8 +16,10 @@ import dard.systems.logger;
 // auto makeShared(T, Args...)(Args args) {
 //     return RefCounted!T.construct(args);
 // }
-auto makeShared(T, Args...)(Args args) {
-    return SharedPtr!T.makeShared(args);
+auto makeShared(T, Args...)(ref auto Args args) {
+    import core.lifetime : forward;
+
+    return SharedPtr!T.makeShared(forward!args);
 }
 
 auto makeUnique(T, Args...)(Args args) {
@@ -43,26 +45,22 @@ static bool[string] newNames;
 
 auto New(T, Args...)(auto ref Args args) {
     import std.stdio;
-    import std.algorithm.searching;
+    import std.algorithm;
     import core.memory;
+    import core.lifetime : emplace, forward;
 
-    auto ptr = al.make!(T)(args);
-    static if (is(T == struct)) {
-        // if (typeid(T).name.canFind("delegate")) {
-        // newNames.require(typeid(T).name);
-        // writeln(newNames);
-        // writeln(typeid(*ptr).name, " ptr: ", cast(void*) ptr);
-        // GC.addRange(ptr, T.sizeof, typeid(T));
-        // if (T.stringof == "Node") {
-        // GC.addRange(ptr, T.sizeof);
-        // }
-        // }
+    static if (is(T == class)) {
+        return al.make!(T, Args)(forward!args);
+
     } else {
-        // writeln(ptr, "  ptr: ", cast(void*) ptr);
-        // GC.addRange(cast(void*) ptr, __traits(classInstanceSize, T), typeid(T));
-    }
+        import core.stdc.stdlib;
 
-    return ptr;
+        // TODO: использовать везде маллок или аллокатор
+        auto p = cast(T*) malloc(max(1, T.sizeof));
+        emplace!(T, Args)(p, forward!args);
+
+        return p;
+    }
 }
 
 void Delete(T)(T* ptr) {
@@ -102,6 +100,8 @@ auto NewArray(T)(size_t len) {
 auto Delete(T)(T[] ptr) {
     al.dispose(ptr);
 }
+
+alias UP(T) = UniquePtr!T;
 
 struct UniquePtr(T) if (is(T == class)) {
 public:
@@ -145,7 +145,21 @@ public:
         _ptr = null;
     }
 
+    auto moveTo(TT)() if (is(T : TT)) {
+        UniquePtr!TT other;
+        other._ptr = _ptr;
+        _ptr = null;
+
+        return other;
+    }
+
     void moveFrom(OT)(UniquePtr!OT other) if (is(OT : T)) {
+        reset();
+        _ptr = other._ptr;
+        other._ptr = null;
+    }
+
+    void moveFrom(OT)(ref UniquePtr!OT other) if (is(OT : T)) {
         reset();
         _ptr = other._ptr;
         other._ptr = null;
@@ -171,7 +185,8 @@ private struct Counter {
     uint weak;
 }
 
-// struct SharedPtr(T) if (is(T == class)) {
+alias SP(T) = SharedPtr!T;
+
 struct SharedPtr(T) if (is(T == class) || is(T == struct)) {
 private:
     static if (is(T == class)) {
@@ -194,11 +209,13 @@ private:
 public:
     alias get this;
 
-    static auto makeShared(Args...)(Args args) {
+    static auto makeShared(Args...)(auto ref Args args) {
+        import core.lifetime : emplace, forward;
+
         SharedPtr!T p;
 
         p._data = New!(Data!T)();
-        p._ptr = cast(void*) New!T(args);
+        p._ptr = cast(void*) New!(T, Args)(forward!args);
         p._data.ptr = p._ptr;
         p._data.counter.shared_ = 1;
 

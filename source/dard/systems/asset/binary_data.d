@@ -37,7 +37,7 @@ struct BinaryData {
         return cast(T) _data;
     }
 
-    HashMap3!(String, String) meta;
+    HashMap!(String, String) meta;
 private:
     bool _dataOwned;
     ubyte[] _data;

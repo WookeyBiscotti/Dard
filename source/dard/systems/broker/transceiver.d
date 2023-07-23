@@ -9,12 +9,9 @@ alias EventRawDlg = void delegate(const void* E);
 mixin template ImplTransceiver() {
     static assert(is(typeof(this) : Transceiver));
 
-    HashMap3!(TypeInfo, HashMap3!(Transceiver, EventRawDlg, true), true) _dlgs;
+    HashMap!(TypeInfo, HashMap!(Transceiver, EventRawDlg, true), true) _dlgs;
 
-    // EventRawDlg[Transceiver][TypeInfo] _dlgs;
-    // bool[TypeInfo][Transceiver] _senders;
-    HashMap3!(Transceiver, HashMap3!(TypeInfo, bool)) _senders;
-    // HashMap2!(Transceiver, HashMap2!(TypeInfo, bool)) _senders;
+    HashMap!(Transceiver, HashMap!(TypeInfo, bool)) _senders;
 
     ~this() {
         foreach (type, ref dgs; _dlgs) {
@@ -32,9 +29,6 @@ mixin template ImplTransceiver() {
     }
 
     final override void subscribe(TypeInfo t, Transceiver s, EventRawDlg dlg) {
-        // import std.stdio;
-
-        // writeln(dlg.ptr);
         _senders.require(s).require(t);
         s.addListner(t, this, dlg);
     }
@@ -89,19 +83,6 @@ mixin template ImplTransceiver() {
 
     void subscribe(E)(Transceiver s, EventDlg!E dlg) {
         subscribe(typeid(E), s, (const void* e) {
-            import std.stdio;
-            import core.memory;
-
-            // writeln("-------------------------");
-            // writeln("dlg.ptr ", dlg.ptr);
-            // writeln("e ", e);
-            // writeln("s ", s);
-            // writeln(GC.query(GC.addrOf(dlg.ptr)));
-            // writeln(GC.query(GC.addrOf(e)));
-            // writeln(GC.query(GC.addrOf(cast(void*) s)));
-            // writeln("-------------------------");
-            // writeln("cast(const E*) ", cast(void*) e);
-            // writeln("SIGF addr ", (cast(Object*) 0x555555E69820).toString);
             dlg(*(cast(const E*) e));
         });
     }

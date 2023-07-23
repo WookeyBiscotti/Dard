@@ -1,23 +1,5 @@
 module dard.types.hash_map;
 
-public import containers.hashmap : HashMap;
-
-// public import containers.hashset : HashSet;
-
-// alias HashMap(K, V) = containers.hashmap.HashMap!(K, V);
-
-ref auto require(K, V)(ref HashMap!(K, V) d, K k) {
-    return d.getOrAdd(k, V.init);
-}
-
-ref auto require(K, V)(ref HashMap2!(K, V) d, in K k) {
-    return d.getOrAdd(k, V.init);
-}
-
-import dlib.container.dict;
-
-alias HashMap2(K, V) = Dict!(K, V);
-// alias HashMap(K, V) = HashMap3!(K, V);
 alias HashSet(K) = HashMap!(K, bool);
 
 import std.traits;
@@ -31,20 +13,12 @@ import dard.types.list;
 import dard.types.vector;
 import dard.utils.const_cast;
 
-struct HashMap3(K, V, bool AddGcRange = false) {
+struct HashMap(K, V, bool AddGcRange = false) {
     enum IsRef = is(V == class) || is(V == interface) || isPointer!V;
     enum IsCopyable = isCopyable!V;
     enum IsMoveable = hasElaborateMove!V;
 
-    alias This = HashMap3!(K, V, AddGcRange);
-
-    static if (IsRef) {
-        alias RefType = V;
-        alias ValueType = V;
-    } else {
-        alias RefType = V*;
-        alias ValueType = V;
-    }
+    alias This = HashMap!(K, V, AddGcRange);
 
     static if (IsCopyable) {
         this(ref const This other) {
@@ -57,6 +31,9 @@ struct HashMap3(K, V, bool AddGcRange = false) {
         }
     } else {
         this(this) @disable;
+    }
+
+    void opPostMove(inout ref HashMap!(K, V, AddGcRange)) inout nothrow {
     }
 
     bool containsKey(in K key) {
@@ -106,7 +83,6 @@ struct HashMap3(K, V, bool AddGcRange = false) {
         foreach (ref v; *list) {
             if (v.key == key) {
                 destroy!false(v.value);
-                // v.value.__ctor(args);
                 core.lifetime.emplace(&v.value, args);
 
                 return;
@@ -301,6 +277,7 @@ private:
             this(in K k) {
                 key = cast(K) k;
             }
+
             void opAssign(in Pair o) {
                 key = cast(K) o.key;
                 value = cast(V) o.value;
@@ -309,7 +286,7 @@ private:
             @disable void opAssign(in Pair o);
 
             this(in K k) {
-                key = k;
+                key = cast(K) k;
             }
         }
     }
@@ -322,7 +299,7 @@ private:
 }
 
 unittest {
-    HashMap3!(string, int) h;
+    HashMap!(string, int) h;
 
     h.insert("0", 0);
     h.insert("1", 1);
@@ -339,7 +316,7 @@ unittest {
     import std.conv;
     import dard.types.string;
 
-    HashMap3!(String, int) h;
+    HashMap!(String, int) h;
 
     foreach (i; 0 .. 1_000_000) {
         h.insert(String(i.to!string), i);
@@ -355,7 +332,7 @@ unittest {
     import std.conv;
     import dard.types.string;
 
-    HashMap3!(String, int) h;
+    HashMap!(String, int) h;
 
     foreach (i; 0 .. 1_000_000) {
         h[String(i.to!string)] = i;
@@ -371,7 +348,7 @@ unittest {
     import dard.types.string;
 
     {
-        HashMap3!(String, int) h;
+        HashMap!(String, int) h;
 
         foreach (i; 0 .. 1_000_000) {
             h[String(i.to!string)] = i;
@@ -390,5 +367,5 @@ unittest {
     import std.conv;
     import dard.types.string;
 
-    HashMap3!(int, HashMap3!(String, int)) h;
+    HashMap!(int, HashMap!(String, int)) h;
 }

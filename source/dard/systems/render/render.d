@@ -99,10 +99,10 @@ public:
 
             auto currentScene = context.system!SceneSystem.current;
             if (_objects.containsKey(currentScene)) {
-                Array!GraphicObject[MaterialAsset* ] ms;
-                foreach (v, k; _objects[currentScene]) {
-                    ms.require(v.material) ~= *cast(GraphicObject*)(&v);
-                }
+                // Array!GraphicObject[MaterialAsset* ] ms;
+                // foreach (v, k; _objects[currentScene]) {
+                //     // ms.require(v.material) ~= *cast(GraphicObject*)(&v);
+                // }
 
                 foreach (v, k; _objects[currentScene]) {
                     (cast(GraphicObject*)&v).submit(0);
@@ -145,11 +145,11 @@ public:
         _light.require(l.entity.scene).remove(l);
     }
 
-    void registerUniformFactory(in String name, SharedPtr!Uniform function(Context) creator) {
+    void registerUniformFactory(in String name, SharedPtr!UniformOld function(Context) creator) {
         _uniformsFactory[name] = creator;
     }
 
-    SharedPtr!Uniform uniform(in String name) {
+    SharedPtr!UniformOld uniform(in String name) {
         if (auto u = name in _uniforms) {
             return *u;
         }
@@ -171,8 +171,8 @@ private:
     HashMap!(Scene, HashSet!GraphicObject) _objects;
     HashMap!(Scene, HashSet!Light) _light;
 
-    HashMap!(String, SharedPtr!Uniform) _uniforms;
-    HashMap!(String, SharedPtr!Uniform function(Context)) _uniformsFactory;
+    HashMap!(String, SharedPtr!UniformOld) _uniforms;
+    HashMap!(String, SharedPtr!UniformOld function(Context)) _uniformsFactory;
 
     NVGcontext* _nvgContext;
     Vector2u _windowSize;

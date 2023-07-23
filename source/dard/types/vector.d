@@ -19,8 +19,7 @@ struct Vector(T, bool AddGcRange = false) {
         realloc(initSize);
     }
 
-    void opPostMove(inout ref Vector!T) inout {
-        int i = 0;
+    void opPostMove(inout ref Vector!T) inout nothrow {
     }
 
     ~this() nothrow {
@@ -44,7 +43,7 @@ struct Vector(T, bool AddGcRange = false) {
         this(const ref Vector!(T, AddGcRange) other) {
             resize(other._size);
             foreach (i; 0 .. other._size) {
-                _store[i] = cast(T)other._store[i];
+                _store[i] = cast(T) other._store[i];
             }
         }
 

@@ -20,7 +20,7 @@ class GraphicObject : Component {
     }
 
     void submit(bgfx_view_id_t id, ulong state = BGFX_STATE_MASK) {
-        _object.mesh.submit(id, _object.material.program.bgfx(), entity()
+        _object.mesh.submit(id, _object.material.material.program.bgfx(), entity()
                 .transform.transformation.arrayof.ptr, state);
     }
 
@@ -28,8 +28,8 @@ class GraphicObject : Component {
         _object = o;
     }
 
-    auto material() const {
-        return _object.material;
+    auto material() {
+        return _object.material();
     }
 
 private:
