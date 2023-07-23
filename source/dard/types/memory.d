@@ -1,7 +1,5 @@
 module dard.types.memory;
 
-import automem.ref_counted;
-
 import dard.utils.static_cast;
 
 import std.experimental.allocator.mallocator : Mallocator;
@@ -12,10 +10,6 @@ import std.traits;
 
 import dard.systems.logger;
 
-// alias SharedPtr(T) = RefCounted!T;
-// auto makeShared(T, Args...)(Args args) {
-//     return RefCounted!T.construct(args);
-// }
 auto makeShared(T, Args...)(ref auto Args args) {
     import core.lifetime : forward;
 
@@ -44,8 +38,6 @@ private __gshared MyAllocator alGc;
 static bool[string] newNames;
 
 auto New(T, Args...)(auto ref Args args) {
-    import std.stdio;
-    import std.algorithm;
     import core.memory;
     import core.lifetime : emplace, forward;
 
@@ -56,7 +48,7 @@ auto New(T, Args...)(auto ref Args args) {
         import core.stdc.stdlib;
 
         // TODO: использовать везде маллок или аллокатор
-        auto p = cast(T*) malloc(max(1, T.sizeof));
+        auto p = cast(T*) malloc(T.sizeof);
         emplace!(T, Args)(p, forward!args);
 
         return p;
