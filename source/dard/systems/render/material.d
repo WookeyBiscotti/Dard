@@ -117,11 +117,13 @@ import dard.components.graphic_object;
 
 abstract class Material {
     // Call before object submited
-    void submit(const ref GraphicObject obj);
+    void submit(GraphicObject obj) {
+    }
 
     ref ProgramAsset program();
 
-    void deserialize(in ref JSONValue js);
+    void deserialize(in ref JSONValue js) {
+    }
 }
 
 class DefaultMaterial : Material {
@@ -130,7 +132,7 @@ class DefaultMaterial : Material {
             .get!ProgramAsset(S!"__default__");
     }
 
-    override void submit(const ref GraphicObject obj) {
+    override void submit(GraphicObject obj) {
     }
 
     override ref ProgramAsset program() {

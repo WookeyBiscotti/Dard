@@ -137,7 +137,7 @@ public:
         _ptr = null;
     }
 
-    auto moveTo(TT)() if (is(T : TT)) {
+    auto moveTo(TT = T)() if (is(T : TT)) {
         UniquePtr!TT other;
         other._ptr = _ptr;
         _ptr = null;

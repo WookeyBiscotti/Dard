@@ -20,6 +20,7 @@ class GraphicObject : Component {
     }
 
     void submit(bgfx_view_id_t id, ulong state = BGFX_STATE_MASK) {
+         _object.material.material.submit(this);
         _object.mesh.submit(id, _object.material.material.program.bgfx(), entity()
                 .transform.transformation.arrayof.ptr, state);
     }
