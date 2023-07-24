@@ -6,3 +6,4 @@ public import dard.systems.render.vertex_layout;
 public import dard.systems.render.uniform;
 public import dard.systems.render.view;
 public import dard.systems.render.material;
+public import dard.components.graphic_object;

@@ -17,8 +17,7 @@ import dard.systems.window;
 import dard.systems.render;
 import dard.systems.logger;
 import dard.systems.asset;
-
-import dard.systems.render.components.light;
+import dard.systems.render.lights.point;
 
 import dard.components.camera;
 import dard.components.graphic_object;
@@ -37,7 +36,9 @@ auto getCurrentRender() {
 
 public alias RenderType = bgfx_renderer_type_t;
 
-class Render : System, Transceiver {
+enum POINT_LIGHTS_COUNT = 8;
+
+final class Render : System, Transceiver {
 public:
     mixin ImplTransceiver;
 
@@ -74,9 +75,14 @@ public:
         });
 
         _nvgContext = nvgCreateC(1, 0);
+
+        _pointLightsUniform = getOrCreateUniform(S!"u_PointLights",
+                UNIFORM_TYPE_VEC4, cast(ushort)(2 * POINT_LIGHTS_COUNT));
     }
 
     ~this() {
+        _pointLightsUniform.reset();
+        _uniforms.clear();
         _nvgContext.nvgDeleteC();
         bgfx_shutdown();
     }
@@ -99,13 +105,9 @@ public:
 
             auto currentScene = context.system!SceneSystem.current;
             if (_objects.containsKey(currentScene)) {
-                // Array!GraphicObject[MaterialAsset* ] ms;
-                // foreach (v, k; _objects[currentScene]) {
-                //     // ms.require(v.material) ~= *cast(GraphicObject*)(&v);
-                // }
-
                 foreach (v, k; _objects[currentScene]) {
-                    (cast(GraphicObject*)&v).submit(0);
+                    submitLights(cast(GraphicObject) v);
+                    (cast(GraphicObject) v).submit(0);
                 }
             }
         }
@@ -137,45 +139,72 @@ public:
         _objects.require(obj.entity.scene).remove(obj);
     }
 
-    void addLight(Light l) {
-        _light.require(l.entity.scene).opIndexAssign(true, l);
+    void addLight(PointLight l) {
+        _lights.require(l.entity.scene).opIndexAssign(true, l);
     }
 
-    void removeLight(Light l) {
-        _light.require(l.entity.scene).remove(l);
+    void removeLight(PointLight l) {
+        _lights.require(l.entity.scene).remove(l);
     }
 
-    void registerUniformFactory(in String name, SharedPtr!UniformOld function(Context) creator) {
-        _uniformsFactory[name] = creator;
+    SP!Uniform getOrCreateUniform(in String name, UniformType type, size_t num) {
+        if (auto u = name in _uniforms) {
+            bgfx_uniform_info_t info;
+            bgfx_get_uniform_info(u.bgfx, &info);
+            assert(info.type == type);
+            assert(info.num == num);
+
+            return *u;
+        }
+
+        auto u = makeShared!Uniform(name, UNIFORM_TYPE_VEC4, cast(ushort)(2 * POINT_LIGHTS_COUNT));
+        _uniforms[name] = u;
+
+        return u;
     }
 
-    SharedPtr!UniformOld uniform(in String name) {
+    SharedPtr!Uniform uniform(in String name) {
         if (auto u = name in _uniforms) {
             return *u;
         }
 
-        if (auto u = name in _uniformsFactory) {
-            auto su = (*u)(context());
-            _uniforms[name] = su;
-
-            return su;
-        }
-
-        fatal("Cant create uniform:" ~ name);
+        fatal("Cant find uniform:" ~ name);
         assert(0);
     }
 
     // TODO: Удалять неисползуемые юниформы(uniforms)
 
 private:
-    HashMap!(Scene, HashSet!GraphicObject) _objects;
-    HashMap!(Scene, HashSet!Light) _light;
+    void submitLights(GraphicObject obj) {
+        auto s = obj.entity().scene();
+        Vector4f[POINT_LIGHTS_COUNT * 2] pl;
+        if (auto lights = s in _lights) {
+            if (lights.length > 0) {
+                auto l = lights.front.key;
+                auto e = l.entity;
+                pl[0].x = e.transform.position.x;
+                pl[0].y = e.transform.position.y;
+                pl[0].z = e.transform.position.z;
+                pl[0].w = l.r;
+                pl[1].x = l.color.norm!"r";
+                pl[1].y = l.color.norm!"g";
+                pl[1].z = l.color.norm!"b";
+                pl[1].w = l.power;
+            }
+        }
 
-    HashMap!(String, SharedPtr!UniformOld) _uniforms;
-    HashMap!(String, SharedPtr!UniformOld function(Context)) _uniformsFactory;
+        _pointLightsUniform.set(pl);
+    }
+
+    HashMap!(Scene, HashSet!GraphicObject) _objects;
+    HashMap!(Scene, HashSet!PointLight) _lights;
+
+    HashMap!(String, SharedPtr!Uniform) _uniforms;
 
     NVGcontext* _nvgContext;
     Vector2u _windowSize;
 
     Camera _mainCamera;
+
+    SP!Uniform _pointLightsUniform;
 }

@@ -1,12 +1,32 @@
 module dard.types.color;
 
+import dard.systems.logger;
+
 import nanovg;
 
 struct Color {
+    // this(ubyte r, ubyte g, ubyte b) {
+    //     r = r;
+    //     g = g;
+    //     b = b;
+    //     // a = a;
+    // }
+
+    // this(uint value) {
+    //     r = (value & 0xff000000) >> 24;
+    //     g = (value & 0x00ff0000) >> 16;
+    //     b = (value & 0x0000ff00) >> 8;
+    //     a = (value & 0x000000ff) >> 0;
+    // }
+
     ubyte r;
     ubyte g;
     ubyte b;
     ubyte a = ubyte.max;
+
+    float norm(string s)() const {
+        return mixin(s) / 255.0f;
+    }
 
     NVGcolor opCast(NVGcolor)() const {
         NVGcolor c = void;
@@ -33,6 +53,15 @@ struct Color {
         const s = (1 + d);
 
         return this * s;
+    }
+
+    static Color fromHex(uint value) {
+        Color col;
+        col.r = (value & 0xff000000) >> 24;
+        col.g = (value & 0x00ff0000) >> 16;
+        col.b = (value & 0x0000ff00) >> 8;
+        col.a = (value & 0x000000ff) >> 0;
+        return col;
     }
 
 }
