@@ -8,11 +8,11 @@ class PointLight : Component {
     this(Entity e) {
         super(e);
 
-        // e.context.system!Render.addLight(this);
+        e.context.system!Render.addLight(this);
     }
 
     ~this() {
-        // entity.context.system!Render.removeLight(this);
+        entity.context.system!Render.removeLight(this);
     }
 
 // private:

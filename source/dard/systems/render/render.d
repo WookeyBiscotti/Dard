@@ -66,7 +66,7 @@ public:
         bgfx_set_debug(BGFX_DEBUG_TEXT);
 
         bgfx_set_view_clear(MAIN_VIEW, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303070ff, 1.0f, 0);
-        // bgfx_set_view_clear(0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0xffffffff, 1.0f, 0);
+        // bgfx_set_view_clear(0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x000000ff, 1.0f, 0);
 
         subscribe!WindowResized(window, (in WindowResized e) {
             bgfx_reset(e.newSize.x, e.newSize.y, BGFX_RESET_NONE,
@@ -76,12 +76,14 @@ public:
 
         _nvgContext = nvgCreateC(1, 0);
 
-        _pointLightsUniform = getOrCreateUniform(S!"u_PointLights",
-                UNIFORM_TYPE_VEC4, cast(ushort)(2 * POINT_LIGHTS_COUNT));
+        auto pointLightsUniform = getOrCreateUniform(S!"u_PointLights",
+                UNIFORM_TYPE_VEC4, 2 * POINT_LIGHTS_COUNT);
+        _uniformsCaptured.pushBack(pointLightsUniform);
+        _pointLightsUniform = pointLightsUniform.get();
     }
 
     ~this() {
-        _pointLightsUniform.reset();
+        _uniformsCaptured.clear();
         _uniforms.clear();
         _nvgContext.nvgDeleteC();
         bgfx_shutdown();
@@ -176,8 +178,14 @@ public:
 
 private:
     void submitLights(GraphicObject obj) {
+        if (!_mainCamera) {
+            return;
+        }
         auto s = obj.entity().scene();
         Vector4f[POINT_LIGHTS_COUNT * 2] pl;
+        foreach (ref p; pl) {
+            p = Vector4f(0, 0, 0, 0);
+        }
         if (auto lights = s in _lights) {
             if (lights.length > 0) {
                 auto l = lights.front.key;
@@ -185,6 +193,8 @@ private:
                 pl[0].x = e.transform.position.x;
                 pl[0].y = e.transform.position.y;
                 pl[0].z = e.transform.position.z;
+                pl[0].w = 1;
+                pl[0] = pl[0] * _mainCamera.view;
                 pl[0].w = l.r;
                 pl[1].x = l.color.norm!"r";
                 pl[1].y = l.color.norm!"g";
@@ -200,11 +210,12 @@ private:
     HashMap!(Scene, HashSet!PointLight) _lights;
 
     HashMap!(String, SharedPtr!Uniform) _uniforms;
+    Vector!(SP!Uniform) _uniformsCaptured;
 
     NVGcontext* _nvgContext;
     Vector2u _windowSize;
 
     Camera _mainCamera;
 
-    SP!Uniform _pointLightsUniform;
+    Uniform* _pointLightsUniform;
 }
