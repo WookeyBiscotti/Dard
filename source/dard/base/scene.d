@@ -19,8 +19,11 @@ class Scene : Entity {
         super(c, this, null);
     }
 
-    abstract void activate();
-    abstract void deactivate();
+    void activate() {
+    }
+
+    void deactivate() {
+    }
 
     abstract void update(Duration frameDuration);
 

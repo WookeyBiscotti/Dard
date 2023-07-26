@@ -149,7 +149,7 @@ public:
         _lights.require(l.entity.scene).remove(l);
     }
 
-    SP!Uniform getOrCreateUniform(in String name, UniformType type, size_t num) {
+    SP!Uniform getOrCreateUniform(in String name, UniformType type, ushort num) {
         if (auto u = name in _uniforms) {
             bgfx_uniform_info_t info;
             bgfx_get_uniform_info(u.bgfx, &info);
@@ -159,7 +159,7 @@ public:
             return *u;
         }
 
-        auto u = makeShared!Uniform(name, UNIFORM_TYPE_VEC4, cast(ushort)(2 * POINT_LIGHTS_COUNT));
+        auto u = makeShared!Uniform(name, type, num);
         _uniforms[name] = u;
 
         return u;

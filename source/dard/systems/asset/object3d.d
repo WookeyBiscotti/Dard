@@ -49,12 +49,12 @@ struct Object3DAsset {
         return _mesh;
     }
 
-    // ref material() {
-    //     return _material;
-    // }
-
     auto material() {
-        return _material.get();
+        return _material;
+    }
+
+    void material(RC!MaterialAsset material) {
+        _material = material;
     }
 
 private:

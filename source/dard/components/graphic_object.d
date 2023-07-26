@@ -29,9 +29,13 @@ class GraphicObject : Component {
         _object = o;
     }
 
-    auto material() {
-        return _object.material();
+    ref auto object() {
+        return _object;
     }
+
+    // ref auto material() {
+    //     return _object.material();
+    // }
 
 private:
     RC!Object3DAsset _object;

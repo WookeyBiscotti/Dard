@@ -199,8 +199,8 @@ private:
         }
     }
 
-    Data!T* _data;
-    void* _ptr;
+    Data!T* _data = null;
+    void* _ptr = null;
 
 public:
     alias get this;
