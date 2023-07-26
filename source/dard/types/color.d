@@ -64,7 +64,7 @@ struct Color {
         return col;
     }
 
-    static Color fromNormal(float r, float g, float b, float a) {
+    static Color fromNormal(float r, float g, float b, float a = 1.0f) {
         Color col;
         col.r = cast(ubyte)(r * 255);
         col.g = cast(ubyte)(g * 255);

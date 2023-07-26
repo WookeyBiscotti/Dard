@@ -35,3 +35,7 @@ struct MaterialAsset {
 private:
     UP!Material _mat;
 }
+
+class MaterialFactory {
+    abstract UP!Material make(Context ctx, in String name);
+}

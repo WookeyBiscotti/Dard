@@ -188,18 +188,24 @@ private:
         }
         if (auto lights = s in _lights) {
             if (lights.length > 0) {
-                auto l = lights.front.key;
-                auto e = l.entity;
-                pl[0].x = e.transform.position.x;
-                pl[0].y = e.transform.position.y;
-                pl[0].z = e.transform.position.z;
-                pl[0].w = 1;
-                pl[0] = pl[0] * _mainCamera.view;
-                pl[0].w = l.r;
-                pl[1].x = l.color.norm!"r";
-                pl[1].y = l.color.norm!"g";
-                pl[1].z = l.color.norm!"b";
-                pl[1].w = l.power;
+                int i = 0;
+                foreach (l, v; *lights) {
+                    if (i >= POINT_LIGHTS_COUNT) {
+                        break;
+                    }
+                    auto e = (cast(PointLight) l).entity;
+                    pl[2 * i].x = e.transform.position.x;
+                    pl[2 * i].y = e.transform.position.y;
+                    pl[2 * i].z = e.transform.position.z;
+                    pl[2 * i].w = 1;
+                    pl[2 * i] = pl[2 * i] * _mainCamera.view;
+                    pl[2 * i].w = l.r;
+                    pl[2 * i + 1].x = l.color.norm!"r";
+                    pl[2 * i + 1].y = l.color.norm!"g";
+                    pl[2 * i + 1].z = l.color.norm!"b";
+                    pl[2 * i + 1].w = l.power;
+                    ++i;
+                }
             }
         }
 

@@ -51,7 +51,13 @@ public:
     mixin assetImpl!(MaterialAsset, "materials");
     mixin assetImpl!(Object3DAsset, "object3ds");
 
+    void setMaterialFactory(UP!MaterialFactory f) {
+        f.moveTo(_materialFactory);
+    }
+
 private:
+    UP!MaterialFactory _materialFactory; 
+
     mixin template assetImpl(T, string Name) {
         mixin("private HashMap!(String, RC!T, true) _" ~ Name ~ ";");
 
@@ -110,6 +116,14 @@ private:
                 alias mapT = mixin("_" ~ Name);
                 if (auto a = name in mapT) {
                     return *a;
+                }
+                if(_materialFactory) {
+                    auto m = _materialFactory.make(context, name);
+                    if(m) {
+                        auto ma = makeShared!MaterialAsset(m.moveTo!Material());
+                        mapT[name] = ma;
+                        return ma;
+                    }
                 }
 
                 warning("Can't find " ~ typeid(T).name() ~ " `" ~ name ~ "` load default");

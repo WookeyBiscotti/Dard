@@ -131,6 +131,10 @@ public:
 
     ref T opCast(T)() @disable;
 
+    bool opCast(T: bool)() const {
+        return _ptr !is null;
+    }
+
     void moveTo(OT)(ref UniquePtr!OT other) if (is(T : OT)) {
         other.reset();
         other._ptr = _ptr;

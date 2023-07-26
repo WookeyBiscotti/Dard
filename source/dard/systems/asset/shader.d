@@ -35,38 +35,35 @@ struct ShaderAsset(int ShaderType) {
         _sh = bgfx_create_shader(m);
     }
 
-    static String assetsPath(Context context) {
-        Path subPath;
+    static String getSubPath() {
         switch (getCurrentRender()) {
         case RenderType.BGFX_RENDERER_TYPE_VULKAN:
-            subPath = "spirv";
-            break;
+            return S!"spirv";
         case RenderType.BGFX_RENDERER_TYPE_OPENGL:
-            subPath = "glsl";
-            break;
+            return S!"glsl";
         case RenderType.BGFX_RENDERER_TYPE_DIRECT3D9:
-            subPath = "dx9";
-            break;
+            return S!"dx9";
         case RenderType.BGFX_RENDERER_TYPE_METAL:
-            subPath = "metal";
-            break;
+            return S!"metal";
         case RenderType.BGFX_RENDERER_TYPE_DIRECT3D11:
         case RenderType.BGFX_RENDERER_TYPE_DIRECT3D12:
-            subPath = "dx11";
-            break;
+            return S!"dx11";
         default:
             fatal("No such shaders");
         }
+        assert(0);
+    }
 
+    static String assetsPath(Context context) {
         return String(buildPath(context.system!ConfigSystem
-                .value!String(APPLICATION_ROOT).toString, "data", P!"shaders", subPath));
+                .value!String(APPLICATION_ROOT).toString, "data", P!"shaders"));
     }
 
     static String autoPaths(Context context, in String name) {
         static if (ShaderType == ShaderTypeFS) {
-            return String(buildPath(assetsPath(context), name.toString, "main.fs.bin"));
+            return String(buildPath(assetsPath(context), name.toString, getSubPath, "main.fs.bin"));
         } else {
-            return String(buildPath(assetsPath(context), name.toString, "main.vs.bin"));
+            return String(buildPath(assetsPath(context), name.toString, getSubPath, "main.vs.bin"));
         }
     }
 
