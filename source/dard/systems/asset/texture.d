@@ -24,6 +24,8 @@ struct TextureAsset {
     }
 
     void deserialize(Context context, in BinaryData data) {
+        auto m = bgfx_copy(data.data.ptr, cast(uint) data.data.length);
+        _hdl = bgfx_create_texture(m, BGFX_TEXTURE_SRGB | BGFX_SAMPLER_U_MIRROR, false, null);
     }
 
     static String assetsPath(Context context) {
@@ -32,7 +34,7 @@ struct TextureAsset {
     }
 
     static String autoPaths(This)(Context context, in String name) {
-        return String(buildPath(This.assetsPath(context), name.toString ~ ".png"));
+        return String(buildPath(This.assetsPath(context), name.toString ~ ".dds"));
     }
 
     static auto makeDefaultRC(Context context) {
