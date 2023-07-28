@@ -50,7 +50,7 @@ struct TextureAsset {
     }
 
     auto bgfx() const {
-        return _hdl;
+        return cast(bgfx_texture_handle_t)_hdl;
     }
 
 private:

@@ -117,7 +117,7 @@ public:
     }
 
     static String autoPaths(Context context, in String name) {
-        return String(buildPath(assetsPath(context), name.toString ~ ".bgfx.bin"));
+        return String(buildPath(assetsPath(context), name.toString ~ ".bgms"));
     }
 
     static auto makeDefaultRC(Context) {

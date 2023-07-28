@@ -7,6 +7,7 @@ import dard.systems.asset.texture;
 import dard.types.math.vector;
 import dard.systems.broker;
 import dard.base.context;
+import dard.systems.logger;
 
 import bindbc.bgfx;
 
@@ -30,7 +31,7 @@ struct Uniform {
         }
     }
 
-    void set(T : float)(T v) {
+    void set(T : float)(T v, ubyte = 0) {
         bgfx_uniform_info_t info;
         bgfx_get_uniform_info(_uh, &info);
         assert(info.type == bgfx_uniform_type_t.BGFX_UNIFORM_TYPE_VEC4);
@@ -39,21 +40,21 @@ struct Uniform {
         bgfx_set_uniform(_uh, &uv, 1);
     }
 
-    void set(T : Vector4f)(in ref T v) {
+    void set(T : Vector4f)(in ref T v, ubyte = 0) {
         bgfx_uniform_info_t info;
         bgfx_get_uniform_info(_uh, &info);
         assert(info.type == bgfx_uniform_type_t.BGFX_UNIFORM_TYPE_VEC4);
         bgfx_set_uniform(_uh, &v, 1);
     }
 
-    void set(T : Vector4f, int Size)(in ref T[Size] v) {
+    void set(T : Vector4f, int Size)(in ref T[Size] v, ubyte = 0) {
         bgfx_uniform_info_t info;
         bgfx_get_uniform_info(_uh, &info);
         assert(info.type == bgfx_uniform_type_t.BGFX_UNIFORM_TYPE_VEC4);
         bgfx_set_uniform(_uh, v.ptr, Size);
     }
 
-    void set(T : Vector3f)(T v) {
+    void set(T : Vector3f)(T v, ubyte = 0) {
         bgfx_uniform_info_t info;
         bgfx_get_uniform_info(_uh, &info);
         assert(info.type == bgfx_uniform_type_t.BGFX_UNIFORM_TYPE_VEC4);
@@ -62,7 +63,7 @@ struct Uniform {
         bgfx_set_uniform(_uh, &v, 1);
     }
 
-    void set(T : Color)(in T v) {
+    void set(T : Color)(in T v, ubyte = 0) {
         bgfx_uniform_info_t info;
         bgfx_get_uniform_info(_uh, &info);
         assert(info.type == bgfx_uniform_type_t.BGFX_UNIFORM_TYPE_VEC4);
@@ -75,12 +76,12 @@ struct Uniform {
         bgfx_set_uniform(_uh, &uv, 1);
     }
 
-    void set(T : SharedPtr!TextureAsset)(T v) {
+    void set(T : SharedPtr!TextureAsset)(ref T v, ubyte stage = 0) {
         bgfx_uniform_info_t info;
         bgfx_get_uniform_info(_uh, &info);
         assert(info.type == bgfx_uniform_type_t.BGFX_UNIFORM_TYPE_SAMPLER);
         auto tid = v.bgfx();
-        bgfx_set_uniform(_uh, &tid, 1);
+        bgfx_set_texture(stage, _uh, tid, BGFX_SAMPLER_UVW_MIRROR);
     }
 
     auto bgfx() {
