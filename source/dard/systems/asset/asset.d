@@ -50,6 +50,7 @@ public:
     mixin assetImpl!(ProgramAsset, "programs");
     mixin assetImpl!(MaterialAsset, "materials");
     mixin assetImpl!(Object3DAsset, "object3ds");
+    mixin assetImpl!(TextureAsset, "textures");
 
     void setMaterialFactory(UP!MaterialFactory f) {
         f.moveTo(_materialFactory);

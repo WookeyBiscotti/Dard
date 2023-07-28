@@ -9,3 +9,4 @@ public import dard.systems.asset.shader;
 public import dard.systems.asset.program;
 public import dard.systems.asset.material;
 public import dard.systems.asset.object3d;
+public import dard.systems.asset.texture;

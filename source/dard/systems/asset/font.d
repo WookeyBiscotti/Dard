@@ -23,7 +23,7 @@ struct FontAsset {
     this(Context) {
     }
 
-    void deserialize(Context context, in BinaryData data) {
+    void deserialize(Context context, in ref BinaryData data) {
         auto nvg = context.system!Render.nvg();
         String name;
         if (auto found = S!"name" in data.meta) {

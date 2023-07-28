@@ -23,9 +23,15 @@ struct TextureAsset {
     this(Context) {
     }
 
-    void deserialize(Context context, in BinaryData data) {
+    ~this() {
+        if (_hdl.idx != 0) {
+            bgfx_destroy_texture(_hdl);
+        }
+    }
+
+    void deserialize(Context, ref in BinaryData data) {
         auto m = bgfx_copy(data.data.ptr, cast(uint) data.data.length);
-        _hdl = bgfx_create_texture(m, BGFX_TEXTURE_SRGB | BGFX_SAMPLER_U_MIRROR, false, null);
+        _hdl = bgfx_create_texture(m, BGFX_SAMPLER_UVW_MIRROR, false, null);
     }
 
     static String assetsPath(Context context) {
@@ -33,8 +39,8 @@ struct TextureAsset {
                 .value!String(APPLICATION_ROOT).toString, "data", "textures"));
     }
 
-    static String autoPaths(This)(Context context, in String name) {
-        return String(buildPath(This.assetsPath(context), name.toString ~ ".dds"));
+    static String autoPaths(Context context, in String name) {
+        return String(buildPath(assetsPath(context), name.toString ~ ".dds"));
     }
 
     static auto makeDefaultRC(Context context) {
